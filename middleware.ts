@@ -1,31 +1,25 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
+// Paths that should be restricted when SITE_ENABLED is false
+const RESTRICTED_PATHS = [
+  '/apply',
+  '/contact',
+
+]
+
 export function middleware(request: NextRequest) {
-  // Allow access to the home page and its assets
-  if (
-    request.nextUrl.pathname === '/' || 
-    request.nextUrl.pathname.startsWith('/_next') ||
-    request.nextUrl.pathname.startsWith('/api') ||
-    request.nextUrl.pathname.startsWith('/static') ||
-    request.nextUrl.pathname.startsWith('/images') ||
-    request.nextUrl.pathname.startsWith('/placeholder.svg')
-  ) {
-    return NextResponse.next()
+  const path = request.nextUrl.pathname
+
+  // Check if the current path is restricted
+  if (RESTRICTED_PATHS.some(restrictedPath => path.startsWith(restrictedPath))) {
+    // Redirect to home page
+    return NextResponse.redirect(new URL('/', request.url))
   }
 
-  // Redirect all other routes to the home page
-  return NextResponse.redirect(new URL('/', request.url))
+  return NextResponse.next()
 }
 
 export const config = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     */
-    '/((?!_next/static|_next/image|favicon.ico).*)',
-  ],
+  matcher: ['/apply/:path*', '/contact/:path*']
 }

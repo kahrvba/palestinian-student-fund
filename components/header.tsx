@@ -9,6 +9,7 @@ import { useTheme } from "next-themes"
 import { useLanguage } from "@/components/language-provider"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import Image from "next/image"
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -51,7 +52,7 @@ export default function Header() {
       >
         <div className="container flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 z-50">
-            <GraduationCap className="h-8 w-8 text-primary" />
+            <Image src="/logo.png" alt="pssf logo" className="w-50 mt-5" width={80} height={80} priority />
             <span className={`text-xl font-bold ${isScrolled || isMobileMenuOpen ? "text-foreground" : "text-white"}`}>
               PSSF
             </span>
