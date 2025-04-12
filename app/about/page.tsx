@@ -35,7 +35,7 @@ export default function AboutPage() {
   }, [])
 
   return (
-    <main className="flex min-h-screen flex-col pt-16">
+    <main className="flex min-h-screen flex-col">
       {/* Hero Section */}
       <ParallaxSection backgroundImage="/placeholder.svg?height=600&width=1200" className="py-24 md:py-32 text-white">
         <div className="container px-4 md:px-6">

@@ -47,13 +47,17 @@ export default function Header() {
       <motion.div className="progress-bar" style={{ scaleX: 0 }} initial={{ scaleX: 0 }} />
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "bg-background/90 backdrop-blur-md shadow-md py-2" : "bg-transparent py-4"
+          isScrolled 
+            ? "bg-background/90 backdrop-blur-md shadow-md py-2" 
+            : "bg-transparent py-4"
         }`}
       >
         <div className="container flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 z-50">
+          <Link href="/" className="flex items-center z-50">
             <Image src="/logo.png" alt="pssf logo" className="w-50 mt-5" width={80} height={80} priority />
-            <span className={`text-xl font-bold ${isScrolled || isMobileMenuOpen ? "text-foreground" : "text-white"}`}>
+            <span className={`text-xl font-bold ${
+              isScrolled || isMobileMenuOpen ? "text-foreground" : "text-white"
+            }`}>
               PSSF
             </span>
           </Link>

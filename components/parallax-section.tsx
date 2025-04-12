@@ -37,7 +37,7 @@ export default function ParallaxSection({
       ease: "none",
       scrollTrigger: {
         trigger: section,
-        start: "top bottom",
+        start: "top top", // Changed this to align with top
         end: "bottom top",
         scrub: true,
       },
@@ -52,21 +52,22 @@ export default function ParallaxSection({
     <div ref={sectionRef} className={`relative overflow-hidden ${className}`}>
       <div
         ref={backgroundRef}
-        className="absolute inset-0 w-full h-full -translate-y-[10%]"
+        className="absolute inset-0 -top-[100px]" // Added negative top margin
         style={{
           backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
         }}
       />
       <div
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-0 -top-[100px]" // Added negative top margin
         style={{
           backgroundColor: overlayColor,
           opacity: overlayOpacity,
         }}
       />
-      <div className="relative z-10">{children}</div>
+      <div className="relative">{children}</div>
     </div>
   )
 }

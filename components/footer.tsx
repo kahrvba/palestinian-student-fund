@@ -98,12 +98,12 @@ export default function Footer() {
               <li className="text-muted-foreground">Istanbul, Turkey 34433</li>
               <li>
                 <a href="mailto:info@palestinianstudentfund.org" className="text-muted-foreground hover:text-primary">
-                  info@palestinianstudentfund.org
+                  Palestinian.pssf@gmail.com
                 </a>
               </li>
               <li>
-                <a href="tel:+902121234567" className="text-muted-foreground hover:text-primary">
-                  +90 1234567
+                <a href="tel:+905394300726" className="text-muted-foreground hover:text-primary">
+                  +90 5394300726
                 </a>
               </li>
             </ul>
