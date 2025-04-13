@@ -5,16 +5,18 @@ import Link from "next/link"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Users, Building, Handshake } from "lucide-react"
+import { useLanguage } from "@/components/language-provider"
 import { Button } from "@/components/ui/button"
 import GSAPReveal from "@/components/gsap-reveal"
 import GSAPTextReveal from "@/components/gsap-text-reveal"
 import ParallaxSection from "@/components/parallax-section"
 
 export default function AboutPage() {
+  const { t } = useLanguage()
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 
-    // Initialize progress bar
     const progressBar = document.querySelector(".progress-bar")
     if (progressBar) {
       gsap.to(progressBar, {
@@ -41,12 +43,11 @@ export default function AboutPage() {
         <div className="container px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center">
             <GSAPTextReveal element="h1" className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-              Who Are We?
+              {t("about.hero.title")}
             </GSAPTextReveal>
             <GSAPReveal animation="fade" delay={0.3}>
-              <p className="mt-6 text-xl text-gray-200">
-                The Palestinian Student Support Fund is dedicated to empowering Palestinian students through educational
-                opportunities, financial support, and mentorship.
+              <p className="mt-6 text-l text-gray-200">
+                {t("about.hero.description")}
               </p>
             </GSAPReveal>
           </div>
@@ -56,32 +57,24 @@ export default function AboutPage() {
       {/* Mission & Vision */}
       <section className="py-16 md:py-24">
         <div className="container px-4 md:px-6">
-          <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-2">
+          <div className="mx-auto grid max-w-9xl gap-12 lg:grid-cols-2">
             <GSAPReveal animation="slide-right">
               <div className="space-y-4">
                 <div className="inline-flex items-center rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
-                  Our Mission
+                  {t("about.mission.tag")}
                 </div>
-                <h2 className="text-3xl font-bold">Empowering Through Education</h2>
-                <p className="text-muted-foreground">
-                  Our mission is to provide Palestinian students with access to quality higher education opportunities
-                  worldwide, enabling them to develop the skills and knowledge needed to contribute to their communities
-                  and build a brighter future.
-                </p>
+                <h2 className="text-3xl font-bold">{t("about.mission.title")}</h2>
+                <p className="text-muted-foreground">{t("about.mission.text")}</p>
               </div>
             </GSAPReveal>
 
             <GSAPReveal animation="slide-left">
               <div className="space-y-4">
                 <div className="inline-flex items-center rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
-                  Our Vision
+                  {t("about.vision.tag")}
                 </div>
-                <h2 className="text-3xl font-bold">Building Future Leaders</h2>
-                <p className="text-muted-foreground">
-                  We envision a world where every Palestinian student has the opportunity to pursue higher education
-                  regardless of financial or geographical constraints, fostering a generation of educated leaders who
-                  can drive positive change.
-                </p>
+                <h2 className="text-3xl font-bold">{t("about.vision.title")}</h2>
+                <p className="text-muted-foreground">{t("about.vision.text")}</p>
               </div>
             </GSAPReveal>
           </div>
@@ -96,10 +89,10 @@ export default function AboutPage() {
               <GSAPReveal animation="slide-up">
                 <div className="inline-flex items-center rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
                   <Building className="mr-1 h-4 w-4" />
-                  Foundation Identity
+                  {t("about.foundation.tag")}
                 </div>
                 <GSAPTextReveal element="h2" className="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl">
-                  Our Story
+                  {t("about.foundation.title")}
                 </GSAPTextReveal>
               </GSAPReveal>
             </div>
@@ -117,20 +110,9 @@ export default function AboutPage() {
 
               <GSAPReveal animation="slide-left">
                 <div className="space-y-4">
-                  <p className="text-muted-foreground">
-                    Established in 2015 in Istanbul, Turkey, the Palestinian Student Support Fund was founded by a group
-                    of educators and professionals who recognized the challenges faced by Palestinian students seeking
-                    higher education opportunities.
-                  </p>
-                  <p className="text-muted-foreground">
-                    What began as a small initiative providing scholarships to a handful of students has grown into a
-                    comprehensive support organization that has helped hundreds of Palestinian students access quality
-                    education across the globe.
-                  </p>
-                  <p className="text-muted-foreground">
-                    Our foundation is registered as a non-profit educational organization in Turkey, operating with full
-                    transparency and accountability to our donors and partners.
-                  </p>
+                  <p className="text-muted-foreground">{t("about.foundation.text1")}</p>
+                  <p className="text-muted-foreground">{t("about.foundation.text2")}</p>
+                  <p className="text-muted-foreground">{t("about.foundation.text3")}</p>
                 </div>
               </GSAPReveal>
             </div>
@@ -146,10 +128,10 @@ export default function AboutPage() {
               <GSAPReveal animation="slide-up">
                 <div className="inline-flex items-center rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
                   <Users className="mr-1 h-4 w-4" />
-                  Administrative Structure
+                  {t("about.team.tag")}
                 </div>
                 <GSAPTextReveal element="h2" className="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl">
-                  Our Team
+                  {t("about.team.title")}
                 </GSAPTextReveal>
               </GSAPReveal>
             </div>
@@ -160,14 +142,14 @@ export default function AboutPage() {
                   <div className="mx-auto mb-4 h-32 w-32 overflow-hidden rounded-full">
                     <img
                       src="/placeholder.svg?height=128&width=128"
-                      alt="Dr. Mahmoud Abbas"
+                      alt={t("about.team.member1.name")}
                       className="h-full w-full object-cover"
                     />
                   </div>
-                  <h3 className="text-xl font-bold">Dr. Mahmoud Abbas</h3>
-                  <p className="text-primary">Executive Director</p>
+                  <h3 className="text-xl font-bold">{t("about.team.member1.name")}</h3>
+                  <p className="text-primary">{t("about.team.member1.title")}</p>
                   <p className="mt-2 text-sm text-muted-foreground">
-                    Former university professor with 20+ years of experience in educational administration.
+                    {t("about.team.member1.description")}
                   </p>
                 </div>
               </GSAPReveal>
@@ -177,14 +159,14 @@ export default function AboutPage() {
                   <div className="mx-auto mb-4 h-32 w-32 overflow-hidden rounded-full">
                     <img
                       src="/placeholder.svg?height=128&width=128"
-                      alt="Dr. Layla Khalid"
+                      alt={t("about.team.member2.name")}
                       className="h-full w-full object-cover"
                     />
                   </div>
-                  <h3 className="text-xl font-bold">Dr. Layla Khalid</h3>
-                  <p className="text-primary">Academic Director</p>
+                  <h3 className="text-xl font-bold">{t("about.team.member2.name")}</h3>
+                  <p className="text-primary">{t("about.team.member2.title")}</p>
                   <p className="mt-2 text-sm text-muted-foreground">
-                    Specializes in international education policy and student mentorship programs.
+                    {t("about.team.member2.description")}
                   </p>
                 </div>
               </GSAPReveal>
@@ -194,14 +176,14 @@ export default function AboutPage() {
                   <div className="mx-auto mb-4 h-32 w-32 overflow-hidden rounded-full">
                     <img
                       src="/placeholder.svg?height=128&width=128"
-                      alt="Omar Farooq"
+                      alt={t("about.team.member3.name")}
                       className="h-full w-full object-cover"
                     />
                   </div>
-                  <h3 className="text-xl font-bold">Omar Farooq</h3>
-                  <p className="text-primary">Financial Director</p>
+                  <h3 className="text-xl font-bold">{t("about.team.member3.name")}</h3>
+                  <p className="text-primary">{t("about.team.member3.title")}</p>
                   <p className="mt-2 text-sm text-muted-foreground">
-                    Expert in non-profit financial management and scholarship fund administration.
+                    {t("about.team.member3.description")}
                   </p>
                 </div>
               </GSAPReveal>
@@ -210,7 +192,7 @@ export default function AboutPage() {
             <GSAPReveal animation="fade" delay={0.4}>
               <div className="mt-12 text-center">
                 <Link href="/about/team">
-                  <Button variant="outline">View Full Team</Button>
+                  <Button variant="outline">{t("about.team.viewAll")}</Button>
                 </Link>
               </div>
             </GSAPReveal>

@@ -8,13 +8,12 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 
 interface NewsCardProps {
   title: string
-  date: string
   excerpt: string
   image: string
   href: string
 }
 
-export default function NewsCard({ title, date, excerpt, image, href }: NewsCardProps) {
+export default function NewsCard({ title,excerpt, image, href }: NewsCardProps) {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
@@ -41,10 +40,6 @@ export default function NewsCard({ title, date, excerpt, image, href }: NewsCard
           <CardContent className="p-4 pt-0">
             <p className="line-clamp-3 text-muted-foreground">{excerpt}</p>
           </CardContent>
-          <CardFooter className="flex items-center p-4 pt-0 text-sm text-muted-foreground">
-            <Calendar className="mr-2 h-4 w-4" />
-            {date}
-          </CardFooter>
         </Card>
       </motion.div>
     </Link>

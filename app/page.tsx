@@ -130,9 +130,9 @@ export default function Home() {
               <div className="space-y-2">
                 <div className="inline-flex items-center rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
                   <Users className="mr-1 h-4 w-4" />
-                  About Us
+                  {t("about.widgt")}
                 </div>
-                <GSAPTextReveal className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                <GSAPTextReveal className="text-3xl font-bold  sm:text-5xl">
                   {t("about.title")}
                 </GSAPTextReveal>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -143,47 +143,69 @@ export default function Home() {
 
             <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
               <GSAPReveal animation="slide-right" className="order-2 lg:order-1">
-                <div className="flex flex-col justify-center space-y-4">
-                  <ul className="grid gap-6">
+                <div className="flex flex-col justify-center space-y-4 h-full">
+                  <ul className="grid gap-6 flex-1">
                     <li>
-                      <div className="grid gap-1">
+                      <div className="grid gap-1 mt-0">
                         <h3 className="text-xl font-bold">{t("about.identity")}</h3>
                         <p className="text-muted-foreground">{t("about.identity.desc")}</p>
                       </div>
                     </li>
                     <li>
                       <div className="grid gap-1">
-                        <h3 className="text-xl font-bold">{t("about.structure")}</h3>
-                        <p className="text-muted-foreground">{t("about.structure.desc")}</p>
+                        <h3 className="text-xl font-bold">{t("about.identity2")}</h3>
+                        <p className="text-muted-foreground">{t("about.identity2.desc")}</p>
                       </div>
                     </li>
                     <li>
                       <div className="grid gap-1">
-                        <h3 className="text-xl font-bold">{t("about.partners")}</h3>
-                        <p className="text-muted-foreground">{t("about.partners.desc")}</p>
+                        <h3 className="text-xl font-bold">{t("about.identity3")}</h3>
+                        <p className="text-muted-foreground">{t("about.identity3.desc")}</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="grid gap-1">
+                        <h3 className="text-xl font-bold">{t("about.identity4")}</h3>
+                        <p className="text-muted-foreground">{t("about.identity4.desc")}</p>
                       </div>
                     </li>
                   </ul>
-                  <div className="flex justify-center pt-4">
-                    <Link href="/about">
-                      <Button variant="outline" className="group">
-                        {t("about.cta")}
-                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                      </Button>
-                    </Link>
-                  </div>
                 </div>
               </GSAPReveal>
 
               <GSAPReveal animation="slide-left" className="order-1 lg:order-2">
-                <img
-                  src="/placeholder.svg?height=400&width=600"
-                  width={600}
-                  height={400}
-                  alt="About Us"
-                  className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
-                />
+                <div className="flex flex-col justify-center space-y-4 h-full">
+                  <ul className="grid gap-6 flex-1">
+                    <li>
+                      <div className="grid gap-1">
+                        <h3 className="text-xl font-bold">{t("about.identity5")}</h3>
+                        <p className="text-muted-foreground">{t("about.identity5.desc")}</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="grid gap-1">
+                        <h3 className="text-xl font-bold">{t("about.identity6")}</h3>
+                        <p className="text-muted-foreground">{t("about.identity6.desc")}</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="grid gap-1">
+                        <h3 className="text-xl font-bold">{t("about.identity7")}</h3>
+                        <p className="text-muted-foreground">{t("about.identity7.desc")}</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
               </GSAPReveal>
+            </div>
+            
+            <div className="flex justify-center w-full mt-8">
+              <Link href="/about">
+                <Button variant="outline" className="group">
+                  {t("about.cta")}
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -197,21 +219,20 @@ export default function Home() {
               <div className="space-y-2">
                 <div className="inline-flex items-center rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
                   <BookOpen className="mr-1 h-4 w-4" />
-                  Stay Updated
+                  {t("work.badget")}
                 </div>
-                <GSAPTextReveal className="text-3xl font-bold tracking-tighter sm:text-5xl">Latest News</GSAPTextReveal>
+                <GSAPTextReveal className="text-3xl font-bold tracking-tighter sm:text-5xl">{t("work.title")}</GSAPTextReveal>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Stay informed about our recent initiatives, announcements, and success stories.
+                  {t("work.subtitle")}
                 </p>
               </div>
             </GSAPReveal>
 
-            <div className="mx-auto grid max-w-5xl gap-8 pt-12 sm:grid-cols-2 md:gap-12 lg:grid-cols-3">
+            <div className="mx-auto grid max-w-5xl gap-8 pt-12 sm:grid-cols-2 md:gap-12 lg:grid-cols-2">
               <GSAPReveal animation="slide-up" delay={0.1}>
                 <NewsCard
-                  title="New Scholarship Program Launched"
-                  date="June 15, 2025"
-                  excerpt="Announcing our new scholarship program for undergraduate students in engineering and medical fields."
+                  title={t("card1.title")}
+                  excerpt={t("Card1.desc")}
                   image="/placeholder.svg?height=200&width=300"
                   href="/news/new-scholarship-program"
                 />
@@ -219,9 +240,8 @@ export default function Home() {
 
               <GSAPReveal animation="slide-up" delay={0.2}>
                 <NewsCard
-                  title="Partnership with Istanbul University"
-                  date="May 28, 2025"
-                  excerpt="We're excited to announce our new partnership with Istanbul University to provide more opportunities."
+                  title={t("Card2.title")}
+                  excerpt={t("Card2.desc")}
                   image="/placeholder.svg?height=200&width=300"
                   href="/news/istanbul-university-partnership"
                 />
@@ -229,9 +249,16 @@ export default function Home() {
 
               <GSAPReveal animation="slide-up" delay={0.3}>
                 <NewsCard
-                  title="Annual Conference Success"
-                  date="April 10, 2025"
-                  excerpt="Our annual conference brought together students, educators, and partners from around the world."
+                  title={t("Card3.title")}
+                  excerpt={t("Card3.desc")}
+                  image="/placeholder.svg?height=200&width=300"
+                  href="/news/annual-conference"
+                />
+              </GSAPReveal>
+              <GSAPReveal animation="slide-up" delay={0.3}>
+                <NewsCard
+                  title={t("Card4.title")}
+                  excerpt={t("Card4.desc")}
                   image="/placeholder.svg?height=200&width=300"
                   href="/news/annual-conference"
                 />
