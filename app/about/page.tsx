@@ -4,7 +4,7 @@ import { useEffect } from "react"
 import Link from "next/link"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Users, Building, Handshake } from "lucide-react"
+import { Users, Building, Handshake, ArrowRight } from "lucide-react"
 import { useLanguage } from "@/components/language-provider"
 import { Button } from "@/components/ui/button"
 import GSAPReveal from "@/components/gsap-reveal"
@@ -81,40 +81,88 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Foundation Identity */}
-      <section className="py-16 md:py-24 bg-muted/30">
-        <div className="container px-4 md:px-6">
-          <div className="mx-auto max-w-5xl">
-            <div className="mb-12 text-center">
-              <GSAPReveal animation="slide-up">
-                <div className="inline-flex items-center rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
-                  <Building className="mr-1 h-4 w-4" />
-                  {t("about.foundation.tag")}
-                </div>
-                <GSAPTextReveal element="h2" className="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl">
-                  {t("about.foundation.title")}
-                </GSAPTextReveal>
-              </GSAPReveal>
-            </div>
-
-            <div className="grid gap-12 lg:grid-cols-2">
-              <GSAPReveal animation="slide-right">
-                <img
-                  src="/placeholder.svg?height=400&width=600"
-                  width={600}
-                  height={400}
-                  alt="Foundation headquarters"
-                  className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
-                />
-              </GSAPReveal>
-
-              <GSAPReveal animation="slide-left">
-                <div className="space-y-4">
-                  <p className="text-muted-foreground">{t("about.foundation.text1")}</p>
-                  <p className="text-muted-foreground">{t("about.foundation.text2")}</p>
-                  <p className="text-muted-foreground">{t("about.foundation.text3")}</p>
-                </div>
-              </GSAPReveal>
+      <section className="py-16 md:py-24">
+             <div className="container px-4 md:px-6">
+               <div className="flex flex-col items-center justify-center space-y-4 text-center">
+                 <GSAPReveal animation="slide-up">
+                   <div className="space-y-2">
+                     <div className="inline-flex items-center rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
+                       <Users className="mr-1 h-4 w-4" />
+                       {t("about.widgt")}
+                     </div>
+                     <GSAPTextReveal className="text-3xl font-bold  sm:text-5xl">
+                       {t("about.title")}
+                     </GSAPTextReveal>
+                     <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                       {t("about.subtitle")}
+                     </p>
+                   </div>
+                 </GSAPReveal>
+     
+                 <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
+                   <GSAPReveal animation="slide-right" className="order-2 lg:order-1">
+                     <div className="flex flex-col justify-center space-y-4 h-full">
+                       <ul className="grid gap-6 flex-1">
+                         <li>
+                           <div className="grid gap-1 mt-0">
+                             <h3 className="text-xl font-bold">{t("about.identity")}</h3>
+                             <p className="text-muted-foreground">{t("about.identity.desc")}</p>
+                           </div>
+                         </li>
+                         <li>
+                           <div className="grid gap-1">
+                             <h3 className="text-xl font-bold">{t("about.identity2")}</h3>
+                             <p className="text-muted-foreground">{t("about.identity2.desc")}</p>
+                           </div>
+                         </li>
+                         <li>
+                           <div className="grid gap-1">
+                             <h3 className="text-xl font-bold">{t("about.identity3")}</h3>
+                             <p className="text-muted-foreground">{t("about.identity3.desc")}</p>
+                           </div>
+                         </li>
+                         <li>
+                           <div className="grid gap-1">
+                             <h3 className="text-xl font-bold">{t("about.identity4")}</h3>
+                             <p className="text-muted-foreground">{t("about.identity4.desc")}</p>
+                           </div>
+                         </li>
+                       </ul>
+                     </div>
+                   </GSAPReveal>
+     
+                   <GSAPReveal animation="slide-left" className="order-1 lg:order-2">
+                     <div className="flex flex-col justify-center space-y-4 h-full">
+                       <ul className="grid gap-6 flex-1">
+                         <li>
+                           <div className="grid gap-1">
+                             <h3 className="text-xl font-bold">{t("about.identity5")}</h3>
+                             <p className="text-muted-foreground">{t("about.identity5.desc")}</p>
+                           </div>
+                         </li>
+                         <li>
+                           <div className="grid gap-1">
+                             <h3 className="text-xl font-bold">{t("about.identity6")}</h3>
+                             <p className="text-muted-foreground">{t("about.identity6.desc")}</p>
+                           </div>
+                         </li>
+                         <li>
+                           <div className="grid gap-1">
+                             <h3 className="text-xl font-bold">{t("about.identity7")}</h3>
+                             <p className="text-muted-foreground">{t("about.identity7.desc")}</p>
+                           </div>
+                         </li>
+                       </ul>
+                     </div>
+                   </GSAPReveal>
+                 </div>
+                 <div className="flex justify-center w-full mt-8">
+              <Link href="/about">
+                <Button variant="outline" className="group">
+                  {t("about.cta")}
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

@@ -84,6 +84,8 @@ const translations = {
     "Card3.desc":"Funding and encouraging applied research related to national development, and establishing partnerships with universities and research centers.",
     "Card4.title":"Strengthening National Identity and Community Participation",
     "Card4.desc":"Implementing cultural, educational, and awareness programs aimed at instilling national values ​​and activating the role of youth in public life.",
+    "Card5.title": "Building a network of Palestinian competencies",
+    "Card5.desc": "linking local Palestinian competencies abroad, and activating bridges of communication between academics, researchers, and relevant institutions.",
 
     "footer.rights": "All rights reserved.",
     "footer.programs": "Programs",
@@ -163,8 +165,8 @@ const translations = {
     "Card3.desc":" تمويل وتشجيع البحوث التطبيقية المتعلقة بالتنمية الوطنية، وإقامة شراكات مع الجامعات ومراكز البحوث.",
     "Card4.title":"تعزيز الهوية الوطنية والمشاركة المجتمعية",
     "Card4.desc":"تنفيذ برامج ثقافية وتعليمية وتوعوية تهدف إلى ترسيخ القيم الوطنية وتفعيل دور الشباب في الحياة العامة.",
-
-    
+    "Card5.title": "بناء شبكة كفاءات فلسطينية",
+    "Card5.desc": "ربط الكفاءات الفلسطينية المحلية بالخارج، وتفعيل جسور التواصل بين الأكاديميين والباحثين والمؤسسات ذات العلاقة.",
     "footer.rights": "جميع الحقوق محفوظة.",
     "footer.programs": "البرامج",
     "footer.about": "عن المؤسسة",

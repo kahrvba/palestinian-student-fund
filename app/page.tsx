@@ -82,9 +82,9 @@ export default function Home() {
         <div className="absolute inset-0 z-0 hero-image">
           <div className="absolute inset-0 bg-black/50" />
           <img
-            src="/placeholder.svg?height=1080&width=1920"
+            src="/Frame-18-4-1-768x719.png?height=1080&width=1920"
             alt="Students studying"
-            className="h-full w-full object-cover"
+            className="h-full w-full object-none"
           />
         </div>
 
@@ -101,115 +101,13 @@ export default function Home() {
               <p className="mx-auto max-w-[700px] text-xl text-gray-200 md:text-2xl">{t("hero.subtitle")}</p>
             </GSAPReveal>
 
-            <GSAPReveal animation="slide-up" delay={0.8}>
-              <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-                <Link href="/apply">
-                  <Button size="lg" className="bg-white text-primary hover:bg-gray-100">
-                    {t("hero.cta.apply")}
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-                <Link href="/programs">
-                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                    {t("hero.cta.explore")}
-                  </Button>
-                </Link>
-              </div>
-            </GSAPReveal>
+            
           </div>
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" />
       </section>
 
-      {/* Who Are We Section */}
-      <section className="py-16 md:py-24">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <GSAPReveal animation="slide-up">
-              <div className="space-y-2">
-                <div className="inline-flex items-center rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
-                  <Users className="mr-1 h-4 w-4" />
-                  {t("about.widgt")}
-                </div>
-                <GSAPTextReveal className="text-3xl font-bold  sm:text-5xl">
-                  {t("about.title")}
-                </GSAPTextReveal>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  {t("about.subtitle")}
-                </p>
-              </div>
-            </GSAPReveal>
-
-            <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
-              <GSAPReveal animation="slide-right" className="order-2 lg:order-1">
-                <div className="flex flex-col justify-center space-y-4 h-full">
-                  <ul className="grid gap-6 flex-1">
-                    <li>
-                      <div className="grid gap-1 mt-0">
-                        <h3 className="text-xl font-bold">{t("about.identity")}</h3>
-                        <p className="text-muted-foreground">{t("about.identity.desc")}</p>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="grid gap-1">
-                        <h3 className="text-xl font-bold">{t("about.identity2")}</h3>
-                        <p className="text-muted-foreground">{t("about.identity2.desc")}</p>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="grid gap-1">
-                        <h3 className="text-xl font-bold">{t("about.identity3")}</h3>
-                        <p className="text-muted-foreground">{t("about.identity3.desc")}</p>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="grid gap-1">
-                        <h3 className="text-xl font-bold">{t("about.identity4")}</h3>
-                        <p className="text-muted-foreground">{t("about.identity4.desc")}</p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </GSAPReveal>
-
-              <GSAPReveal animation="slide-left" className="order-1 lg:order-2">
-                <div className="flex flex-col justify-center space-y-4 h-full">
-                  <ul className="grid gap-6 flex-1">
-                    <li>
-                      <div className="grid gap-1">
-                        <h3 className="text-xl font-bold">{t("about.identity5")}</h3>
-                        <p className="text-muted-foreground">{t("about.identity5.desc")}</p>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="grid gap-1">
-                        <h3 className="text-xl font-bold">{t("about.identity6")}</h3>
-                        <p className="text-muted-foreground">{t("about.identity6.desc")}</p>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="grid gap-1">
-                        <h3 className="text-xl font-bold">{t("about.identity7")}</h3>
-                        <p className="text-muted-foreground">{t("about.identity7.desc")}</p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </GSAPReveal>
-            </div>
-            
-            <div className="flex justify-center w-full mt-8">
-              <Link href="/about">
-                <Button variant="outline" className="group">
-                  {t("about.cta")}
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Latest News Section */}
       <section className="py-16 md:py-24 bg-muted/30">
@@ -233,7 +131,7 @@ export default function Home() {
                 <NewsCard
                   title={t("card1.title")}
                   excerpt={t("Card1.desc")}
-                  image="/placeholder.svg?height=200&width=300"
+                  image="/scholer.png?height=200&width=300"
                   href="/news/new-scholarship-program"
                 />
               </GSAPReveal>
@@ -242,7 +140,7 @@ export default function Home() {
                 <NewsCard
                   title={t("Card2.title")}
                   excerpt={t("Card2.desc")}
-                  image="/placeholder.svg?height=200&width=300"
+                  image="/secondCard.png"
                   href="/news/istanbul-university-partnership"
                 />
               </GSAPReveal>
@@ -251,7 +149,7 @@ export default function Home() {
                 <NewsCard
                   title={t("Card3.title")}
                   excerpt={t("Card3.desc")}
-                  image="/placeholder.svg?height=200&width=300"
+                  image="/thirdCard.png?height=200&width=300"
                   href="/news/annual-conference"
                 />
               </GSAPReveal>
@@ -259,9 +157,18 @@ export default function Home() {
                 <NewsCard
                   title={t("Card4.title")}
                   excerpt={t("Card4.desc")}
-                  image="/placeholder.svg?height=200&width=300"
+                  image="/fourCard.png?height=200&width=300"
                   href="/news/annual-conference"
                 />
+              </GSAPReveal>
+              <GSAPReveal animation="slide-up" delay={0.2}>
+                <NewsCard
+                  title={t("Card5.title")}
+                  excerpt={t("Card5.desc")}
+                  image="/fifthCard.png?height=200&width"
+                  href="/news/annual-conferece"
+                >
+                </NewsCard>
               </GSAPReveal>
             </div>
 
