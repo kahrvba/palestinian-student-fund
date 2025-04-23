@@ -81,11 +81,11 @@ export default function Home() {
       >
         <div className="absolute inset-0 z-0 hero-image">
           <div className="absolute inset-0 bg-black/50" />
-          <img
+          {/* <img
             src="/Frame-18-4-1-768x719.png?height=1080&width=1920"
             alt="Students studying"
             className="h-full w-full object-none"
-          />
+          /> */}
         </div>
 
         <div className="container relative z-10 hero-content">
@@ -110,7 +110,7 @@ export default function Home() {
 
 
       {/* Latest News Section */}
-      <section className="py-12 md:py-16 bg-muted/30">
+      <section className="py-12 md:py-16 bg-white dark:bg-black">
         <div className="container px-4 md:px-6 mb-8">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <GSAPReveal animation="slide-up">
@@ -235,7 +235,7 @@ export default function Home() {
       </section>
 
       {/* Our Programs Section */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 dark:bg-black">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <GSAPReveal animation="slide-up">
@@ -298,7 +298,7 @@ export default function Home() {
       </section>
 
       {/* Success Stories Section */}
-      <ParallaxSection backgroundImage="/placeholder.svg?height=1080&width=1920" className="py-16 md:py-24 text-white">
+      <ParallaxSection backgroundImage="/s3.png?height=1080&width=1920" className="py-16 md:py-24 text-white">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <GSAPReveal animation="slide-up">
@@ -323,7 +323,7 @@ export default function Home() {
                   degree="PhD in Computer Science"
                   university="Istanbul Technical University"
                   quote="The support from the Palestinian Student Fund transformed my academic journey and opened doors I never thought possible."
-                  image="/placeholder.svg?height=300&width=300"
+                  image="/s1.png?height=300&width=300"
                 />
               </GSAPReveal>
 
@@ -333,7 +333,7 @@ export default function Home() {
                   degree="Master's in Public Health"
                   university="Ankara University"
                   quote="Thanks to the scholarship program, I was able to pursue my dream of working in healthcare policy to help communities in need."
-                  image="/placeholder.svg?height=300&width=300"
+                  image="/s2.png?height=300&width=300"
                 />
               </GSAPReveal>
             </div>
