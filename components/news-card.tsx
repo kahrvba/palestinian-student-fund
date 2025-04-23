@@ -23,7 +23,7 @@ export default function NewsCard({ title,excerpt, image, href }: NewsCardProps) 
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <Card className="w-[450px] h-[500px] overflow-hidden transition-all hover:shadow-lg border-0 shadow-none">
+        <Card className="w-[450px] h-[500px] overflow-hidden transition-all hover:shadow-lg border-2 border-primary/20 shadow-md dark:bg-black/80">
           <div className="h-[240px] overflow-hidden">
             <motion.img
               src={image || "/placeholder.svg"}
@@ -34,10 +34,10 @@ export default function NewsCard({ title,excerpt, image, href }: NewsCardProps) 
             />
           </div>
           <CardHeader className="p-6">
-            <h3 className="text-2xl font-bold leading-tight break-words whitespace-normal hyphens-auto" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>{title}</h3>
+            <h3 className="text-2xl font-bold leading-tight line-clamp-2 break-words whitespace-normal hyphens-auto" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>{title}</h3>
           </CardHeader>
           <CardContent className="p-6 pt-0">
-            <p className="text-base text-muted-foreground leading-relaxed whitespace-normal hyphens-auto overflow-y-auto max-h-[140px]" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>{excerpt}</p>
+            <p className="text-base text-muted-foreground leading-relaxed line-clamp-4 whitespace-normal hyphens-auto" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>{excerpt}</p>
           </CardContent>
         </Card>
       </motion.div>

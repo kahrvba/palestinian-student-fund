@@ -80,28 +80,39 @@ export default function Home() {
         className="relative h-screen min-h-[600px] w-full overflow-hidden flex items-center justify-center"
       >
         <div className="absolute inset-0 z-0 hero-image">
-          <div className="absolute inset-0 bg-black/50" />
-          {/* <img
-            src="/Frame-18-4-1-768x719.png?height=1080&width=1920"
-            alt="Students studying"
-            className="h-full w-full object-none"
-          /> */}
+          {/* Palestinian flag-inspired background */}
+          <div className="absolute inset-0 grid grid-rows-3">
+            <div className="bg-black"></div>
+            <div className="bg-white"></div>
+            <div className="bg-[hsl(120,61%,34%)]"></div>
+          </div>
+          <div className="absolute inset-0 left-0 w-1/3 bg-[hsl(0,76%,40%)]"></div>
+          <div className="absolute inset-0 bg-black/30" />
         </div>
 
         <div className="container relative z-10 hero-content">
           <div className="max-w-4xl mx-auto text-center space-y-6 text-white">
             <GSAPTextReveal
               element="h1"
-              className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl"
+              className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-lg"
             >
               {t("hero.title")}
             </GSAPTextReveal>
 
             <GSAPReveal animation="fade" delay={0.5}>
-              <p className="mx-auto max-w-[700px] text-xl text-gray-200 md:text-2xl">{t("hero.subtitle")}</p>
+              <p className="mx-auto max-w-[700px] text-xl text-white md:text-2xl drop-shadow-md">{t("hero.subtitle")}</p>
             </GSAPReveal>
 
-
+            <GSAPReveal animation="fade" delay={0.8}>
+              <div className="flex justify-center gap-4 mt-8">
+                <Button size="lg" className="bg-[hsl(120,61%,34%)] hover:bg-[hsl(120,61%,30%)] text-white">
+                  {t("hero.cta.apply") || "Apply for Scholarship"}
+                </Button>
+                <Button size="lg" className="bg-[hsl(120,61%,34%)] hover:bg-[hsl(120,61%,30%)] text-white">
+                  {t("hero.cta.explore") || "Explore Programs"}
+                </Button>
+              </div>
+            </GSAPReveal>
           </div>
         </div>
 
@@ -130,9 +141,9 @@ export default function Home() {
 
         {/* Full-width scrolling section */}
         <div className="w-screen overflow-hidden py-8">
-          <div className="flex animate-[scroll_20s_linear_infinite] whitespace-nowrap">
+          <div className="flex animate-[scroll_12s_linear_infinite] whitespace-nowrap">
             {/* First set of cards */}
-            <div className="flex gap-4 pr-4">
+            <div className="flex gap-8 pr-8">
               <div>
                 <NewsCard
                   title={t("card1.title")}
@@ -175,7 +186,7 @@ export default function Home() {
               </div>
             </div>
             {/* Duplicate set of cards to ensure seamless looping */}
-            <div className="flex gap-4 pl-4">
+            <div className="flex gap-8 pl-8">
               <div>
                 <NewsCard
                   title={t("card1.title")}
@@ -255,7 +266,7 @@ export default function Home() {
             </GSAPReveal>
 
             <div className="mx-auto grid max-w-5xl gap-8 pt-12 sm:grid-cols-2 md:gap-12 lg:grid-cols-3">
-              <GSAPReveal animation="scale" delay={0.1}>
+              <GSAPReveal animation="scale" delay={0.1} className="h-full">
                 <ProgramCard
                   title="Undergraduate Programs"
                   description="Full and partial scholarships for bachelor's degrees across various disciplines."
@@ -264,7 +275,7 @@ export default function Home() {
                 />
               </GSAPReveal>
 
-              <GSAPReveal animation="scale" delay={0.2}>
+              <GSAPReveal animation="scale" delay={0.2} className="h-full">
                 <ProgramCard
                   title="Graduate Programs"
                   description="Master's and PhD funding opportunities with research support and mentorship."
@@ -273,7 +284,7 @@ export default function Home() {
                 />
               </GSAPReveal>
 
-              <GSAPReveal animation="scale" delay={0.3}>
+              <GSAPReveal animation="scale" delay={0.3} className="h-full">
                 <ProgramCard
                   title="Research Programs"
                   description="Funding for innovative research projects with global impact potential."
@@ -353,7 +364,7 @@ export default function Home() {
       </ParallaxSection>
 
       {/* Stats Section */}
-      <section className="py-16 md:py-24 bg-primary text-primary-foreground">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)] via-black to-[hsl(120,61%,34%)] text-white">
         <div className="container px-4 md:px-6">
           <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             <GSAPReveal animation="fade" delay={0.1}>
@@ -373,12 +384,12 @@ export default function Home() {
       </section>
 
       {/* Apply for Grants CTA */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-white dark:bg-black">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <GSAPReveal animation="slide-up">
               <div className="space-y-2">
-                <div className="inline-flex items-center rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
+                <div className="inline-flex items-center rounded-lg bg-secondary/10 px-3 py-1 text-sm text-secondary">
                   <Calendar className="mr-1 h-4 w-4" />
                   Applications Open
                 </div>
@@ -394,7 +405,7 @@ export default function Home() {
             <GSAPReveal animation="slide-up" delay={0.3}>
               <div className="mx-auto max-w-3xl pt-8">
                 <Link href="/apply">
-                  <Button size="lg" className="group bg-primary hover:bg-primary/90">
+                  <Button size="lg" className="group bg-secondary hover:bg-secondary/90 text-white">
                     Start Your Application
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Button>
@@ -407,7 +418,7 @@ export default function Home() {
       </section>
 
       {/* Contact Us Preview */}
-      <section className="py-16 md:py-24 bg-muted/30">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-white to-primary/10 dark:from-black dark:to-primary/20">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <GSAPReveal animation="slide-up">
@@ -425,9 +436,9 @@ export default function Home() {
             </GSAPReveal>
 
             <GSAPReveal animation="fade" delay={0.3}>
-              <div className="flex justify-center pt-8">
+              <div className="flex justify-center pt-8 gap-4">
                 <Link href="/contact">
-                  <Button size="lg" className="group bg-primary hover:bg-primary/90">
+                  <Button size="lg" className="group bg-primary hover:bg-primary/90 text-white">
                     Contact Our Team
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Button>

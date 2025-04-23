@@ -90,7 +90,7 @@ const config = {
         },
         scroll: {
           '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(calc(-50% - 16px))' },
+          '100%': { transform: 'translateX(calc(-50% - 32px))' },
         },
       },
       animation: {
@@ -100,7 +100,7 @@ const config = {
         "fade-out": "fade-out 0.3s ease-out",
         "slide-in": "slide-in 0.4s ease-out",
         "slide-out": "slide-out 0.4s ease-out",
-        'scroll': 'scroll 20s linear infinite',
+        'scroll': 'scroll 12s linear infinite',
       },
     },
   },

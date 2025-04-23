@@ -85,13 +85,13 @@ export default function ProgramsPage() {
                 </GSAPReveal>
 
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  <GSAPReveal animation="slide-up" delay={0.1}>
-                    <Card>
+                  <GSAPReveal animation="slide-up" delay={0.1} className="h-full">
+                    <Card className="flex flex-col h-full">
                       <CardHeader>
                         <CardTitle>Full Scholarships</CardTitle>
                         <CardDescription>Comprehensive financial support</CardDescription>
                       </CardHeader>
-                      <CardContent>
+                      <CardContent className="flex-grow">
                         <p className="text-muted-foreground">
                           Covering tuition fees, accommodation, living expenses, and travel costs for outstanding
                           students with financial need.
@@ -105,13 +105,13 @@ export default function ProgramsPage() {
                     </Card>
                   </GSAPReveal>
 
-                  <GSAPReveal animation="slide-up" delay={0.2}>
-                    <Card>
+                  <GSAPReveal animation="slide-up" delay={0.2} className="h-full">
+                    <Card className="flex flex-col h-full">
                       <CardHeader>
                         <CardTitle>Partial Scholarships</CardTitle>
                         <CardDescription>Targeted financial assistance</CardDescription>
                       </CardHeader>
-                      <CardContent>
+                      <CardContent className="flex-grow">
                         <p className="text-muted-foreground">
                           Covering tuition fees or living expenses for promising students who demonstrate academic
                           potential and financial need.
@@ -125,13 +125,13 @@ export default function ProgramsPage() {
                     </Card>
                   </GSAPReveal>
 
-                  <GSAPReveal animation="slide-up" delay={0.3}>
-                    <Card>
+                  <GSAPReveal animation="slide-up" delay={0.3} className="h-full">
+                    <Card className="flex flex-col h-full">
                       <CardHeader>
                         <CardTitle>Summer Programs</CardTitle>
                         <CardDescription>Intensive learning opportunities</CardDescription>
                       </CardHeader>
-                      <CardContent>
+                      <CardContent className="flex-grow">
                         <p className="text-muted-foreground">
                           Short-term programs focusing on specific skills, language acquisition, or cultural exchange
                           during summer breaks.
@@ -170,13 +170,13 @@ export default function ProgramsPage() {
                 </GSAPReveal>
 
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  <GSAPReveal animation="slide-up" delay={0.1}>
-                    <Card>
+                  <GSAPReveal animation="slide-up" delay={0.1} className="h-full">
+                    <Card className="flex flex-col h-full">
                       <CardHeader>
                         <CardTitle>Master's Scholarships</CardTitle>
                         <CardDescription>Advanced degree support</CardDescription>
                       </CardHeader>
-                      <CardContent>
+                      <CardContent className="flex-grow">
                         <p className="text-muted-foreground">
                           Financial support for Palestinian students pursuing master's degrees in priority fields
                           including engineering, medicine, and education.
@@ -190,13 +190,13 @@ export default function ProgramsPage() {
                     </Card>
                   </GSAPReveal>
 
-                  <GSAPReveal animation="slide-up" delay={0.2}>
-                    <Card>
+                  <GSAPReveal animation="slide-up" delay={0.2} className="h-full">
+                    <Card className="flex flex-col h-full">
                       <CardHeader>
                         <CardTitle>PhD Fellowships</CardTitle>
                         <CardDescription>Doctoral research funding</CardDescription>
                       </CardHeader>
-                      <CardContent>
+                      <CardContent className="flex-grow">
                         <p className="text-muted-foreground">
                           Comprehensive support for doctoral candidates conducting innovative research with potential
                           impact for Palestinian communities.
@@ -210,13 +210,13 @@ export default function ProgramsPage() {
                     </Card>
                   </GSAPReveal>
 
-                  <GSAPReveal animation="slide-up" delay={0.3}>
-                    <Card>
+                  <GSAPReveal animation="slide-up" delay={0.3} className="h-full">
+                    <Card className="flex flex-col h-full">
                       <CardHeader>
                         <CardTitle>Professional Development</CardTitle>
                         <CardDescription>Career advancement support</CardDescription>
                       </CardHeader>
-                      <CardContent>
+                      <CardContent className="flex-grow">
                         <p className="text-muted-foreground">
                           Grants for professional certifications, specialized training, and career development
                           opportunities for graduate students.
@@ -255,13 +255,13 @@ export default function ProgramsPage() {
                 </GSAPReveal>
 
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  <GSAPReveal animation="slide-up" delay={0.1}>
-                    <Card>
+                  <GSAPReveal animation="slide-up" delay={0.1} className="h-full">
+                    <Card className="flex flex-col h-full">
                       <CardHeader>
                         <CardTitle>Research Grants</CardTitle>
                         <CardDescription>Project-based funding</CardDescription>
                       </CardHeader>
-                      <CardContent>
+                      <CardContent className="flex-grow">
                         <p className="text-muted-foreground">
                           Financial support for specific research projects with clear objectives, methodologies, and
                           potential for impact.
@@ -275,13 +275,13 @@ export default function ProgramsPage() {
                     </Card>
                   </GSAPReveal>
 
-                  <GSAPReveal animation="slide-up" delay={0.2}>
-                    <Card>
+                  <GSAPReveal animation="slide-up" delay={0.2} className="h-full">
+                    <Card className="flex flex-col h-full">
                       <CardHeader>
                         <CardTitle>Collaborative Research</CardTitle>
                         <CardDescription>Partnership initiatives</CardDescription>
                       </CardHeader>
-                      <CardContent>
+                      <CardContent className="flex-grow">
                         <p className="text-muted-foreground">
                           Support for research collaborations between Palestinian scholars and international research
                           institutions or universities.
@@ -295,13 +295,13 @@ export default function ProgramsPage() {
                     </Card>
                   </GSAPReveal>
 
-                  <GSAPReveal animation="slide-up" delay={0.3}>
-                    <Card>
+                  <GSAPReveal animation="slide-up" delay={0.3} className="h-full">
+                    <Card className="flex flex-col h-full">
                       <CardHeader>
                         <CardTitle>Publication Support</CardTitle>
                         <CardDescription>Academic dissemination</CardDescription>
                       </CardHeader>
-                      <CardContent>
+                      <CardContent className="flex-grow">
                         <p className="text-muted-foreground">
                           Funding for journal publication fees, conference presentations, and other forms of research
                           dissemination.
@@ -344,8 +344,8 @@ export default function ProgramsPage() {
             </div>
 
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              <GSAPReveal animation="scale" delay={0.1}>
-                <div className="flex flex-col items-center text-center">
+              <GSAPReveal animation="scale" delay={0.1} className="h-full">
+                <div className="flex flex-col items-center text-center h-full">
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
                     <Users className="h-6 w-6 text-primary" />
                   </div>
@@ -356,8 +356,8 @@ export default function ProgramsPage() {
                 </div>
               </GSAPReveal>
 
-              <GSAPReveal animation="scale" delay={0.2}>
-                <div className="flex flex-col items-center text-center">
+              <GSAPReveal animation="scale" delay={0.2} className="h-full">
+                <div className="flex flex-col items-center text-center h-full">
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
                     <Globe className="h-6 w-6 text-primary" />
                   </div>
@@ -368,8 +368,8 @@ export default function ProgramsPage() {
                 </div>
               </GSAPReveal>
 
-              <GSAPReveal animation="scale" delay={0.3}>
-                <div className="flex flex-col items-center text-center">
+              <GSAPReveal animation="scale" delay={0.3} className="h-full">
+                <div className="flex flex-col items-center text-center h-full">
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
                     <Lightbulb className="h-6 w-6 text-primary" />
                   </div>

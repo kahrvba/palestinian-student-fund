@@ -17,14 +17,15 @@ export default function ProgramCard({ title, description, icon, href }: ProgramC
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <Link href={href}>
+    <Link href={href} className="h-full">
       <motion.div
         whileHover={{ y: -5 }}
         transition={{ duration: 0.2 }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        className="h-full"
       >
-        <Card className="h-full transition-all hover:shadow-lg">
+        <Card className="flex flex-col h-full transition-all hover:shadow-lg">
           <CardHeader className="p-6">
             <motion.div
               className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10"
@@ -38,10 +39,10 @@ export default function ProgramCard({ title, description, icon, href }: ProgramC
             </motion.div>
             <h3 className="text-xl font-bold">{title}</h3>
           </CardHeader>
-          <CardContent className="p-6 pt-0">
+          <CardContent className="p-6 pt-0 flex-grow">
             <p className="text-muted-foreground">{description}</p>
           </CardContent>
-          <CardFooter className="p-6 pt-0">
+          <CardFooter className="p-6 pt-0 mt-auto">
             <motion.div
               className="group inline-flex items-center text-sm font-medium text-primary"
               animate={{ x: isHovered ? 5 : 0 }}
