@@ -4,12 +4,11 @@ import { useEffect } from "react"
 import Link from "next/link"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Users, Building, Handshake, ArrowRight } from "lucide-react"
+import { Users, ArrowRight, GraduationCap, Heart, Globe, Award, Lightbulb, Handshake as HandshakeIcon } from "lucide-react"
 import { useLanguage } from "@/components/language-provider"
 import { Button } from "@/components/ui/button"
 import GSAPReveal from "@/components/gsap-reveal"
 import GSAPTextReveal from "@/components/gsap-text-reveal"
-import ParallaxSection from "@/components/parallax-section"
 
 export default function AboutPage() {
   const { t } = useLanguage()
@@ -39,28 +38,38 @@ export default function AboutPage() {
   return (
     <main className="flex min-h-screen flex-col">
       {/* Hero Section */}
-      <ParallaxSection backgroundImage="/placeholder.svg?height=600&width=1200" className="py-24 md:py-32 text-white">
-        <div className="container px-4 md:px-6">
+      <section className="relative py-24 md:py-32 text-white overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          {/* Palestinian flag-inspired background */}
+          <div className="absolute inset-0 grid grid-rows-3">
+            <div className="bg-black"></div>
+            <div className="bg-white"></div>
+            <div className="bg-[hsl(120,61%,34%)]"></div>
+          </div>
+          <div className="absolute inset-0 left-0 w-1/3 bg-[hsl(0,76%,40%)]"></div>
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
+        <div className="container relative z-10 px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <GSAPTextReveal element="h1" className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+            <GSAPTextReveal element="h1" className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl drop-shadow-lg">
               {t("about.hero.title")}
             </GSAPTextReveal>
             <GSAPReveal animation="fade" delay={0.3}>
-              <p className="mt-6 text-l text-gray-200">
+              <p className="mt-6 text-l text-white drop-shadow-md">
                 {t("about.hero.description")}
               </p>
             </GSAPReveal>
           </div>
         </div>
-      </ParallaxSection>
+      </section>
 
       {/* Mission & Vision */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-white dark:bg-black">
         <div className="container px-4 md:px-6">
           <div className="mx-auto grid max-w-9xl gap-12 lg:grid-cols-2">
             <GSAPReveal animation="slide-right">
               <div className="space-y-4">
-                <div className="inline-flex items-center rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
+                <div className="inline-flex items-center rounded-lg bg-[hsl(120,61%,34%)]/10 px-3 py-1 text-sm text-[hsl(120,61%,34%)]">
                   {t("about.mission.tag")}
                 </div>
                 <h2 className="text-3xl font-bold">{t("about.mission.title")}</h2>
@@ -70,7 +79,7 @@ export default function AboutPage() {
 
             <GSAPReveal animation="slide-left">
               <div className="space-y-4">
-                <div className="inline-flex items-center rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
+                <div className="inline-flex items-center rounded-lg bg-[hsl(0,76%,40%)]/10 px-3 py-1 text-sm text-[hsl(0,76%,40%)]">
                   {t("about.vision.tag")}
                 </div>
                 <h2 className="text-3xl font-bold">{t("about.vision.title")}</h2>
@@ -81,16 +90,16 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-white dark:bg-black">
              <div className="container px-4 md:px-6">
                <div className="flex flex-col items-center justify-center space-y-4 text-center">
                  <GSAPReveal animation="slide-up">
                    <div className="space-y-2">
-                     <div className="inline-flex items-center rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
+                     <div className="inline-flex items-center rounded-lg bg-[hsl(120,61%,34%)]/10 px-3 py-1 text-sm text-[hsl(120,61%,34%)]">
                        <Users className="mr-1 h-4 w-4" />
                        {t("about.widgt")}
                      </div>
-                     <GSAPTextReveal className="text-3xl font-bold  sm:text-5xl">
+                     <GSAPTextReveal className="text-3xl font-bold sm:text-5xl">
                        {t("about.title")}
                      </GSAPTextReveal>
                      <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -98,58 +107,93 @@ export default function AboutPage() {
                      </p>
                    </div>
                  </GSAPReveal>
-     
+
                  <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
                    <GSAPReveal animation="slide-right" className="order-2 lg:order-1">
                      <div className="flex flex-col justify-center space-y-4 h-full">
                        <ul className="grid gap-6 flex-1">
                          <li>
-                           <div className="grid gap-1 mt-0">
-                             <h3 className="text-xl font-bold">{t("about.identity")}</h3>
-                             <p className="text-muted-foreground">{t("about.identity.desc")}</p>
+                           <div className="flex gap-4 items-start">
+                             <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[hsl(120,61%,34%)]/10 flex items-center justify-center">
+                               <GraduationCap className="h-6 w-6 text-[hsl(120,61%,34%)]" />
+                             </div>
+                             <div>
+                               <h3 className="text-xl font-bold">{t("about.identity")}</h3>
+                               <p className="text-muted-foreground">{t("about.identity.desc")}</p>
+                             </div>
                            </div>
                          </li>
                          <li>
-                           <div className="grid gap-1">
-                             <h3 className="text-xl font-bold">{t("about.identity2")}</h3>
-                             <p className="text-muted-foreground">{t("about.identity2.desc")}</p>
+                           <div className="flex gap-4 items-start">
+                             <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[hsl(0,76%,40%)]/10 flex items-center justify-center">
+                               <Heart className="h-6 w-6 text-[hsl(0,76%,40%)]" />
+                             </div>
+                             <div>
+                               <h3 className="text-xl font-bold">{t("about.identity2")}</h3>
+                               <p className="text-muted-foreground">{t("about.identity2.desc")}</p>
+                             </div>
                            </div>
                          </li>
                          <li>
-                           <div className="grid gap-1">
-                             <h3 className="text-xl font-bold">{t("about.identity3")}</h3>
-                             <p className="text-muted-foreground">{t("about.identity3.desc")}</p>
+                           <div className="flex gap-4 items-start">
+                             <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[hsl(120,61%,34%)]/10 flex items-center justify-center">
+                               <Globe className="h-6 w-6 text-[hsl(120,61%,34%)]" />
+                             </div>
+                             <div>
+                               <h3 className="text-xl font-bold">{t("about.identity3")}</h3>
+                               <p className="text-muted-foreground">{t("about.identity3.desc")}</p>
+                             </div>
                            </div>
                          </li>
                          <li>
-                           <div className="grid gap-1">
-                             <h3 className="text-xl font-bold">{t("about.identity4")}</h3>
-                             <p className="text-muted-foreground">{t("about.identity4.desc")}</p>
+                           <div className="flex gap-4 items-start">
+                             <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[hsl(0,76%,40%)]/10 flex items-center justify-center">
+                               <Award className="h-6 w-6 text-[hsl(0,76%,40%)]" />
+                             </div>
+                             <div>
+                               <h3 className="text-xl font-bold">{t("about.identity4")}</h3>
+                               <p className="text-muted-foreground">{t("about.identity4.desc")}</p>
+                             </div>
                            </div>
                          </li>
                        </ul>
                      </div>
                    </GSAPReveal>
-     
+
                    <GSAPReveal animation="slide-left" className="order-1 lg:order-2">
                      <div className="flex flex-col justify-center space-y-4 h-full">
                        <ul className="grid gap-6 flex-1">
                          <li>
-                           <div className="grid gap-1">
-                             <h3 className="text-xl font-bold">{t("about.identity5")}</h3>
-                             <p className="text-muted-foreground">{t("about.identity5.desc")}</p>
+                           <div className="flex gap-4 items-start">
+                             <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[hsl(120,61%,34%)]/10 flex items-center justify-center">
+                               <Lightbulb className="h-6 w-6 text-[hsl(120,61%,34%)]" />
+                             </div>
+                             <div>
+                               <h3 className="text-xl font-bold">{t("about.identity5")}</h3>
+                               <p className="text-muted-foreground">{t("about.identity5.desc")}</p>
+                             </div>
                            </div>
                          </li>
                          <li>
-                           <div className="grid gap-1">
-                             <h3 className="text-xl font-bold">{t("about.identity6")}</h3>
-                             <p className="text-muted-foreground">{t("about.identity6.desc")}</p>
+                           <div className="flex gap-4 items-start">
+                             <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[hsl(0,76%,40%)]/10 flex items-center justify-center">
+                               <HandshakeIcon className="h-6 w-6 text-[hsl(0,76%,40%)]" />
+                             </div>
+                             <div>
+                               <h3 className="text-xl font-bold">{t("about.identity6")}</h3>
+                               <p className="text-muted-foreground">{t("about.identity6.desc")}</p>
+                             </div>
                            </div>
                          </li>
                          <li>
-                           <div className="grid gap-1">
-                             <h3 className="text-xl font-bold">{t("about.identity7")}</h3>
-                             <p className="text-muted-foreground">{t("about.identity7.desc")}</p>
+                           <div className="flex gap-4 items-start">
+                             <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[hsl(120,61%,34%)]/10 flex items-center justify-center">
+                               <Users className="h-6 w-6 text-[hsl(120,61%,34%)]" />
+                             </div>
+                             <div>
+                               <h3 className="text-xl font-bold">{t("about.identity7")}</h3>
+                               <p className="text-muted-foreground">{t("about.identity7.desc")}</p>
+                             </div>
                            </div>
                          </li>
                        </ul>
@@ -158,7 +202,9 @@ export default function AboutPage() {
                  </div>
                  <div className="flex justify-center w-full mt-8">
               <Link href="/about">
-                <Button variant="outline" className="group">
+                <Button
+                  className="group bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90"
+                >
                   {t("about.cta")}
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
@@ -169,12 +215,12 @@ export default function AboutPage() {
       </section>
 
       {/* Administrative Structure */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/10 via-transparent to-[hsl(120,61%,34%)]/10">
         <div className="container px-4 md:px-6">
           <div className="mx-auto max-w-5xl">
             <div className="mb-12 text-center">
               <GSAPReveal animation="slide-up">
-                <div className="inline-flex items-center rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
+                <div className="inline-flex items-center rounded-lg bg-[hsl(0,76%,40%)]/10 px-3 py-1 text-sm text-[hsl(0,76%,40%)]">
                   <Users className="mr-1 h-4 w-4" />
                   {t("about.team.tag")}
                 </div>
@@ -195,7 +241,7 @@ export default function AboutPage() {
                     />
                   </div>
                   <h3 className="text-xl font-bold">{t("about.team.member1.name")}</h3>
-                  <p className="text-primary">{t("about.team.member1.title")}</p>
+                  <p className="text-[hsl(0,76%,40%)]">{t("about.team.member1.title")}</p>
                   <p className="mt-2 text-sm text-muted-foreground">
                     {t("about.team.member1.description")}
                   </p>
@@ -212,7 +258,7 @@ export default function AboutPage() {
                     />
                   </div>
                   <h3 className="text-xl font-bold">{t("about.team.member2.name")}</h3>
-                  <p className="text-primary">{t("about.team.member2.title")}</p>
+                  <p className="text-[hsl(120,61%,34%)]">{t("about.team.member2.title")}</p>
                   <p className="mt-2 text-sm text-muted-foreground">
                     {t("about.team.member2.description")}
                   </p>
@@ -229,7 +275,7 @@ export default function AboutPage() {
                     />
                   </div>
                   <h3 className="text-xl font-bold">{t("about.team.member3.name")}</h3>
-                  <p className="text-primary">{t("about.team.member3.title")}</p>
+                  <p className="text-[hsl(0,76%,40%)]">{t("about.team.member3.title")}</p>
                   <p className="mt-2 text-sm text-muted-foreground">
                     {t("about.team.member3.description")}
                   </p>
@@ -240,7 +286,11 @@ export default function AboutPage() {
             <GSAPReveal animation="fade" delay={0.4}>
               <div className="mt-12 text-center">
                 <Link href="/about/team">
-                  <Button variant="outline">{t("about.team.viewAll")}</Button>
+                  <Button
+                    className="bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90"
+                  >
+                    {t("about.team.viewAll")}
+                  </Button>
                 </Link>
               </div>
             </GSAPReveal>
@@ -249,19 +299,19 @@ export default function AboutPage() {
       </section>
 
       {/* Partners */}
-      <section className="py-16 md:py-24 bg-muted/30">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)] via-black to-[hsl(120,61%,34%)] text-white">
         <div className="container px-4 md:px-6">
           <div className="mx-auto max-w-5xl">
             <div className="mb-12 text-center">
               <GSAPReveal animation="slide-up">
-                <div className="inline-flex items-center rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
-                  <Handshake className="mr-1 h-4 w-4" />
+                <div className="inline-flex items-center rounded-lg bg-white/20 px-3 py-1 text-sm text-white">
+                  <HandshakeIcon className="mr-1 h-4 w-4" />
                   Collaborations
                 </div>
-                <GSAPTextReveal element="h2" className="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl">
+                <GSAPTextReveal element="h2" className="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl text-white">
                   Our Partners
                 </GSAPTextReveal>
-                <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
+                <p className="mx-auto mt-4 max-w-[700px] text-gray-300">
                   We collaborate with universities, educational institutions, and organizations worldwide to expand
                   opportunities for Palestinian students.
                 </p>
@@ -281,7 +331,11 @@ export default function AboutPage() {
             <GSAPReveal animation="fade" delay={0.4}>
               <div className="mt-12 text-center">
                 <Link href="/about/partners">
-                  <Button variant="outline">Learn About Our Partnerships</Button>
+                  <Button
+                    className="bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90"
+                  >
+                    Learn About Our Partnerships
+                  </Button>
                 </Link>
               </div>
             </GSAPReveal>
@@ -290,25 +344,31 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-24 bg-primary text-primary-foreground">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)] via-black to-[hsl(120,61%,34%)] text-white">
         <div className="container px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center">
             <GSAPTextReveal element="h2" className="text-3xl font-bold tracking-tighter sm:text-4xl">
               Join Our Mission
             </GSAPTextReveal>
             <GSAPReveal animation="fade" delay={0.2}>
-              <p className="mt-4 text-xl text-primary-foreground/90">
+              <p className="mt-4 text-xl text-white/90">
                 Whether you're a student looking for support, a potential partner, or someone who wants to contribute to
                 our cause, we'd love to hear from you.
               </p>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
                 <Link href="/contact">
-                  <Button size="lg" className="bg-white text-primary hover:bg-gray-100">
+                  <Button
+                    size="lg"
+                    className="bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90"
+                  >
                     Contact Us
                   </Button>
                 </Link>
                 <Link href="/donate">
-                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                  <Button
+                    size="lg"
+                    className="bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90"
+                  >
                     Support Our Work
                   </Button>
                 </Link>

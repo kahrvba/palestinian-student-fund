@@ -67,9 +67,13 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  isScrolled ? "text-foreground dark:text-foreground" : "text-white hover:text-primary-foreground"
-                } ${pathname === item.href ? "text-primary" : ""}`}
+                className={`text-sm font-medium transition-colors ${
+                  pathname === item.href
+                    ? "text-primary dark:text-primary"
+                    : isScrolled
+                      ? "text-foreground dark:text-foreground hover:text-primary dark:hover:text-primary"
+                      : "text-white hover:text-primary-foreground"
+                }`}
               >
                 {item.name}
               </Link>
