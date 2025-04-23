@@ -101,7 +101,7 @@ export default function Home() {
               <p className="mx-auto max-w-[700px] text-xl text-gray-200 md:text-2xl">{t("hero.subtitle")}</p>
             </GSAPReveal>
 
-            
+
           </div>
         </div>
 
@@ -110,8 +110,8 @@ export default function Home() {
 
 
       {/* Latest News Section */}
-      <section className="py-16 md:py-24 bg-muted/30">
-        <div className="container px-4 md:px-6">
+      <section className="py-12 md:py-16 bg-muted/30">
+        <div className="container px-4 md:px-6 mb-8">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <GSAPReveal animation="slide-up">
               <div className="space-y-2">
@@ -125,64 +125,112 @@ export default function Home() {
                 </p>
               </div>
             </GSAPReveal>
+          </div>
+        </div>
 
-            <div className="mx-auto grid max-w-5xl gap-8 pt-12 sm:grid-cols-2 md:gap-12 lg:grid-cols-2">
-              <GSAPReveal animation="slide-up" delay={0.1}>
+        {/* Full-width scrolling section */}
+        <div className="w-screen overflow-hidden py-8">
+          <div className="flex animate-[scroll_20s_linear_infinite] whitespace-nowrap">
+            {/* First set of cards */}
+            <div className="flex gap-4 pr-4">
+              <div>
                 <NewsCard
                   title={t("card1.title")}
                   excerpt={t("Card1.desc")}
-                  image="/scholer.png?height=200&width=300"
+                  image="/scholer.png?height=400&width=600"
                   href="/news/new-scholarship-program"
                 />
-              </GSAPReveal>
-
-              <GSAPReveal animation="slide-up" delay={0.2}>
+              </div>
+              <div>
                 <NewsCard
                   title={t("Card2.title")}
                   excerpt={t("Card2.desc")}
                   image="/secondCard.png"
                   href="/news/istanbul-university-partnership"
                 />
-              </GSAPReveal>
-
-              <GSAPReveal animation="slide-up" delay={0.3}>
+              </div>
+              <div>
                 <NewsCard
                   title={t("Card3.title")}
                   excerpt={t("Card3.desc")}
-                  image="/thirdCard.png?height=200&width=300"
+                  image="/thirdCard.png?height=400&width=600"
                   href="/news/annual-conference"
                 />
-              </GSAPReveal>
-              <GSAPReveal animation="slide-up" delay={0.3}>
+              </div>
+              <div>
                 <NewsCard
                   title={t("Card4.title")}
                   excerpt={t("Card4.desc")}
-                  image="/fourCard.png?height=200&width=300"
+                  image="/fourCard.png?height=400&width=600"
                   href="/news/annual-conference"
                 />
-              </GSAPReveal>
-              <GSAPReveal animation="slide-up" delay={0.2}>
+              </div>
+              <div>
                 <NewsCard
                   title={t("Card5.title")}
                   excerpt={t("Card5.desc")}
-                  image="/fifthCard.png?height=200&width"
+                  image="/fifthCard.png?height=400&width=600"
                   href="/news/annual-conferece"
-                >
-                </NewsCard>
-              </GSAPReveal>
-            </div>
-
-            <GSAPReveal animation="fade" delay={0.4}>
-              <div className="flex justify-center pt-8">
-                <Link href="/news">
-                  <Button variant="outline" className="group">
-                    View All News
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </Link>
+                />
               </div>
-            </GSAPReveal>
+            </div>
+            {/* Duplicate set of cards to ensure seamless looping */}
+            <div className="flex gap-4 pl-4">
+              <div>
+                <NewsCard
+                  title={t("card1.title")}
+                  excerpt={t("Card1.desc")}
+                  image="/scholer.png?height=400&width=600"
+                  href="/news/new-scholarship-program"
+                />
+              </div>
+              <div>
+                <NewsCard
+                  title={t("Card2.title")}
+                  excerpt={t("Card2.desc")}
+                  image="/secondCard.png"
+                  href="/news/istanbul-university-partnership"
+                />
+              </div>
+              <div>
+                <NewsCard
+                  title={t("Card3.title")}
+                  excerpt={t("Card3.desc")}
+                  image="/thirdCard.png?height=400&width=600"
+                  href="/news/annual-conference"
+                />
+              </div>
+              <div>
+                <NewsCard
+                  title={t("Card4.title")}
+                  excerpt={t("Card4.desc")}
+                  image="/fourCard.png?height=400&width=600"
+                  href="/news/annual-conference"
+                />
+              </div>
+              <div>
+                <NewsCard
+                  title={t("Card5.title")}
+                  excerpt={t("Card5.desc")}
+                  image="/fifthCard.png?height=400&width=600"
+                  href="/news/annual-conferece"
+                />
+              </div>
+            </div>
           </div>
+        </div>
+
+        <div className="container px-4 md:px-6 mt-8">
+          <GSAPReveal animation="fade" delay={0.4}>
+            <div className="flex justify-center">
+              <Link href="/news">
+                <Button variant="outline" className="group">
+                  View All News
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
+            </div>
+          </GSAPReveal>
         </div>
       </section>
 

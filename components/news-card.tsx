@@ -2,9 +2,8 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Calendar } from "lucide-react"
 import { motion } from "framer-motion"
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
+import { Card, CardContent, CardHeader } from "@/components/ui/card"
 
 interface NewsCardProps {
   title: string
@@ -24,8 +23,8 @@ export default function NewsCard({ title,excerpt, image, href }: NewsCardProps) 
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <Card className="h-full overflow-hidden transition-all hover:shadow-lg">
-          <div className="aspect-video overflow-hidden">
+        <Card className="w-[450px] h-[500px] overflow-hidden transition-all hover:shadow-lg border-0 shadow-none">
+          <div className="h-[240px] overflow-hidden">
             <motion.img
               src={image || "/placeholder.svg"}
               alt={title}
@@ -34,11 +33,11 @@ export default function NewsCard({ title,excerpt, image, href }: NewsCardProps) 
               transition={{ duration: 0.4 }}
             />
           </div>
-          <CardHeader className="p-4">
-            <h3 className="line-clamp-2 text-xl font-bold">{title}</h3>
+          <CardHeader className="p-6">
+            <h3 className="text-2xl font-bold leading-tight break-words whitespace-normal hyphens-auto" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>{title}</h3>
           </CardHeader>
-          <CardContent className="p-4 pt-0">
-            <p className="line-clamp-3 text-muted-foreground">{excerpt}</p>
+          <CardContent className="p-6 pt-0">
+            <p className="text-base text-muted-foreground leading-relaxed whitespace-normal hyphens-auto overflow-y-auto max-h-[140px]" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>{excerpt}</p>
           </CardContent>
         </Card>
       </motion.div>
