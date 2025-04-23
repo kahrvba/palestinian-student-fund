@@ -4,7 +4,7 @@ import { useEffect } from "react"
 import Link from "next/link"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Users, ArrowRight, GraduationCap, Heart, Globe, Award, Lightbulb, Handshake as HandshakeIcon } from "lucide-react"
+import { Users, ArrowRight, GraduationCap, Heart, Globe, Award, Lightbulb, Handshake as HandshakeIcon, Target, Compass, BookOpen, Rocket } from "lucide-react"
 import { useLanguage } from "@/components/language-provider"
 import { Button } from "@/components/ui/button"
 import GSAPReveal from "@/components/gsap-reveal"
@@ -64,26 +64,101 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-16 md:py-24 bg-white dark:bg-black">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/5 via-transparent to-[hsl(120,61%,34%)]/5 dark:from-[hsl(0,76%,40%)]/10 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/10">
         <div className="container px-4 md:px-6">
-          <div className="mx-auto grid max-w-9xl gap-12 lg:grid-cols-2">
+          <div className="text-center mb-12">
+            <GSAPReveal animation="slide-up">
+              <div className="inline-flex items-center rounded-lg bg-[hsl(120,61%,34%)]/10 px-3 py-1 text-sm text-[hsl(120,61%,34%)]">
+                <Compass className="mr-1 h-4 w-4" />
+                Our Purpose
+              </div>
+              <GSAPTextReveal element="h2" className="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl">
+                Mission & Vision
+              </GSAPTextReveal>
+              <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
+                Guided by our commitment to educational equity and empowerment for Palestinian students worldwide.
+              </p>
+            </GSAPReveal>
+          </div>
+
+          <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
+            {/* Mission Card */}
             <GSAPReveal animation="slide-right">
-              <div className="space-y-4">
-                <div className="inline-flex items-center rounded-lg bg-[hsl(120,61%,34%)]/10 px-3 py-1 text-sm text-[hsl(120,61%,34%)]">
-                  {t("about.mission.tag")}
+              <div className="relative overflow-hidden rounded-xl border border-[hsl(120,61%,34%)]/20 bg-white p-8 shadow-lg dark:bg-black/40 dark:backdrop-blur-sm">
+                <div className="absolute top-0 right-0 h-24 w-24 translate-x-8 -translate-y-8 transform rounded-full bg-[hsl(120,61%,34%)]/10"></div>
+
+                <div className="relative">
+                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[hsl(120,61%,34%)]/10">
+                    <Target className="h-8 w-8 text-[hsl(120,61%,34%)]" />
+                  </div>
+
+                  <h3 className="text-2xl font-bold">{t("about.mission.title")}</h3>
+
+                  <div className="mt-4 space-y-4">
+                    <p className="text-muted-foreground">{t("about.mission.text")}</p>
+
+                    <ul className="space-y-2">
+                      <li className="flex items-start">
+                        <div className="mr-2 mt-1 h-5 w-5 rounded-full bg-[hsl(120,61%,34%)]/10 flex items-center justify-center">
+                          <div className="h-2 w-2 rounded-full bg-[hsl(120,61%,34%)]"></div>
+                        </div>
+                        <span>Provide scholarships to talented Palestinian students</span>
+                      </li>
+                      <li className="flex items-start">
+                        <div className="mr-2 mt-1 h-5 w-5 rounded-full bg-[hsl(120,61%,34%)]/10 flex items-center justify-center">
+                          <div className="h-2 w-2 rounded-full bg-[hsl(120,61%,34%)]"></div>
+                        </div>
+                        <span>Create educational opportunities through global partnerships</span>
+                      </li>
+                      <li className="flex items-start">
+                        <div className="mr-2 mt-1 h-5 w-5 rounded-full bg-[hsl(120,61%,34%)]/10 flex items-center justify-center">
+                          <div className="h-2 w-2 rounded-full bg-[hsl(120,61%,34%)]"></div>
+                        </div>
+                        <span>Support academic and professional development</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-                <h2 className="text-3xl font-bold">{t("about.mission.title")}</h2>
-                <p className="text-muted-foreground">{t("about.mission.text")}</p>
               </div>
             </GSAPReveal>
 
+            {/* Vision Card */}
             <GSAPReveal animation="slide-left">
-              <div className="space-y-4">
-                <div className="inline-flex items-center rounded-lg bg-[hsl(0,76%,40%)]/10 px-3 py-1 text-sm text-[hsl(0,76%,40%)]">
-                  {t("about.vision.tag")}
+              <div className="relative overflow-hidden rounded-xl border border-[hsl(0,76%,40%)]/20 bg-white p-8 shadow-lg dark:bg-black/40 dark:backdrop-blur-sm">
+                <div className="absolute top-0 right-0 h-24 w-24 translate-x-8 -translate-y-8 transform rounded-full bg-[hsl(0,76%,40%)]/10"></div>
+
+                <div className="relative">
+                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[hsl(0,76%,40%)]/10">
+                    <Rocket className="h-8 w-8 text-[hsl(0,76%,40%)]" />
+                  </div>
+
+                  <h3 className="text-2xl font-bold">{t("about.vision.title")}</h3>
+
+                  <div className="mt-4 space-y-4">
+                    <p className="text-muted-foreground">{t("about.vision.text")}</p>
+
+                    <ul className="space-y-2">
+                      <li className="flex items-start">
+                        <div className="mr-2 mt-1 h-5 w-5 rounded-full bg-[hsl(0,76%,40%)]/10 flex items-center justify-center">
+                          <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)]"></div>
+                        </div>
+                        <span>A world where every Palestinian student has access to quality education</span>
+                      </li>
+                      <li className="flex items-start">
+                        <div className="mr-2 mt-1 h-5 w-5 rounded-full bg-[hsl(0,76%,40%)]/10 flex items-center justify-center">
+                          <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)]"></div>
+                        </div>
+                        <span>A global network of Palestinian scholars and professionals</span>
+                      </li>
+                      <li className="flex items-start">
+                        <div className="mr-2 mt-1 h-5 w-5 rounded-full bg-[hsl(0,76%,40%)]/10 flex items-center justify-center">
+                          <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)]"></div>
+                        </div>
+                        <span>Educational empowerment as a path to community development</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-                <h2 className="text-3xl font-bold">{t("about.vision.title")}</h2>
-                <p className="text-muted-foreground">{t("about.vision.text")}</p>
               </div>
             </GSAPReveal>
           </div>
@@ -235,7 +310,7 @@ export default function AboutPage() {
                 <div className="text-center">
                   <div className="mx-auto mb-4 h-32 w-32 overflow-hidden rounded-full">
                     <img
-                      src="/placeholder.svg?height=128&width=128"
+                      src="/s5.jpg?height=128&width=128"
                       alt={t("about.team.member1.name")}
                       className="h-full w-full object-cover"
                     />
@@ -252,7 +327,7 @@ export default function AboutPage() {
                 <div className="text-center">
                   <div className="mx-auto mb-4 h-32 w-32 overflow-hidden rounded-full">
                     <img
-                      src="/placeholder.svg?height=128&width=128"
+                      src="/s5.jpg?height=128&width=128"
                       alt={t("about.team.member2.name")}
                       className="h-full w-full object-cover"
                     />
@@ -269,7 +344,7 @@ export default function AboutPage() {
                 <div className="text-center">
                   <div className="mx-auto mb-4 h-32 w-32 overflow-hidden rounded-full">
                     <img
-                      src="/placeholder.svg?height=128&width=128"
+                      src="/s5.jpg?height=128&width=128"
                       alt={t("about.team.member3.name")}
                       className="h-full w-full object-cover"
                     />
