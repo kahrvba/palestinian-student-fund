@@ -10,16 +10,49 @@ import { Button } from "@/components/ui/button"
 import GSAPReveal from "@/components/gsap-reveal"
 import GSAPTextReveal from "@/components/gsap-text-reveal"
 import ParallaxSection from "@/components/parallax-section"
-import NewsCards2 from "@/components/news-cards2"
 import ProgramCard from "@/components/program-card"
 import SuccessStoryCard from "@/components/success-story-card"
 import StatsCounter from "@/components/stats-counter"
+import ScrollingCards from "@/components/scrolling-cards"
 
 export default function Home() {
   const { t } = useLanguage()
   const heroRef = useRef<HTMLDivElement>(null)
-  const progressBarRef = useRef<HTMLDivElement>(null)
   const [isAnyCardHovered, setIsAnyCardHovered] = useState(false)
+
+  // Create cards data array for the ScrollingCards component
+  const cardsData = [
+    {
+      title: t("card1.title"),
+      excerpt: t("Card1.desc"),
+      image: "/scholer.png?height=400&width=600",
+      href: "/news/new-scholarship-program"
+    },
+    {
+      title: t("Card2.title"),
+      excerpt: t("Card2.desc"),
+      image: "/secondCard.png",
+      href: "/news/istanbul-university-partnership"
+    },
+    {
+      title: t("Card3.title"),
+      excerpt: t("Card3.desc"),
+      image: "/thirdCard.png?height=400&width=600",
+      href: "/news/annual-conference"
+    },
+    {
+      title: t("Card4.title"),
+      excerpt: t("Card4.desc"),
+      image: "/fourCard.png?height=400&width=600",
+      href: "/news/annual-conference"
+    },
+    {
+      title: t("Card5.title"),
+      excerpt: t("Card5.desc"),
+      image: "/fifthCard.png?height=400&width=600",
+      href: "/news/annual-conferece"
+    }
+  ]
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
@@ -139,116 +172,11 @@ export default function Home() {
         </div>
 
         {/* Full-width scrolling section */}
-        <div className="w-screen overflow-hidden py-8">
-          <div className="flex animate-[scroll_12s_linear_infinite] whitespace-nowrap">
-            {/* First set of cards */}
-            <div className="flex gap-8 pr-8">
-              <div>
-                <NewsCards2
-                  title={t("card1.title")}
-                  excerpt={t("Card1.desc")}
-                  image="/scholer.png?height=400&width=600"
-                  href="/news/new-scholarship-program"
-                  isAnyCardHovered={isAnyCardHovered}
-                  onHoverChange={setIsAnyCardHovered}
-                />
-              </div>
-              <div>
-                <NewsCards2
-                  title={t("Card2.title")}
-                  excerpt={t("Card2.desc")}
-                  image="/secondCard.png"
-                  href="/news/istanbul-university-partnership"
-                  isAnyCardHovered={isAnyCardHovered}
-                  onHoverChange={setIsAnyCardHovered}
-                />
-              </div>
-              <div>
-                <NewsCards2
-                  title={t("Card3.title")}
-                  excerpt={t("Card3.desc")}
-                  image="/thirdCard.png?height=400&width=600"
-                  href="/news/annual-conference"
-                  isAnyCardHovered={isAnyCardHovered}
-                  onHoverChange={setIsAnyCardHovered}
-                />
-              </div>
-              <div>
-                <NewsCards2
-                  title={t("Card4.title")}
-                  excerpt={t("Card4.desc")}
-                  image="/fourCard.png?height=400&width=600"
-                  href="/news/annual-conference"
-                  isAnyCardHovered={isAnyCardHovered}
-                  onHoverChange={setIsAnyCardHovered}
-                />
-              </div>
-              <div>
-                <NewsCards2
-                  title={t("Card5.title")}
-                  excerpt={t("Card5.desc")}
-                  image="/fifthCard.png?height=400&width=600"
-                  href="/news/annual-conferece"
-                  isAnyCardHovered={isAnyCardHovered}
-                  onHoverChange={setIsAnyCardHovered}
-                />
-              </div>
-            </div>
-            {/* Duplicate set of cards to ensure seamless looping */}
-            <div className="flex gap-8 pl-8">
-              <div>
-                <NewsCards2
-                  title={t("card1.title")}
-                  excerpt={t("Card1.desc")}
-                  image="/scholer.png?height=400&width=600"
-                  href="/news/new-scholarship-program"
-                  isAnyCardHovered={isAnyCardHovered}
-                  onHoverChange={setIsAnyCardHovered}
-                />
-              </div>
-              <div>
-                <NewsCards2
-                  title={t("Card2.title")}
-                  excerpt={t("Card2.desc")}
-                  image="/secondCard.png"
-                  href="/news/istanbul-university-partnership"
-                  isAnyCardHovered={isAnyCardHovered}
-                  onHoverChange={setIsAnyCardHovered}
-                />
-              </div>
-              <div>
-                <NewsCards2
-                  title={t("Card3.title")}
-                  excerpt={t("Card3.desc")}
-                  image="/thirdCard.png?height=400&width=600"
-                  href="/news/annual-conference"
-                  isAnyCardHovered={isAnyCardHovered}
-                  onHoverChange={setIsAnyCardHovered}
-                />
-              </div>
-              <div>
-                <NewsCards2
-                  title={t("Card4.title")}
-                  excerpt={t("Card4.desc")}
-                  image="/fourCard.png?height=400&width=600"
-                  href="/news/annual-conference"
-                  isAnyCardHovered={isAnyCardHovered}
-                  onHoverChange={setIsAnyCardHovered}
-                />
-              </div>
-              <div>
-                <NewsCards2
-                  title={t("Card5.title")}
-                  excerpt={t("Card5.desc")}
-                  image="/fifthCard.png?height=400&width=600"
-                  href="/news/annual-conferece"
-                  isAnyCardHovered={isAnyCardHovered}
-                  onHoverChange={setIsAnyCardHovered}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+        <ScrollingCards
+          cards={cardsData}
+          isAnyCardHovered={isAnyCardHovered}
+          onHoverChange={setIsAnyCardHovered}
+        />
 
         <div className="container px-4 md:px-6 mt-8">
           <GSAPReveal animation="fade" delay={0.4}>
