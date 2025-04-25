@@ -94,8 +94,7 @@ export default function Footer() {
           <div>
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider">{t("footer.contact")}</h3>
             <ul className="space-y-2 text-sm">
-              <li className="text-muted-foreground">123 Education Street, Beyoğlu</li>
-              <li className="text-muted-foreground">Istanbul, Turkey 34433</li>
+              <li className="text-muted-foreground">Gaza, Palestine</li>
               <li>
                 <a href="mailto:info@palestinianstudentfund.org" className="text-muted-foreground hover:text-primary">
                   Palestinian.pssf@gmail.com

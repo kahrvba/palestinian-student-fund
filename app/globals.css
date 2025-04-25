@@ -72,6 +72,10 @@
   h6 {
     @apply font-poppins font-bold;
   }
+  /* Arabic text styling */
+  :lang(ar) {
+    @apply font-amiri;
+  }
 }
 
 /* GSAP Animations */
@@ -193,7 +197,7 @@
 
 /* Language-specific fonts */
 html[lang="ar"] {
-  font-family: "Amiri", serif;
+  font-family: var(--font-amiri), serif;
 }
 
 html[lang="tr"] {

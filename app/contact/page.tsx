@@ -106,8 +106,6 @@ export default function ContactPage() {
                     <div>
                       <h3 className="text-lg font-medium">Our Location</h3>
                       <p className="mt-1 text-muted-foreground">
-                        123 Education Street, Al-Rimal
-                        <br />
                         Gaza, Palestine
                       </p>
                     </div>
@@ -120,9 +118,7 @@ export default function ContactPage() {
                     <div>
                       <h3 className="text-lg font-medium">Email Us</h3>
                       <p className="mt-1 text-muted-foreground">
-                        info@palestinianstudentfund.org
-                        <br />
-                        applications@palestinianstudentfund.org
+                      info@palestinianstudentfund.org
                       </p>
                     </div>
                   </div>
@@ -134,8 +130,8 @@ export default function ContactPage() {
                     <div>
                       <h3 className="text-lg font-medium">Call Us</h3>
                       <p className="mt-1 text-muted-foreground">
-                        +90 212 123 4567
-                        <br />
+                      +90 5394300726
+                      <br />
                         Monday-Friday, 9:00 AM - 5:00 PM (GMT+3)
                       </p>
                     </div>

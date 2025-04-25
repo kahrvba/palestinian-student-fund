@@ -22,6 +22,7 @@ const config = {
       fontFamily: {
         sans: ["var(--font-inter)"],
         poppins: ["var(--font-poppins)"],
+        amiri: ["var(--font-amiri)"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -100,7 +101,7 @@ const config = {
         "fade-out": "fade-out 0.3s ease-out",
         "slide-in": "slide-in 0.4s ease-out",
         "slide-out": "slide-out 0.4s ease-out",
-        'scroll': 'scroll 12s linear infinite',
+        'scroll': 'scroll 8s linear infinite',
       },
     },
   },
