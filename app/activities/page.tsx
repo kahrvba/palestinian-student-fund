@@ -28,7 +28,6 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import GSAPReveal from "@/components/gsap-reveal"
 import GSAPTextReveal from "@/components/gsap-text-reveal"
-import ParallaxSection from "@/components/parallax-section"
 
 // Mock activities data
 const activitiesData = [
@@ -358,28 +357,40 @@ export default function ActivitiesPage() {
   return (
     <main className="flex min-h-screen flex-col">
       {/* Hero Section */}
-      <ParallaxSection backgroundImage="/placeholder.svg?height=600&width=1200" className="py-24 md:py-32 text-white">
-        <div className="container px-4 md:px-6">
+      <section className="relative py-24 md:py-32 text-white overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/Flag_of_Palestine.svg"
+            alt="Palestinian Flag"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
+        <div className="container relative z-10 px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <GSAPTextReveal element="h1" className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+            <GSAPTextReveal element="h1" className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl drop-shadow-lg">
               Previous Activities
             </GSAPTextReveal>
             <GSAPReveal animation="fade" delay={0.3}>
-              <p className="mt-6 text-xl text-gray-200">
+              <p className="mt-6 text-xl text-white drop-shadow-md">
                 Explore our past events, workshops, conferences, and initiatives that have supported Palestinian
                 students in their educational journeys.
               </p>
             </GSAPReveal>
           </div>
         </div>
-      </ParallaxSection>
+      </section>
 
       {/* Featured Activities */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/5 via-transparent to-[hsl(120,61%,34%)]/5 dark:from-[hsl(0,76%,40%)]/10 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/10">
         <div className="container px-4 md:px-6">
           <GSAPReveal animation="slide-up">
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Highlighted Activities</h2>
+              <div className="inline-flex items-center rounded-lg bg-[hsl(120,61%,34%)]/10 px-3 py-1 text-sm text-[hsl(120,61%,34%)]">
+                <Award className="mr-1 h-4 w-4" />
+                Featured Events
+              </div>
+              <h2 className="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl">Highlighted Activities</h2>
               <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
                 Our most impactful recent events and initiatives.
               </p>
@@ -402,7 +413,7 @@ export default function ActivitiesPage() {
                     </div>
                     <CardContent className="p-6">
                       <div className="mb-3 flex items-center justify-between">
-                        <Badge variant="outline" className="bg-primary/10 text-primary">
+                        <Badge variant="outline" className="bg-[hsl(0,76%,40%)]/10 text-[hsl(0,76%,40%)]">
                           {activity.category}
                         </Badge>
                         <span className="text-sm text-muted-foreground">{activity.year}</span>
@@ -432,12 +443,12 @@ export default function ActivitiesPage() {
       </section>
 
       {/* Impact Statistics */}
-      <section className="py-16 md:py-24 bg-primary text-primary-foreground">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)] via-black to-[hsl(120,61%,34%)] text-white">
         <div className="container px-4 md:px-6">
           <GSAPReveal animation="slide-up">
             <div className="mb-12 text-center">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Our Impact</h2>
-              <p className="mx-auto mt-4 max-w-[700px] text-primary-foreground/90">
+              <p className="mx-auto mt-4 max-w-[700px] text-white/90">
                 The collective reach and influence of our activities and programs.
               </p>
             </div>
@@ -473,11 +484,15 @@ export default function ActivitiesPage() {
       </section>
 
       {/* All Activities */}
-      <section className="py-16 md:py-24 bg-muted/30">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/5 via-transparent to-[hsl(120,61%,34%)]/5 dark:from-[hsl(0,76%,40%)]/10 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/10">
         <div className="container px-4 md:px-6">
           <GSAPReveal animation="slide-up">
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Activity Archive</h2>
+              <div className="inline-flex items-center rounded-lg bg-[hsl(0,76%,40%)]/10 px-3 py-1 text-sm text-[hsl(0,76%,40%)]">
+                <Calendar className="mr-1 h-4 w-4" />
+                Past Events
+              </div>
+              <h2 className="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl">Activity Archive</h2>
               <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
                 Browse through our complete history of events, workshops, and initiatives.
               </p>
@@ -532,9 +547,19 @@ export default function ActivitiesPage() {
             {/* Tabs */}
             <GSAPReveal animation="fade" delay={0.1}>
               <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-8">
-                <TabsList className="grid w-full max-w-md grid-cols-2">
-                  <TabsTrigger value="all">All Activities</TabsTrigger>
-                  <TabsTrigger value="featured">Highlighted</TabsTrigger>
+                <TabsList className="grid w-full max-w-md grid-cols-2 bg-[hsl(0,76%,40%)]/5 dark:bg-[hsl(0,76%,40%)]/10">
+                  <TabsTrigger
+                    value="all"
+                    className="data-[state=active]:bg-[hsl(120,61%,34%)] data-[state=active]:text-white"
+                  >
+                    All Activities
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="featured"
+                    className="data-[state=active]:bg-[hsl(120,61%,34%)] data-[state=active]:text-white"
+                  >
+                    Highlighted
+                  </TabsTrigger>
                 </TabsList>
               </Tabs>
             </GSAPReveal>
@@ -555,7 +580,7 @@ export default function ActivitiesPage() {
                         </div>
                         <div className="p-6 md:col-span-2">
                           <div className="mb-3 flex flex-wrap items-center gap-2">
-                            <Badge variant="outline" className="bg-primary/10 text-primary flex items-center gap-1">
+                            <Badge variant="outline" className="bg-[hsl(120,61%,34%)]/10 text-[hsl(120,61%,34%)] flex items-center gap-1">
                               {getActivityIcon(activity.category)}
                               {activity.category}
                             </Badge>
@@ -621,6 +646,7 @@ export default function ActivitiesPage() {
                     <Button
                       key={index}
                       variant={currentPage === index + 1 ? "default" : "outline"}
+                      className={currentPage === index + 1 ? "bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90" : ""}
                       size="icon"
                       onClick={() => setCurrentPage(index + 1)}
                     >
@@ -643,11 +669,15 @@ export default function ActivitiesPage() {
       </section>
 
       {/* Photo Gallery */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/5 via-transparent to-[hsl(120,61%,34%)]/5 dark:from-[hsl(0,76%,40%)]/10 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/10">
         <div className="container px-4 md:px-6">
           <GSAPReveal animation="slide-up">
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Activity Gallery</h2>
+              <div className="inline-flex items-center rounded-lg bg-[hsl(120,61%,34%)]/10 px-3 py-1 text-sm text-[hsl(120,61%,34%)]">
+                <Globe className="mr-1 h-4 w-4" />
+                Visual Memories
+              </div>
+              <h2 className="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl">Activity Gallery</h2>
               <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
                 Visual highlights from our past events and activities.
               </p>
@@ -673,11 +703,15 @@ export default function ActivitiesPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-16 md:py-24 bg-muted/30">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/5 via-transparent to-[hsl(120,61%,34%)]/5 dark:from-[hsl(0,76%,40%)]/10 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/10">
         <div className="container px-4 md:px-6">
           <GSAPReveal animation="slide-up">
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Participant Testimonials</h2>
+              <div className="inline-flex items-center rounded-lg bg-[hsl(0,76%,40%)]/10 px-3 py-1 text-sm text-[hsl(0,76%,40%)]">
+                <Quote className="mr-1 h-4 w-4" />
+                Student Voices
+              </div>
+              <h2 className="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl">Participant Testimonials</h2>
               <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
                 Hear from students who have attended our events and activities.
               </p>
@@ -689,7 +723,7 @@ export default function ActivitiesPage() {
               <Card className="h-full">
                 <CardContent className="flex h-full flex-col justify-between p-6">
                   <div>
-                    <Quote className="mb-4 h-8 w-8 text-primary/40" />
+                    <Quote className="mb-4 h-8 w-8 text-[hsl(120,61%,34%)]/40" />
                     <p className="mb-4 italic text-muted-foreground">
                       "The research methodology workshop transformed my approach to my thesis. The personalized feedback
                       from experienced researchers was invaluable."
@@ -707,7 +741,7 @@ export default function ActivitiesPage() {
               <Card className="h-full">
                 <CardContent className="flex h-full flex-col justify-between p-6">
                   <div>
-                    <Quote className="mb-4 h-8 w-8 text-primary/40" />
+                    <Quote className="mb-4 h-8 w-8 text-[hsl(0,76%,40%)]/40" />
                     <p className="mb-4 italic text-muted-foreground">
                       "The Annual Scholarship Conference was an incredible networking opportunity. I connected with
                       mentors who have helped guide my academic journey and career path."
@@ -725,7 +759,7 @@ export default function ActivitiesPage() {
               <Card className="h-full">
                 <CardContent className="flex h-full flex-col justify-between p-6">
                   <div>
-                    <Quote className="mb-4 h-8 w-8 text-primary/40" />
+                    <Quote className="mb-4 h-8 w-8 text-[hsl(120,61%,34%)]/40" />
                     <p className="mb-4 italic text-muted-foreground">
                       "The cultural exchange festival was a highlight of my year. It gave me a chance to share my
                       heritage with the local community and feel connected to home while studying abroad."
@@ -743,18 +777,22 @@ export default function ActivitiesPage() {
       </section>
 
       {/* Upcoming Events CTA */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/5 via-transparent to-[hsl(120,61%,34%)]/5 dark:from-[hsl(0,76%,40%)]/10 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/10">
         <div className="container px-4 md:px-6">
-          <div className="mx-auto max-w-3xl rounded-lg bg-primary/10 p-8 text-center">
+          <div className="mx-auto max-w-3xl rounded-lg bg-gradient-to-r from-[hsl(0,76%,40%)]/10 via-transparent to-[hsl(120,61%,34%)]/10 dark:from-[hsl(0,76%,40%)]/20 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/20 p-8 text-center">
             <GSAPReveal animation="slide-up">
-              <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl">Join Our Upcoming Events</h2>
+              <div className="inline-flex items-center rounded-lg bg-[hsl(120,61%,34%)]/10 px-3 py-1 text-sm text-[hsl(120,61%,34%)]">
+                <Calendar className="mr-1 h-4 w-4" />
+                Stay Connected
+              </div>
+              <h2 className="mt-2 text-2xl font-bold tracking-tighter sm:text-3xl">Join Our Upcoming Events</h2>
               <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
                 Stay connected with our community and participate in our upcoming workshops, seminars, and networking
                 opportunities.
               </p>
               <div className="mt-6">
                 <Link href="/contact">
-                  <Button className="bg-primary hover:bg-primary/90">Subscribe to Event Updates</Button>
+                  <Button className="bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90">Subscribe to Event Updates</Button>
                 </Link>
               </div>
             </GSAPReveal>
