@@ -11,7 +11,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import GSAPReveal from "@/components/gsap-reveal"
 import GSAPTextReveal from "@/components/gsap-text-reveal"
-import ParallaxSection from "@/components/parallax-section"
 import SuccessStoryCard from "@/components/success-story-card"
 
 // Mock success stories data
@@ -146,13 +145,11 @@ const successStoriesData = [
 
 // Categories for filtering
 const categories = ["All", "Bachelor's", "Master's", "PhD"]
-const countries = ["All", "Turkey"]
 const years = ["All", "2023", "2022", "2021", "2020", "2019"]
 
 export default function SuccessStoriesPage() {
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("All")
-  const [selectedCountry, setSelectedCountry] = useState("All")
   const [selectedYear, setSelectedYear] = useState("All")
   const [currentPage, setCurrentPage] = useState(1)
   const [activeTab, setActiveTab] = useState("all")
@@ -190,7 +187,7 @@ export default function SuccessStoriesPage() {
       story.quote.toLowerCase().includes(searchQuery.toLowerCase())
 
     const matchesCategory = selectedCategory === "All" || story.category === selectedCategory
-    const matchesCountry = selectedCountry === "All" || story.country === selectedCountry
+    const matchesCountry = true // Country filter removed
     const matchesYear = selectedYear === "All" || story.year.toString() === selectedYear
 
     const matchesTab = activeTab === "all" || (activeTab === "featured" && story.featured)
@@ -205,32 +202,44 @@ export default function SuccessStoriesPage() {
   // Reset to first page when filters change
   useEffect(() => {
     setCurrentPage(1)
-  }, [searchQuery, selectedCategory, selectedCountry, selectedYear, activeTab])
+  }, [searchQuery, selectedCategory, selectedYear, activeTab])
 
   return (
     <main className="flex min-h-screen flex-col">
       {/* Hero Section */}
-      <ParallaxSection backgroundImage="/placeholder.svg?height=600&width=1200" className="py-24 md:py-32 text-white">
-        <div className="container px-4 md:px-6">
+      <section className="relative py-24 md:py-32 text-white overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/Flag_of_Palestine.svg"
+            alt="Palestinian Flag"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
+        <div className="container relative z-10 px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <GSAPTextReveal element="h1" className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+            <GSAPTextReveal element="h1" className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl drop-shadow-lg">
               Success Stories
             </GSAPTextReveal>
             <GSAPReveal animation="fade" delay={0.3}>
-              <p className="mt-6 text-xl text-gray-200">
+              <p className="mt-6 text-xl text-white drop-shadow-md">
                 Meet the remarkable students who have transformed their lives through our support programs.
               </p>
             </GSAPReveal>
           </div>
         </div>
-      </ParallaxSection>
+      </section>
 
       {/* Featured Success Stories */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/5 via-transparent to-[hsl(120,61%,34%)]/5 dark:from-[hsl(0,76%,40%)]/10 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/10">
         <div className="container px-4 md:px-6">
           <GSAPReveal animation="slide-up">
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Featured Stories</h2>
+              <div className="inline-flex items-center rounded-lg bg-[hsl(120,61%,34%)]/10 px-3 py-1 text-sm text-[hsl(120,61%,34%)]">
+                <Quote className="mr-1 h-4 w-4" />
+                Inspiring Journeys
+              </div>
+              <h2 className="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl">Featured Stories</h2>
               <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
                 Inspiring journeys of determination, resilience, and academic excellence.
               </p>
@@ -259,7 +268,7 @@ export default function SuccessStoriesPage() {
       </section>
 
       {/* Inspirational Quote */}
-      <section className="py-16 md:py-24 bg-primary text-primary-foreground">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)] via-black to-[hsl(120,61%,34%)] text-white">
         <div className="container px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center">
             <GSAPReveal animation="fade">
@@ -274,11 +283,15 @@ export default function SuccessStoriesPage() {
       </section>
 
       {/* All Success Stories */}
-      <section className="py-16 md:py-24 bg-muted/30">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/5 via-transparent to-[hsl(120,61%,34%)]/5 dark:from-[hsl(0,76%,40%)]/10 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/10">
         <div className="container px-4 md:px-6">
           <GSAPReveal animation="slide-up">
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">All Success Stories</h2>
+              <div className="inline-flex items-center rounded-lg bg-[hsl(0,76%,40%)]/10 px-3 py-1 text-sm text-[hsl(0,76%,40%)]">
+                <Search className="mr-1 h-4 w-4" />
+                Browse Stories
+              </div>
+              <h2 className="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl">All Success Stories</h2>
               <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
                 Browse through the inspiring journeys of our scholarship recipients.
               </p>
@@ -333,9 +346,19 @@ export default function SuccessStoriesPage() {
             {/* Tabs */}
             <GSAPReveal animation="fade" delay={0.1}>
               <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-8">
-                <TabsList className="grid w-full max-w-md grid-cols-2">
-                  <TabsTrigger value="all">All Stories</TabsTrigger>
-                  <TabsTrigger value="featured">Featured</TabsTrigger>
+                <TabsList className="grid w-full max-w-md grid-cols-2 bg-[hsl(0,76%,40%)]/5 dark:bg-[hsl(0,76%,40%)]/10">
+                  <TabsTrigger
+                    value="all"
+                    className="data-[state=active]:bg-[hsl(120,61%,34%)] data-[state=active]:text-white"
+                  >
+                    All Stories
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="featured"
+                    className="data-[state=active]:bg-[hsl(120,61%,34%)] data-[state=active]:text-white"
+                  >
+                    Featured
+                  </TabsTrigger>
                 </TabsList>
               </Tabs>
             </GSAPReveal>
@@ -346,7 +369,7 @@ export default function SuccessStoriesPage() {
                 {paginatedStories.map((story, index) => (
                   <GSAPReveal key={story.id} animation="fade" delay={0.1 * index}>
                     <Link href={story.href} className="block h-full">
-                      <div className="group relative h-full overflow-hidden rounded-lg border bg-card transition-all hover:shadow-md">
+                      <div className="group relative h-full overflow-hidden rounded-lg border border-[hsl(120,61%,34%)]/20 bg-card transition-all hover:shadow-md">
                         <div className="aspect-square overflow-hidden">
                           <img
                             src={story.image || "/placeholder.svg"}
@@ -355,11 +378,11 @@ export default function SuccessStoriesPage() {
                           />
                         </div>
                         <div className="p-4">
-                          <h3 className="mb-1 text-xl font-bold group-hover:text-primary">{story.name}</h3>
-                          <p className="text-primary">{story.degree}</p>
+                          <h3 className="mb-1 text-xl font-bold group-hover:text-[hsl(120,61%,34%)]">{story.name}</h3>
+                          <p className="text-[hsl(0,76%,40%)]">{story.degree}</p>
                           <p className="mb-3 text-sm text-muted-foreground">{story.university}</p>
                           <p className="italic text-muted-foreground">"{story.quote.substring(0, 100)}..."</p>
-                          <div className="mt-4 flex items-center text-sm font-medium text-primary">
+                          <div className="mt-4 flex items-center text-sm font-medium text-[hsl(120,61%,34%)]">
                             Read Full Story
                             <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                           </div>
@@ -391,6 +414,7 @@ export default function SuccessStoriesPage() {
                     <Button
                       key={index}
                       variant={currentPage === index + 1 ? "default" : "outline"}
+                      className={currentPage === index + 1 ? "bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90" : ""}
                       size="icon"
                       onClick={() => setCurrentPage(index + 1)}
                     >
@@ -413,18 +437,22 @@ export default function SuccessStoriesPage() {
       </section>
 
       {/* Share Your Story CTA */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/5 via-transparent to-[hsl(120,61%,34%)]/5 dark:from-[hsl(0,76%,40%)]/10 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/10">
         <div className="container px-4 md:px-6">
-          <div className="mx-auto max-w-3xl rounded-lg bg-primary/10 p-8 text-center">
+          <div className="mx-auto max-w-3xl rounded-lg bg-gradient-to-r from-[hsl(0,76%,40%)]/10 via-transparent to-[hsl(120,61%,34%)]/10 dark:from-[hsl(0,76%,40%)]/20 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/20 p-8 text-center">
             <GSAPReveal animation="slide-up">
-              <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl">Share Your Success Story</h2>
+              <div className="inline-flex items-center rounded-lg bg-[hsl(120,61%,34%)]/10 px-3 py-1 text-sm text-[hsl(120,61%,34%)]">
+                <Quote className="mr-1 h-4 w-4" />
+                Your Journey Matters
+              </div>
+              <h2 className="mt-2 text-2xl font-bold tracking-tighter sm:text-3xl">Share Your Success Story</h2>
               <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
                 Are you a scholarship recipient with a story to tell? We'd love to feature your journey and inspire
                 others.
               </p>
               <div className="mt-6">
                 <Link href="/contact">
-                  <Button className="bg-primary hover:bg-primary/90">Submit Your Story</Button>
+                  <Button className="bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90">Submit Your Story</Button>
                 </Link>
               </div>
             </GSAPReveal>

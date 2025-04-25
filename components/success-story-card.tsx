@@ -23,7 +23,7 @@ export default function SuccessStoryCard({ name, degree, university, quote, imag
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Card className="h-full overflow-hidden backdrop-blur-sm bg-white/10 border-white/20">
+      <Card className="h-full overflow-hidden backdrop-blur-sm bg-gradient-to-r from-[hsl(0,76%,40%)]/80 via-black/80 to-[hsl(120,61%,34%)]/80 border-white/20 text-white">
         <div className="flex flex-col md:flex-row">
           <div className="aspect-square w-full overflow-hidden md:w-1/3">
             <motion.img
@@ -41,7 +41,7 @@ export default function SuccessStoryCard({ name, degree, university, quote, imag
             </div>
             <div>
               <h3 className="text-xl font-bold text-white">{name}</h3>
-              <p className="text-primary-foreground">{degree}</p>
+              <p className="text-[hsl(120,61%,70%)]">{degree}</p>
               <p className="text-sm text-white/70">{university}</p>
             </div>
           </CardContent>
