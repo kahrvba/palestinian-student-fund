@@ -62,7 +62,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-playfair;
   }
   h1,
   h2,
@@ -70,11 +70,22 @@
   h4,
   h5,
   h6 {
-    @apply font-poppins font-bold;
+    @apply font-playfair font-bold;
   }
   /* Arabic text styling */
   :lang(ar) {
     @apply font-amiri;
+    letter-spacing: -0.5px; /* Reduce letter spacing for Arabic */
+    line-height: 1.6;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1; /* Enable ligatures */
+    word-spacing: -0.15em; /* Reduce space between words */
+  }
+
+  :lang(ar) h1 {
+    @apply leading-[1.6];
+    text-align: right; /* Ensure proper RTL alignment */
+    word-spacing: -0.25em; /* Further reduce space between words for headlines */
+    letter-spacing: -1px; /* Tighter letter spacing for headlines */
   }
 }
 
@@ -196,12 +207,16 @@
 }
 
 /* Language-specific fonts */
+html[lang="en"] {
+  font-family: var(--font-playfair), serif;
+}
+
 html[lang="ar"] {
   font-family: var(--font-amiri), serif;
 }
 
 html[lang="tr"] {
-  font-family: var(--font-inter);
+  font-family: var(--font-playfair), serif;
 }
 
 /* Smooth scrolling */
@@ -214,4 +229,28 @@ html {
     scroll-behavior: auto;
   }
 }
+
+/* Specific styling for hero title in Arabic - make it more specific */
+h1.hero-title:lang(ar) {
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "rlig" 1;
+  text-align: center;
+  word-spacing: -0.1em !important; /* Increased space between words and forced with !important */
+  letter-spacing: -2px;
+}
+
+/* You can remove or comment out these general styles since we're targeting the hero title specifically */
+/*.text-4xl:lang(ar),
+.text-5xl:lang(ar),
+.text-6xl:lang(ar),
+.text-7xl:lang(ar) {
+  line-height: 1.6;
+  letter-spacing: -1.5px;
+  word-spacing: -0.05em;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}*/
+
+
 

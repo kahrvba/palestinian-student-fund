@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button"
 import GSAPReveal from "@/components/gsap-reveal"
 import GSAPTextReveal from "@/components/gsap-text-reveal"
 import ParallaxSection from "@/components/parallax-section"
-import NewsCard from "@/components/news-card"
+import NewsCards2 from "@/components/news-cards2"
 import ProgramCard from "@/components/program-card"
 import SuccessStoryCard from "@/components/success-story-card"
 import StatsCounter from "@/components/stats-counter"
@@ -19,6 +19,7 @@ export default function Home() {
   const { t } = useLanguage()
   const heroRef = useRef<HTMLDivElement>(null)
   const progressBarRef = useRef<HTMLDivElement>(null)
+  const [isAnyCardHovered, setIsAnyCardHovered] = useState(false)
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
@@ -80,8 +81,8 @@ export default function Home() {
         className="relative h-screen min-h-[600px] w-full overflow-hidden flex items-center justify-center"
       >
         <div className="absolute inset-0 z-0 hero-image">
-          <img 
-            src="/Flag_of_Palestine.svg" 
+          <img
+            src="/Flag_of_Palestine.svg"
             alt="Palestinian Flag"
             className="h-full w-full object-cover"
           />
@@ -92,7 +93,7 @@ export default function Home() {
           <div className="max-w-4xl mx-auto text-center space-y-6 text-white">
             <GSAPTextReveal
               element="h1"
-              className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-lg"
+              className="hero-title text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-lg min-h-[1.2em] leading-[1.2] overflow-visible"
             >
               {t("hero.title")}
             </GSAPTextReveal>
@@ -128,7 +129,7 @@ export default function Home() {
                   <BookOpen className="mr-1 h-4 w-4" />
                   {t("work.badget")}
                 </div>
-                <GSAPTextReveal className="text-3xl font-bold tracking-tighter sm:text-5xl">{t("work.title")}</GSAPTextReveal>
+                <GSAPTextReveal className="text-3xl font-bold sm:text-5xl h-20">{t("work.title")}</GSAPTextReveal>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   {t("work.subtitle")}
                 </p>
@@ -143,86 +144,106 @@ export default function Home() {
             {/* First set of cards */}
             <div className="flex gap-8 pr-8">
               <div>
-                <NewsCard
+                <NewsCards2
                   title={t("card1.title")}
                   excerpt={t("Card1.desc")}
                   image="/scholer.png?height=400&width=600"
                   href="/news/new-scholarship-program"
+                  isAnyCardHovered={isAnyCardHovered}
+                  onHoverChange={setIsAnyCardHovered}
                 />
               </div>
               <div>
-                <NewsCard
+                <NewsCards2
                   title={t("Card2.title")}
                   excerpt={t("Card2.desc")}
                   image="/secondCard.png"
                   href="/news/istanbul-university-partnership"
+                  isAnyCardHovered={isAnyCardHovered}
+                  onHoverChange={setIsAnyCardHovered}
                 />
               </div>
               <div>
-                <NewsCard
+                <NewsCards2
                   title={t("Card3.title")}
                   excerpt={t("Card3.desc")}
                   image="/thirdCard.png?height=400&width=600"
                   href="/news/annual-conference"
+                  isAnyCardHovered={isAnyCardHovered}
+                  onHoverChange={setIsAnyCardHovered}
                 />
               </div>
               <div>
-                <NewsCard
+                <NewsCards2
                   title={t("Card4.title")}
                   excerpt={t("Card4.desc")}
                   image="/fourCard.png?height=400&width=600"
                   href="/news/annual-conference"
+                  isAnyCardHovered={isAnyCardHovered}
+                  onHoverChange={setIsAnyCardHovered}
                 />
               </div>
               <div>
-                <NewsCard
+                <NewsCards2
                   title={t("Card5.title")}
                   excerpt={t("Card5.desc")}
                   image="/fifthCard.png?height=400&width=600"
                   href="/news/annual-conferece"
+                  isAnyCardHovered={isAnyCardHovered}
+                  onHoverChange={setIsAnyCardHovered}
                 />
               </div>
             </div>
             {/* Duplicate set of cards to ensure seamless looping */}
             <div className="flex gap-8 pl-8">
               <div>
-                <NewsCard
+                <NewsCards2
                   title={t("card1.title")}
                   excerpt={t("Card1.desc")}
                   image="/scholer.png?height=400&width=600"
                   href="/news/new-scholarship-program"
+                  isAnyCardHovered={isAnyCardHovered}
+                  onHoverChange={setIsAnyCardHovered}
                 />
               </div>
               <div>
-                <NewsCard
+                <NewsCards2
                   title={t("Card2.title")}
                   excerpt={t("Card2.desc")}
                   image="/secondCard.png"
                   href="/news/istanbul-university-partnership"
+                  isAnyCardHovered={isAnyCardHovered}
+                  onHoverChange={setIsAnyCardHovered}
                 />
               </div>
               <div>
-                <NewsCard
+                <NewsCards2
                   title={t("Card3.title")}
                   excerpt={t("Card3.desc")}
                   image="/thirdCard.png?height=400&width=600"
                   href="/news/annual-conference"
+                  isAnyCardHovered={isAnyCardHovered}
+                  onHoverChange={setIsAnyCardHovered}
                 />
               </div>
               <div>
-                <NewsCard
+                <NewsCards2
                   title={t("Card4.title")}
                   excerpt={t("Card4.desc")}
                   image="/fourCard.png?height=400&width=600"
                   href="/news/annual-conference"
+                  isAnyCardHovered={isAnyCardHovered}
+                  onHoverChange={setIsAnyCardHovered}
                 />
               </div>
               <div>
-                <NewsCard
+                <NewsCards2
                   title={t("Card5.title")}
                   excerpt={t("Card5.desc")}
                   image="/fifthCard.png?height=400&width=600"
                   href="/news/annual-conferece"
+                  isAnyCardHovered={isAnyCardHovered}
+                  onHoverChange={setIsAnyCardHovered}
                 />
               </div>
             </div>
@@ -253,7 +274,7 @@ export default function Home() {
                   <GraduationCap className="mr-1 h-4 w-4" />
                   Educational Opportunities
                 </div>
-                <GSAPTextReveal className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                <GSAPTextReveal className="text-3xl font-bold sm:text-5xl h-20">
                   Our Programs
                 </GSAPTextReveal>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -316,7 +337,7 @@ export default function Home() {
                   <Users className="mr-1 h-4 w-4" />
                   Student Achievements
                 </div>
-                <GSAPTextReveal className="text-3xl font-bold tracking-tighter sm:text-5xl text-white">
+                <GSAPTextReveal className="text-3xl font-bold sm:text-5xl text-white">
                   Success Stories
                 </GSAPTextReveal>
                 <p className="max-w-[900px] text-gray-200 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -391,7 +412,7 @@ export default function Home() {
                   <Calendar className="mr-1 h-4 w-4" />
                   Applications Open
                 </div>
-                <GSAPTextReveal className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                <GSAPTextReveal className="text-3xl font-bold sm:text-5xl h-20">
                   Apply for Grants
                 </GSAPTextReveal>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -425,7 +446,7 @@ export default function Home() {
                   <MessageSquare className="mr-1 h-4 w-4" />
                   Get in Touch
                 </div>
-                <GSAPTextReveal className="text-3xl font-bold tracking-tighter sm:text-5xl">Contact Us</GSAPTextReveal>
+                <GSAPTextReveal className="text-3xl font-bold sm:text-5xl">Contact Us</GSAPTextReveal>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Have questions? Our team is here to help you with any inquiries about our programs and application
                   process.

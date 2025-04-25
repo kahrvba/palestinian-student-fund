@@ -40,8 +40,8 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="relative py-24 md:py-32 text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="/Flag_of_Palestine.svg" 
+          <img
+            src="/Flag_of_Palestine.svg"
             alt="Palestinian Flag"
             className="h-full w-full object-cover"
           />
@@ -49,7 +49,7 @@ export default function AboutPage() {
         </div>
         <div className="container relative z-10 px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <GSAPTextReveal element="h1" className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl drop-shadow-lg">
+            <GSAPTextReveal element="h1" className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl drop-shadow-lg font-playfair">
               {t("about.hero.title")}
             </GSAPTextReveal>
             <GSAPReveal animation="fade" delay={0.3}>
@@ -420,7 +420,7 @@ export default function AboutPage() {
       <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)] via-black to-[hsl(120,61%,34%)] text-white">
         <div className="container px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <GSAPTextReveal element="h2" className="text-3xl font-bold tracking-tighter sm:text-4xl">
+            <GSAPTextReveal element="h2" className="text-3xl font-bold tracking-tighter sm:text-4xl h-20">
               Join Our Mission
             </GSAPTextReveal>
             <GSAPReveal animation="fade" delay={0.2}>

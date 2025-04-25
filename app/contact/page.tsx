@@ -74,7 +74,7 @@ export default function ContactPage() {
         </div>
         <div className="container relative z-10 px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl drop-shadow-lg">Contact Us</h1>
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl drop-shadow-lg font-playfair">Contact Us</h1>
             <p className="mt-6 text-xl text-white drop-shadow-md">
               Have questions about our programs or application process? Our team is here to help.
             </p>

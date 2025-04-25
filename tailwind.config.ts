@@ -23,6 +23,7 @@ const config = {
         sans: ["var(--font-inter)"],
         poppins: ["var(--font-poppins)"],
         amiri: ["var(--font-amiri)"],
+        playfair: ["var(--font-playfair)"],
       },
       colors: {
         border: "hsl(var(--border))",

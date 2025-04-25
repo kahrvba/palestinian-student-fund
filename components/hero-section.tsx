@@ -5,9 +5,12 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import GSAPTextReveal from "@/components/gsap-text-reveal"
+import { useLanguage } from "@/components/language-provider"
 
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null)
+  const { t } = useLanguage()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,14 +48,12 @@ export default function HeroSection() {
           transition={{ duration: 0.8 }}
           className="max-w-4xl space-y-6"
         >
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl"
+          <GSAPTextReveal
+            element="h1"
+            className="hero-title text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-lg min-h-[1.2em] leading-[1.2] overflow-visible"
           >
-            Empowering Palestinian Students Worldwide
-          </motion.h1>
+            {t("hero.title")}
+          </GSAPTextReveal>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}

@@ -59,7 +59,7 @@ export default function GSAPTextReveal({
   }, [children, delay, duration, threshold])
 
   return (
-    <Element ref={ref} className={`${className} overflow-hidden`}>
+    <Element ref={ref as React.RefObject<HTMLHeadingElement>} className={`${className} overflow-hidden`}>
       {children}
     </Element>
   )

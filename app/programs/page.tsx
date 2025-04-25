@@ -49,11 +49,11 @@ export default function ProgramsPage() {
         </div>
         <div className="container relative z-10 px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <GSAPTextReveal element="h1" className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl drop-shadow-lg">
+            <GSAPTextReveal element="h1" className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl drop-shadow-lg font-playfair h-20">
               Our Programs
             </GSAPTextReveal>
             <GSAPReveal animation="fade" delay={0.3}>
-              <p className="mt-6 text-xl text-white drop-shadow-md">
+              <p className="mt-6 text-xl text-white drop-shadow-md font-playfair">
                 Discover our comprehensive range of educational support programs designed to empower Palestinian
                 students at every academic level.
               </p>

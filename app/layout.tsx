@@ -1,5 +1,5 @@
 import type React from "react"
-import { Inter, Poppins, Amiri } from "next/font/google"
+import { Inter, Poppins, Amiri, Playfair_Display } from "next/font/google"
 import type { Metadata } from "next"
 import { Toaster } from "@/components/ui/toaster"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -18,6 +18,12 @@ const amiri = Amiri({
   weight: ["400", "700"],
   subsets: ["arabic"],
   variable: "--font-amiri",
+})
+
+const playfair = Playfair_Display({
+  weight: ["400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+  variable: "--font-playfair",
 })
 
 const SITE_ENABLED = false;
@@ -40,7 +46,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${poppins.variable} ${amiri.variable} font-sans`}>
+      <body className={`${inter.variable} ${poppins.variable} ${amiri.variable} ${playfair.variable} font-playfair`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <LanguageProvider>
             <div className="flex min-h-screen flex-col">
