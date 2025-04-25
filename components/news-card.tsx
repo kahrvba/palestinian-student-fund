@@ -10,9 +10,10 @@ interface NewsCardProps {
   excerpt: string
   image: string
   href: string
+  date?: string
 }
 
-export default function NewsCard({ title,excerpt, image, href }: NewsCardProps) {
+export default function NewsCard({ title, excerpt, image, href, date }: NewsCardProps) {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
@@ -23,7 +24,7 @@ export default function NewsCard({ title,excerpt, image, href }: NewsCardProps) 
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <Card className="w-[450px] h-[500px] overflow-hidden transition-all hover:shadow-lg border-2 border-primary/20 shadow-md dark:bg-black/80">
+        <Card className="w-full max-w-[1000px] h-[500px] overflow-hidden transition-all hover:shadow-lg border-2 border-[hsl(120,61%,34%)]/20 shadow-md dark:bg-black/80 dark:border-[hsl(120,61%,34%)]/30">
           <div className="h-[240px] overflow-hidden">
             <motion.img
               src={image || "/placeholder.svg"}
@@ -34,7 +35,10 @@ export default function NewsCard({ title,excerpt, image, href }: NewsCardProps) 
             />
           </div>
           <CardHeader className="p-6">
-            <h3 className="text-2xl font-bold leading-tight line-clamp-2 break-words whitespace-normal hyphens-auto" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>{title}</h3>
+            <h3 className="text-2xl font-bold leading-tight line-clamp-2 break-words whitespace-normal hyphens-auto text-black dark:text-white" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>{title}</h3>
+            {date && (
+              <p className="text-sm text-[hsl(0,76%,40%)] dark:text-[hsl(0,76%,50%)] mt-1">{date}</p>
+            )}
           </CardHeader>
           <CardContent className="p-6 pt-0">
             <p className="text-base text-muted-foreground leading-relaxed line-clamp-4 whitespace-normal hyphens-auto" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>{excerpt}</p>

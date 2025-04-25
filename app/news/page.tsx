@@ -11,7 +11,6 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import GSAPReveal from "@/components/gsap-reveal"
 import GSAPTextReveal from "@/components/gsap-text-reveal"
-import ParallaxSection from "@/components/parallax-section"
 import NewsCard from "@/components/news-card"
 
 // Mock news data
@@ -178,34 +177,46 @@ export default function NewsPage() {
   return (
     <main className="flex min-h-screen flex-col">
       {/* Hero Section */}
-      <ParallaxSection backgroundImage="/placeholder.svg?height=600&width=1200" className="py-24 md:py-32 text-white">
-        <div className="container px-4 md:px-6">
+      <section className="relative py-24 md:py-32 text-white overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/Flag_of_Palestine.svg"
+            alt="Palestinian Flag"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
+        <div className="container relative z-10 px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <GSAPTextReveal element="h1" className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+            <GSAPTextReveal element="h1" className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl drop-shadow-lg">
               Latest News
             </GSAPTextReveal>
             <GSAPReveal animation="fade" delay={0.3}>
-              <p className="mt-6 text-xl text-gray-200">
+              <p className="mt-6 text-xl text-white drop-shadow-md">
                 Stay informed about our recent initiatives, announcements, and success stories.
               </p>
             </GSAPReveal>
           </div>
         </div>
-      </ParallaxSection>
+      </section>
 
       {/* Featured News */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/5 via-transparent to-[hsl(120,61%,34%)]/5 dark:from-[hsl(0,76%,40%)]/10 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/10">
         <div className="container px-4 md:px-6">
           <GSAPReveal animation="slide-up">
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Featured Stories</h2>
+              <div className="inline-flex items-center rounded-lg bg-[hsl(120,61%,34%)]/10 px-3 py-1 text-sm text-[hsl(120,61%,34%)]">
+                <Filter className="mr-1 h-4 w-4" />
+                Featured
+              </div>
+              <h2 className="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl text-black dark:text-white">Featured Stories</h2>
               <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
                 Highlighting our most important updates and announcements.
               </p>
             </div>
           </GSAPReveal>
 
-          <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto grid max-w-10xl gap-x-16 gap-y-8 md:grid-cols-2 lg:grid-cols-3 place-items-center">
             {newsData
               .filter((news) => news.featured)
               .slice(0, 3)
@@ -225,11 +236,15 @@ export default function NewsPage() {
       </section>
 
       {/* News Archive */}
-      <section className="py-16 md:py-24 bg-muted/30">
+      <section className="py-16 md:py-24 bg-white dark:bg-black">
         <div className="container px-4 md:px-6">
           <GSAPReveal animation="slide-up">
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">News Archive</h2>
+              <div className="inline-flex items-center rounded-lg bg-[hsl(0,76%,40%)]/10 px-3 py-1 text-sm text-[hsl(0,76%,40%)]">
+                <Calendar className="mr-1 h-4 w-4" />
+                Archive
+              </div>
+              <h2 className="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl text-black dark:text-white">News Archive</h2>
               <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
                 Browse our complete collection of news, updates, and announcements.
               </p>
@@ -241,23 +256,27 @@ export default function NewsPage() {
             <GSAPReveal animation="fade">
               <div className="mb-8 grid gap-4 md:grid-cols-3">
                 <div className="relative md:col-span-2">
-                  <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                  <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[hsl(0,76%,40%)] dark:text-[hsl(0,76%,50%)]" />
                   <Input
                     placeholder="Search news..."
-                    className="pl-10"
+                    className="pl-10 border-[hsl(120,61%,34%)]/20 focus-visible:ring-[hsl(120,61%,34%)] dark:border-[hsl(120,61%,34%)]/30"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                   />
                 </div>
                 <div className="flex items-center gap-2">
-                  <Filter className="h-4 w-4 text-muted-foreground" />
+                  <Filter className="h-4 w-4 text-[hsl(120,61%,34%)] dark:text-[hsl(120,61%,44%)]" />
                   <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                    <SelectTrigger>
+                    <SelectTrigger className="border-[hsl(120,61%,34%)]/20 focus:ring-[hsl(120,61%,34%)] dark:border-[hsl(120,61%,34%)]/30">
                       <SelectValue placeholder="Filter by category" />
                     </SelectTrigger>
                     <SelectContent>
                       {categories.map((category) => (
-                        <SelectItem key={category} value={category}>
+                        <SelectItem
+                          key={category}
+                          value={category}
+                          className="focus:bg-[hsl(120,61%,34%)]/10 focus:text-[hsl(120,61%,34%)] dark:focus:bg-[hsl(120,61%,34%)]/20 dark:focus:text-[hsl(120,61%,44%)]"
+                        >
                           {category}
                         </SelectItem>
                       ))}
@@ -270,10 +289,25 @@ export default function NewsPage() {
             {/* Tabs */}
             <GSAPReveal animation="fade" delay={0.1}>
               <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-8">
-                <TabsList className="grid w-full max-w-md grid-cols-3">
-                  <TabsTrigger value="all">All News</TabsTrigger>
-                  <TabsTrigger value="featured">Featured</TabsTrigger>
-                  <TabsTrigger value="recent">Recent</TabsTrigger>
+                <TabsList className="grid w-full max-w-md grid-cols-3 bg-[hsl(0,76%,40%)]/5 dark:bg-[hsl(0,76%,40%)]/10">
+                  <TabsTrigger
+                    value="all"
+                    className="data-[state=active]:bg-[hsl(120,61%,34%)] data-[state=active]:text-white"
+                  >
+                    All News
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="featured"
+                    className="data-[state=active]:bg-[hsl(120,61%,34%)] data-[state=active]:text-white"
+                  >
+                    Featured
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="recent"
+                    className="data-[state=active]:bg-[hsl(120,61%,34%)] data-[state=active]:text-white"
+                  >
+                    Recent
+                  </TabsTrigger>
                 </TabsList>
               </Tabs>
             </GSAPReveal>
@@ -283,7 +317,7 @@ export default function NewsPage() {
               <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 {paginatedNews.map((news, index) => (
                   <GSAPReveal key={news.id} animation="fade" delay={0.1 * index}>
-                    <div className="group relative overflow-hidden rounded-lg border bg-card transition-all hover:shadow-md">
+                    <div className="group relative overflow-hidden rounded-lg border-2 border-[hsl(120,61%,34%)]/20 bg-card transition-all hover:shadow-md dark:bg-black/80 dark:border-[hsl(120,61%,34%)]/30">
                       <div className="aspect-video overflow-hidden">
                         <img
                           src={news.image || "/placeholder.svg"}
@@ -293,19 +327,19 @@ export default function NewsPage() {
                       </div>
                       <div className="p-4">
                         <div className="mb-2 flex items-center justify-between">
-                          <Badge variant="outline" className="bg-primary/10 text-primary">
+                          <Badge variant="outline" className="bg-[hsl(0,76%,40%)]/10 text-[hsl(0,76%,40%)] dark:bg-[hsl(0,76%,40%)]/20 dark:text-[hsl(0,76%,50%)]">
                             {news.category}
                           </Badge>
-                          <div className="flex items-center text-sm text-muted-foreground">
+                          <div className="flex items-center text-sm text-[hsl(0,76%,40%)] dark:text-[hsl(0,76%,50%)]">
                             <Calendar className="mr-1 h-3 w-3" />
                             {news.date}
                           </div>
                         </div>
-                        <h3 className="mb-2 line-clamp-2 text-xl font-bold">{news.title}</h3>
+                        <h3 className="mb-2 line-clamp-2 text-xl font-bold text-black dark:text-white">{news.title}</h3>
                         <p className="mb-4 line-clamp-3 text-muted-foreground">{news.excerpt}</p>
                         <a
                           href={news.href}
-                          className="inline-flex items-center text-sm font-medium text-primary hover:underline"
+                          className="inline-flex items-center text-sm font-medium text-[hsl(120,61%,34%)] hover:underline dark:text-[hsl(120,61%,44%)]"
                         >
                           Read More
                           <ArrowRight className="ml-1 h-4 w-4" />
@@ -316,8 +350,8 @@ export default function NewsPage() {
                 ))}
               </div>
             ) : (
-              <div className="rounded-lg border border-dashed p-8 text-center">
-                <p className="text-muted-foreground">No news articles found matching your criteria.</p>
+              <div className="rounded-lg border-2 border-dashed border-[hsl(0,76%,40%)]/20 dark:border-[hsl(0,76%,40%)]/30 p-8 text-center">
+                <p className="text-[hsl(0,76%,40%)] dark:text-[hsl(0,76%,50%)]">No news articles found matching your criteria.</p>
               </div>
             )}
 
@@ -330,6 +364,7 @@ export default function NewsPage() {
                     size="icon"
                     onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
                     disabled={currentPage === 1}
+                    className="border-[hsl(120,61%,34%)]/30 hover:bg-[hsl(120,61%,34%)]/10 hover:text-[hsl(120,61%,34%)] dark:border-[hsl(120,61%,34%)]/30 dark:hover:bg-[hsl(120,61%,34%)]/20 dark:hover:text-[hsl(120,61%,44%)]"
                   >
                     <ChevronLeft className="h-4 w-4" />
                   </Button>
@@ -339,6 +374,10 @@ export default function NewsPage() {
                       variant={currentPage === index + 1 ? "default" : "outline"}
                       size="icon"
                       onClick={() => setCurrentPage(index + 1)}
+                      className={currentPage === index + 1
+                        ? "bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90"
+                        : "border-[hsl(120,61%,34%)]/30 hover:bg-[hsl(120,61%,34%)]/10 hover:text-[hsl(120,61%,34%)] dark:border-[hsl(120,61%,34%)]/30 dark:hover:bg-[hsl(120,61%,34%)]/20 dark:hover:text-[hsl(120,61%,44%)]"
+                      }
                     >
                       {index + 1}
                     </Button>
@@ -348,6 +387,7 @@ export default function NewsPage() {
                     size="icon"
                     onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
                     disabled={currentPage === totalPages}
+                    className="border-[hsl(120,61%,34%)]/30 hover:bg-[hsl(120,61%,34%)]/10 hover:text-[hsl(120,61%,34%)] dark:border-[hsl(120,61%,34%)]/30 dark:hover:bg-[hsl(120,61%,34%)]/20 dark:hover:text-[hsl(120,61%,44%)]"
                   >
                     <ChevronRight className="h-4 w-4" />
                   </Button>
@@ -359,23 +399,23 @@ export default function NewsPage() {
       </section>
 
       {/* Newsletter Signup */}
-      <section className="py-16 md:py-24 bg-primary text-primary-foreground">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)] via-black to-[hsl(120,61%,34%)] text-white">
         <div className="container px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center">
             <GSAPReveal animation="slide-up">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Stay Updated</h2>
-              <p className="mt-4 text-xl text-primary-foreground/90">
+              <p className="mt-4 text-xl text-white/90">
                 Subscribe to our newsletter to receive the latest news and updates directly in your inbox.
               </p>
               <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
                 <Input
                   type="email"
                   placeholder="Enter your email"
-                  className="max-w-xs bg-white/10 text-white placeholder:text-white/70"
+                  className="max-w-xs bg-white/10 text-white placeholder:text-white/70 border-white/20"
                 />
-                <Button className="bg-white text-primary hover:bg-gray-100">Subscribe</Button>
+                <Button className="bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90">Subscribe</Button>
               </div>
-              <p className="mt-4 text-sm text-primary-foreground/70">
+              <p className="mt-4 text-sm text-white/70">
                 We respect your privacy. Unsubscribe at any time.
               </p>
             </GSAPReveal>

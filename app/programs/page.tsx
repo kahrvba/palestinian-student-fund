@@ -10,7 +10,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import GSAPReveal from "@/components/gsap-reveal"
 import GSAPTextReveal from "@/components/gsap-text-reveal"
-import ParallaxSection from "@/components/parallax-section"
 
 export default function ProgramsPage() {
   useEffect(() => {
@@ -39,21 +38,29 @@ export default function ProgramsPage() {
   return (
     <main className="flex min-h-screen flex-col">
       {/* Hero Section */}
-      <ParallaxSection backgroundImage="/placeholder.svg?height=600&width=1200" className="py-24 md:py-32 text-white">
-        <div className="container px-4 md:px-6">
+      <section className="relative py-24 md:py-32 text-white overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/Flag_of_Palestine.svg"
+            alt="Palestinian Flag"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
+        <div className="container relative z-10 px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <GSAPTextReveal element="h1" className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+            <GSAPTextReveal element="h1" className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl drop-shadow-lg">
               Our Programs
             </GSAPTextReveal>
             <GSAPReveal animation="fade" delay={0.3}>
-              <p className="mt-6 text-xl text-gray-200">
+              <p className="mt-6 text-xl text-white drop-shadow-md">
                 Discover our comprehensive range of educational support programs designed to empower Palestinian
                 students at every academic level.
               </p>
             </GSAPReveal>
           </div>
         </div>
-      </ParallaxSection>
+      </section>
 
       {/* Programs Overview */}
       <section className="py-16 md:py-24">
@@ -62,10 +69,25 @@ export default function ProgramsPage() {
             <Tabs defaultValue="undergraduate" className="w-full">
               <GSAPReveal animation="fade">
                 <div className="mb-8 flex justify-center">
-                  <TabsList className="grid w-full max-w-md grid-cols-3">
-                    <TabsTrigger value="undergraduate">Undergraduate</TabsTrigger>
-                    <TabsTrigger value="graduate">Graduate</TabsTrigger>
-                    <TabsTrigger value="research">Research</TabsTrigger>
+                  <TabsList className="grid w-full max-w-md grid-cols-3 bg-[hsl(0,76%,40%)]/5 dark:bg-[hsl(0,76%,40%)]/10">
+                    <TabsTrigger
+                      value="undergraduate"
+                      className="data-[state=active]:bg-[hsl(120,61%,34%)] data-[state=active]:text-white"
+                    >
+                      Undergraduate
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="graduate"
+                      className="data-[state=active]:bg-[hsl(120,61%,34%)] data-[state=active]:text-white"
+                    >
+                      Graduate
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="research"
+                      className="data-[state=active]:bg-[hsl(120,61%,34%)] data-[state=active]:text-white"
+                    >
+                      Research
+                    </TabsTrigger>
                   </TabsList>
                 </div>
               </GSAPReveal>
@@ -73,8 +95,8 @@ export default function ProgramsPage() {
               <TabsContent value="undergraduate" className="space-y-8">
                 <GSAPReveal animation="fade">
                   <div className="text-center">
-                    <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-                      <GraduationCap className="h-8 w-8 text-primary" />
+                    <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[hsl(120,61%,34%)]/10">
+                      <GraduationCap className="h-8 w-8 text-[hsl(120,61%,34%)]" />
                     </div>
                     <h2 className="text-3xl font-bold">Undergraduate Programs</h2>
                     <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
@@ -149,7 +171,7 @@ export default function ProgramsPage() {
                 <GSAPReveal animation="fade" delay={0.4}>
                   <div className="text-center">
                     <Link href="/apply">
-                      <Button className="bg-primary hover:bg-primary/90">Apply for Undergraduate Programs</Button>
+                      <Button className="bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90">Apply for Undergraduate Programs</Button>
                     </Link>
                   </div>
                 </GSAPReveal>
@@ -158,8 +180,8 @@ export default function ProgramsPage() {
               <TabsContent value="graduate" className="space-y-8">
                 <GSAPReveal animation="fade">
                   <div className="text-center">
-                    <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-                      <Award className="h-8 w-8 text-primary" />
+                    <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[hsl(0,76%,40%)]/10">
+                      <Award className="h-8 w-8 text-[hsl(0,76%,40%)]" />
                     </div>
                     <h2 className="text-3xl font-bold">Graduate Programs</h2>
                     <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
@@ -234,7 +256,7 @@ export default function ProgramsPage() {
                 <GSAPReveal animation="fade" delay={0.4}>
                   <div className="text-center">
                     <Link href="/apply">
-                      <Button className="bg-primary hover:bg-primary/90">Apply for Graduate Programs</Button>
+                      <Button className="bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90">Apply for Graduate Programs</Button>
                     </Link>
                   </div>
                 </GSAPReveal>
@@ -243,8 +265,8 @@ export default function ProgramsPage() {
               <TabsContent value="research" className="space-y-8">
                 <GSAPReveal animation="fade">
                   <div className="text-center">
-                    <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-                      <BookOpen className="h-8 w-8 text-primary" />
+                    <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-black/10 dark:bg-white/10">
+                      <BookOpen className="h-8 w-8 text-black dark:text-white" />
                     </div>
                     <h2 className="text-3xl font-bold">Research Programs</h2>
                     <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
@@ -319,7 +341,7 @@ export default function ProgramsPage() {
                 <GSAPReveal animation="fade" delay={0.4}>
                   <div className="text-center">
                     <Link href="/apply">
-                      <Button className="bg-primary hover:bg-primary/90">Apply for Research Programs</Button>
+                      <Button className="bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90">Apply for Research Programs</Button>
                     </Link>
                   </div>
                 </GSAPReveal>
@@ -330,12 +352,16 @@ export default function ProgramsPage() {
       </section>
 
       {/* Program Features */}
-      <section className="py-16 md:py-24 bg-muted/30">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/5 via-transparent to-[hsl(120,61%,34%)]/5 dark:from-[hsl(0,76%,40%)]/10 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/10">
         <div className="container px-4 md:px-6">
           <div className="mx-auto max-w-5xl">
             <div className="mb-12 text-center">
               <GSAPReveal animation="slide-up">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Program Features</h2>
+                <div className="inline-flex items-center rounded-lg bg-[hsl(120,61%,34%)]/10 px-3 py-1 text-sm text-[hsl(120,61%,34%)]">
+                  <Lightbulb className="mr-1 h-4 w-4" />
+                  Key Benefits
+                </div>
+                <h2 className="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl">Program Features</h2>
                 <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
                   All our programs include comprehensive support beyond financial assistance to ensure student success
                   and well-being.
@@ -346,8 +372,8 @@ export default function ProgramsPage() {
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               <GSAPReveal animation="scale" delay={0.1} className="h-full">
                 <div className="flex flex-col items-center text-center h-full">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                    <Users className="h-6 w-6 text-primary" />
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[hsl(120,61%,34%)]/10">
+                    <Users className="h-6 w-6 text-[hsl(120,61%,34%)]" />
                   </div>
                   <h3 className="text-xl font-bold">Mentorship</h3>
                   <p className="mt-2 text-muted-foreground">
@@ -358,8 +384,8 @@ export default function ProgramsPage() {
 
               <GSAPReveal animation="scale" delay={0.2} className="h-full">
                 <div className="flex flex-col items-center text-center h-full">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                    <Globe className="h-6 w-6 text-primary" />
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[hsl(0,76%,40%)]/10">
+                    <Globe className="h-6 w-6 text-[hsl(0,76%,40%)]" />
                   </div>
                   <h3 className="text-xl font-bold">Cultural Integration</h3>
                   <p className="mt-2 text-muted-foreground">
@@ -370,8 +396,8 @@ export default function ProgramsPage() {
 
               <GSAPReveal animation="scale" delay={0.3} className="h-full">
                 <div className="flex flex-col items-center text-center h-full">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                    <Lightbulb className="h-6 w-6 text-primary" />
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-black/10 dark:bg-white/10">
+                    <Lightbulb className="h-6 w-6 text-black dark:text-white" />
                   </div>
                   <h3 className="text-xl font-bold">Career Development</h3>
                   <p className="mt-2 text-muted-foreground">
@@ -385,12 +411,16 @@ export default function ProgramsPage() {
       </section>
 
       {/* Eligibility & Application */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-white dark:bg-black">
         <div className="container px-4 md:px-6">
           <div className="mx-auto max-w-5xl">
             <div className="mb-12 text-center">
               <GSAPReveal animation="slide-up">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Eligibility & Application</h2>
+                <div className="inline-flex items-center rounded-lg bg-[hsl(0,76%,40%)]/10 px-3 py-1 text-sm text-[hsl(0,76%,40%)]">
+                  <Users className="mr-1 h-4 w-4" />
+                  Application Guide
+                </div>
+                <h2 className="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl">Eligibility & Application</h2>
                 <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
                   Learn about our application process and eligibility requirements for our programs.
                 </p>
@@ -458,7 +488,10 @@ export default function ProgramsPage() {
             <GSAPReveal animation="fade" delay={0.4}>
               <div className="mt-12 text-center">
                 <Link href="/apply">
-                  <Button size="lg" className="bg-primary hover:bg-primary/90">
+                  <Button
+                    size="lg"
+                    className="bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90"
+                  >
                     Start Your Application
                   </Button>
                 </Link>
@@ -469,12 +502,16 @@ export default function ProgramsPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 md:py-24 bg-muted/30">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/5 via-transparent to-[hsl(120,61%,34%)]/5 dark:from-[hsl(0,76%,40%)]/10 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/10">
         <div className="container px-4 md:px-6">
           <div className="mx-auto max-w-3xl">
             <div className="mb-12 text-center">
               <GSAPReveal animation="slide-up">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Frequently Asked Questions</h2>
+                <div className="inline-flex items-center rounded-lg bg-[hsl(120,61%,34%)]/10 px-3 py-1 text-sm text-[hsl(120,61%,34%)]">
+                  <Lightbulb className="mr-1 h-4 w-4" />
+                  Common Questions
+                </div>
+                <h2 className="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl">Frequently Asked Questions</h2>
               </GSAPReveal>
             </div>
 
@@ -526,22 +563,28 @@ export default function ProgramsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-24 bg-primary text-primary-foreground">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)] via-black to-[hsl(120,61%,34%)] text-white">
         <div className="container px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center">
             <GSAPReveal animation="slide-up">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Ready to Begin Your Journey?</h2>
-              <p className="mt-4 text-xl text-primary-foreground/90">
+              <p className="mt-4 text-xl text-white/90">
                 Take the first step toward your educational goals by applying to our programs today.
               </p>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
                 <Link href="/apply">
-                  <Button size="lg" className="bg-white text-primary hover:bg-gray-100">
+                  <Button
+                    size="lg"
+                    className="bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90"
+                  >
                     Apply Now
                   </Button>
                 </Link>
                 <Link href="/contact">
-                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                  <Button
+                    size="lg"
+                    className="bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90"
+                  >
                     Contact Our Team
                   </Button>
                 </Link>

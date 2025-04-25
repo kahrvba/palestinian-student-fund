@@ -80,13 +80,11 @@ export default function Home() {
         className="relative h-screen min-h-[600px] w-full overflow-hidden flex items-center justify-center"
       >
         <div className="absolute inset-0 z-0 hero-image">
-          {/* Palestinian flag-inspired background */}
-          <div className="absolute inset-0 grid grid-rows-3">
-            <div className="bg-black"></div>
-            <div className="bg-white"></div>
-            <div className="bg-[hsl(120,61%,34%)]"></div>
-          </div>
-          <div className="absolute inset-0 left-0 w-1/3 bg-[hsl(0,76%,40%)]"></div>
+          <img 
+            src="/Flag_of_Palestine.svg" 
+            alt="Palestinian Flag"
+            className="h-full w-full object-cover"
+          />
           <div className="absolute inset-0 bg-black/30" />
         </div>
 
