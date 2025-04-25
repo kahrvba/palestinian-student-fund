@@ -32,19 +32,19 @@ export default function ApplyPage() {
   return (
     <main className="flex min-h-screen flex-col">
       {/* Hero Section */}
-      <section className="relative py-24 md:py-32 bg-emerald-900 text-white">
+      <section className="relative py-24 md:py-32 text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black/40" />
           <img
-            src="/placeholder.svg?height=600&width=1200"
-            alt="Students applying"
+            src="/Flag_of_Palestine.svg"
+            alt="Palestinian Flag"
             className="h-full w-full object-cover"
           />
+          <div className="absolute inset-0 bg-black/30" />
         </div>
         <div className="container relative z-10 px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">Apply for Grants</h1>
-            <p className="mt-6 text-xl text-gray-200">
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl drop-shadow-lg">Apply for Grants</h1>
+            <p className="mt-6 text-xl text-white drop-shadow-md">
               Take the first step toward your educational journey with our comprehensive grant programs.
             </p>
           </div>
@@ -52,7 +52,7 @@ export default function ApplyPage() {
       </section>
 
       {/* Application Process */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/5 via-transparent to-[hsl(120,61%,34%)]/5 dark:from-[hsl(0,76%,40%)]/10 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/10">
         <div className="container px-4 md:px-6">
           <div className="mx-auto max-w-5xl">
             {/* Progress Steps */}
@@ -63,9 +63,9 @@ export default function ApplyPage() {
                     <div
                       className={`flex h-10 w-10 items-center justify-center rounded-full border-2 ${
                         step > i + 1
-                          ? "border-emerald-600 bg-emerald-600 text-white"
+                          ? "border-[hsl(120,61%,34%)] bg-[hsl(120,61%,34%)] text-white"
                           : step === i + 1
-                            ? "border-emerald-600 text-emerald-600"
+                            ? "border-[hsl(120,61%,34%)] text-[hsl(120,61%,34%)]"
                             : "border-gray-300 text-gray-300"
                       }`}
                     >
@@ -73,7 +73,7 @@ export default function ApplyPage() {
                     </div>
                     <div
                       className={`mt-2 text-sm ${
-                        step > i + 1 ? "text-emerald-600" : step === i + 1 ? "text-emerald-600" : "text-gray-400"
+                        step > i + 1 ? "text-[hsl(120,61%,34%)]" : step === i + 1 ? "text-[hsl(120,61%,34%)]" : "text-gray-400"
                       }`}
                     >
                       {i === 0 && "Personal Info"}
@@ -87,7 +87,7 @@ export default function ApplyPage() {
               <div className="mt-4 flex justify-between">
                 {Array.from({ length: totalSteps - 1 }).map((_, i) => (
                   <div key={i} className="flex-1">
-                    <div className={`h-1 ${step > i + 1 ? "bg-emerald-600" : "bg-gray-200"}`} />
+                    <div className={`h-1 ${step > i + 1 ? "bg-[hsl(120,61%,34%)]" : "bg-gray-200"}`} />
                   </div>
                 ))}
               </div>
@@ -161,7 +161,7 @@ export default function ApplyPage() {
                     </div>
 
                     <div className="flex justify-end">
-                      <Button onClick={nextStep} className="bg-emerald-600 hover:bg-emerald-700">
+                      <Button onClick={nextStep} className="bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90">
                         Next Step
                         <ChevronRight className="ml-2 h-4 w-4" />
                       </Button>
@@ -251,7 +251,7 @@ export default function ApplyPage() {
                       <Button variant="outline" onClick={prevStep}>
                         Previous Step
                       </Button>
-                      <Button onClick={nextStep} className="bg-emerald-600 hover:bg-emerald-700">
+                      <Button onClick={nextStep} className="bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90">
                         Next Step
                         <ChevronRight className="ml-2 h-4 w-4" />
                       </Button>
@@ -275,8 +275,8 @@ export default function ApplyPage() {
                   <CardContent className="space-y-6">
                     <div className="rounded-lg border border-dashed p-6">
                       <div className="flex flex-col items-center justify-center space-y-2 text-center">
-                        <div className="rounded-full bg-gray-100 p-3">
-                          <Upload className="h-6 w-6 text-gray-500" />
+                        <div className="rounded-full bg-[hsl(120,61%,34%)]/10 p-3">
+                          <Upload className="h-6 w-6 text-[hsl(120,61%,34%)]" />
                         </div>
                         <div className="space-y-1">
                           <p className="text-sm font-medium">ID/Passport Copy</p>
@@ -290,8 +290,8 @@ export default function ApplyPage() {
 
                     <div className="rounded-lg border border-dashed p-6">
                       <div className="flex flex-col items-center justify-center space-y-2 text-center">
-                        <div className="rounded-full bg-gray-100 p-3">
-                          <FileText className="h-6 w-6 text-gray-500" />
+                        <div className="rounded-full bg-[hsl(0,76%,40%)]/10 p-3">
+                          <FileText className="h-6 w-6 text-[hsl(0,76%,40%)]" />
                         </div>
                         <div className="space-y-1">
                           <p className="text-sm font-medium">Academic Transcripts</p>
@@ -305,8 +305,8 @@ export default function ApplyPage() {
 
                     <div className="rounded-lg border border-dashed p-6">
                       <div className="flex flex-col items-center justify-center space-y-2 text-center">
-                        <div className="rounded-full bg-gray-100 p-3">
-                          <User className="h-6 w-6 text-gray-500" />
+                        <div className="rounded-full bg-black/10 dark:bg-white/10 p-3">
+                          <User className="h-6 w-6 text-black dark:text-white" />
                         </div>
                         <div className="space-y-1">
                           <p className="text-sm font-medium">Recommendation Letters (2)</p>
@@ -320,8 +320,8 @@ export default function ApplyPage() {
 
                     <div className="rounded-lg border border-dashed p-6">
                       <div className="flex flex-col items-center justify-center space-y-2 text-center">
-                        <div className="rounded-full bg-gray-100 p-3">
-                          <FileText className="h-6 w-6 text-gray-500" />
+                        <div className="rounded-full bg-[hsl(120,61%,34%)]/10 p-3">
+                          <FileText className="h-6 w-6 text-[hsl(120,61%,34%)]" />
                         </div>
                         <div className="space-y-1">
                           <p className="text-sm font-medium">CV/Resume</p>
@@ -337,7 +337,7 @@ export default function ApplyPage() {
                       <Button variant="outline" onClick={prevStep}>
                         Previous Step
                       </Button>
-                      <Button onClick={nextStep} className="bg-emerald-600 hover:bg-emerald-700">
+                      <Button onClick={nextStep} className="bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90">
                         Next Step
                         <ChevronRight className="ml-2 h-4 w-4" />
                       </Button>
@@ -356,8 +356,8 @@ export default function ApplyPage() {
                     <CardDescription>Please review your application details before submitting.</CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-6">
-                    <div className="rounded-lg bg-gray-50 p-6">
-                      <h3 className="mb-4 text-lg font-medium">Personal Information</h3>
+                    <div className="rounded-lg bg-[hsl(120,61%,34%)]/5 dark:bg-[hsl(120,61%,34%)]/10 p-6">
+                      <h3 className="mb-4 text-lg font-medium text-[hsl(120,61%,34%)]">Personal Information</h3>
                       <div className="grid gap-4 md:grid-cols-2">
                         <div>
                           <p className="text-sm font-medium text-gray-500">Full Name</p>
@@ -378,8 +378,8 @@ export default function ApplyPage() {
                       </div>
                     </div>
 
-                    <div className="rounded-lg bg-gray-50 p-6">
-                      <h3 className="mb-4 text-lg font-medium">Program Details</h3>
+                    <div className="rounded-lg bg-[hsl(0,76%,40%)]/5 dark:bg-[hsl(0,76%,40%)]/10 p-6">
+                      <h3 className="mb-4 text-lg font-medium text-[hsl(0,76%,40%)]">Program Details</h3>
                       <div className="grid gap-4 md:grid-cols-2">
                         <div>
                           <p className="text-sm font-medium text-gray-500">Program Type</p>
@@ -400,23 +400,23 @@ export default function ApplyPage() {
                       </div>
                     </div>
 
-                    <div className="rounded-lg bg-gray-50 p-6">
+                    <div className="rounded-lg bg-black/5 dark:bg-white/5 p-6">
                       <h3 className="mb-4 text-lg font-medium">Uploaded Documents</h3>
                       <ul className="space-y-2">
                         <li className="flex items-center text-sm">
-                          <CheckCircle className="mr-2 h-4 w-4 text-emerald-600" />
+                          <CheckCircle className="mr-2 h-4 w-4 text-[hsl(120,61%,34%)]" />
                           ID/Passport Copy
                         </li>
                         <li className="flex items-center text-sm">
-                          <CheckCircle className="mr-2 h-4 w-4 text-emerald-600" />
+                          <CheckCircle className="mr-2 h-4 w-4 text-[hsl(120,61%,34%)]" />
                           Academic Transcripts
                         </li>
                         <li className="flex items-center text-sm">
-                          <CheckCircle className="mr-2 h-4 w-4 text-emerald-600" />
+                          <CheckCircle className="mr-2 h-4 w-4 text-[hsl(120,61%,34%)]" />
                           Recommendation Letters (2)
                         </li>
                         <li className="flex items-center text-sm">
-                          <CheckCircle className="mr-2 h-4 w-4 text-emerald-600" />
+                          <CheckCircle className="mr-2 h-4 w-4 text-[hsl(120,61%,34%)]" />
                           CV/Resume
                         </li>
                       </ul>
@@ -434,7 +434,7 @@ export default function ApplyPage() {
                       <Button variant="outline" onClick={prevStep}>
                         Previous Step
                       </Button>
-                      <Button className="bg-emerald-600 hover:bg-emerald-700">Submit Application</Button>
+                      <Button className="bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90">Submit Application</Button>
                     </div>
                   </CardContent>
                 </Card>
@@ -445,44 +445,48 @@ export default function ApplyPage() {
       </section>
 
       {/* Application Tips */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/5 via-transparent to-[hsl(120,61%,34%)]/5 dark:from-[hsl(0,76%,40%)]/10 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/10">
         <div className="container px-4 md:px-6">
           <div className="mx-auto max-w-3xl">
             <div className="mb-8 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Application Tips</h2>
-              <p className="mt-4 text-gray-500">
+              <div className="inline-flex items-center rounded-lg bg-[hsl(0,76%,40%)]/10 px-3 py-1 text-sm text-[hsl(0,76%,40%)]">
+                <FileText className="mr-1 h-4 w-4" />
+                Helpful Advice
+              </div>
+              <h2 className="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl">Application Tips</h2>
+              <p className="mt-4 text-muted-foreground">
                 Maximize your chances of success with these helpful tips for your application.
               </p>
             </div>
 
             <div className="space-y-6">
-              <div className="rounded-lg border p-6">
-                <h3 className="text-lg font-bold">Start Early</h3>
-                <p className="mt-2 text-gray-500">
+              <div className="rounded-lg border border-[hsl(120,61%,34%)]/20 p-6">
+                <h3 className="text-lg font-bold text-[hsl(120,61%,34%)]">Start Early</h3>
+                <p className="mt-2 text-muted-foreground">
                   Begin your application well before the deadline to allow time for gathering documents, securing
                   recommendation letters, and crafting a compelling personal statement.
                 </p>
               </div>
 
-              <div className="rounded-lg border p-6">
-                <h3 className="text-lg font-bold">Be Specific About Your Goals</h3>
-                <p className="mt-2 text-gray-500">
+              <div className="rounded-lg border border-[hsl(0,76%,40%)]/20 p-6">
+                <h3 className="text-lg font-bold text-[hsl(0,76%,40%)]">Be Specific About Your Goals</h3>
+                <p className="mt-2 text-muted-foreground">
                   Clearly articulate your academic and career goals, and explain how this specific program will help you
                   achieve them. Be concrete and realistic.
                 </p>
               </div>
 
-              <div className="rounded-lg border p-6">
-                <h3 className="text-lg font-bold">Highlight Your Achievements</h3>
-                <p className="mt-2 text-gray-500">
+              <div className="rounded-lg border border-[hsl(120,61%,34%)]/20 p-6">
+                <h3 className="text-lg font-bold text-[hsl(120,61%,34%)]">Highlight Your Achievements</h3>
+                <p className="mt-2 text-muted-foreground">
                   Don't be modest about your accomplishments. Include relevant academic achievements, community service,
                   leadership roles, and any other experiences that make you stand out.
                 </p>
               </div>
 
-              <div className="rounded-lg border p-6">
-                <h3 className="text-lg font-bold">Proofread Everything</h3>
-                <p className="mt-2 text-gray-500">
+              <div className="rounded-lg border border-[hsl(0,76%,40%)]/20 p-6">
+                <h3 className="text-lg font-bold text-[hsl(0,76%,40%)]">Proofread Everything</h3>
+                <p className="mt-2 text-muted-foreground">
                   Ensure all documents are error-free. Consider having someone else review your application materials
                   for clarity, coherence, and grammatical accuracy.
                 </p>
