@@ -12,7 +12,6 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import GSAPReveal from "@/components/gsap-reveal"
-import ParallaxSection from "@/components/parallax-section"
 
 export default function ContactPage() {
   const { toast } = useToast()
@@ -64,24 +63,36 @@ export default function ContactPage() {
   return (
     <main className="flex min-h-screen flex-col">
       {/* Hero Section */}
-      <ParallaxSection backgroundImage="/placeholder.svg?height=600&width=1200" className="py-24 md:py-32 text-white">
-        <div className="container px-4 md:px-6">
+      <section className="relative py-24 md:py-32 text-white overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/Flag_of_Palestine.svg"
+            alt="Palestinian Flag"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
+        <div className="container relative z-10 px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">Contact Us</h1>
-            <p className="mt-6 text-xl text-gray-200">
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl drop-shadow-lg">Contact Us</h1>
+            <p className="mt-6 text-xl text-white drop-shadow-md">
               Have questions about our programs or application process? Our team is here to help.
             </p>
           </div>
         </div>
-      </ParallaxSection>
+      </section>
 
       {/* Contact Information */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/5 via-transparent to-[hsl(120,61%,34%)]/5 dark:from-[hsl(0,76%,40%)]/10 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/10">
         <div className="container px-4 md:px-6">
           <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-2">
             <GSAPReveal animation="slide-right">
               <div>
-                <h2 className="text-3xl font-bold tracking-tighter">Get in Touch</h2>
+                <div className="inline-flex items-center rounded-lg bg-[hsl(120,61%,34%)]/10 px-3 py-1 text-sm text-[hsl(120,61%,34%)]">
+                  <Mail className="mr-1 h-4 w-4" />
+                  Contact Information
+                </div>
+                <h2 className="mt-2 text-3xl font-bold tracking-tighter">Get in Touch</h2>
                 <p className="mt-4 text-muted-foreground">
                   Whether you have questions about our programs, application process, or just want to learn more about
                   our foundation, we're here to help. Reach out to us using any of the methods below.
@@ -89,22 +100,22 @@ export default function ContactPage() {
 
                 <div className="mt-8 space-y-6">
                   <div className="flex items-start">
-                    <div className="mr-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                      <MapPin className="h-5 w-5 text-primary" />
+                    <div className="mr-4 flex h-10 w-10 items-center justify-center rounded-full bg-[hsl(120,61%,34%)]/10">
+                      <MapPin className="h-5 w-5 text-[hsl(120,61%,34%)]" />
                     </div>
                     <div>
                       <h3 className="text-lg font-medium">Our Location</h3>
                       <p className="mt-1 text-muted-foreground">
-                        123 Education Street, Beyoğlu
+                        123 Education Street, Al-Rimal
                         <br />
-                        Istanbul, Turkey 34433
+                        Gaza, Palestine
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-start">
-                    <div className="mr-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                      <Mail className="h-5 w-5 text-primary" />
+                    <div className="mr-4 flex h-10 w-10 items-center justify-center rounded-full bg-[hsl(0,76%,40%)]/10">
+                      <Mail className="h-5 w-5 text-[hsl(0,76%,40%)]" />
                     </div>
                     <div>
                       <h3 className="text-lg font-medium">Email Us</h3>
@@ -117,8 +128,8 @@ export default function ContactPage() {
                   </div>
 
                   <div className="flex items-start">
-                    <div className="mr-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                      <Phone className="h-5 w-5 text-primary" />
+                    <div className="mr-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/10 dark:bg-white/10">
+                      <Phone className="h-5 w-5 text-black dark:text-white" />
                     </div>
                     <div>
                       <h3 className="text-lg font-medium">Call Us</h3>
@@ -136,7 +147,7 @@ export default function ContactPage() {
                   <div className="mt-4 flex space-x-4">
                     <a
                       href="#"
-                      className="rounded-full bg-muted p-2 text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
+                      className="rounded-full bg-[hsl(120,61%,34%)]/10 p-2 text-[hsl(120,61%,34%)] transition-colors hover:bg-[hsl(120,61%,34%)]/20"
                     >
                       <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path
@@ -149,7 +160,7 @@ export default function ContactPage() {
                     </a>
                     <a
                       href="#"
-                      className="rounded-full bg-muted p-2 text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
+                      className="rounded-full bg-[hsl(0,76%,40%)]/10 p-2 text-[hsl(0,76%,40%)] transition-colors hover:bg-[hsl(0,76%,40%)]/20"
                     >
                       <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
@@ -158,7 +169,7 @@ export default function ContactPage() {
                     </a>
                     <a
                       href="#"
-                      className="rounded-full bg-muted p-2 text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
+                      className="rounded-full bg-black/10 dark:bg-white/10 p-2 text-black dark:text-white transition-colors hover:bg-black/20 dark:hover:bg-white/20"
                     >
                       <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path
@@ -175,8 +186,12 @@ export default function ContactPage() {
             </GSAPReveal>
 
             <GSAPReveal animation="slide-left">
-              <div className="rounded-lg border bg-card p-6 shadow-sm">
-                <h3 className="text-2xl font-bold">Send Us a Message</h3>
+              <div className="rounded-lg border border-[hsl(0,76%,40%)]/20 bg-card p-6 shadow-sm">
+                <div className="inline-flex items-center rounded-lg bg-[hsl(0,76%,40%)]/10 px-3 py-1 text-sm text-[hsl(0,76%,40%)]">
+                  <Send className="mr-1 h-4 w-4" />
+                  Message Form
+                </div>
+                <h3 className="mt-2 text-2xl font-bold">Send Us a Message</h3>
                 <p className="mt-2 text-muted-foreground">
                   Fill out the form below and we'll get back to you as soon as possible.
                 </p>
@@ -232,7 +247,10 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
+                  <Button
+                    type="submit"
+                    className="w-full bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90"
+                  >
                     Send Message
                     <Send className="ml-2 h-4 w-4" />
                   </Button>
@@ -244,14 +262,20 @@ export default function ContactPage() {
       </section>
 
       {/* Map Section */}
-      <section className="py-16 md:py-24 bg-muted/30">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/5 via-transparent to-[hsl(120,61%,34%)]/5 dark:from-[hsl(0,76%,40%)]/10 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/10">
         <div className="container px-4 md:px-6">
           <div className="mx-auto max-w-5xl">
             <GSAPReveal animation="slide-up">
-              <h2 className="mb-8 text-center text-3xl font-bold">Find Us</h2>
-              <div className="aspect-video w-full overflow-hidden rounded-lg border shadow-sm">
+              <div className="mb-8 text-center">
+                <div className="inline-flex items-center rounded-lg bg-[hsl(120,61%,34%)]/10 px-3 py-1 text-sm text-[hsl(120,61%,34%)]">
+                  <MapPin className="mr-1 h-4 w-4" />
+                  Our Location
+                </div>
+                <h2 className="mt-2 text-3xl font-bold">Find Us</h2>
+              </div>
+              <div className="aspect-video w-full overflow-hidden rounded-lg border border-[hsl(120,61%,34%)]/20 shadow-sm h-[450px]">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48168.83165063458!2d28.935556!3d41.013328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab7650656bd63%3A0x8ca058b28c20b6c3!2zQmV5b8SfbHUsIMSwc3RhbmJ1bCwgVHVya2V5!5e0!3m2!1sen!2sus!4v1625145332513!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108941.41942760064!2d34.4548911!3d31.4499427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14fd7f054e542767%3A0x7ff98dc913046392!2sGaza!5e0!3m2!1sen!2sus!4v1625145332513!5m2!1sen!2sus"
                   width="100%"
                   height="450"
                   style={{ border: 0 }}
