@@ -36,7 +36,14 @@ export const metadata: Metadata = {
   description:
     "Providing scholarships, university admissions, and academic support for Palestinian students across the world.",
   keywords: ["scholarships", "education", "palestinian students", "academic support", "university admissions"],
-    generator: 'v0.dev'
+  generator: 'v0.dev',
+  icons: {
+    icon: '/logo.png',
+    apple: [
+      { url: '/apple-touch-icon.png' },
+      { url: '/apple-touch-icon-precomposed.png' }
+    ]
+  }
 }
 
 export default function RootLayout({
