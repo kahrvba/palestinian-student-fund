@@ -104,6 +104,9 @@ const config = {
         "slide-out": "slide-out 0.4s ease-out",
         'scroll': 'scroll 8s linear infinite',
       },
+      maxWidth: {
+          '30xl': '120rem',
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

@@ -4,7 +4,21 @@ import { useEffect } from "react"
 import Link from "next/link"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { GraduationCap, Award, BookOpen, Lightbulb, Globe, Users } from "lucide-react"
+import {
+  GraduationCap,
+  Award,
+  BookOpen,
+  Lightbulb,
+  Globe,
+  Users,
+  Calendar,
+  Clock,
+  CheckSquare,
+  DollarSign,
+  Briefcase,
+  Target,
+  ArrowRight
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -12,6 +26,9 @@ import GSAPReveal from "@/components/gsap-reveal"
 import GSAPTextReveal from "@/components/gsap-text-reveal"
 
 export default function ProgramsPage() {
+  // Using DOM manipulation for interactive elements instead of React state
+
+  // Animation setup
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 
@@ -30,6 +47,23 @@ export default function ProgramsPage() {
       })
     }
 
+    // Add hover animations for scholarship cards
+    const cards = document.querySelectorAll(".scholarship-card")
+    cards.forEach(card => {
+      const icon = card.querySelector(".card-icon")
+      const tl = gsap.timeline({ paused: true })
+
+      tl.to(icon, {
+        y: -10,
+        scale: 1.1,
+        duration: 0.3,
+        ease: "power2.out"
+      })
+
+      card.addEventListener("mouseenter", () => tl.play())
+      card.addEventListener("mouseleave", () => tl.reverse())
+    })
+
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
     }
@@ -37,6 +71,15 @@ export default function ProgramsPage() {
 
   return (
     <main className="flex min-h-screen flex-col">
+      <style jsx global>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.5s ease-out forwards;
+        }
+      `}</style>
       {/* Hero Section */}
       <section className="relative py-24 md:py-32 text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -63,9 +106,9 @@ export default function ProgramsPage() {
       </section>
 
       {/* Programs Overview */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/5 via-transparent to-[hsl(120,61%,34%)]/5 dark:from-[hsl(0,76%,40%)]/10 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/10">
         <div className="container px-4 md:px-6">
-          <div className="mx-auto max-w-5xl">
+          <div className="mx-auto max-w-20xl">
             <Tabs defaultValue="undergraduate" className="w-full">
               <GSAPReveal animation="fade">
                 <div className="mb-8 flex justify-center">
@@ -106,72 +149,330 @@ export default function ProgramsPage() {
                   </div>
                 </GSAPReveal>
 
-                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-10 md:grid-cols-1 lg:grid-cols-2 max-w-6xl mx-auto" id="undergraduate-scholarships">
                   <GSAPReveal animation="slide-up" delay={0.1} className="h-full">
-                    <Card className="flex flex-col h-full">
-                      <CardHeader>
-                        <CardTitle>Full Scholarships</CardTitle>
-                        <CardDescription>Comprehensive financial support</CardDescription>
-                      </CardHeader>
-                      <CardContent className="flex-grow">
-                        <p className="text-muted-foreground">
-                          Covering tuition fees, accommodation, living expenses, and travel costs for outstanding
-                          students with financial need.
-                        </p>
-                        <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                          <li>• Duration: 4 years</li>
-                          <li>• Application deadline: March 15</li>
-                          <li>• Requirements: Academic excellence</li>
-                        </ul>
-                      </CardContent>
-                    </Card>
+                    <div className="group relative h-full overflow-hidden rounded-xl transition-all duration-500 hover:shadow-2xl">
+                      {/* Background gradient with animation */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(0,76%,40%)] via-black to-[hsl(120,61%,34%)] opacity-90 transition-all duration-700 group-hover:opacity-100"></div>
+
+                      {/* Animated pattern overlay */}
+                      <div className="absolute inset-0 bg-[url('/pattern.svg')] bg-repeat opacity-10 mix-blend-overlay transition-all duration-700 group-hover:opacity-20"></div>
+
+                      {/* Content container */}
+                      <div className="relative z-10 p-8 text-white h-full flex flex-col">
+                        {/* Header with icon */}
+                        <div className="flex items-center gap-4 mb-6">
+                          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm transition-all duration-500 group-hover:scale-110 group-hover:bg-white/20 card-icon">
+                            <Award className="h-8 w-8 text-white transition-all duration-500 group-hover:text-[hsl(120,61%,34%)]" />
+                          </div>
+                          <div>
+                            <h3 className="text-2xl font-bold font-playfair tracking-tight">Pulse of Life Scholarship</h3>
+                            <p className="text-white/80 text-sm">Excellence Scholarship</p>
+                          </div>
+                        </div>
+
+                        {/* Main description */}
+                        <div className="mb-4 border-l-4 border-[hsl(120,61%,34%)] pl-4 py-2">
+                          <p className="text-white/90">
+                            A bold national initiative lanuched by Palestinian Student Support Fund, aiming to empower 1,000 palestinian students with scholarhips, both inside and outside palestine
+                          </p>
+                          <div className="mt-4 space-y-3">
+                            <h4 className="text-white font-medium text-sm uppercase tracking-wider">Scholarship Goals</h4>
+                            <div className="grid grid-cols-1 gap-3">
+                              <div className="flex items-start gap-3 bg-white/5 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:translate-x-1 hover:shadow-lg">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[hsl(120,61%,34%)]/20">
+                                  <Lightbulb className="h-4 w-4 text-[hsl(120,61%,34%)]" />
+                                </div>
+                                <div>
+                                  <p className="text-white/90 text-sm">Qualifing distinguished palestinian medical cadres who contribute to the renaissance of the society</p>
+                                </div>
+                              </div>
+
+                              <div className="flex items-start gap-3 bg-white/5 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:translate-x-1 hover:shadow-lg">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[hsl(120,61%,34%)]/20">
+                                  <Globe className="h-4 w-4 text-[hsl(120,61%,34%)]" />
+                                </div>
+                                <div>
+                                  <p className="text-white/90 text-sm">Embracing, nurturing, and guiding outstanding students</p>
+                                </div>
+                              </div>
+                              <div className="flex items-start gap-3 bg-white/5 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:translate-x-1 hover:shadow-lg">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[hsl(120,61%,34%)]/20">
+                                  <Globe className="h-4 w-4 text-[hsl(120,61%,34%)]" />
+                                </div>
+                                <div>
+                                  <p className="text-white/90 text-sm">Promoting scientific research that serves the community</p>
+                                </div>
+                              </div>
+
+                              <div className="flex items-start gap-3 bg-white/5 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:translate-x-1 hover:shadow-lg">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[hsl(120,61%,34%)]/20">
+                                  <Users className="h-4 w-4 text-[hsl(120,61%,34%)]" />
+                                </div>
+                                <div>
+                                  <p className="text-white/90 text-sm">sponsoring 1,000 palestinian students in medical colleges</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Details grid */}
+                        <div className="grid grid-cols-2 gap-6 mb-8">
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                            <div className="flex items-center gap-2">
+                              <Calendar className="h-5 w-5 text-[hsl(120,61%,34%)]" />
+                              <span className="font-medium">Duration</span>
+                            </div>
+                            <p className="text-white/80 text-sm">4 years (full degree)</p>
+                          </div>
+
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                            <div className="flex items-center gap-2">
+                              <Clock className="h-5 w-5 text-[hsl(120,61%,34%)]" />
+                              <span className="font-medium">Deadline</span>
+                            </div>
+                            <p className="text-white/80 text-sm">March 15 (annual)</p>
+                          </div>
+
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                              <div className="flex items-center gap-2">
+                              <CheckSquare className="h-5 w-5 text-[hsl(120,61%,34%)]" />
+                              <span className="font-medium">Requirments</span>
+                            </div>
+                            <ul className="mt-2 space-y-2">
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(120,61%,34%)]"></div>
+                                <span className="text-white/80 text-sm">Palestinian nationality</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-3 rounded-full bg-[hsl(120,61%,34%)]"></div>
+                                <span className="text-white/80 text-sm">hight school average of 90% or higher</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(120,61%,34%)]"></div>
+                                <span className="text-white/80 text-sm">GPA 3.00+</span>
+                              </li>
+                              <li className="flex items-start gap-2 mt-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(120,61%,34%)] mt-2"></div>
+                                <span className="text-white/80 text-sm">Fluencey in english </span>
+                              </li>
+                            </ul>
+                          </div>
+
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                            <div className="flex items-center gap-2">
+                              <Target className="h-5 w-5 text-[hsl(120,61%,34%)]" />
+                              <span className="font-medium">Fields of Study</span>
+                            </div>
+                            <ul className="mt-2 space-y-2">
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(120,61%,34%)]"></div>
+                                <span className="text-white/80 text-sm">Human Medicine</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(120,61%,34%)]"></div>
+                                <span className="text-white/80 text-sm">Dentistry</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(120,61%,34%)]"></div>
+                                <span className="text-white/80 text-sm">Pharmacy</span>
+                              </li>
+                              <li className="flex items-start gap-2 mt-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(120,61%,34%)] mt-2"></div>
+                                <span className="text-white/80 text-sm">Allied Health Professions</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+
+                        {/* Action buttons */}
+                        <div className="mt-auto grid grid-cols-2 gap-4">
+                          <Link href="/apply" className="group/btn">
+                            <Button className="w-full bg-black text-white hover:bg-[hsl(120,61%,34%)] hover:text-white transition-all duration-300 group-hover/btn:shadow-lg">
+                              Apply Now
+                              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                            </Button>
+                          </Link>
+                          <Link href="/donate" className="group/btn">
+                            <Button className="w-full bg-[hsl(0,76%,40%)] text-white hover:bg-[hsl(120,61%,34%)] hover:text-white transition-all duration-300 group-hover/btn:shadow-lg">
+                              Donate Now
+                              <DollarSign className="ml-2 h-4 w-4 transition-all group-hover/btn:scale-110" />
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
                   </GSAPReveal>
 
                   <GSAPReveal animation="slide-up" delay={0.2} className="h-full">
-                    <Card className="flex flex-col h-full">
-                      <CardHeader>
-                        <CardTitle>Partial Scholarships</CardTitle>
-                        <CardDescription>Targeted financial assistance</CardDescription>
-                      </CardHeader>
-                      <CardContent className="flex-grow">
-                        <p className="text-muted-foreground">
-                          Covering tuition fees or living expenses for promising students who demonstrate academic
-                          potential and financial need.
-                        </p>
-                        <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                          <li>• Duration: 1-4 years</li>
-                          <li>• Application deadline: April 30</li>
-                          <li>• Requirements: Good academic standing</li>
-                        </ul>
-                      </CardContent>
-                    </Card>
-                  </GSAPReveal>
+                    <div className="group relative h-full overflow-hidden rounded-xl transition-all duration-500 hover:shadow-2xl">
+                      {/* Background gradient with animation */}
+                      <div className="absolute inset-0 bg-gradient-to-bl from-[hsl(120,61%,34%)] via-black to-[hsl(0,76%,40%)] opacity-90 transition-all duration-700 group-hover:opacity-100"></div>
 
-                  <GSAPReveal animation="slide-up" delay={0.3} className="h-full">
-                    <Card className="flex flex-col h-full">
-                      <CardHeader>
-                        <CardTitle>Summer Programs</CardTitle>
-                        <CardDescription>Intensive learning opportunities</CardDescription>
-                      </CardHeader>
-                      <CardContent className="flex-grow">
-                        <p className="text-muted-foreground">
-                          Short-term programs focusing on specific skills, language acquisition, or cultural exchange
-                          during summer breaks.
-                        </p>
-                        <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                          <li>• Duration: 4-8 weeks</li>
-                          <li>• Application deadline: February 28</li>
-                          <li>• Requirements: Varies by program</li>
-                        </ul>
-                      </CardContent>
-                    </Card>
+                      {/* Animated pattern overlay */}
+                      <div className="absolute inset-0 bg-[url('/pattern.svg')] bg-repeat opacity-10 mix-blend-overlay transition-all duration-700 group-hover:opacity-20"></div>
+
+                      {/* Content container */}
+                      <div className="relative z-10 p-8 text-white h-full flex flex-col">
+                        {/* Header with icon */}
+                        <div className="flex items-center gap-4 mb-6">
+                          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm transition-all duration-500 group-hover:scale-110 group-hover:bg-white/20 card-icon">
+                            <GraduationCap className="h-8 w-8 text-white transition-all duration-500 group-hover:text-[hsl(0,76%,40%)]" />
+                          </div>
+                          <div>
+                            <h3 className="text-2xl font-bold font-playfair tracking-tight">Palestinian Talented Scholarship</h3>
+                            <p className="text-white/80 text-sm">Excellence Scholarship</p>
+                          </div>
+                        </div>
+
+                        {/* Main description */}
+                        <div className="mb-4 border-l-4 border-[hsl(0,76%,40%)] pl-4 py-2">
+                          <p className="text-white/90">
+                              A program dedticated to outstanding students who gradute with honors in various academic fields. The program aims to create a supportive enviroment for 1,000 execeptonal palastinian students
+                          </p>
+                          <div className="mt-4 space-y-3">
+                            <h4 className="text-white font-medium text-sm uppercase tracking-wider">Scholarship Goals</h4>
+                            <div className="grid grid-cols-1 gap-3">
+                              <div className="flex items-start gap-3 bg-white/5 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:translate-x-1 hover:shadow-lg">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[hsl(0,76%,40%)]/20">
+                                  <Target className="h-4 w-4 text-[hsl(0,76%,40%)]" />
+                                </div>
+                                <div>
+                                  <p className="text-white/90 text-sm">Developing scientific leadership competencies that contribute to the advancment of society.</p>
+                                </div>
+                              </div>
+
+                              <div className="flex items-start gap-3 bg-white/5 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:translate-x-1 hover:shadow-lg">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[hsl(0,76%,40%)]/20">
+                                  <Briefcase className="h-4 w-4 text-[hsl(0,76%,40%)]" />
+                                </div>
+                                <div>
+                                  <p className="text-white/90 text-sm">Providing society with scientific cadres holding specialized specializations and prestigious certificates</p>
+                                </div>
+                              </div>
+                              <div className="flex items-start gap-3 bg-white/5 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:translate-x-1 hover:shadow-lg">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[hsl(0,76%,40%)]/20">
+                                  <Briefcase className="h-4 w-4 text-[hsl(0,76%,40%)]" />
+                                </div>
+                                <div>
+                                  <p className="text-white/90 text-sm">providing a nurturing enviroment for distinguished palestinian students</p>
+                                </div>
+                              </div>
+
+                              <div className="flex items-start gap-3 bg-white/5 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:translate-x-1 hover:shadow-lg">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[hsl(0,76%,40%)]/20">
+                                  <BookOpen className="h-4 w-4 text-[hsl(0,76%,40%)]" />
+                                </div>
+                                <div>
+                                  <p className="text-white/90 text-sm">Sponsoring 1,000 academically distinguished palestinian students</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Details grid */}
+                        <div className="grid grid-cols-2 gap-6 mb-8">
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                            <div className="flex items-center gap-2">
+                              <Calendar className="h-5 w-5 text-[hsl(0,76%,40%)]" />
+                              <span className="font-medium">Duration</span>
+                            </div>
+                            <p className="text-white/80 text-sm">1-4 years (Full degree)</p>
+                          </div>
+
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                            <div className="flex items-center gap-2">
+                              <Clock className="h-5 w-5 text-[hsl(0,76%,40%)]" />
+                              <span className="font-medium">Deadline</span>
+                            </div>
+                            <p className="text-white/80 text-sm">April 30 (annual)</p>
+                          </div>
+
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                              <div className="flex items-center gap-2">
+                              <CheckSquare className="h-5 w-5 text-[hsl(0,76%,40%)]" />
+                              <span className="font-medium">Requirments</span>
+                            </div>
+                            <ul className="mt-2 space-y-2">
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)]"></div>
+                                <span className="text-white/80 text-sm">Palestinian nationality</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-3 rounded-full bg-[hsl(0,76%,40%)]"></div>
+                                <span className="text-white/80 text-sm">hight school average of 90% or higher</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)]"></div>
+                                <span className="text-white/80 text-sm">GPA 3.00+</span>
+                              </li>
+                              <li className="flex items-start gap-2 mt-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)] mt-2"></div>
+                                <span className="text-white/80 text-sm">Fluencey in english </span>
+                              </li>
+                            </ul>
+                          </div>
+
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                            <div className="flex items-center gap-2">
+                              <Target className="h-5 w-5 text-[hsl(0,76%,40%)]" />
+                              <span className="font-medium">Fields of Study</span>
+                            </div>
+                            <ul className="mt-2 space-y-2">
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)]"></div>
+                                <span className="text-white/80 text-sm">Human Medicine</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)]"></div>
+                                <span className="text-white/80 text-sm">Dentistry</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)]"></div>
+                                <span className="text-white/80 text-sm">Pharmacy</span>
+                              </li>
+                              <li className="flex items-start gap-2 mt-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)] mt-2"></div>
+                                <span className="text-white/80 text-sm">Allied Health Professions</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+
+                        {/* Action buttons */}
+                        <div className="mt-auto grid grid-cols-2 gap-4">
+                          <Link href="/apply" className="group/btn">
+                            <Button className="w-full bg-black text-white hover:bg-[hsl(120,61%,34%)] hover:text-white transition-all duration-300 group-hover/btn:shadow-lg">
+                              Apply Now
+                              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                            </Button>
+                          </Link>
+                          <Link href="/donate" className="group/btn">
+                            <Button className="w-full bg-[hsl(0,76%,40%)] text-white hover:bg-[hsl(120,61%,34%)] hover:text-white transition-all duration-300 group-hover/btn:shadow-lg">
+                              Donate Now
+                              <DollarSign className="ml-2 h-4 w-4 transition-all group-hover/btn:scale-110" />
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
                   </GSAPReveal>
                 </div>
 
                 <GSAPReveal animation="fade" delay={0.4}>
-                  <div className="text-center">
+                  <div className="text-center mt-8">
+                    <div className="mb-4 text-center">
+                      <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Our undergraduate scholarships are designed to empower Palestinian students to achieve their academic dreams and build a brighter future.
+                      </p>
+                    </div>
                     <Link href="/apply">
-                      <Button className="bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90">Apply for Undergraduate Programs</Button>
+                      <Button size="lg" className="bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90">
+                        Apply for Undergraduate Programs
+                        <ArrowRight className="ml-2 h-5 w-5" />
+                      </Button>
                     </Link>
                   </div>
                 </GSAPReveal>
@@ -180,93 +481,510 @@ export default function ProgramsPage() {
               <TabsContent value="graduate" className="space-y-8">
                 <GSAPReveal animation="fade">
                   <div className="text-center">
-                    <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[hsl(0,76%,40%)]/10">
-                      <Award className="h-8 w-8 text-[hsl(0,76%,40%)]" />
+                    <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[hsl(120,61%,34%)]/10">
+                      <GraduationCap className="h-8 w-8 text-[hsl(120,61%,34%)]" />
                     </div>
-                    <h2 className="text-3xl font-bold">Graduate Programs</h2>
+                    <h2 className="text-3xl font-bold">graduate Programs</h2>
                     <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
-                      Supporting master's and doctoral students with funding, research opportunities, and professional
-                      development resources.
+                      Supporting master's and PHD degree students across various disciplines with financial aid, mentorship,
+                      and academic resources.
                     </p>
                   </div>
                 </GSAPReveal>
 
-                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  <GSAPReveal animation="slide-up" delay={0.1} className="h-full">
-                    <Card className="flex flex-col h-full">
-                      <CardHeader>
-                        <CardTitle>Master's Scholarships</CardTitle>
-                        <CardDescription>Advanced degree support</CardDescription>
-                      </CardHeader>
-                      <CardContent className="flex-grow">
-                        <p className="text-muted-foreground">
-                          Financial support for Palestinian students pursuing master's degrees in priority fields
-                          including engineering, medicine, and education.
-                        </p>
-                        <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                          <li>• Duration: 1-2 years</li>
-                          <li>• Application deadline: January 15</li>
-                          <li>• Requirements: Bachelor's degree with honors</li>
-                        </ul>
-                      </CardContent>
-                    </Card>
+                <div className="grid gap-6 grid-cols-1 lg:grid-cols-3 max-w-30xl mx-auto justify-center items-center" id="graduate-scholarships">
+                  <GSAPReveal animation="slide-up" delay={0.1} className="h-full w-full">
+                    <div className="group relative h-full w-full overflow-hidden rounded-xl transition-all duration-500 hover:shadow-2xl">
+                      {/* Background gradient with animation */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(0,76%,40%)] via-black to-[hsl(120,61%,34%)] opacity-90 transition-all duration-700 group-hover:opacity-100"></div>
+
+                      {/* Animated pattern overlay */}
+                      <div className="absolute inset-0 bg-[url('/pattern.svg')] bg-repeat opacity-10 mix-blend-overlay transition-all duration-700 group-hover:opacity-20"></div>
+
+                      {/* Content container */}
+                      <div className="relative z-10 p-6 md:p-8 text-white h-full flex flex-col">
+                        {/* Header with icon */}
+                        <div className="flex items-center gap-4 mb-6">
+                          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm transition-all duration-500 group-hover:scale-110 group-hover:bg-white/20 card-icon">
+                            <Award className="h-8 w-8 text-white transition-all duration-500 group-hover:text-[hsl(120,61%,34%)]" />
+                          </div>
+                          <div>
+                            <h3 className="text-xl md:text-2xl font-bold font-playfair tracking-tight">Sustainability Scholarship</h3>
+                            <p className="text-white/80 text-sm">Excellence Scholarship</p>
+                          </div>
+                        </div>
+
+
+                        {/* Main description */}
+                        <div className="mb-4 border-l-4 border-[hsl(120,61%,34%)] pl-4 py-2">
+                          <p className="text-white/90">
+                          Provides 200 master’s and doctoral scholarships in energy engineering, renewable energy, and agricultural engineering. The goal is to develop Palestinian expertise in energy, environmental, and agricultural fields to ensure energy independence and food security in Palestine.
+                          </p>
+                          <div className="mt-4 space-y-3">
+                            <h4 className="text-white font-medium text-sm uppercase tracking-wider">Scholarship Goals</h4>
+                            <div className="grid grid-cols-1 gap-3">
+                              <div className="flex items-start gap-3 bg-white/5 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:translate-x-1 hover:shadow-lg">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[hsl(120,61%,34%)]/20">
+                                  <Lightbulb className="h-4 w-4 text-[hsl(120,61%,34%)]" />
+                                </div>
+                                <div>
+                                  <p className="text-white/90 text-sm">Qualifing distinguished palestinian medical cadres who contribute to the renaissance of the society</p>
+                                </div>
+                              </div>
+
+                              <div className="flex items-start gap-3 bg-white/5 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:translate-x-1 hover:shadow-lg">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[hsl(120,61%,34%)]/20">
+                                  <Globe className="h-4 w-4 text-[hsl(120,61%,34%)]" />
+                                </div>
+                                <div>
+                                  <p className="text-white/90 text-sm">Embracing, nurturing, and guiding outstanding students</p>
+                                </div>
+                              </div>
+                              <div className="flex items-start gap-3 bg-white/5 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:translate-x-1 hover:shadow-lg">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[hsl(120,61%,34%)]/20">
+                                  <Globe className="h-4 w-4 text-[hsl(120,61%,34%)]" />
+                                </div>
+                                <div>
+                                  <p className="text-white/90 text-sm">Promoting scientific research that serves the community</p>
+                                </div>
+                              </div>
+
+                              <div className="flex items-start gap-3 bg-white/5 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:translate-x-1 hover:shadow-lg">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[hsl(120,61%,34%)]/20">
+                                  <Users className="h-4 w-4 text-[hsl(120,61%,34%)]" />
+                                </div>
+                                <div>
+                                  <p className="text-white/90 text-sm">sponsoring 1,000 palestinian students in medical colleges</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Details grid */}
+                        <div className="grid grid-cols-2 gap-6 mb-8">
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                            <div className="flex items-center gap-2">
+                              <Calendar className="h-5 w-5 text-[hsl(120,61%,34%)]" />
+                              <span className="font-medium">Duration</span>
+                            </div>
+                            <p className="text-white/80 text-sm">2 years (full degree)</p>
+                          </div>
+
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                            <div className="flex items-center gap-2">
+                              <Clock className="h-5 w-5 text-[hsl(120,61%,34%)]" />
+                              <span className="font-medium">Deadline</span>
+                            </div>
+                            <p className="text-white/80 text-sm">March 15 (annual)</p>
+                          </div>
+
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                              <div className="flex items-center gap-2">
+                              <CheckSquare className="h-5 w-5 text-[hsl(120,61%,34%)]" />
+                              <span className="font-medium">Requirments</span>
+                            </div>
+                            <ul className="mt-2 space-y-2">
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(120,61%,34%)]"></div>
+                                <span className="text-white/80 text-sm">Palestinian nationality</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-3 rounded-full bg-[hsl(120,61%,34%)]"></div>
+                                <span className="text-white/80 text-sm">hight school average of 90% or higher</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(120,61%,34%)]"></div>
+                                <span className="text-white/80 text-sm">GPA 3.00+</span>
+                              </li>
+                              <li className="flex items-start gap-2 mt-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(120,61%,34%)] mt-2"></div>
+                                <span className="text-white/80 text-sm">Fluencey in english </span>
+                              </li>
+                            </ul>
+                          </div>
+
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                            <div className="flex items-center gap-2">
+                              <Target className="h-5 w-5 text-[hsl(120,61%,34%)]" />
+                              <span className="font-medium">Fields of Study</span>
+                            </div>
+                            <ul className="mt-2 space-y-2">
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(120,61%,34%)]"></div>
+                                <span className="text-white/80 text-sm">Human Medicine</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(120,61%,34%)]"></div>
+                                <span className="text-white/80 text-sm">Dentistry</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(120,61%,34%)]"></div>
+                                <span className="text-white/80 text-sm">Pharmacy</span>
+                              </li>
+                              <li className="flex items-start gap-2 mt-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(120,61%,34%)] mt-2"></div>
+                                <span className="text-white/80 text-sm">Allied Health Professions</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+
+                        {/* Action buttons */}
+                        <div className="mt-auto grid grid-cols-2 gap-4">
+                          <Link href="/apply" className="group/btn">
+                            <Button className="w-full bg-black text-white hover:bg-[hsl(120,61%,34%)] hover:text-white transition-all duration-300 group-hover/btn:shadow-lg">
+                              Apply Now
+                              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                            </Button>
+                          </Link>
+                          <Link href="/donate" className="group/btn">
+                            <Button className="w-full bg-[hsl(0,76%,40%)] text-white hover:bg-[hsl(120,61%,34%)] hover:text-white transition-all duration-300 group-hover/btn:shadow-lg">
+                              Donate Now
+                              <DollarSign className="ml-2 h-4 w-4 transition-all group-hover/btn:scale-110" />
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
                   </GSAPReveal>
 
-                  <GSAPReveal animation="slide-up" delay={0.2} className="h-full">
-                    <Card className="flex flex-col h-full">
-                      <CardHeader>
-                        <CardTitle>PhD Fellowships</CardTitle>
-                        <CardDescription>Doctoral research funding</CardDescription>
-                      </CardHeader>
-                      <CardContent className="flex-grow">
-                        <p className="text-muted-foreground">
-                          Comprehensive support for doctoral candidates conducting innovative research with potential
-                          impact for Palestinian communities.
-                        </p>
-                        <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                          <li>• Duration: 3-5 years</li>
-                          <li>• Application deadline: December 1</li>
-                          <li>• Requirements: Master's degree, research proposal</li>
-                        </ul>
-                      </CardContent>
-                    </Card>
+                  <GSAPReveal animation="slide-up" delay={0.2} className="h-full w-full">
+                    <div className="group relative h-full w-full overflow-hidden rounded-xl transition-all duration-500 hover:shadow-2xl">
+                      {/* Background gradient with animation */}
+                      <div className="absolute inset-0 bg-gradient-to-bl from-[hsl(120,61%,34%)] via-black to-[hsl(0,76%,40%)] opacity-90 transition-all duration-700 group-hover:opacity-100"></div>
+
+                      {/* Animated pattern overlay */}
+                      <div className="absolute inset-0 bg-[url('/pattern.svg')] bg-repeat opacity-10 mix-blend-overlay transition-all duration-700 group-hover:opacity-20"></div>
+
+                      {/* Content container */}
+                      <div className="relative z-10 p-6 md:p-8 text-white h-full flex flex-col">
+                        {/* Header with icon */}
+                        <div className="flex items-center gap-4 mb-6">
+                          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm transition-all duration-500 group-hover:scale-110 group-hover:bg-white/20 card-icon">
+                            <GraduationCap className="h-8 w-8 text-white transition-all duration-500 group-hover:text-[hsl(0,76%,40%)]" />
+                          </div>
+                          <div>
+                            <h3 className="text-xl md:text-2xl font-bold font-playfair tracking-tight">Justice for Palestine Program</h3>
+                            <p className="text-white/80 text-sm">Excellence Scholarship</p>
+                          </div>
+                        </div>
+
+                        {/* Main description */}
+                        <div className="mb-4 border-l-4 border-[hsl(0,76%,40%)] pl-4 py-2">
+                          <p className="text-white/90">
+                          Provides 200 master’s and doctoral scholarships in political science and international relations, aiming to prepare qualified Palestinian professionals for political, diplomatic, international, and crisis management roles, enabling them to advocate for Palestine globally.
+                          </p>
+                          <div className="mt-4 space-y-3">
+                            <h4 className="text-white font-medium text-sm uppercase tracking-wider">Scholarship Goals</h4>
+                            <div className="grid grid-cols-1 gap-3">
+                              <div className="flex items-start gap-3 bg-white/5 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:translate-x-1 hover:shadow-lg">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[hsl(0,76%,40%)]/20">
+                                  <Target className="h-4 w-4 text-[hsl(0,76%,40%)]" />
+                                </div>
+                                <div>
+                                  <p className="text-white/90 text-sm">Developing scientific leadership competencies that contribute to the advancment of society.</p>
+                                </div>
+                              </div>
+
+                              <div className="flex items-start gap-3 bg-white/5 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:translate-x-1 hover:shadow-lg">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[hsl(0,76%,40%)]/20">
+                                  <Briefcase className="h-4 w-4 text-[hsl(0,76%,40%)]" />
+                                </div>
+                                <div>
+                                  <p className="text-white/90 text-sm">Providing society with scientific cadres holding specialized specializations and prestigious certificates</p>
+                                </div>
+                              </div>
+                              <div className="flex items-start gap-3 bg-white/5 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:translate-x-1 hover:shadow-lg">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[hsl(0,76%,40%)]/20">
+                                  <Briefcase className="h-4 w-4 text-[hsl(0,76%,40%)]" />
+                                </div>
+                                <div>
+                                  <p className="text-white/90 text-sm">providing a nurturing enviroment for distinguished palestinian students</p>
+                                </div>
+                              </div>
+
+                              <div className="flex items-start gap-3 bg-white/5 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:translate-x-1 hover:shadow-lg">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[hsl(0,76%,40%)]/20">
+                                  <BookOpen className="h-4 w-4 text-[hsl(0,76%,40%)]" />
+                                </div>
+                                <div>
+                                  <p className="text-white/90 text-sm">Sponsoring 1,000 academically distinguished palestinian students</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Details grid */}
+                        <div className="grid grid-cols-2 gap-6 mb-8">
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                            <div className="flex items-center gap-2">
+                              <Calendar className="h-5 w-5 text-[hsl(0,76%,40%)]" />
+                              <span className="font-medium">Duration</span>
+                            </div>
+                            <p className="text-white/80 text-sm">2 years (Full degree)</p>
+                          </div>
+
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                            <div className="flex items-center gap-2">
+                              <Clock className="h-5 w-5 text-[hsl(0,76%,40%)]" />
+                              <span className="font-medium">Deadline</span>
+                            </div>
+                            <p className="text-white/80 text-sm">April 30 (annual)</p>
+                          </div>
+
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                              <div className="flex items-center gap-2">
+                              <CheckSquare className="h-5 w-5 text-[hsl(0,76%,40%)]" />
+                              <span className="font-medium">Requirments</span>
+                            </div>
+                            <ul className="mt-2 space-y-2">
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)]"></div>
+                                <span className="text-white/80 text-sm">Palestinian nationality</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-3 rounded-full bg-[hsl(0,76%,40%)]"></div>
+                                <span className="text-white/80 text-sm">hight school average of 90% or higher</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)]"></div>
+                                <span className="text-white/80 text-sm">GPA 3.00+</span>
+                              </li>
+                              <li className="flex items-start gap-2 mt-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)] mt-2"></div>
+                                <span className="text-white/80 text-sm">Fluencey in english </span>
+                              </li>
+                            </ul>
+                          </div>
+
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                            <div className="flex items-center gap-2">
+                              <Target className="h-5 w-5 text-[hsl(0,76%,40%)]" />
+                              <span className="font-medium">Fields of Study</span>
+                            </div>
+                            <ul className="mt-2 space-y-2">
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)]"></div>
+                                <span className="text-white/80 text-sm">Human Medicine</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)]"></div>
+                                <span className="text-white/80 text-sm">Dentistry</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)]"></div>
+                                <span className="text-white/80 text-sm">Pharmacy</span>
+                              </li>
+                              <li className="flex items-start gap-2 mt-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)] mt-2"></div>
+                                <span className="text-white/80 text-sm">Allied Health Professions</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+
+                        {/* Action buttons */}
+                        <div className="mt-auto grid grid-cols-2 gap-4">
+                          <Link href="/apply" className="group/btn">
+                            <Button className="w-full bg-black text-white hover:bg-[hsl(120,61%,34%)] hover:text-white transition-all duration-300 group-hover/btn:shadow-lg">
+                              Apply Now
+                              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                            </Button>
+                          </Link>
+                          <Link href="/donate" className="group/btn">
+                            <Button className="w-full bg-[hsl(0,76%,40%)] text-white hover:bg-[hsl(120,61%,34%)] hover:text-white transition-all duration-300 group-hover/btn:shadow-lg">
+                              Donate Now
+                              <DollarSign className="ml-2 h-4 w-4 transition-all group-hover/btn:scale-110" />
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
                   </GSAPReveal>
 
-                  <GSAPReveal animation="slide-up" delay={0.3} className="h-full">
-                    <Card className="flex flex-col h-full">
-                      <CardHeader>
-                        <CardTitle>Professional Development</CardTitle>
-                        <CardDescription>Career advancement support</CardDescription>
-                      </CardHeader>
-                      <CardContent className="flex-grow">
-                        <p className="text-muted-foreground">
-                          Grants for professional certifications, specialized training, and career development
-                          opportunities for graduate students.
-                        </p>
-                        <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                          <li>• Duration: Varies</li>
-                          <li>• Application deadline: Rolling basis</li>
-                          <li>• Requirements: Current graduate enrollment</li>
-                        </ul>
-                      </CardContent>
-                    </Card>
+                  <GSAPReveal animation="slide-up" delay={0.2} className="h-full w-full">
+                    <div className="group relative h-full w-full overflow-hidden rounded-xl transition-all duration-500 hover:shadow-2xl">
+                      {/* Background gradient with animation */}
+                      <div className="absolute inset-0 bg-gradient-to-bl from-[hsl(120,61%,34%)] via-black to-[hsl(0,76%,40%)] opacity-90 transition-all duration-700 group-hover:opacity-100"></div>
+
+                      {/* Animated pattern overlay */}
+                      <div className="absolute inset-0 bg-[url('/pattern.svg')] bg-repeat opacity-10 mix-blend-overlay transition-all duration-700 group-hover:opacity-20"></div>
+
+                      {/* Content container */}
+                      <div className="relative z-10 p-6 md:p-8 text-white h-full flex flex-col">
+                        {/* Header with icon */}
+                        <div className="flex items-center gap-4 mb-6">
+                          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm transition-all duration-500 group-hover:scale-110 group-hover:bg-white/20 card-icon">
+                            <GraduationCap className="h-8 w-8 text-white transition-all duration-500 group-hover:text-[hsl(0,76%,40%)]" />
+                          </div>
+                          <div>
+                            <h3 className="text-xl md:text-2xl font-bold font-playfair tracking-tight">Ibn Khaldun Scholarship Program</h3>
+                            <p className="text-white/80 text-sm">Excellence Scholarship</p>
+                          </div>
+                        </div>
+
+                        {/* Main description */}
+                        <div className="mb-4 border-l-4 border-[hsl(30,76%,40%)] pl-4 py-2">
+                          <p className="text-white/90">
+                          Provides 200 master’s and doctoral scholarships in political science and international relations, aiming to prepare qualified Palestinian professionals for political, diplomatic, international, and crisis management roles, enabling them to advocate for Palestine globally.
+
+                          </p>
+                          <div className="mt-4 space-y-3">
+                            <h4 className="text-white font-medium text-sm uppercase tracking-wider">Scholarship Goals</h4>
+                            <div className="grid grid-cols-1 gap-3">
+                              <div className="flex items-start gap-3 bg-white/5 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:translate-x-1 hover:shadow-lg">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[hsl(0,76%,40%)]/20">
+                                  <Target className="h-4 w-4 text-[hsl(30,76%,40%)]" />
+                                </div>
+                                <div>
+                                  <p className="text-white/90 text-sm">Developing scientific leadership competencies that contribute to the advancment of society.</p>
+                                </div>
+                              </div>
+
+                              <div className="flex items-start gap-3 bg-white/5 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:translate-x-1 hover:shadow-lg">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[hsl(0,76%,40%)]/20">
+                                  <Briefcase className="h-4 w-4 text-[hsl(30,76%,40%)]" />
+                                </div>
+                                <div>
+                                  <p className="text-white/90 text-sm">Providing society with scientific cadres holding specialized specializations and prestigious certificates</p>
+                                </div>
+                              </div>
+                              <div className="flex items-start gap-3 bg-white/5 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:translate-x-1 hover:shadow-lg">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[hsl(0,76%,40%)]/20">
+                                  <Briefcase className="h-4 w-4 text-[hsl(30,76%,40%)]" />
+                                </div>
+                                <div>
+                                  <p className="text-white/90 text-sm">providing a nurturing enviroment for distinguished palestinian students</p>
+                                </div>
+                              </div>
+
+                              <div className="flex items-start gap-3 bg-white/5 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:translate-x-1 hover:shadow-lg">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[hsl(0,76%,40%)]/20">
+                                  <BookOpen className="h-4 w-4 text-[hsl(30,76%,40%)]" />
+                                </div>
+                                <div>
+                                  <p className="text-white/90 text-sm">Sponsoring 1,000 academically distinguished palestinian students</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Details grid */}
+                        <div className="grid grid-cols-2 gap-6 mb-8">
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                            <div className="flex items-center gap-2">
+                              <Calendar className="h-5 w-5 text-[hsl(30,76%,40%)]" />
+                              <span className="font-medium">Duration</span>
+                            </div>
+                            <p className="text-white/80 text-sm">2 years (Full degree)</p>
+                          </div>
+
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                            <div className="flex items-center gap-2">
+                              <Clock className="h-5 w-5 text-[hsl(30,76%,40%)]" />
+                              <span className="font-medium">Deadline</span>
+                            </div>
+                            <p className="text-white/80 text-sm">April 30 (annual)</p>
+                          </div>
+
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                              <div className="flex items-center gap-2">
+                              <CheckSquare className="h-5 w-5 text-[hsl(30,76%,40%)]" />
+                              <span className="font-medium">Requirments</span>
+                            </div>
+                            <ul className="mt-2 space-y-2">
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(30,76%,40%)]"></div>
+                                <span className="text-white/80 text-sm">Palestinian nationality</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-3 rounded-full bg-[hsl(30,76%,40%)]"></div>
+                                <span className="text-white/80 text-sm">hight school average of 90% or higher</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(30,76%,40%)]"></div>
+                                <span className="text-white/80 text-sm">GPA 3.00+</span>
+                              </li>
+                              <li className="flex items-start gap-2 mt-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(30,76%,40%)] mt-2"></div>
+                                <span className="text-white/80 text-sm">Fluencey in english </span>
+                              </li>
+                            </ul>
+                          </div>
+
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                            <div className="flex items-center gap-2">
+                              <Target className="h-5 w-5 text-[hsl(30,76%,40%)]" />
+                              <span className="font-medium">Fields of Study</span>
+                            </div>
+                            <ul className="mt-2 space-y-2">
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(30,76%,40%)]"></div>
+                                <span className="text-white/80 text-sm">Human Medicine</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(30,76%,40%)]"></div>
+                                <span className="text-white/80 text-sm">Dentistry</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(30,76%,40%)]"></div>
+                                <span className="text-white/80 text-sm">Pharmacy</span>
+                              </li>
+                              <li className="flex items-start gap-2 mt-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(30,76%,40%)] mt-2"></div>
+                                <span className="text-white/80 text-sm">Allied Health Professions</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+
+                        {/* Action buttons */}
+                        <div className="mt-auto grid grid-cols-2 gap-4">
+                          <Link href="/apply" className="group/btn">
+                            <Button className="w-full bg-black text-white hover:bg-[hsl(120,61%,34%)] hover:text-white transition-all duration-300 group-hover/btn:shadow-lg">
+                              Apply Now
+                              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                            </Button>
+                          </Link>
+                          <Link href="/donate" className="group/btn">
+                            <Button className="w-full bg-[hsl(0,76%,40%)] text-white hover:bg-[hsl(120,61%,34%)] hover:text-white transition-all duration-300 group-hover/btn:shadow-lg">
+                              Donate Now
+                              <DollarSign className="ml-2 h-4 w-4 transition-all group-hover/btn:scale-110" />
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
                   </GSAPReveal>
                 </div>
 
                 <GSAPReveal animation="fade" delay={0.4}>
-                  <div className="text-center">
+                  <div className="text-center mt-8">
+                    <div className="mb-4 text-center">
+                      <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Our undergraduate scholarships are designed to empower Palestinian students to achieve their academic dreams and build a brighter future.
+                      </p>
+                    </div>
                     <Link href="/apply">
-                      <Button className="bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90">Apply for Graduate Programs</Button>
+                      <Button size="lg" className="bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90">
+                        Apply for graduate Programs
+                        <ArrowRight className="ml-2 h-5 w-5" />
+                      </Button>
                     </Link>
                   </div>
+
                 </GSAPReveal>
+
               </TabsContent>
 
               <TabsContent value="research" className="space-y-8">
                 <GSAPReveal animation="fade">
                   <div className="text-center">
-                    <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-black/10 dark:bg-white/10">
-                      <BookOpen className="h-8 w-8 text-black dark:text-white" />
+                    <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[hsl(120,61%,34%)]/10">
+                      <BookOpen className="h-8 w-8 text-[hsl(120,61%,34%)]" />
                     </div>
                     <h2 className="text-3xl font-bold">Research Programs</h2>
                     <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
@@ -276,72 +994,280 @@ export default function ProgramsPage() {
                   </div>
                 </GSAPReveal>
 
-                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-10 md:grid-cols-1 lg:grid-cols-2 max-w-6xl mx-auto" id="research-scholarships">
                   <GSAPReveal animation="slide-up" delay={0.1} className="h-full">
-                    <Card className="flex flex-col h-full">
-                      <CardHeader>
-                        <CardTitle>Research Grants</CardTitle>
-                        <CardDescription>Project-based funding</CardDescription>
-                      </CardHeader>
-                      <CardContent className="flex-grow">
-                        <p className="text-muted-foreground">
-                          Financial support for specific research projects with clear objectives, methodologies, and
-                          potential for impact.
-                        </p>
-                        <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                          <li>• Duration: 1-3 years</li>
-                          <li>• Application deadline: September 30</li>
-                          <li>• Requirements: Detailed research proposal</li>
-                        </ul>
-                      </CardContent>
-                    </Card>
+                    <div className="group relative h-full overflow-hidden rounded-xl transition-all duration-500 hover:shadow-2xl">
+                      {/* Background gradient with animation */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(0,76%,40%)] via-black to-[hsl(120,61%,34%)] opacity-90 transition-all duration-700 group-hover:opacity-100"></div>
+
+                      {/* Animated pattern overlay */}
+                      <div className="absolute inset-0 bg-[url('/pattern.svg')] bg-repeat opacity-10 mix-blend-overlay transition-all duration-700 group-hover:opacity-20"></div>
+
+                      {/* Content container */}
+                      <div className="relative z-10 p-8 text-white h-full flex flex-col">
+                        {/* Header with icon */}
+                        <div className="flex items-center gap-4 mb-6">
+                          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm transition-all duration-500 group-hover:scale-110 group-hover:bg-white/20 card-icon">
+                            <BookOpen className="h-8 w-8 text-white transition-all duration-500 group-hover:text-[hsl(120,61%,34%)]" />
+                          </div>
+                          <div>
+                            <h3 className="text-2xl font-bold font-playfair tracking-tight">Research Innovation Grant</h3>
+                            <p className="text-white/80 text-sm">Advanced Research Funding</p>
+                          </div>
+                        </div>
+
+                        {/* Main description */}
+                        <div className="mb-4 border-l-4 border-[hsl(120,61%,34%)] pl-4 py-2">
+                          <p className="text-white/90">
+                            Supports groundbreaking research projects led by Palestinian scholars addressing critical challenges in healthcare, technology, and sustainable development.
+                          </p>
+                          <div className="mt-4 space-y-3">
+                            <h4 className="text-white font-medium text-sm uppercase tracking-wider">Research Focus Areas</h4>
+                            <div className="grid grid-cols-1 gap-3">
+                              <div className="flex items-start gap-3 bg-white/5 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:translate-x-1 hover:shadow-lg">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[hsl(120,61%,34%)]/20">
+                                  <Lightbulb className="h-4 w-4 text-[hsl(120,61%,34%)]" />
+                                </div>
+                                <div>
+                                  <p className="text-white/90 text-sm">Medical innovations and healthcare solutions for conflict zones</p>
+                                </div>
+                              </div>
+
+                              <div className="flex items-start gap-3 bg-white/5 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:translate-x-1 hover:shadow-lg">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[hsl(120,61%,34%)]/20">
+                                  <Globe className="h-4 w-4 text-[hsl(120,61%,34%)]" />
+                                </div>
+                                <div>
+                                  <p className="text-white/90 text-sm">Sustainable energy and water solutions for Palestine</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Details grid */}
+                        <div className="grid grid-cols-2 gap-6 mb-8">
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                            <div className="flex items-center gap-2">
+                              <Calendar className="h-5 w-5 text-[hsl(120,61%,34%)]" />
+                              <span className="font-medium">Duration</span>
+                            </div>
+                            <p className="text-white/80 text-sm">1-3 years</p>
+                          </div>
+
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                            <div className="flex items-center gap-2">
+                              <Clock className="h-5 w-5 text-[hsl(120,61%,34%)]" />
+                              <span className="font-medium">Deadline</span>
+                            </div>
+                            <p className="text-white/80 text-sm">September 30 (annual)</p>
+                          </div>
+
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                              <div className="flex items-center gap-2">
+                              <CheckSquare className="h-5 w-5 text-[hsl(120,61%,34%)]" />
+                              <span className="font-medium">Requirements</span>
+                            </div>
+                            <ul className="mt-2 space-y-2">
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(120,61%,34%)]"></div>
+                                <span className="text-white/80 text-sm">Palestinian researcher</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(120,61%,34%)]"></div>
+                                <span className="text-white/80 text-sm">PhD or equivalent</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(120,61%,34%)]"></div>
+                                <span className="text-white/80 text-sm">Detailed research proposal</span>
+                              </li>
+                            </ul>
+                          </div>
+
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                            <div className="flex items-center gap-2">
+                              <Target className="h-5 w-5 text-[hsl(120,61%,34%)]" />
+                              <span className="font-medium">Funding Covers</span>
+                            </div>
+                            <ul className="mt-2 space-y-2">
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(120,61%,34%)]"></div>
+                                <span className="text-white/80 text-sm">Research equipment</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(120,61%,34%)]"></div>
+                                <span className="text-white/80 text-sm">Staff salaries</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(120,61%,34%)]"></div>
+                                <span className="text-white/80 text-sm">Publication costs</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+
+                        {/* Action buttons */}
+                        <div className="mt-auto grid grid-cols-2 gap-4">
+                          <Link href="/apply" className="group/btn">
+                            <Button className="w-full bg-black text-white hover:bg-[hsl(120,61%,34%)] hover:text-white transition-all duration-300 group-hover/btn:shadow-lg">
+                              Apply Now
+                              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                            </Button>
+                          </Link>
+                          <Link href="/donate" className="group/btn">
+                            <Button className="w-full bg-[hsl(0,76%,40%)] text-white hover:bg-[hsl(120,61%,34%)] hover:text-white transition-all duration-300 group-hover/btn:shadow-lg">
+                              Support Research
+                              <DollarSign className="ml-2 h-4 w-4 transition-all group-hover/btn:scale-110" />
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
                   </GSAPReveal>
 
                   <GSAPReveal animation="slide-up" delay={0.2} className="h-full">
-                    <Card className="flex flex-col h-full">
-                      <CardHeader>
-                        <CardTitle>Collaborative Research</CardTitle>
-                        <CardDescription>Partnership initiatives</CardDescription>
-                      </CardHeader>
-                      <CardContent className="flex-grow">
-                        <p className="text-muted-foreground">
-                          Support for research collaborations between Palestinian scholars and international research
-                          institutions or universities.
-                        </p>
-                        <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                          <li>• Duration: 2-4 years</li>
-                          <li>• Application deadline: October 15</li>
-                          <li>• Requirements: Partnership agreement</li>
-                        </ul>
-                      </CardContent>
-                    </Card>
-                  </GSAPReveal>
+                    <div className="group relative h-full overflow-hidden rounded-xl transition-all duration-500 hover:shadow-2xl">
+                      {/* Background gradient with animation */}
+                      <div className="absolute inset-0 bg-gradient-to-bl from-[hsl(120,61%,34%)] via-black to-[hsl(0,76%,40%)] opacity-90 transition-all duration-700 group-hover:opacity-100"></div>
 
-                  <GSAPReveal animation="slide-up" delay={0.3} className="h-full">
-                    <Card className="flex flex-col h-full">
-                      <CardHeader>
-                        <CardTitle>Publication Support</CardTitle>
-                        <CardDescription>Academic dissemination</CardDescription>
-                      </CardHeader>
-                      <CardContent className="flex-grow">
-                        <p className="text-muted-foreground">
-                          Funding for journal publication fees, conference presentations, and other forms of research
-                          dissemination.
-                        </p>
-                        <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                          <li>• Duration: Varies</li>
-                          <li>• Application deadline: Rolling basis</li>
-                          <li>• Requirements: Accepted manuscript or conference</li>
-                        </ul>
-                      </CardContent>
-                    </Card>
+                      {/* Animated pattern overlay */}
+                      <div className="absolute inset-0 bg-[url('/pattern.svg')] bg-repeat opacity-10 mix-blend-overlay transition-all duration-700 group-hover:opacity-20"></div>
+
+                      {/* Content container */}
+                      <div className="relative z-10 p-8 text-white h-full flex flex-col">
+                        {/* Header with icon */}
+                        <div className="flex items-center gap-4 mb-6">
+                          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm transition-all duration-500 group-hover:scale-110 group-hover:bg-white/20 card-icon">
+                            <Briefcase className="h-8 w-8 text-white transition-all duration-500 group-hover:text-[hsl(0,76%,40%)]" />
+                          </div>
+                          <div>
+                            <h3 className="text-2xl font-bold font-playfair tracking-tight">Collaborative Research Initiative</h3>
+                            <p className="text-white/80 text-sm">International Partnership Program</p>
+                          </div>
+                        </div>
+
+                        {/* Main description */}
+                        <div className="mb-4 border-l-4 border-[hsl(0,76%,40%)] pl-4 py-2">
+                          <p className="text-white/90">
+                            Facilitates research partnerships between Palestinian scholars and international institutions to foster knowledge exchange and build global academic networks.
+                          </p>
+                          <div className="mt-4 space-y-3">
+                            <h4 className="text-white font-medium text-sm uppercase tracking-wider">Program Benefits</h4>
+                            <div className="grid grid-cols-1 gap-3">
+                              <div className="flex items-start gap-3 bg-white/5 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:translate-x-1 hover:shadow-lg">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[hsl(0,76%,40%)]/20">
+                                  <Target className="h-4 w-4 text-[hsl(0,76%,40%)]" />
+                                </div>
+                                <div>
+                                  <p className="text-white/90 text-sm">Access to international research facilities and resources</p>
+                                </div>
+                              </div>
+
+                              <div className="flex items-start gap-3 bg-white/5 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:translate-x-1 hover:shadow-lg">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[hsl(0,76%,40%)]/20">
+                                  <Users className="h-4 w-4 text-[hsl(0,76%,40%)]" />
+                                </div>
+                                <div>
+                                  <p className="text-white/90 text-sm">Joint publication opportunities in high-impact journals</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Details grid */}
+                        <div className="grid grid-cols-2 gap-6 mb-8">
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                            <div className="flex items-center gap-2">
+                              <Calendar className="h-5 w-5 text-[hsl(0,76%,40%)]" />
+                              <span className="font-medium">Duration</span>
+                            </div>
+                            <p className="text-white/80 text-sm">2-4 years</p>
+                          </div>
+
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                            <div className="flex items-center gap-2">
+                              <Clock className="h-5 w-5 text-[hsl(0,76%,40%)]" />
+                              <span className="font-medium">Deadline</span>
+                            </div>
+                            <p className="text-white/80 text-sm">October 15 (annual)</p>
+                          </div>
+
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                              <div className="flex items-center gap-2">
+                              <CheckSquare className="h-5 w-5 text-[hsl(0,76%,40%)]" />
+                              <span className="font-medium">Requirements</span>
+                            </div>
+                            <ul className="mt-2 space-y-2">
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)]"></div>
+                                <span className="text-white/80 text-sm">Palestinian researcher</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)]"></div>
+                                <span className="text-white/80 text-sm">Partnership agreement</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)]"></div>
+                                <span className="text-white/80 text-sm">Joint research proposal</span>
+                              </li>
+                            </ul>
+                          </div>
+
+                          <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
+                            <div className="flex items-center gap-2">
+                              <Target className="h-5 w-5 text-[hsl(0,76%,40%)]" />
+                              <span className="font-medium">Research Areas</span>
+                            </div>
+                            <ul className="mt-2 space-y-2">
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)]"></div>
+                                <span className="text-white/80 text-sm">Technology & Innovation</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)]"></div>
+                                <span className="text-white/80 text-sm">Public Health</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)]"></div>
+                                <span className="text-white/80 text-sm">Sustainable Development</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+
+                        {/* Action buttons */}
+                        <div className="mt-auto grid grid-cols-2 gap-4">
+                          <Link href="/apply" className="group/btn">
+                            <Button className="w-full bg-black text-white hover:bg-[hsl(120,61%,34%)] hover:text-white transition-all duration-300 group-hover/btn:shadow-lg">
+                              Apply Now
+                              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                            </Button>
+                          </Link>
+                          <Link href="/donate" className="group/btn">
+                            <Button className="w-full bg-[hsl(0,76%,40%)] text-white hover:bg-[hsl(120,61%,34%)] hover:text-white transition-all duration-300 group-hover/btn:shadow-lg">
+                              Support Research
+                              <DollarSign className="ml-2 h-4 w-4 transition-all group-hover/btn:scale-110" />
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
                   </GSAPReveal>
                 </div>
 
                 <GSAPReveal animation="fade" delay={0.4}>
-                  <div className="text-center">
+                  <div className="text-center mt-8">
+                    <div className="mb-4 text-center">
+                      <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        Our research programs aim to advance knowledge and develop solutions to challenges facing Palestinian communities.
+                      </p>
+                    </div>
                     <Link href="/apply">
-                      <Button className="bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90">Apply for Research Programs</Button>
+                      <Button size="lg" className="bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90">
+                        Apply for Research Programs
+                        <ArrowRight className="ml-2 h-5 w-5" />
+                      </Button>
                     </Link>
                   </div>
                 </GSAPReveal>
@@ -411,7 +1337,7 @@ export default function ProgramsPage() {
       </section>
 
       {/* Eligibility & Application */}
-      <section className="py-16 md:py-24 bg-white dark:bg-black">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/5 via-transparent to-[hsl(120,61%,34%)]/5 dark:from-[hsl(0,76%,40%)]/10 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/10">
         <div className="container px-4 md:px-6">
           <div className="mx-auto max-w-5xl">
             <div className="mb-12 text-center">
