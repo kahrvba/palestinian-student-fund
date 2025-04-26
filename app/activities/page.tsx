@@ -19,6 +19,7 @@ import {
   Award,
   Handshake,
   Quote,
+  Image as ImageIcon,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -27,7 +28,8 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import GSAPReveal from "@/components/gsap-reveal"
-import GSAPTextReveal from "@/components/gsap-text-reveal"
+import { ActivityGalleryModal } from "@/components/activity-gallery-modal"
+import ActivityGalleryHero from "@/components/activity-gallery-hero"
 
 // Mock activities data
 const activitiesData = [
@@ -109,6 +111,15 @@ export default function ActivitiesPage() {
   const [activeTab, setActiveTab] = useState("all")
   const itemsPerPage = 6
 
+  // State for individual activity gallery modals
+  const [galleryActivity, setGalleryActivity] = useState<typeof activitiesData[0] | null>(null)
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false)
+
+  const handleViewGallery = (activity: typeof activitiesData[0]) => {
+    setGalleryActivity(activity)
+    setIsGalleryOpen(true)
+  }
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 
@@ -179,30 +190,18 @@ export default function ActivitiesPage() {
 
   return (
     <main className="flex min-h-screen flex-col">
-      {/* Hero Section */}
-      <section className="relative py-24 md:py-32 text-white overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/Flag_of_Palestine.svg"
-            alt="Palestinian Flag"
-            className="h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/30" />
-        </div>
-        <div className="container relative z-10 px-4 md:px-6">
-          <div className="mx-auto max-w-3xl text-center">
-            <GSAPTextReveal element="h1" className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl drop-shadow-lg font-playfair">
-              Previous Activities
-            </GSAPTextReveal>
-            <GSAPReveal animation="fade" delay={0.3}>
-              <p className="mt-6 text-xl text-white drop-shadow-md">
-                Explore our past events, workshops, conferences, and initiatives that have supported Palestinian
-                students in their educational journeys.
-              </p>
-            </GSAPReveal>
-          </div>
-        </div>
-      </section>
+      {/* Activity Gallery Hero Section */}
+      <ActivityGalleryHero activities={activitiesData} />
+
+      {/* Gallery Modal for individual activities */}
+      {galleryActivity && (
+        <ActivityGalleryModal
+          isOpen={isGalleryOpen}
+          onClose={() => setIsGalleryOpen(false)}
+          activityId={galleryActivity.id}
+          activityTitle={galleryActivity.title}
+        />
+      )}
 
       {/* Featured Activities */}
       <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/5 via-transparent to-[hsl(120,61%,34%)]/5 dark:from-[hsl(0,76%,40%)]/10 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/10">
@@ -257,6 +256,16 @@ export default function ActivitiesPage() {
                         </div>
                       </div>
                       <p className="line-clamp-4 text-muted-foreground text-lg">{activity.description}</p>
+                      <div className="mt-4">
+                        <Button
+                          onClick={() => handleViewGallery(activity)}
+                          variant="outline"
+                          className="border-[hsl(120,61%,34%)] text-[hsl(120,61%,34%)] hover:bg-[hsl(120,61%,34%)]/10 w-full"
+                        >
+                          <ImageIcon className="mr-2 h-4 w-4" />
+                          View Photos
+                        </Button>
+                      </div>
                     </CardContent>
                   </Card>
                 </GSAPReveal>
@@ -439,7 +448,7 @@ export default function ActivitiesPage() {
                             </div>
                           </div>
                           <p className="mb-4 text-muted-foreground">{activity.description}</p>
-                          <div className="space-y-2">
+                          <div className="space-y-2 mb-4">
                             <h4 className="font-medium">Highlights:</h4>
                             <ul className="list-inside list-disc space-y-1 text-sm text-muted-foreground">
                               {activity.highlights.slice(0, 2).map((highlight, i) => (
@@ -455,6 +464,15 @@ export default function ActivitiesPage() {
                               )}
                             </ul>
                           </div>
+                          <Button
+                            onClick={() => handleViewGallery(activity)}
+                            variant="outline"
+                            className="border-[hsl(120,61%,34%)] text-[hsl(120,61%,34%)] hover:bg-[hsl(120,61%,34%)]/10"
+                            size="sm"
+                          >
+                            <ImageIcon className="mr-2 h-4 w-4" />
+                            View Photos
+                          </Button>
                         </div>
                       </div>
                     </Card>
@@ -501,40 +519,6 @@ export default function ActivitiesPage() {
                 </div>
               </GSAPReveal>
             )}
-          </div>
-        </div>
-      </section>
-
-      {/* Photo Gallery */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/5 via-transparent to-[hsl(120,61%,34%)]/5 dark:from-[hsl(0,76%,40%)]/10 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/10">
-        <div className="container px-4 md:px-6">
-          <GSAPReveal animation="slide-up">
-            <div className="mb-12 text-center">
-              <div className="inline-flex items-center rounded-lg bg-[hsl(120,61%,34%)]/10 px-3 py-1 text-sm text-[hsl(120,61%,34%)]">
-                <Globe className="mr-1 h-4 w-4" />
-                Visual Memories
-              </div>
-              <h2 className="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl">Activity Gallery</h2>
-              <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
-                Visual highlights from our past events and activities.
-              </p>
-            </div>
-          </GSAPReveal>
-
-          <div className="mx-auto max-w-5xl">
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-              {Array.from({ length: 8 }).map((_, index) => (
-                <GSAPReveal key={index} animation="fade" delay={0.05 * index}>
-                  <div className="overflow-hidden rounded-lg">
-                    <img
-                      src={`/placeholder.svg?height=300&width=300&text=Event+Photo+${index + 1}`}
-                      alt={`Event photo ${index + 1}`}
-                      className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-                    />
-                  </div>
-                </GSAPReveal>
-              ))}
-            </div>
           </div>
         </div>
       </section>
