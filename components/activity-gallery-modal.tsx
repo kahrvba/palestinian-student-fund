@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { X, ChevronLeft, ChevronRight } from "lucide-react"
+import { X, ChevronLeft, ChevronRight, Play } from "lucide-react"
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { VisuallyHidden } from "@/components/ui/visually-hidden"
@@ -28,10 +28,16 @@ export function ActivityGalleryModal({
     switch (id) {
       case 1:
         return "one"
-      case 4:
+      case 2:
         return "two"
-      case 7:
+      case 3:
         return "three"
+        case 4:
+        return "four"
+      case 5:
+        return "five"
+      case 6:
+        return "six"
       default:
         return ""
     }
@@ -63,6 +69,7 @@ export function ActivityGalleryModal({
               "/one/PHOTO-2025-04-20-18-03-47.jpg",
               "/one/PHOTO-2025-04-20-18-03-48 2.jpg",
               "/one/PHOTO-2025-04-20-18-03-48.jpg",
+              "/one/VIDEO-2025-04-20-18-03-48.mp4"
             ]
           } else if (folderName === "two") {
             imageList = [
@@ -80,6 +87,12 @@ export function ActivityGalleryModal({
               "/two/PHOTO-2025-04-20-18-04-04 5.jpg",
               "/two/PHOTO-2025-04-20-18-04-04.jpg",
               "/two/PHOTO-2025-04-20-18-04-05.jpg",
+              "/two/VIDEO-2025-04-20-18-04-05 2.mp4",
+              "/two/VIDEO-2025-04-20-18-04-05 3.mp4",
+              "two/VIDEO-2025-04-20-18-04-05.mp4",
+              "/two/VIDEO-2025-04-20-18-04-05.mp4",
+              "/two/VIDEO-2025-04-20-18-04-06.mp4"
+
             ]
           } else if (folderName === "three") {
             imageList = [
@@ -88,6 +101,44 @@ export function ActivityGalleryModal({
               "/three/PHOTO-2025-04-20-18-04-18 2.jpg",
               "/three/PHOTO-2025-04-20-18-04-18 3.jpg",
               "/three/PHOTO-2025-04-20-18-04-18.jpg",
+            ]
+          } else if (folderName === "four") {
+            imageList = [
+              "/four/PHOTO-2025-04-26-22-18-22 2.jpg",
+              "/four/PHOTO-2025-04-26-22-18-22 3.jpg",
+              "/four/PHOTO-2025-04-26-22-18-22 4.jpg",
+              "/four/PHOTO-2025-04-26-22-18-22 5.jpg",
+              "/four/PHOTO-2025-04-26-22-18-22.jpg",
+              "/four/VIDEO-2025-04-26-22-18-23.mp4"
+            ]
+          } else if (folderName === "five") {
+            imageList = [
+              "/five/DSC07404.jpg",
+              "/five/DSC07413.jpg",
+              "/five/DSC07417.jpg",
+              "/five/DSC07427.jpg",
+              "/five/DSC07431.jpg",
+              "/five/DSC07433.jpg",
+              "/five/DSC07462.jpg",
+              "/five/DSC07469.jpg",
+              "/five/DSC07478.jpg",
+              "/five/DSC07485.jpg",
+              "/five/DSC07489.jpg",
+              "/five/DSC07508.jpg",
+              "/five/DSC07509.jpg",
+              "/five/DSC07513.jpg",
+              "/five/DSC07522.jpg",
+              "/five/DSC07538.jpg",
+              "/five/DSC07542.jpg",
+              "/five/DSC07548.jpg",
+              "/five/VIDEO-2025-04-26-22-20-53.mp4"
+            ]
+          } else if (folderName === "six") {
+            imageList = [
+              "/six/PHOTO-2025-04-26-22-24-14 2.jpg",
+              "/six/PHOTO-2025-04-26-22-24-14.jpg",
+              "/six/PHOTO-2025-04-26-22-24-15.jpg",
+              "/six/VIDEO-2025-04-26-22-24-15.mp4"
             ]
           }
 
@@ -116,6 +167,22 @@ export function ActivityGalleryModal({
     setSelectedImageIndex(index)
   }
 
+  // Add keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!isOpen) return
+
+      if (e.key === "ArrowLeft") {
+        handlePrevImage()
+      } else if (e.key === "ArrowRight") {
+        handleNextImage()
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [isOpen])
+
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="max-w-7xl w-[95vw] max-h-[95vh] p-0 bg-transparent border-none shadow-none overflow-hidden">
@@ -132,13 +199,28 @@ export function ActivityGalleryModal({
           </div>
         ) : (
           <div className="relative h-full">
-            {/* Main image viewer */}
+            {/* Main image/video viewer */}
             <div className="relative h-full flex items-center justify-center">
-              <img
-                src={images[selectedImageIndex]}
-                alt={`${activityTitle} image ${selectedImageIndex + 1}`}
-                className="max-h-[85vh] max-w-full object-contain"
-              />
+              {images[selectedImageIndex]?.toLowerCase().endsWith('.mp4') ? (
+                <div className="relative w-full max-w-4xl mb-16">
+                  <video
+                    src={images[selectedImageIndex]}
+                    controls
+                    className="w-full max-h-[75vh]"
+                    autoPlay
+                    controlsList="nodownload"
+                    playsInline
+                  />
+                </div>
+              ) : (
+                <div className="mb-16">
+                  <img
+                    src={images[selectedImageIndex]}
+                    alt={`${activityTitle} image ${selectedImageIndex + 1}`}
+                    className="max-h-[75vh] max-w-full object-contain"
+                  />
+                </div>
+              )}
 
               {/* Close button */}
               <Button
@@ -171,14 +253,16 @@ export function ActivityGalleryModal({
                 <ChevronRight className="h-8 w-8" />
               </Button>
 
-              {/* Image counter */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white px-3 py-1.5 rounded-full text-sm">
-                {selectedImageIndex + 1} / {images.length}
+              {/* Image counter - positioned above thumbnails */}
+              <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex items-center gap-2 z-50">
+                <div className="bg-black/50 text-white px-3 py-1.5 rounded-full text-sm">
+                  {selectedImageIndex + 1} / {images.length}
+                </div>
               </div>
             </div>
 
-            {/* Thumbnails */}
-            <div className="absolute bottom-0 left-0 right-0 flex justify-center p-4 overflow-x-auto bg-gradient-to-t from-black/70 to-transparent">
+            {/* Thumbnails - always visible at a fixed position */}
+            <div className="absolute bottom-0 left-0 right-0 flex justify-center p-4 overflow-x-auto bg-gradient-to-t from-black/70 to-transparent z-50">
               <div className="flex gap-2 max-w-full">
                 {images.map((image, index) => (
                   <div
@@ -200,11 +284,18 @@ export function ActivityGalleryModal({
                       }
                     }}
                   >
-                    <img
-                      src={image}
-                      alt={`Thumbnail ${index + 1}`}
-                      className="h-14 w-20 object-cover"
-                    />
+                    <div className="relative h-14 w-20">
+                      <img
+                        src={image}
+                        alt={`Thumbnail ${index + 1}`}
+                        className="h-full w-full object-cover"
+                      />
+                      {image.toLowerCase().endsWith('.mp4') && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/50">
+                          <Play className="h-6 w-6 text-white" />
+                        </div>
+                      )}
+                    </div>
                   </div>
                 ))}
               </div>

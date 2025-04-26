@@ -35,11 +35,11 @@ import ActivityGalleryHero from "@/components/activity-gallery-hero"
 const activitiesData = [
   {
     id: 1,
-    title: "Annual Scholarship Conference 2023",
+    title: "Meeting with Palestinian students in Türkiye",
     date: "June 15-17, 2023",
     location: "Gaza, Palestine",
     description:
-      "Our flagship annual conference bringing together scholarship recipients, educators, and partners to discuss educational opportunities and challenges for Palestinian students.",
+      "A communication meeting with Palestinian students in Türkiye to learn more about them, listen to their needs, and work to meet them, including them in the plans the Fund seeks to implement, and launch a new phase of support and follow-up for our students in Turkey.",
     image: "/one/PHOTO-2025-04-20-18-03-47 5.jpg?height=400&width=600",
     category: "Conference",
     featured: true,
@@ -53,12 +53,12 @@ const activitiesData = [
     ],
   },
   {
-    id: 4,
-    title: "Cultural Exchange Festival",
+    id: 2,
+    title: "Strengthening communication with our Palestinian students",
     date: "March 18, 2023",
     location: "Gaza, Palestine",
     description:
-      "A day-long festival celebrating Palestinian culture and fostering connections between scholarship recipients and the local community through food, music, art, and educational exhibits.",
+      "As part of strengthening communication with our Palestinian students abroad, the Fund organized a meeting with Palestinian female students in Turkey to get to know them more closely and listen to their experiences and needs. It also aimed to introduce them to the Palestinian Student Support Fund and its mission to support the educational process. The meeting was an opportunity for open dialogue, to exchange opinions and ideas, and to build bridges of future cooperation that will contribute to serving the students and supporting their academic journey.",
     image: "/two/PHOTO-2025-04-20-18-04-03.jpg?height=400&width=600",
     category: "Cultural Event",
     featured: true,
@@ -72,12 +72,12 @@ const activitiesData = [
     ],
   },
   {
-    id: 7,
-    title: "International Education Fair",
+    id: 3,
+    title: "Vision to reach our Palestinian students",
     date: "November 5-6, 2022",
     location: "Gaza, Palestine",
     description:
-      "A two-day education fair connecting Palestinian students with representatives from universities across the world, providing information about admission requirements, programs, and scholarship opportunities.",
+      "As part of our vision to reach our Palestinian students wherever they are, the Palestinian Student Support Fund organized this communication meeting with Palestinian students in Malaysia. The goal was to get to know each other directly, listen to their needs, and introduce them to the Palestinian Student Support Fund and its role in supporting their academic journeys. At the Palestinian Student Support Fund, we believe that supporting students is not limited by geographical boundaries. We will always strive to be by their side everywhere, building bridges of trust and fostering a spirit of belonging and solidarity.",
     image: "/three/PHOTO-2025-04-20-18-04-18.jpg?height=400&width=600",
     category: "Education Fair",
     featured: true,
@@ -89,6 +89,63 @@ const activitiesData = [
       "Information sessions about scholarship opportunities",
       "One-on-one consultations with academic advisors",
     ],
+  },
+  {
+    id: 4,
+    title: "Palestinian students in Kyrgyzstan",
+    date: "August 10-12, 2022",
+    location: "Gaza, Palestine",
+    description:
+      "In an effort to reach out to our Palestinian students everywhere, the Palestinian Student Support Fund organized a communication meeting with Palestinian students in Kyrgyzstan to get to know each other, listen to their experiences and needs, and introduce them to the Fund's mission. The meeting included an invitation to a fraternal banquet, fostering a friendly atmosphere and direct communication, reaffirming our commitment to being with them wherever they are, supporting their journey and accompanying them on their path to education and success.",
+    image: "/four/PHOTO-2025-04-26-22-18-22 2.jpg?height=400&width=600",
+    category: "Workshop",
+    featured: false,
+    year: 2022,
+    participants: 120,
+    highlights: [
+      "Hands-on training in academic research methodologies",
+      "Specialized sessions on scholarly writing and publication",
+      "Mentorship opportunities with established academics",
+      "Collaborative research project development",
+    ],
+  },
+  {
+    id: 5,
+    title: "Palestinian students in Turkey",
+    date: "April 22-23, 2022",
+    location: "Gaza, Palestine",
+    description:
+      "In an effort to strengthen ties with our Palestinian students in Turkey, the Fund organized a friendly football match on... on 10 February, bringing together students in an atmosphere of activity and fraternal interaction. This initiative aimed to create a space for acquaintance, break down barriers, and build direct relationships with students, in addition to introducing them to the activities of the Palestinian Student Support Fund in a spontaneous and friendly manner.",
+    image: "/five/DSC07508.jpg?height=400&width=600",
+    category: "Seminar",
+    featured: false,
+    year: 2022,
+    participants: 180,
+    highlights: [
+      "Resume and CV building workshops with industry experts",
+      "Panel discussions with successful Palestinian professionals",
+      "One-on-one career counseling sessions",
+      "Networking event with potential employers and mentors",
+    ],
+  },
+  {
+    id: 6,
+    title: "Palestinian students in various countries",
+    date: "October 15-17, 2021",
+    location: "Gaza, Palestine",
+    description:
+      "As part of our efforts to connect with our Palestinian students in various countries, the Palestinian Student Support Fund organized a networking event in Egypt, bringing together a group of students to get to know each other directly and listen to their opinions and needs. During the meeting, the students offered words of praise and appreciation to the Palestinian Student Support Fund, expressing the Fund's impact in supporting their educational journey. They also invited Palestinian students to learn more about the Fund and its message of support for Palestinian students around the world.",
+    image: "/six/PHOTO-2025-04-26-22-24-15.jpg?height=400&width=600",
+    category: "Networking",
+    featured: false,
+    year: 2021,
+    participants: 220,
+    highlights: [
+      "Startup pitch competition with cash prizes for winners",
+      "Workshops on business model canvas and lean startup methodology",
+      "Mentorship sessions with established entrepreneurs",
+      "Exhibition of successful student-led startups and innovations",
+    ],
   }
 ]
 
@@ -97,9 +154,12 @@ const categories = [
   "All",
   "Conference",
   "Cultural Event",
-  "Education Fair"
+  "Education Fair",
+  "Workshop",
+  "Seminar",
+  "Networking"
 ]
-const years = ["All", "2023", "2022"]
+const years = ["All", "2023", "2022", "2021"]
 const locations = ["All", "Gaza, Palestine"]
 
 export default function ActivitiesPage() {
@@ -289,13 +349,13 @@ export default function ActivitiesPage() {
           <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2 lg:grid-cols-4">
             <GSAPReveal animation="fade" delay={0.1}>
               <div className="flex flex-col items-center text-center">
-                <span className="text-5xl font-bold">3</span>
+                <span className="text-5xl font-bold">6</span>
                 <span className="mt-2 text-lg">Events & Activities</span>
               </div>
             </GSAPReveal>
             <GSAPReveal animation="fade" delay={0.2}>
               <div className="flex flex-col items-center text-center">
-                <span className="text-5xl font-bold">1,100+</span>
+                <span className="text-5xl font-bold">1,620+</span>
                 <span className="mt-2 text-lg">Participants</span>
               </div>
             </GSAPReveal>
