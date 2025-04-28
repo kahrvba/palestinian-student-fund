@@ -18,7 +18,6 @@ interface Activity {
   category: string
   featured: boolean
   year: number
-  participants: number
   highlights: string[]
 }
 
@@ -97,7 +96,7 @@ export default function ActivityGalleryHero({ activities }: ActivityGalleryHeroP
               <Badge className="bg-white/20 text-white hover:bg-white/30 text-base px-3 py-1.5">
                 {currentActivity.category}
               </Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
                 {currentActivity.title}
               </h1>
               <p className="text-xl text-white/90 leading-relaxed">
@@ -109,9 +108,6 @@ export default function ActivityGalleryHero({ activities }: ActivityGalleryHeroP
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="font-semibold">Location:</span> {currentActivity.location}
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="font-semibold">Participants:</span> {currentActivity.participants}
                 </div>
               </div>
               <div className="pt-4">

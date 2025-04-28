@@ -10,7 +10,6 @@ interface NewsCardProps {
   title: string
   excerpt: string
   image: string
-  href: string
   date?: string
   isAnyCardHovered?: boolean
   onHoverChange?: (isHovered: boolean) => void
@@ -20,7 +19,6 @@ export default function NewsCards2({
   title,
   excerpt,
   image,
-  href,
   date,
   isAnyCardHovered = false,
   onHoverChange
@@ -40,7 +38,7 @@ export default function NewsCards2({
   }
 
   return (
-    <Link href={href}>
+    
       <motion.div
         whileHover={{ y: -5 }}
         transition={{ duration: 0.2 }}
@@ -73,7 +71,6 @@ export default function NewsCards2({
           </CardContent>
         </Card>
       </motion.div>
-    </Link>
   )
 }
 

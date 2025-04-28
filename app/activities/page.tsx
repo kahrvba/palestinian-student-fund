@@ -37,14 +37,13 @@ const activitiesData = [
     id: 1,
     title: "Meeting with Palestinian students in Türkiye",
     date: "June 15-17, 2023",
-    location: "Gaza, Palestine",
+    location: "İstanbul, Türkiye",
     description:
       "A communication meeting with Palestinian students in Türkiye to learn more about them, listen to their needs, and work to meet them, including them in the plans the Fund seeks to implement, and launch a new phase of support and follow-up for our students in Turkey.",
     image: "/one/PHOTO-2025-04-20-18-03-47 5.jpg?height=400&width=600",
     category: "Conference",
     featured: true,
     year: 2023,
-    participants: 250,
     highlights: [
       "Keynote speech by Dr. Amina Mohammed, Deputy Secretary-General of the United Nations",
       "Panel discussions on higher education access in conflict zones",
@@ -56,14 +55,13 @@ const activitiesData = [
     id: 2,
     title: "Strengthening communication with our Palestinian students",
     date: "March 18, 2023",
-    location: "Gaza, Palestine",
+    location: "İstanbul, Türkiye",
     description:
       "As part of strengthening communication with our Palestinian students abroad, the Fund organized a meeting with Palestinian female students in Turkey to get to know them more closely and listen to their experiences and needs. It also aimed to introduce them to the Palestinian Student Support Fund and its mission to support the educational process. The meeting was an opportunity for open dialogue, to exchange opinions and ideas, and to build bridges of future cooperation that will contribute to serving the students and supporting their academic journey.",
     image: "/two/PHOTO-2025-04-20-18-04-03.jpg?height=400&width=600",
     category: "Cultural Event",
     featured: true,
     year: 2023,
-    participants: 350,
     highlights: [
       "Traditional Palestinian cuisine prepared by student volunteers",
       "Music and dance performances showcasing cultural heritage",
@@ -75,14 +73,13 @@ const activitiesData = [
     id: 3,
     title: "Vision to reach our Palestinian students",
     date: "November 5-6, 2022",
-    location: "Gaza, Palestine",
+    location: "Kuala Lumpur, Malaysia",
     description:
       "As part of our vision to reach our Palestinian students wherever they are, the Palestinian Student Support Fund organized this communication meeting with Palestinian students in Malaysia. The goal was to get to know each other directly, listen to their needs, and introduce them to the Palestinian Student Support Fund and its role in supporting their academic journeys. At the Palestinian Student Support Fund, we believe that supporting students is not limited by geographical boundaries. We will always strive to be by their side everywhere, building bridges of trust and fostering a spirit of belonging and solidarity.",
     image: "/three/PHOTO-2025-04-20-18-04-18.jpg?height=400&width=600",
     category: "Education Fair",
     featured: true,
     year: 2022,
-    participants: 500,
     highlights: [
       "Representatives from over 30 universities and educational institutions",
       "Workshops on university application processes",
@@ -94,14 +91,13 @@ const activitiesData = [
     id: 4,
     title: "Palestinian students in Kyrgyzstan",
     date: "August 10-12, 2022",
-    location: "Gaza, Palestine",
+    location: "Bishkek, Kyrgyzstan",
     description:
       "In an effort to reach out to our Palestinian students everywhere, the Palestinian Student Support Fund organized a communication meeting with Palestinian students in Kyrgyzstan to get to know each other, listen to their experiences and needs, and introduce them to the Fund's mission. The meeting included an invitation to a fraternal banquet, fostering a friendly atmosphere and direct communication, reaffirming our commitment to being with them wherever they are, supporting their journey and accompanying them on their path to education and success.",
     image: "/four/PHOTO-2025-04-26-22-18-22 2.jpg?height=400&width=600",
     category: "Workshop",
     featured: false,
     year: 2022,
-    participants: 120,
     highlights: [
       "Hands-on training in academic research methodologies",
       "Specialized sessions on scholarly writing and publication",
@@ -113,14 +109,13 @@ const activitiesData = [
     id: 5,
     title: "Palestinian students in Turkey",
     date: "April 22-23, 2022",
-    location: "Gaza, Palestine",
+    location: "İstanbul, Türkiye",
     description:
       "In an effort to strengthen ties with our Palestinian students in Turkey, the Fund organized a friendly football match on... on 10 February, bringing together students in an atmosphere of activity and fraternal interaction. This initiative aimed to create a space for acquaintance, break down barriers, and build direct relationships with students, in addition to introducing them to the activities of the Palestinian Student Support Fund in a spontaneous and friendly manner.",
     image: "/five/DSC07508.jpg?height=400&width=600",
     category: "Seminar",
     featured: false,
     year: 2022,
-    participants: 180,
     highlights: [
       "Resume and CV building workshops with industry experts",
       "Panel discussions with successful Palestinian professionals",
@@ -132,14 +127,13 @@ const activitiesData = [
     id: 6,
     title: "Palestinian students in various countries",
     date: "October 15-17, 2021",
-    location: "Gaza, Palestine",
+    location: "Cairo, Eygpt",
     description:
       "As part of our efforts to connect with our Palestinian students in various countries, the Palestinian Student Support Fund organized a networking event in Egypt, bringing together a group of students to get to know each other directly and listen to their opinions and needs. During the meeting, the students offered words of praise and appreciation to the Palestinian Student Support Fund, expressing the Fund's impact in supporting their educational journey. They also invited Palestinian students to learn more about the Fund and its message of support for Palestinian students around the world.",
     image: "/six/PHOTO-2025-04-26-22-24-15.jpg?height=400&width=600",
     category: "Networking",
     featured: false,
     year: 2021,
-    participants: 220,
     highlights: [
       "Startup pitch competition with cash prizes for winners",
       "Workshops on business model canvas and lean startup methodology",
@@ -160,7 +154,7 @@ const categories = [
   "Networking"
 ]
 const years = ["All", "2023", "2022", "2021"]
-const locations = ["All", "Gaza, Palestine"]
+const locations = ["All", "İstanbul, Türkiye","Cairo, Eygpt" ,"Bishkek, Kyrgyzstan", "Kuala Lumpur, Malaysia"]
 
 export default function ActivitiesPage() {
   const [searchQuery, setSearchQuery] = useState("")
@@ -272,7 +266,7 @@ export default function ActivitiesPage() {
                 <Award className="mr-2 h-5 w-5" />
                 Featured Events
               </div>
-              <h2 className="mt-3 text-4xl font-bold tracking-tighter sm:text-5xl">Highlighted Activities</h2>
+              <h2 className="mt-3 text-4xl font-bold sm:text-5xl">Highlighted Activities</h2>
               <p className="mx-auto mt-6 max-w-[800px] text-muted-foreground text-xl">
                 Our most impactful recent events and initiatives.
               </p>
@@ -310,10 +304,6 @@ export default function ActivitiesPage() {
                           <MapPin className="mr-3 h-5 w-5" />
                           {activity.location}
                         </div>
-                        <div className="flex items-center">
-                          <Users className="mr-3 h-5 w-5" />
-                          {activity.participants} Participants
-                        </div>
                       </div>
                       <p className="line-clamp-4 text-muted-foreground text-lg">{activity.description}</p>
                       <div className="mt-4">
@@ -339,7 +329,7 @@ export default function ActivitiesPage() {
         <div className="container px-4 md:px-6">
           <GSAPReveal animation="slide-up">
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Our Impact</h2>
+              <h2 className="text-3xl font-bold sm:text-4xl">Our Impact</h2>
               <p className="mx-auto mt-4 max-w-[700px] text-white/90">
                 The collective reach and influence of our activities and programs.
               </p>
@@ -384,7 +374,7 @@ export default function ActivitiesPage() {
                 <Calendar className="mr-1 h-4 w-4" />
                 Past Events
               </div>
-              <h2 className="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl">Activity Archive</h2>
+              <h2 className="mt-2 text-3xl font-bold sm:text-4xl">Activity Archive</h2>
               <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
                 Browse through our complete history of events, workshops, and initiatives.
               </p>
@@ -502,10 +492,6 @@ export default function ActivitiesPage() {
                               <MapPin className="mr-2 h-4 w-4" />
                               {activity.location}
                             </div>
-                            <div className="flex items-center">
-                              <Users className="mr-2 h-4 w-4" />
-                              {activity.participants} Participants
-                            </div>
                           </div>
                           <p className="mb-4 text-muted-foreground">{activity.description}</p>
                           <div className="space-y-2 mb-4">
@@ -592,7 +578,7 @@ export default function ActivitiesPage() {
                 <Quote className="mr-1 h-4 w-4" />
                 Student Voices
               </div>
-              <h2 className="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl">Participant Testimonials</h2>
+              <h2 className="mt-2 text-3xl font-bold sm:text-4xl">Participant Testimonials</h2>
               <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
                 Hear from students who have attended our events and activities.
               </p>
@@ -663,7 +649,7 @@ export default function ActivitiesPage() {
                 <Calendar className="mr-1 h-4 w-4" />
                 Stay Connected
               </div>
-              <h2 className="mt-2 text-2xl font-bold tracking-tighter sm:text-3xl">Join Our Upcoming Events</h2>
+              <h2 className="mt-2 text-2xl font-bold sm:text-3xl">Join Our Upcoming Events</h2>
               <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
                 Stay connected with our community and participate in our upcoming workshops, seminars, and networking
                 opportunities.

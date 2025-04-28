@@ -26,31 +26,26 @@ export default function Home() {
       title: t("card1.title"),
       excerpt: t("Card1.desc"),
       image: "/scholer.png?height=400&width=600",
-      href: "/news/new-scholarship-program"
     },
     {
       title: t("Card2.title"),
       excerpt: t("Card2.desc"),
       image: "/secondCard.png",
-      href: "/news/istanbul-university-partnership"
     },
     {
       title: t("Card3.title"),
       excerpt: t("Card3.desc"),
       image: "/thirdCard.png?height=400&width=600",
-      href: "/news/annual-conference"
     },
     {
       title: t("Card4.title"),
       excerpt: t("Card4.desc"),
       image: "/fourCard.png?height=400&width=600",
-      href: "/news/annual-conference"
     },
     {
       title: t("Card5.title"),
       excerpt: t("Card5.desc"),
       image: "/fifthCard.png?height=400&width=600",
-      href: "/news/annual-conferece"
     }
   ]
 
