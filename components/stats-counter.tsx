@@ -20,18 +20,24 @@ export default function StatsCounter({ number, label }: StatsCounterProps) {
     const start = 0
     const duration = 2
 
-    gsap.to(ref.current, {
-      duration,
-      onUpdate: () => {
-        const progress = gsap.getProperty(ref.current, "progress") || 0
-        setCount(Math.floor(number * (progress as number)))
-      },
-      progress: 1,
-      ease: "power2.out",
-    })
+    // Create a simple counter animation without relying on progress property
+    let startTime: number | null = null
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp
+      const elapsed = timestamp - startTime
+      const progress = Math.min(elapsed / (duration * 500), 1)
+      
+      setCount(Math.floor(start + (number - start) * progress))
+      
+      if (progress < 1) {
+        requestAnimationFrame(animate)
+      }
+    }
+    
+    requestAnimationFrame(animate)
 
     return () => {
-      gsap.killTweensOf(ref.current)
+      startTime = null
     }
   }, [isInView, number])
 
