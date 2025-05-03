@@ -271,7 +271,7 @@ export default function ContactPage() {
               </div>
               <div className="aspect-video w-full overflow-hidden rounded-lg border border-[hsl(120,61%,34%)]/20 shadow-sm h-[450px]">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108941.41942760064!2d34.4548911!3d31.4499427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14fd7f054e542767%3A0x7ff98dc913046392!2sGaza!5e0!3m2!1sen!2sus!4v1625145332513!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d192697.79327595977!2d28.85173769861646!3d41.005495809214984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa7040068086b%3A0xe1ccfe98bc01b0d0!2sIstanbul%2C%20Turkey!5e0!3m2!1sen!2sus!4v1625145332513!5m2!1sen!2sus"
                   width="100%"
                   height="450"
                   style={{ border: 0 }}

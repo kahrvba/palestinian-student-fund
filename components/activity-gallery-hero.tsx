@@ -1,12 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronLeft, ChevronRight, Image as ImageIcon } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import GSAPReveal from "@/components/gsap-reveal"
 import { ActivityGalleryModal } from "@/components/activity-gallery-modal"
-import { VisuallyHidden } from "@/components/ui/visually-hidden"
 
 interface Activity {
   id: number
@@ -14,11 +13,11 @@ interface Activity {
   date: string
   location: string
   description: string
+  full_description: string
   image: string
   category: string
   featured: boolean
   year: number
-  highlights: string[]
 }
 
 interface ActivityGalleryHeroProps {
@@ -48,10 +47,16 @@ export default function ActivityGalleryHero({ activities }: ActivityGalleryHeroP
     switch (id) {
       case 1:
         return "one"
-      case 4:
+      case 2:
         return "two"
-      case 7:
+      case 3:
         return "three"
+        case 4:
+        return "four"
+      case 5:
+        return "five"
+      case 6:
+        return "six"
       default:
         return ""
     }
@@ -64,20 +69,32 @@ export default function ActivityGalleryHero({ activities }: ActivityGalleryHeroP
     if (folderName === "one") {
       return [
         "/one/PHOTO-2025-04-20-18-03-45.jpg",
-        "/one/PHOTO-2025-04-20-18-03-46 2.jpg",
-        "/one/PHOTO-2025-04-20-18-03-47 5.jpg",
+
       ]
     } else if (folderName === "two") {
       return [
         "/two/PHOTO-2025-04-20-18-04-03.jpg",
-        "/two/PHOTO-2025-04-20-18-04-02 3.jpg",
-        "/two/PHOTO-2025-04-20-18-04-04 5.jpg",
+
       ]
     } else if (folderName === "three") {
       return [
-        "/three/PHOTO-2025-04-20-18-04-17.jpg",
-        "/three/PHOTO-2025-04-20-18-04-18.jpg",
-        "/three/PHOTO-2025-04-20-18-04-18 3.jpg",
+        "/three/PHOTO-2025-04-20-18-04-17 2.jpg",
+
+      ]
+    } else if (folderName === "four") {
+      return [
+        "/four/PHOTO-2025-04-26-22-18-22 2.jpg",
+
+      ]
+    } else if (folderName === "five") {
+      return [
+        "/five/DSC07404.jpg",
+
+      ]
+    } else if (folderName === "six") {
+      return [
+        "/six/PHOTO-2025-04-26-22-24-14 2.jpg",
+
       ]
     }
 
@@ -92,7 +109,19 @@ export default function ActivityGalleryHero({ activities }: ActivityGalleryHeroP
         <div className="grid gap-8 md:grid-cols-2 items-center">
           {/* Activity Info */}
           <GSAPReveal animation="slide-up">
-            <div className="space-y-6">
+            <div
+              className="space-y-6 cursor-pointer"
+              onClick={handleViewGallery}
+              role="button"
+              tabIndex={0}
+              aria-label={`View ${currentActivity.title} gallery`}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  handleViewGallery();
+                  e.preventDefault();
+                }
+              }}
+            >
               <Badge className="bg-white/20 text-white hover:bg-white/30 text-base px-3 py-1.5">
                 {currentActivity.category}
               </Badge>
@@ -110,86 +139,29 @@ export default function ActivityGalleryHero({ activities }: ActivityGalleryHeroP
                   <span className="font-semibold">Location:</span> {currentActivity.location}
                 </div>
               </div>
-              <div className="pt-4">
-                <Button
-                  onClick={handleViewGallery}
-                  className="bg-white text-[hsl(0,76%,40%)] hover:bg-white/90 text-lg px-6 py-6 h-auto"
-                  size="lg"
-                >
-                  <ImageIcon className="mr-2 h-5 w-5" />
-                  View Full Gallery
-                </Button>
-              </div>
             </div>
           </GSAPReveal>
 
           {/* Gallery Preview */}
           <GSAPReveal animation="slide-up" delay={0.2}>
             <div className="relative">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="col-span-2">
-                  <div
-                    className="overflow-hidden rounded-lg cursor-pointer"
-                    onClick={handleViewGallery}
-                    role="button"
-                    tabIndex={0}
-                    aria-label={`View ${currentActivity.title} gallery`}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        handleViewGallery();
-                        e.preventDefault();
-                      }
-                    }}
-                  >
-                    <img
-                      src={previewImages[0]}
-                      alt={`${currentActivity.title} preview`}
-                      className="w-full aspect-video object-cover transition-transform duration-500 hover:scale-105"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <div
-                    className="overflow-hidden rounded-lg cursor-pointer"
-                    onClick={handleViewGallery}
-                    role="button"
-                    tabIndex={0}
-                    aria-label={`View ${currentActivity.title} gallery`}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        handleViewGallery();
-                        e.preventDefault();
-                      }
-                    }}
-                  >
-                    <img
-                      src={previewImages[1]}
-                      alt={`${currentActivity.title} preview`}
-                      className="w-full aspect-square object-cover transition-transform duration-500 hover:scale-105"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <div
-                    className="overflow-hidden rounded-lg cursor-pointer"
-                    onClick={handleViewGallery}
-                    role="button"
-                    tabIndex={0}
-                    aria-label={`View ${currentActivity.title} gallery`}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        handleViewGallery();
-                        e.preventDefault();
-                      }
-                    }}
-                  >
-                    <img
-                      src={previewImages[2]}
-                      alt={`${currentActivity.title} preview`}
-                      className="w-full aspect-square object-cover transition-transform duration-500 hover:scale-105"
-                    />
-                  </div>
-                </div>
+              <div className="overflow-hidden rounded-lg cursor-pointer"
+                onClick={handleViewGallery}
+                role="button"
+                tabIndex={0}
+                aria-label={`View ${currentActivity.title} gallery`}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    handleViewGallery();
+                    e.preventDefault();
+                  }
+                }}
+              >
+                <img
+                  src={previewImages[0]}
+                  alt={`${currentActivity.title} preview`}
+                  className="w-full aspect-video object-cover transition-transform duration-500 hover:scale-105"
+                />
               </div>
 
               {/* Navigation buttons */}
@@ -222,8 +194,7 @@ export default function ActivityGalleryHero({ activities }: ActivityGalleryHeroP
       <ActivityGalleryModal
         isOpen={galleryOpen}
         onClose={() => setGalleryOpen(false)}
-        activityId={currentActivity.id}
-        activityTitle={currentActivity.title}
+        activity={currentActivity}
       />
     </section>
   )

@@ -1,23 +1,35 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { X, ChevronLeft, ChevronRight, Play } from "lucide-react"
+import { useState, useEffect, useCallback } from "react"
+import { X, ChevronLeft, ChevronRight, Play, Calendar, MapPin, Users, BookOpen, Presentation, Globe, Award, Handshake } from "lucide-react"
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { VisuallyHidden } from "@/components/ui/visually-hidden"
+import { Badge } from "@/components/ui/badge"
+
+interface Activity {
+  id: number
+  title: string
+  date: string
+  location: string
+  description: string
+  full_description: string
+  image: string
+  category: string
+  featured: boolean
+  year: number
+}
 
 interface ActivityGalleryModalProps {
   isOpen: boolean
   onClose: () => void
-  activityId: number
-  activityTitle: string
+  activity: Activity
 }
 
 export function ActivityGalleryModal({
   isOpen,
   onClose,
-  activityId,
-  activityTitle,
+  activity,
 }: ActivityGalleryModalProps) {
   const [images, setImages] = useState<string[]>([])
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
@@ -49,7 +61,7 @@ export function ActivityGalleryModal({
       const fetchImages = async () => {
         setLoading(true)
         try {
-          const folderName = getFolderName(activityId)
+          const folderName = getFolderName(activity.id)
 
           // In a real app, you would fetch this from an API
           // For now, we'll simulate it by hardcoding the image paths based on the folder structure
@@ -153,151 +165,152 @@ export function ActivityGalleryModal({
 
       fetchImages()
     }
-  }, [isOpen, activityId])
+  }, [isOpen, activity.id])
 
-  const handlePrevImage = () => {
+  const handlePrevImage = useCallback(() => {
     setSelectedImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
-  }
+  }, [images.length])
 
-  const handleNextImage = () => {
+  const handleNextImage = useCallback(() => {
     setSelectedImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1))
-  }
+  }, [images.length])
 
   const handleThumbnailClick = (index: number) => {
     setSelectedImageIndex(index)
   }
 
-  // Add keyboard navigation
+  // Activity type icons
+  const getActivityIcon = (category: string) => {
+    switch (category) {
+      case "Conference":
+        return <Users className="h-5 w-5" />
+      case "Workshop":
+        return <BookOpen className="h-5 w-5" />
+      case "Seminar":
+        return <Presentation className="h-5 w-5" />
+      case "Cultural Event":
+        return <Globe className="h-5 w-5" />
+      case "Networking":
+        return <Handshake className="h-5 w-5" />
+      case "Education Fair":
+        return <Award className="h-5 w-5" />
+      default:
+        return <Calendar className="h-5 w-5" />
+    }
+  }
+
+  // Add keyboard event handler for left/right arrow keys
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (!isOpen) return
+      if (!isOpen) return;
 
       if (e.key === "ArrowLeft") {
-        handlePrevImage()
+        handlePrevImage();
       } else if (e.key === "ArrowRight") {
-        handleNextImage()
+        handleNextImage();
+      } else if (e.key === "Escape") {
+        onClose();
       }
-    }
+    };
 
-    window.addEventListener("keydown", handleKeyDown)
-    return () => window.removeEventListener("keydown", handleKeyDown)
-  }, [isOpen])
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen, handlePrevImage, handleNextImage, onClose]);
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-w-7xl w-[95vw] max-h-[95vh] p-0 bg-transparent border-none shadow-none overflow-hidden">
+      <DialogContent className="max-w-7xl w-[95vw] max-h-[95vh] p-6 bg-white dark:bg-gray-900 overflow-auto">
         <DialogTitle>
-          <VisuallyHidden>{activityTitle} Gallery</VisuallyHidden>
+          <VisuallyHidden>{activity.title} Gallery</VisuallyHidden>
         </DialogTitle>
+
         {loading ? (
-          <div className="flex items-center justify-center h-full">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
+          <div className="flex items-center justify-center h-64">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[hsl(120,61%,34%)]"></div>
           </div>
         ) : images.length === 0 ? (
-          <div className="flex items-center justify-center h-full">
-            <p className="text-white">No images found for this activity.</p>
+          <div className="flex items-center justify-center h-64">
+            <p>No images found for this activity.</p>
           </div>
         ) : (
-          <div className="relative h-full">
-            {/* Main image/video viewer */}
-            <div className="relative h-full flex items-center justify-center">
-              {images[selectedImageIndex]?.toLowerCase().endsWith('.mp4') ? (
-                <div className="relative w-full max-w-4xl mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Left column - Image/Video Gallery */}
+            <div className="relative h-[60vh] flex items-center justify-center">
+              <div className="relative w-full h-full">
+                {images[selectedImageIndex]?.toLowerCase().endsWith('.mp4') ? (
                   <video
                     src={images[selectedImageIndex]}
                     controls
-                    className="w-full max-h-[75vh]"
+                    className="w-full h-full rounded-lg object-contain"
                     autoPlay
                     controlsList="nodownload"
                     playsInline
                   />
-                </div>
-              ) : (
-                <div className="mb-16">
+                ) : (
                   <img
                     src={images[selectedImageIndex]}
-                    alt={`${activityTitle} image ${selectedImageIndex + 1}`}
-                    className="max-h-[75vh] max-w-full object-contain"
+                    alt={`${activity.title} image ${selectedImageIndex + 1}`}
+                    className="w-full h-full rounded-lg object-contain"
                   />
-                </div>
-              )}
+                )}
 
-              {/* Close button */}
-              <Button
-                variant="ghost"
-                size="icon"
-                className="absolute top-4 right-4 bg-black/20 hover:bg-black/40 text-white rounded-full z-50"
-                onClick={onClose}
-                aria-label="Close gallery"
-              >
-                <X className="h-6 w-6" />
-              </Button>
+                {/* Navigation buttons */}
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white rounded-full h-10 w-10"
+                  onClick={handlePrevImage}
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft className="h-6 w-6" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white rounded-full h-10 w-10"
+                  onClick={handleNextImage}
+                  aria-label="Next image"
+                >
+                  <ChevronRight className="h-6 w-6" />
+                </Button>
 
-              {/* Navigation buttons */}
-              <Button
-                variant="ghost"
-                size="icon"
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white rounded-full h-12 w-12"
-                onClick={handlePrevImage}
-                aria-label="Previous image"
-              >
-                <ChevronLeft className="h-8 w-8" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white rounded-full h-12 w-12"
-                onClick={handleNextImage}
-                aria-label="Next image"
-              >
-                <ChevronRight className="h-8 w-8" />
-              </Button>
-
-              {/* Image counter - positioned above thumbnails */}
-              <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex items-center gap-2 z-50">
-                <div className="bg-black/50 text-white px-3 py-1.5 rounded-full text-sm">
-                  {selectedImageIndex + 1} / {images.length}
+                {/* Image counter */}
+                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
+                  <div className="bg-black/50 text-white px-3 py-1.5 rounded-full text-sm">
+                    {selectedImageIndex + 1} / {images.length}
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Thumbnails - always visible at a fixed position */}
-            <div className="absolute bottom-0 left-0 right-0 flex justify-center p-4 overflow-x-auto bg-gradient-to-t from-black/70 to-transparent z-50">
-              <div className="flex gap-2 max-w-full">
-                {images.map((image, index) => (
-                  <div
-                    key={index}
-                    className={`cursor-pointer rounded-md overflow-hidden border-2 transition-all ${
-                      selectedImageIndex === index
-                        ? "border-white scale-110"
-                        : "border-transparent opacity-70"
-                    }`}
-                    onClick={() => handleThumbnailClick(index)}
-                    role="button"
-                    tabIndex={0}
-                    aria-label={`View image ${index + 1} of ${images.length}`}
-                    aria-current={selectedImageIndex === index ? "true" : "false"}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        handleThumbnailClick(index);
-                        e.preventDefault();
-                      }
-                    }}
-                  >
-                    <div className="relative h-14 w-20">
-                      <img
-                        src={image}
-                        alt={`Thumbnail ${index + 1}`}
-                        className="h-full w-full object-cover"
-                      />
-                      {image.toLowerCase().endsWith('.mp4') && (
-                        <div className="absolute inset-0 flex items-center justify-center bg-black/50">
-                          <Play className="h-6 w-6 text-white" />
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                ))}
+            {/* Right column - Activity Details */}
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <Badge variant="outline" className="bg-[hsl(120,61%,34%)]/10 text-[hsl(120,61%,34%)] flex items-center gap-1 px-3 py-1.5 text-base">
+                  {getActivityIcon(activity.category)}
+                  {activity.category}
+                </Badge>
+                <span className="text-base font-medium text-muted-foreground">{activity.year}</span>
+              </div>
+
+              <h2 className="text-2xl md:text-3xl font-bold">{activity.title}</h2>
+
+              <div className="flex flex-wrap gap-4 text-muted-foreground">
+                <div className="flex items-center">
+                  <Calendar className="mr-2 h-5 w-5" />
+                  {activity.date}
+                </div>
+                <div className="flex items-center">
+                  <MapPin className="mr-2 h-5 w-5" />
+                  {activity.location}
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold">Description</h3>
+                <p className="text-muted-foreground">{activity.full_description}</p>
               </div>
             </div>
           </div>
