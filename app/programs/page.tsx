@@ -255,7 +255,7 @@ export default function ProgramsPage() {
                               </li>
                               <li className="flex items-start gap-2 mt-2">
                                 <div className="h-2 w-2 rounded-full bg-[hsl(120,61%,34%)] mt-2"></div>
-                                <span className="text-white/80 text-sm">Fluencey in english </span>
+                                <span className="text-white/80 text-sm">English language proficiency is preferred</span>
                               </li>
                             </ul>
                           </div>
@@ -281,6 +281,10 @@ export default function ProgramsPage() {
                               <li className="flex items-start gap-2 mt-2">
                                 <div className="h-2 w-2 rounded-full bg-[hsl(120,61%,34%)] mt-2"></div>
                                 <span className="text-white/80 text-sm">Allied Health Professions</span>
+                              </li>
+                              <li className="flex items-start gap-2 mt-2">
+                                <div className="h-2 w-2 rounded-full bg-[hsl(120,61%,34%)] mt-2"></div>
+                                <span className="text-white/80 text-sm">Nursing</span>
                               </li>
                             </ul>
                           </div>
@@ -387,7 +391,7 @@ export default function ProgramsPage() {
                               <Clock className="h-5 w-5 text-[hsl(0,76%,40%)]" />
                               <span className="font-medium">Deadline</span>
                             </div>
-                            <p className="text-white/80 text-sm">April 30 (annual)</p>
+                            <p className="text-white/80 text-sm">June 30 (annual)</p>
                           </div>
 
                           <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
@@ -410,7 +414,7 @@ export default function ProgramsPage() {
                               </li>
                               <li className="flex items-start gap-2 mt-2">
                                 <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)] mt-2"></div>
-                                <span className="text-white/80 text-sm">Fluencey in english </span>
+                                <span className="text-white/80 text-sm">English language proficiency is preferred</span>
                               </li>
                             </ul>
                           </div>
@@ -423,20 +427,9 @@ export default function ProgramsPage() {
                             <ul className="mt-2 space-y-2">
                               <li className="flex items-center gap-2">
                                 <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)]"></div>
-                                <span className="text-white/80 text-sm">Human Medicine</span>
+                                <span className="text-white/80 text-sm">All specialties except medical specialties</span>
                               </li>
-                              <li className="flex items-center gap-2">
-                                <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)]"></div>
-                                <span className="text-white/80 text-sm">Dentistry</span>
-                              </li>
-                              <li className="flex items-center gap-2">
-                                <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)]"></div>
-                                <span className="text-white/80 text-sm">Pharmacy</span>
-                              </li>
-                              <li className="flex items-start gap-2 mt-2">
-                                <div className="h-2 w-2 rounded-full bg-[hsl(0,76%,40%)] mt-2"></div>
-                                <span className="text-white/80 text-sm">Allied Health Professions</span>
-                              </li>
+                             
                             </ul>
                           </div>
                         </div>
@@ -731,7 +724,7 @@ export default function ProgramsPage() {
                               <Clock className="h-5 w-5 text-[hsl(0,76%,40%)]" />
                               <span className="font-medium">Deadline</span>
                             </div>
-                            <p className="text-white/80 text-sm">April 30 (annual)</p>
+                            <p className="text-white/80 text-sm">June 30 (annual)</p>
                           </div>
 
                           <div className="flex flex-col gap-2 bg-white/5 p-4 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
