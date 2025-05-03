@@ -1,9 +1,10 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { ScrollToPlugin } from "gsap/ScrollToPlugin"
 import {Search,Filter,Calendar,MapPin,Users,ChevronLeft,ChevronRight,BookOpen,Presentation,Globe,Award,Handshake,Quote} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -14,6 +15,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import GSAPReveal from "@/components/gsap-reveal"
 import { ActivityGalleryModal } from "@/components/activity-gallery-modal"
 import ActivityGalleryHero from "@/components/activity-gallery-hero"
+import { TestimonialVideoModal } from "@/components/testimonial-video-modal"
 
 // Mock activities data
 const activitiesData = [
@@ -129,13 +131,44 @@ export default function ActivitiesPage() {
   const [galleryActivity, setGalleryActivity] = useState<typeof activitiesData[0] | null>(null)
   const [isGalleryOpen, setIsGalleryOpen] = useState(false)
 
+  // State for testimonial video modal
+  const [isTestimonialVideoOpen, setIsTestimonialVideoOpen] = useState(false)
+  const [testimonialVideoPath, setTestimonialVideoPath] = useState("")
+  const [testimonialName, setTestimonialName] = useState("")
+
   const handleViewGallery = (activity: typeof activitiesData[0]) => {
     setGalleryActivity(activity)
     setIsGalleryOpen(true)
   }
 
+  const handleOpenTestimonialVideo = (name: string, videoFileName: string) => {
+    setTestimonialName(name)
+    setTestimonialVideoPath(`/testomenialVid/${videoFileName}`)
+    setIsTestimonialVideoOpen(true)
+  }
+
+  const scrollToActivityArchive = () => {
+    // @ts-ignore - we know this exists
+    const archiveSection = window.activityArchiveRef;
+
+    if (archiveSection) {
+      // Set the active tab to "all" to show all activities
+      setActiveTab("all")
+
+      // Scroll to the archive section with GSAP animation
+      gsap.to(window, {
+        duration: 0.2,
+        scrollTo: {
+          y: archiveSection,
+          offsetY: 40 // Add some offset to account for fixed headers
+        },
+        ease: "power2.inOut"
+      });
+    }
+  }
+
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
     // Initialize progress bar
     const progressBar = document.querySelector(".progress-bar")
@@ -205,7 +238,10 @@ export default function ActivitiesPage() {
   return (
     <main className="flex min-h-screen flex-col">
       {/* Activity Gallery Hero Section */}
-      <ActivityGalleryHero activities={activitiesData} />
+      <ActivityGalleryHero
+        activities={activitiesData}
+        onViewGallery={scrollToActivityArchive}
+      />
 
       {/* Gallery Modal for individual activities */}
       {galleryActivity && (
@@ -215,6 +251,14 @@ export default function ActivitiesPage() {
           activity={galleryActivity}
         />
       )}
+
+      {/* Testimonial Video Modal */}
+      <TestimonialVideoModal
+        isOpen={isTestimonialVideoOpen}
+        onClose={() => setIsTestimonialVideoOpen(false)}
+        name={testimonialName}
+        videoPath={testimonialVideoPath}
+      />
 
       {/* Featured Activities */}
       <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/5 via-transparent to-[hsl(120,61%,34%)]/5 dark:from-[hsl(0,76%,40%)]/10 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/10">
@@ -240,7 +284,7 @@ export default function ActivitiesPage() {
                 <GSAPReveal key={activity.id} animation="slide-up" delay={0.1 * index}>
                   <Card
                     className="h-full overflow-hidden hover:shadow-xl transition-all duration-300 border-2 border-[hsl(120,61%,34%)]/20 hover:border-[hsl(120,61%,34%)]/60 hover:-translate-y-2 cursor-pointer"
-                    onClick={() => handleViewGallery(activity)}
+                    onClick={scrollToActivityArchive}
                   >
                     <div className="aspect-video overflow-hidden">
                       <img
@@ -291,7 +335,7 @@ export default function ActivitiesPage() {
           <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2 lg:grid-cols-4">
             <GSAPReveal animation="fade" delay={0.1}>
               <div className="flex flex-col items-center text-center">
-                <span className="text-5xl font-bold">6</span>
+                <span className="text-5xl font-bold">7</span>
                 <span className="mt-2 text-lg">Events & Activities</span>
               </div>
             </GSAPReveal>
@@ -303,7 +347,7 @@ export default function ActivitiesPage() {
             </GSAPReveal>
             <GSAPReveal animation="fade" delay={0.3}>
               <div className="flex flex-col items-center text-center">
-                <span className="text-5xl font-bold">1</span>
+                <span className="text-5xl font-bold">5</span>
                 <span className="mt-2 text-lg">City</span>
               </div>
             </GSAPReveal>
@@ -318,7 +362,14 @@ export default function ActivitiesPage() {
       </section>
 
       {/* All Activities */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/5 via-transparent to-[hsl(120,61%,34%)]/5 dark:from-[hsl(0,76%,40%)]/10 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/10">
+      <section
+        ref={(el) => {
+          if (el) {
+            // @ts-ignore - we know this is an HTMLElement
+            window.activityArchiveRef = el;
+          }
+        }}
+        className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/5 via-transparent to-[hsl(120,61%,34%)]/5 dark:from-[hsl(0,76%,40%)]/10 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/10">
         <div className="container px-4 md:px-6">
           <GSAPReveal animation="slide-up">
             <div className="mb-12 text-center">
@@ -517,7 +568,10 @@ export default function ActivitiesPage() {
 
           <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2 lg:grid-cols-3">
             <GSAPReveal animation="slide-up" delay={0.1}>
-              <Card className="h-full">
+              <Card
+                className="h-full cursor-pointer hover:shadow-md transition-shadow"
+                onClick={() => handleOpenTestimonialVideo("Tasnim mosa", "moritania.mp4")}
+              >
                 <CardContent className="flex h-full flex-col justify-between p-6">
                   <div>
                     <Quote className="mb-4 h-8 w-8 text-[hsl(120,61%,34%)]/40" />
@@ -525,16 +579,21 @@ export default function ActivitiesPage() {
                       "The Annual Scholarship Conference was an incredible opportunity to connect with other students and learn about educational opportunities. I gained valuable insights that will help me in my academic journey."
                     </p>
                   </div>
-                  <div>
-                    <p className="font-medium">Leila Hamdan</p>
-                    <p className="text-sm text-muted-foreground">Master's Student, Environmental Engineering</p>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="font-medium">Tasnim mosa</p>
+                      <p className="text-sm text-muted-foreground">Master's Student, Environmental Engineering</p>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
             </GSAPReveal>
 
             <GSAPReveal animation="slide-up" delay={0.2}>
-              <Card className="h-full">
+              <Card
+                className="h-full cursor-pointer hover:shadow-md transition-shadow"
+                onClick={() => handleOpenTestimonialVideo("Hassan Albirok", "hassan.mp4")}
+              >
                 <CardContent className="flex h-full flex-col justify-between p-6">
                   <div>
                     <Quote className="mb-4 h-8 w-8 text-[hsl(0,76%,40%)]/40" />
@@ -542,16 +601,21 @@ export default function ActivitiesPage() {
                       "The Cultural Exchange Festival was a highlight of my year. It gave me a chance to share my heritage with the local community and feel connected to our Palestinian roots."
                     </p>
                   </div>
-                  <div>
-                    <p className="font-medium">Omar Khalidi</p>
-                    <p className="text-sm text-muted-foreground">Bachelor's Student, Mechanical Engineering</p>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="font-medium">Hassan Albirok</p>
+                      <p className="text-sm text-muted-foreground">Bachelor's Student, Mechanical Engineering</p>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
             </GSAPReveal>
 
             <GSAPReveal animation="slide-up" delay={0.3}>
-              <Card className="h-full">
+              <Card
+                className="h-full cursor-pointer hover:shadow-md transition-shadow"
+                onClick={() => handleOpenTestimonialVideo("Atia Algadi", "atia.mp4")}
+              >
                 <CardContent className="flex h-full flex-col justify-between p-6">
                   <div>
                     <Quote className="mb-4 h-8 w-8 text-[hsl(120,61%,34%)]/40" />
@@ -559,9 +623,53 @@ export default function ActivitiesPage() {
                       "The International Education Fair opened doors for me that I never thought possible. I was able to connect with universities from around the world and find scholarship opportunities that matched my academic goals."
                     </p>
                   </div>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="font-medium">Atia Algadi</p>
+                      <p className="text-sm text-muted-foreground">PhD Student, Biochemistry</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </GSAPReveal>
+            <GSAPReveal animation="slide-up" delay={0.4}>
+              <Card
+                className="h-full cursor-pointer hover:shadow-md transition-shadow"
+                onClick={() => handleOpenTestimonialVideo("Omer Qadih", "omer.mp4")}
+              >
+                <CardContent className="flex h-full flex-col justify-between p-6">
                   <div>
-                    <p className="font-medium">Nour Al-Jabari</p>
-                    <p className="text-sm text-muted-foreground">PhD Student, Biochemistry</p>
+                    <Quote className="mb-4 h-8 w-8 text-[hsl(120,61%,34%)]/40" />
+                    <p className="mb-4 italic text-muted-foreground">
+                      "The International Education Fair opened doors for me that I never thought possible. I was able to connect with universities from around the world and find scholarship opportunities that matched my academic goals."
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="font-medium">Omer Qadih</p>
+                      <p className="text-sm text-muted-foreground">PhD Student, Biochemistry</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </GSAPReveal>
+            <GSAPReveal animation="slide-up" delay={0.5}>
+              <Card
+                className="h-full cursor-pointer hover:shadow-md transition-shadow"
+                onClick={() => handleOpenTestimonialVideo("Mohammed Algodra", "mohammed.mp4")}
+              >
+                <CardContent className="flex h-full flex-col justify-between p-6">
+                  <div>
+                    <Quote className="mb-4 h-8 w-8 text-[hsl(120,61%,34%)]/40" />
+                    <p className="mb-4 italic text-muted-foreground">
+                      "The International Education Fair opened doors for me that I never thought possible. I was able to connect with universities from around the world and find scholarship opportunities that matched my academic goals."
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="font-medium">Mohammed Algodra</p>
+                      <p className="text-sm text-muted-foreground">PhD Student, Biochemistry</p>
+                    </div>
                   </div>
                 </CardContent>
               </Card>

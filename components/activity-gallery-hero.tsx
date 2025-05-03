@@ -22,9 +22,10 @@ interface Activity {
 
 interface ActivityGalleryHeroProps {
   activities: Activity[]
+  onViewGallery?: () => void
 }
 
-export default function ActivityGalleryHero({ activities }: ActivityGalleryHeroProps) {
+export default function ActivityGalleryHero({ activities, onViewGallery }: ActivityGalleryHeroProps) {
   const [currentActivityIndex, setCurrentActivityIndex] = useState(0)
   const [galleryOpen, setGalleryOpen] = useState(false)
 
@@ -39,7 +40,11 @@ export default function ActivityGalleryHero({ activities }: ActivityGalleryHeroP
   }
 
   const handleViewGallery = () => {
-    setGalleryOpen(true)
+    if (onViewGallery) {
+      onViewGallery()
+    } else {
+      setGalleryOpen(true)
+    }
   }
 
   // Get folder name based on activity ID
@@ -125,7 +130,7 @@ export default function ActivityGalleryHero({ activities }: ActivityGalleryHeroP
               <Badge className="bg-white/20 text-white hover:bg-white/30 text-base px-3 py-1.5">
                 {currentActivity.category}
               </Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+              <h1 className="text-3xl md:text-3xl lg:text-3xl font-bold">
                 {currentActivity.title}
               </h1>
               <p className="text-xl text-white/90 leading-relaxed">
