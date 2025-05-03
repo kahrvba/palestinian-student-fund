@@ -372,46 +372,43 @@ export default function AboutPage() {
       </section>
 
       {/* Partners */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)] via-black to-[hsl(120,61%,34%)] text-white">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/10 via-transparent to-[hsl(120,61%,34%)]/10 text-black dark:text-white">
         <div className="container px-4 md:px-6">
           <div className="mx-auto max-w-5xl">
             <div className="mb-12 text-center">
               <GSAPReveal animation="slide-up">
-                <div className="inline-flex items-center rounded-lg bg-white/20 px-3 py-1 text-sm text-white">
+                <div className="inline-flex items-center rounded-lg px-3 py-1 text-sm text-black dark:text-white">
                   <HandshakeIcon className="mr-1 h-4 w-4" />
                   Collaborations
                 </div>
-                <GSAPTextReveal element="h2" className="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl text-white">
+                <GSAPTextReveal element="h2" className="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl text-black dark:text-white">
                   Our Partners
                 </GSAPTextReveal>
-                <p className="mx-auto mt-4 max-w-[700px] text-gray-300">
+                <p className="mx-auto mt-4 max-w-[700px] text-black dark:text-white">
                   We collaborate with universities, educational institutions, and organizations worldwide to expand
                   opportunities for Palestinian students.
                 </p>
               </GSAPReveal>
             </div>
 
-            <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-4">
-              {Array.from({ length: 8 }).map((_, i) => (
-                <GSAPReveal key={i} animation="fade" delay={0.1 * i}>
-                  <div className="flex items-center justify-center p-4">
-                    <img src="/placeholder-logo.svg" alt={`Partner ${i + 1}`} className="max-h-16 w-auto" />
-                  </div>
-                </GSAPReveal>
-              ))}
+            <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5">
+              <GSAPReveal animation="fade" delay={0.1}>
+                  <img src="/partners/p1.jpg" alt="Partner 1" className="h-32 w-auto object-contain" />
+              </GSAPReveal>
+              <GSAPReveal animation="fade" delay={0.2}>
+                  <img src="/partners/p2.png" alt="Partner 2" className="h-32 w-auto object-contain" />
+              </GSAPReveal>
+              <GSAPReveal animation="fade" delay={0.3}>
+                  <img src="/partners/p3.jpeg" alt="Partner 3" className="h-32 w-auto object-contain" />
+              </GSAPReveal>
+              <GSAPReveal animation="fade" delay={0.4}>
+                  <img src="/partners/p4.png" alt="Partner 4" className="h-32 w-auto object-contain" />
+              </GSAPReveal>
+              <GSAPReveal animation="fade" delay={0.5}>
+                  <img src="/partners/p5.png" alt="Partner 5" className="h-32 w-auto object-contain" />
+              </GSAPReveal>
+             
             </div>
-
-            <GSAPReveal animation="fade" delay={0.4}>
-              <div className="mt-12 text-center">
-                <Link href="/about/partners">
-                  <Button
-                    className="bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90"
-                  >
-                    Learn About Our Partnerships
-                  </Button>
-                </Link>
-              </div>
-            </GSAPReveal>
           </div>
         </div>
       </section>
