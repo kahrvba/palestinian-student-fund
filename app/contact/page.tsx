@@ -106,7 +106,7 @@ export default function ContactPage() {
                     <div>
                       <h3 className="text-lg font-medium">Our Location</h3>
                       <p className="mt-1 text-muted-foreground">
-                        Gaza, Palestine
+                        Kayabaşı Mah. Adnan Menderes Blv. A4 Blok No:7A Kapı No:11 Başakşehir/İstanbul
                       </p>
                     </div>
                   </div>
@@ -271,13 +271,13 @@ export default function ContactPage() {
               </div>
               <div className="aspect-video w-full overflow-hidden rounded-lg border border-[hsl(120,61%,34%)]/20 shadow-sm h-[450px]">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d192697.79327595977!2d28.85173769861646!3d41.005495809214984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa7040068086b%3A0xe1ccfe98bc01b0d0!2sIstanbul%2C%20Turkey!5e0!3m2!1sen!2sus!4v1625145332513!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3004.9848269944!2d28.774727!3d41.118961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDA3JzA4LjMiTiAyOMKwNDYnMjkuMCJF!5e0!3m2!1sen!2str!4v1718193600000!5m2!1sen!2str"
                   width="100%"
                   height="450"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
-                  title="Our location"
+                  title="Our location - Kayabaşı Mah. Adnan Menderes Blv. A4 Blok No:7A Kapı No:11 Başakşehir/İstanbul"
                 ></iframe>
               </div>
             </GSAPReveal>
