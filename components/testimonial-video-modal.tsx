@@ -11,6 +11,7 @@ interface TestimonialVideoModalProps {
   onClose: () => void
   name: string
   videoPath: string
+  description?: string
 }
 
 export function TestimonialVideoModal({
@@ -18,6 +19,7 @@ export function TestimonialVideoModal({
   onClose,
   name,
   videoPath,
+  description,
 }: TestimonialVideoModalProps) {
   // Add keyboard event handler for Escape key
   useEffect(() => {
@@ -42,15 +44,23 @@ export function TestimonialVideoModal({
           <VisuallyHidden>{name}'s Testimonial</VisuallyHidden>
         </DialogTitle>
 
-        <div className="relative h-[60vh] flex items-center justify-center">
-          <video
-            src={videoPath}
-            controls
-            className="w-full h-full rounded-lg object-contain"
-            autoPlay
-            controlsList="nodownload"
-            playsInline
-          />
+        <div className="space-y-6">
+          <div className="relative h-[60vh] flex items-center justify-center">
+            <video
+              src={videoPath}
+              controls
+              className="w-full h-full rounded-lg object-contain"
+              autoPlay
+              controlsList="nodownload"
+              playsInline
+            />
+          </div>
+          
+          {description && (
+            <div className="mt-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+              <p className="text-gray-700 dark:text-gray-300">{description}</p>
+            </div>
+          )}
         </div>
       </DialogContent>
     </Dialog>
