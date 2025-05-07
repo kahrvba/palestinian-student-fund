@@ -269,7 +269,7 @@ export default function ContactPage() {
                 </div>
                 <h2 className="mt-2 text-3xl font-bold">Find Us</h2>
               </div>
-              <div className="aspect-video w-full overflow-hidden rounded-lg border border-[hsl(120,61%,34%)]/20 shadow-sm h-[450px]">
+              <div className="aspect-video w-full overflow-hidden rounded-lg border border-[hsl(120,61%,34%)]/20 shadow-sm h-[450px] relative">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3004.9848269944!2d28.774727!3d41.118961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDA3JzA4LjMiTiAyOMKwNDYnMjkuMCJF!5e0!3m2!1sen!2str!4v1718193600000!5m2!1sen!2str"
                   width="100%"
@@ -279,6 +279,13 @@ export default function ContactPage() {
                   loading="lazy"
                   title="Our location - Kayabaşı Mah. Adnan Menderes Blv. A4 Blok No:7A Kapı No:11 Başakşehir/İstanbul"
                 ></iframe>
+                <a 
+                  href="https://www.google.com/maps/place/Kayabaşı+Mah.+Adnan+Menderes+Blv.+A4+Blok+No:7A+Kapı+No:11+Başakşehir/İstanbul/@41.118961,28.774727,17z/data=!3m1!4b1!4m6!3m5!1s0x0:0x0!2zNDHCsDA3JzA4LjMiTiAyOMKwNDYnMjkuMCJF!8m2!3d41.118961!4d28.774727!16s%2Fg%2F11t8z0z0z0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors cursor-pointer"
+                  aria-label="Open location in Google Maps"
+                />
               </div>
             </GSAPReveal>
           </div>
