@@ -17,16 +17,26 @@ import NewsCard from "@/components/news-card"
 const newsData = [
   {
     id: 1,
-    title: "New Scholarship Program Launched",
-    date: "June 15, 2023",
-    excerpt: "Announcing our new scholarship program for undergraduate students in engineering and medical fields.",
+    title: "Interviews for the first phase of the Nabd Al Hayat grant continue",
+    date: "May 5, 2025",
+    excerpt: "Ongoing interviews to select 100 Gaza students for the Nabd al-Hayat scholarship program. Partnership between Palestinian Student Support Fund and Alkhidmat Europe.",
     image: "/placeholder.svg?height=200&width=300",
-    href: "/news/new-scholarship-program",
+    href: "/news/nabd-al-hayat-grant-interviews",
     category: "Scholarships",
     featured: true,
   },
   {
     id: 2,
+    title: "Interviews for the First Phase of the Nabd al-Hayat Scholarship",
+    date: "May 5, 2023",
+    excerpt: "First interviews for the Nabd al-Hayat Scholarship began in Istanbul. The program supports Palestinian medical students with grants and educational resources.",
+    image: "/placeholder.svg?height=200&width=300",
+    href: "/news/nabd-al-hayat-scholarship-interviews",
+    category: "Scholarships",
+    featured: true,
+  },
+  {
+    id: 3,
     title: "Partnership with Istanbul University",
     date: "May 28, 2023",
     excerpt: "We're excited to announce our new partnership with Istanbul University to provide more opportunities.",
@@ -36,7 +46,7 @@ const newsData = [
     featured: true,
   },
   {
-    id: 3,
+    id: 4,
     title: "Annual Conference Success",
     date: "April 10, 2023",
     excerpt: "Our annual conference brought together students, educators, and partners from around the world.",
@@ -46,7 +56,7 @@ const newsData = [
     featured: false,
   },
   {
-    id: 4,
+    id: 5,
     title: "Student Success Story: Layla's Journey",
     date: "March 22, 2023",
     excerpt: "Read about Layla's inspiring journey from Gaza to completing her PhD in Environmental Science.",
@@ -56,7 +66,7 @@ const newsData = [
     featured: false,
   },
   {
-    id: 5,
+    id: 6,
     title: "New Research Grant Opportunities",
     date: "February 15, 2023",
     excerpt: "Announcing new research grant opportunities for Palestinian scholars in STEM fields.",
@@ -66,7 +76,7 @@ const newsData = [
     featured: false,
   },
   {
-    id: 6,
+    id: 7,
     title: "Educational Workshop Series Announced",
     date: "January 30, 2023",
     excerpt: "Join our upcoming workshop series on academic writing, research methodologies, and career development.",
@@ -76,7 +86,7 @@ const newsData = [
     featured: false,
   },
   {
-    id: 7,
+    id: 8,
     title: "Foundation Expands Support to Lebanon",
     date: "December 12, 2022",
     excerpt: "Our foundation is expanding its support programs to reach Palestinian students in Lebanon.",
@@ -86,7 +96,7 @@ const newsData = [
     featured: true,
   },
   {
-    id: 8,
+    id: 9,
     title: "Year-End Impact Report Released",
     date: "December 5, 2022",
     excerpt: "Our 2022 Impact Report shows significant growth in student support and program effectiveness.",
@@ -96,7 +106,7 @@ const newsData = [
     featured: false,
   },
   {
-    id: 9,
+    id: 10,
     title: "New Board Members Appointed",
     date: "November 18, 2022",
     excerpt: "We welcome three new distinguished members to our Board of Directors.",

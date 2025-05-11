@@ -42,6 +42,31 @@ export default function Header() {
     { name: t("nav.contact"), href: "/contact" },
   ]
 
+  // Check if we're on the activities page
+  const isActivitiesPage = pathname.includes('/activities')
+
+  // Determine text color based on page and scroll state
+  const getTextColor = () => {
+    if (isScrolled || isMobileMenuOpen) {
+      return "text-foreground dark:text-foreground"
+    } else if (isActivitiesPage) {
+      return "text-gray-900 dark:text-foreground" // Dark text for activities page
+    } else {
+      return "text-white" // White text for other pages
+    }
+  }
+
+  // Determine icon button styling
+  const getIconButtonClass = () => {
+    if (isScrolled) {
+      return ""
+    } else if (isActivitiesPage) {
+      return "text-gray-900 hover:text-gray-900 hover:bg-gray-200/20 dark:text-foreground"
+    } else {
+      return "text-white hover:text-white hover:bg-white/20"
+    }
+  }
+
   return (
     <>
       <motion.div className="progress-bar" style={{ scaleX: 0 }} initial={{ scaleX: 0 }} />
@@ -55,9 +80,7 @@ export default function Header() {
         <div className="container flex items-center justify-between">
           <Link href="/" className="flex items-center z-50">
             <Image src="/logo.png" alt="pssf logo" className="w-50 mt-5" width={80} height={80} priority />
-            <span className={`text-xl font-bold ${
-              isScrolled || isMobileMenuOpen ? "text-foreground dark:text-foreground" : "text-white"
-            }`}>
+            <span className={`text-xl font-bold ${getTextColor()}`}>
               PSSF
             </span>
           </Link>
@@ -72,7 +95,9 @@ export default function Header() {
                     ? "text-primary dark:text-primary"
                     : isScrolled
                       ? "text-foreground dark:text-foreground hover:text-primary dark:hover:text-primary"
-                      : "text-white hover:text-primary-foreground"
+                      : isActivitiesPage
+                        ? "text-gray-900 hover:text-[#34a853] dark:text-foreground dark:hover:text-primary"
+                        : "text-white hover:text-primary-foreground"
                 }`}
               >
                 {item.name}
@@ -86,7 +111,7 @@ export default function Header() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className={isScrolled ? "" : "text-white hover:text-white hover:bg-white/20"}
+                  className={getIconButtonClass()}
                 >
                   <Globe className="h-5 w-5" />
                   <span className="sr-only">Change language</span>
@@ -109,7 +134,7 @@ export default function Header() {
               variant="ghost"
               size="icon"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className={isScrolled ? "" : "text-white hover:text-white hover:bg-white/20"}
+              className={getIconButtonClass()}
             >
               <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
               <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
@@ -119,7 +144,7 @@ export default function Header() {
             <Button
               variant="ghost"
               size="icon"
-              className={`md:hidden ${isScrolled ? "" : "text-white hover:text-white hover:bg-white/20"}`}
+              className={`md:hidden ${getIconButtonClass()}`}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}

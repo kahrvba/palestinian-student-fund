@@ -14,6 +14,93 @@ import GSAPTextReveal from "@/components/gsap-text-reveal"
 
 // Mock news article data
 const newsArticles = {
+  "nabd-al-hayat-scholarship-interviews": {
+    title: "Interviews for the First Phase of the Nabd al-Hayat Scholarship",
+    date: "May 5, 2023",
+    author: "Palestinian Student Support Fund",
+    category: "Scholarships",
+    image: "/placeholder.svg?height=600&width=1200",
+    content: [
+      "Istanbul, Turkey - The first interviews for the Nabd al-Hayat Scholarship, launched by the Palestinian Student Support Fund, began today, Tuesday.",
+      "The interviews, held online by the Fund, saw the participation of dozens of Palestinian students pursuing their medical studies. During the interviews, the Fund identified the students who passed the initial selection process after electronic registration for the scholarship.",
+      "Those who pass the interviews will receive assistance ranging from financial grants, the provision of study seats, and the purchase of educational equipment, tablets, and computers.",
+      "It is worth noting that \"Nabd al-Hayat\" is one of the most prominent scholarship programs launched by the Palestinian Student Support Fund, which aims to provide scholarships to Palestinian students who wish to study or are pursuing a medical specialty.",
+      "The program seeks to provide scholarships and assistance to 1,000 Palestinian students, as part of a five-year plan. The Palestinian Student Support Fund is an independent, non-profit Palestinian development organization that aims to support higher education in Palestine by investing in the academic potential of young people and providing scholarships within a comprehensive development vision."
+    ],
+    relatedArticles: [
+      {
+        id: 1,
+        title: "Interviews for the first phase of the Nabd Al Hayat grant continue to select 100 students from Gaza to benefit from the program.",
+        date: "May 5, 2025",
+        excerpt: "Interviews for the first phase of the Nabd al-Hayat scholarship program, implemented by the Palestinian Student Support Fund in partnership with Alkhidmat Europe, continued today in Istanbul, Türkiye.",
+        image: "/placeholder.svg?height=200&width=300",
+        href: "/news/nabd-al-hayat-grant-interviews",
+        category: "Scholarships",
+      },
+      {
+        id: 6,
+        title: "New Research Grant Opportunities",
+        date: "February 15, 2023",
+        excerpt: "Announcing new research grant opportunities for Palestinian scholars in STEM fields.",
+        image: "/placeholder.svg?height=200&width=300",
+        href: "/news/research-grant-opportunities",
+        category: "Grants",
+      },
+      {
+        id: 3,
+        title: "Partnership with Istanbul University",
+        date: "May 28, 2023",
+        excerpt: "We're excited to announce our new partnership with Istanbul University to provide more opportunities.",
+        image: "/placeholder.svg?height=200&width=300",
+        href: "/news/istanbul-university-partnership",
+        category: "Partnerships",
+      },
+    ],
+  },
+  "nabd-al-hayat-grant-interviews": {
+    title: "Interviews for the first phase of the Nabd Al Hayat grant continue to select 100 students from Gaza to benefit from the program.",
+    date: "May 5, 2025",
+    author: "Palestinian Student Support Fund",
+    category: "Scholarships",
+    image: "/placeholder.svg?height=600&width=1200",
+    content: [
+      "Istanbul, Türkiye - Monday, May 5, 2025 - Interviews for the first phase of the Nabd al-Hayat scholarship program, implemented by the Palestinian Student Support Fund in partnership with Alkhidmat Europe, continued today, Monday. The program targets Palestinian medical students, particularly in the Gaza Strip.",
+      "These interviews, an extension of those held last Tuesday, were conducted online with the participation of a select group of Palestinian students who passed the initial selection stage and are continuing their studies in human medicine at Palestinian universities in the Gaza Strip.",
+      "In the first phase, 100 students will be selected to benefit from the Nabd al-Hayat scholarship, which provides monthly financial support for 12 months, in addition to other support opportunities, including educational equipment and partial tuition fees.",
+      "This initiative comes within the framework of a development vision aimed at enabling Palestinian students to continue their academic journeys despite the harsh conditions caused by the war, especially in light of displacement, the destruction of homes, and the psychological and economic pressures experienced by students and their families.",
+      "It's worth noting that the Nabd al-Hayat program is one of the most prominent programs of the Palestinian Student Support Fund, which seeks to support more than 1,000 students over five years through effective local and international partnerships.",
+      "The Isnad Fund is an independent, non-profit Palestinian development organization dedicated to enhancing higher education opportunities for Palestinians by providing scholarships and academic support to students in vital disciplines, particularly medical specialties."
+    ],
+    relatedArticles: [
+      {
+        id: 2,
+        title: "New Scholarship Program Launched",
+        date: "June 15, 2023",
+        excerpt: "Announcing our new scholarship program for undergraduate students in engineering and medical fields.",
+        image: "/placeholder.svg?height=200&width=300",
+        href: "/news/new-scholarship-program",
+        category: "Scholarships",
+      },
+      {
+        id: 6,
+        title: "New Research Grant Opportunities",
+        date: "February 15, 2023",
+        excerpt: "Announcing new research grant opportunities for Palestinian scholars in STEM fields.",
+        image: "/placeholder.svg?height=200&width=300",
+        href: "/news/research-grant-opportunities",
+        category: "Grants",
+      },
+      {
+        id: 3,
+        title: "Partnership with Istanbul University",
+        date: "May 28, 2023",
+        excerpt: "We're excited to announce our new partnership with Istanbul University to provide more opportunities.",
+        image: "/placeholder.svg?height=200&width=300",
+        href: "/news/istanbul-university-partnership",
+        category: "Partnerships",
+      },
+    ],
+  },
   "new-scholarship-program": {
     title: "New Scholarship Program Launched",
     date: "June 15, 2023",
@@ -164,7 +251,7 @@ export default function NewsArticlePage() {
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to News
             </Link>
-            <GSAPTextReveal element="h1" className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            <GSAPTextReveal element="h1" className="text-3xl font-bold sm:text-4xl md:text-5xl">
               {article.title}
             </GSAPTextReveal>
             <div className="mt-6 flex flex-wrap items-center gap-4 text-white/80">

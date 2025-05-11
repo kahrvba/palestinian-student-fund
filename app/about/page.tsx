@@ -391,23 +391,47 @@ export default function AboutPage() {
               </GSAPReveal>
             </div>
 
-            <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5">
+            <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-3 lg:grid-cols-5">
               <GSAPReveal animation="fade" delay={0.1}>
-                  <img src="/partners/p1.jpg" alt="Partner 1" className="h-32 w-auto object-contain" />
+                <div className="flex flex-col items-center justify-between text-center h-full p-4 rounded-lg transition-all duration-300 hover:bg-[hsl(120,61%,34%)]/5 dark:hover:bg-[hsl(120,61%,34%)]/10 hover:shadow-md">
+                  <div className="flex items-center justify-center h-32 mb-4">
+                    <img src="/partners/p1.jpg" alt="Milli Gençlik Kulübü" className="max-h-32 w-auto object-contain" />
+                  </div>
+                  <p className="font-medium text-black dark:text-white text-sm md:text-base">Milli Gençlik Kulübü</p>
+                </div>
               </GSAPReveal>
               <GSAPReveal animation="fade" delay={0.2}>
-                  <img src="/partners/p2.png" alt="Partner 2" className="h-32 w-auto object-contain" />
+                <div className="flex flex-col items-center justify-between text-center h-full p-4 rounded-lg transition-all duration-300 hover:bg-[hsl(120,61%,34%)]/5 dark:hover:bg-[hsl(120,61%,34%)]/10 hover:shadow-md">
+                  <div className="flex items-center justify-center h-32 mb-4">
+                    <img src="/partners/p2.png" alt="YediHilal" className="max-h-32 w-auto object-contain" />
+                  </div>
+                  <p className="font-medium text-black dark:text-white text-sm md:text-base">YediHilal</p>
+                </div>
               </GSAPReveal>
               <GSAPReveal animation="fade" delay={0.3}>
-                  <img src="/partners/p3.jpeg" alt="Partner 3" className="h-32 w-auto object-contain" />
+                <div className="flex flex-col items-center justify-between text-center h-full p-4 rounded-lg transition-all duration-300 hover:bg-[hsl(120,61%,34%)]/5 dark:hover:bg-[hsl(120,61%,34%)]/10 hover:shadow-md">
+                  <div className="flex items-center justify-center h-32 mb-4">
+                    <img src="/partners/p3.jpeg" alt="Hüdayi Vakfı" className="max-h-32 w-auto object-contain" />
+                  </div>
+                  <p className="font-medium text-black dark:text-white text-sm md:text-base">Hüdayi Vakfı</p>
+                </div>
               </GSAPReveal>
               <GSAPReveal animation="fade" delay={0.4}>
-                  <img src="/partners/p4.png" alt="Partner 4" className="h-32 w-auto object-contain" />
+                <div className="flex flex-col items-center justify-between text-center h-full p-4 rounded-lg transition-all duration-300 hover:bg-[hsl(120,61%,34%)]/5 dark:hover:bg-[hsl(120,61%,34%)]/10 hover:shadow-md">
+                  <div className="flex items-center justify-center h-32 mb-4">
+                    <img src="/partners/p4.png" alt="Khidhumaiy" className="max-h-32 w-auto object-contain" />
+                  </div>
+                  <p className="font-medium text-black dark:text-white text-sm md:text-base">Khidhumaiy</p>
+                </div>
               </GSAPReveal>
               <GSAPReveal animation="fade" delay={0.5}>
-                  <img src="/partners/p5.png" alt="Partner 5" className="h-32 w-auto object-contain" />
+                <div className="flex flex-col items-center justify-between text-center h-full p-4 rounded-lg transition-all duration-300 hover:bg-[hsl(120,61%,34%)]/5 dark:hover:bg-[hsl(120,61%,34%)]/10 hover:shadow-md">
+                  <div className="flex items-center justify-center h-32 mb-4">
+                    <img src="/partners/p5.png" alt="FEDERATION OF INTERNATIONAL STUDENT ASSOCIATIONS" className="max-h-32 w-auto object-contain" />
+                  </div>
+                  <p className="font-medium text-black dark:text-white text-xs md:text-sm">FEDERATION OF INTERNATIONAL STUDENT ASSOCIATIONS</p>
+                </div>
               </GSAPReveal>
-             
             </div>
           </div>
         </div>

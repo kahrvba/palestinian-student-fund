@@ -308,15 +308,18 @@ export default function Home() {
       {/* Stats Section */}
       <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)] via-black to-[hsl(120,61%,34%)] text-white">
         <div className="container px-4 md:px-6">
-          <div className="grid gap-10 sm:grid-cols-1 lg:grid-cols-3">
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             <GSAPReveal animation="fade" delay={0.1}>
               <StatsCounter number={5} label="Scholarships Awarded" />
+            </GSAPReveal>
+            <GSAPReveal animation="fade" delay={0.1}>
+              <StatsCounter number={2000} label="beneficiaries" />
             </GSAPReveal>
             <GSAPReveal animation="fade" delay={0.3}>
               <StatsCounter number={6} label="Countries Reached" />
             </GSAPReveal>
             <GSAPReveal animation="fade" delay={0.4}>
-              <StatsCounter number={7} label="Graduation Rate %" />
+              <StatsCounter number={98} label="Graduation Rate %" />
             </GSAPReveal>
           </div>
         </div>
