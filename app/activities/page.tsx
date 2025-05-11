@@ -5,7 +5,7 @@ import Link from "next/link"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { ScrollToPlugin } from "gsap/ScrollToPlugin"
-import {Search,Filter,Calendar,MapPin,Users,ChevronLeft,ChevronRight,BookOpen,Presentation,Globe,Award,Handshake,Quote} from "lucide-react"
+import {Search,Filter,Calendar,MapPin,Users,ChevronLeft,ChevronRight,BookOpen,Presentation,Globe,Award,Handshake,Quote,Video} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
@@ -498,7 +498,13 @@ export default function ActivitiesPage() {
               >
                 <CardContent className="flex h-full flex-col justify-between p-6">
                   <div>
-                    <Quote className="mb-4 h-8 w-8 text-[hsl(120,61%,34%)]/40" />
+                    <div className="flex justify-between items-center mb-4">
+                      <Quote className="h-8 w-8 text-[hsl(120,61%,34%)]/40" />
+                      <div className="bg-[hsl(120,61%,34%)] text-white px-3 py-2 rounded-md flex items-center shadow-md hover:bg-[hsl(120,61%,34%)]/90 transition-colors">
+                        <Video className="h-5 w-5 mr-2" />
+                        <span className="font-medium">Watch Video</span>
+                      </div>
+                    </div>
                     <p className="mb-4 italic text-muted-foreground">
                       "The Annual Scholarship Conference was an incredible opportunity to connect with other students and learn about educational opportunities. I gained valuable insights that will help me in my academic journey."
                     </p>
@@ -524,7 +530,13 @@ export default function ActivitiesPage() {
               >
                 <CardContent className="flex h-full flex-col justify-between p-6">
                   <div>
-                    <Quote className="mb-4 h-8 w-8 text-[hsl(0,76%,40%)]/40" />
+                    <div className="flex justify-between items-center mb-4">
+                      <Quote className="h-8 w-8 text-[hsl(0,76%,40%)]/40" />
+                      <div className="bg-[hsl(120,61%,34%)] text-white px-3 py-2 rounded-md flex items-center shadow-md hover:bg-[hsl(120,61%,34%)]/90 transition-colors">
+                        <Video className="h-5 w-5 mr-2" />
+                        <span className="font-medium">Watch Video</span>
+                      </div>
+                    </div>
                     <p className="mb-4 italic text-muted-foreground">
                       "The Cultural Exchange Festival was a highlight of my year. It gave me a chance to share my heritage with the local community and feel connected to our Palestinian roots."
                     </p>
@@ -550,7 +562,13 @@ export default function ActivitiesPage() {
               >
                 <CardContent className="flex h-full flex-col justify-between p-6">
                   <div>
-                    <Quote className="mb-4 h-8 w-8 text-[hsl(120,61%,34%)]/40" />
+                    <div className="flex justify-between items-center mb-4">
+                      <Quote className="h-8 w-8 text-[hsl(120,61%,34%)]/40" />
+                      <div className="bg-[hsl(120,61%,34%)] text-white px-3 py-2 rounded-md flex items-center shadow-md hover:bg-[hsl(120,61%,34%)]/90 transition-colors">
+                        <Video className="h-5 w-5 mr-2" />
+                        <span className="font-medium">Watch Video</span>
+                      </div>
+                    </div>
                     <p className="mb-4 italic text-muted-foreground">
                       "The International Education Fair opened doors for me that I never thought possible. I was able to connect with universities from around the world and find scholarship opportunities that matched my academic goals."
                     </p>
@@ -575,7 +593,13 @@ export default function ActivitiesPage() {
               >
                 <CardContent className="flex h-full flex-col justify-between p-6">
                   <div>
-                    <Quote className="mb-4 h-8 w-8 text-[hsl(120,61%,34%)]/40" />
+                    <div className="flex justify-between items-center mb-4">
+                      <Quote className="h-8 w-8 text-[hsl(120,61%,34%)]/40" />
+                      <div className="bg-[hsl(120,61%,34%)] text-white px-3 py-2 rounded-md flex items-center shadow-md hover:bg-[hsl(120,61%,34%)]/90 transition-colors">
+                        <Video className="h-5 w-5 mr-2" />
+                        <span className="font-medium">Watch Video</span>
+                      </div>
+                    </div>
                     <p className="mb-4 italic text-muted-foreground">
                       "The International Education Fair opened doors for me that I never thought possible. I was able to connect with universities from around the world and find scholarship opportunities that matched my academic goals."
                     </p>
@@ -600,7 +624,13 @@ export default function ActivitiesPage() {
               >
                 <CardContent className="flex h-full flex-col justify-between p-6">
                   <div>
-                    <Quote className="mb-4 h-8 w-8 text-[hsl(120,61%,34%)]/40" />
+                    <div className="flex justify-between items-center mb-4">
+                      <Quote className="h-8 w-8 text-[hsl(120,61%,34%)]/40" />
+                      <div className="bg-[hsl(120,61%,34%)] text-white px-3 py-2 rounded-md flex items-center shadow-md hover:bg-[hsl(120,61%,34%)]/90 transition-colors">
+                        <Video className="h-5 w-5 mr-2" />
+                        <span className="font-medium">Watch Video</span>
+                      </div>
+                    </div>
                     <p className="mb-4 italic text-muted-foreground">
                       "The International Education Fair opened doors for me that I never thought possible. I was able to connect with universities from around the world and find scholarship opportunities that matched my academic goals."
                     </p>
