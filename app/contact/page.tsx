@@ -118,7 +118,9 @@ export default function ContactPage() {
                     <div>
                       <h3 className="text-lg font-medium">Email Us</h3>
                       <p className="mt-1 text-muted-foreground">
-                        info@palssf.com
+                      info@palssf.com
+                      </p>
+                      <p className="mt-1 text-muted-foreground">
                       Palestinian.pssf@gmail.com
                       </p>
                     </div>
