@@ -97,7 +97,7 @@ export default function Footer() {
               <li className="text-muted-foreground">Gaza, Palestine</li>
               <li>
                 <a href="mailto:info@palestinianstudentfund.org" className="text-muted-foreground hover:text-primary">
-                  Palestinian.pssf@gmail.com
+                  info@palssf.org
                 </a>
               </li>
               <li>
