@@ -39,6 +39,7 @@ export default function Header() {
     { name: t("nav.success"), href: "/success-stories" },
     { name: t("nav.apply"), href: "/apply" },
     { name: t("nav.activities"), href: "/activities" },
+    { name: t("nav.testimonials"), href: "/testimonials" },
     { name: t("nav.contact"), href: "/contact" },
   ]
 

@@ -19,6 +19,7 @@ const translations = {
     "nav.success": "Success Stories",
     "nav.apply": "Apply for Grants",
     "nav.activities": "Previous Activities",
+    "nav.testimonials": "Testimonials",
     "nav.contact": "Contact Us",
 
     "hero.title": "Empowering Palestinian Students Worldwide",
@@ -26,10 +27,10 @@ const translations = {
       "Providing scholarships, university admissions assistance, and academic support to help Palestinian students achieve their educational dreams.",
     "hero.cta.apply": "Apply for Scholarship",
     "hero.cta.explore": "Explore Programs",
-    
+
 
     "about.widgt": "Values",
-    "about.title":"Our Values",  
+    "about.title":"Our Values",
     "about.subtitle":"PSSF",
     "about.identity": "National Belonging",
     "about.identity.desc": "We operate from a deep commitment to the Palestinian cause, striving to instill national identity in everything we do.",
@@ -46,7 +47,7 @@ const translations = {
     "about.identity7":"Initiative",
     "about.identity7.desc":"We constantly strive to identify student needs, present projects that meet these needs, and encourage students to launch community initiatives.",
     "about.cta":"About Us",
-   
+
     "about.hero.title": "Who Are We?",
     "about.hero.description": "The Palestinian Support Fund is an independent, non-profit development entity that aims to support higher education in Palestine by investing in the potential of young academics. The Fund focuses on providing programs and initiatives that contribute to bridging the gap between educational outcomes and community needs by providing scholarships and facilitating access to nationally prioritized majors. It also works to create a knowledge network that brings together Palestinian talents within the country and abroad, within a comprehensive development vision.",
     "about.mission.tag": "Our Mission",
@@ -72,7 +73,7 @@ const translations = {
     "about.team.member3.name": "Omar Farooq",
     "about.team.member3.title": "Financial Director",
     "about.team.member3.description": "Expert in non-profit financial management and scholarship fund administration.",
-    
+
     "work.badget":"Educate. Empower. Connect.",
     "work.title":"The Foundation's areas of work",
     "work.subtitle":"Empowering Palestinian Youth Through Education, Innovation, and Connection",
@@ -100,10 +101,11 @@ const translations = {
     "nav.success": "قصص النجاح",
     "nav.apply": "التقدم للمنح",
     "nav.activities": "الأنشطة السابقة",
+    "nav.testimonials": "الشهادات",
     "nav.contact": "اتصل بنا",
 
     "about.widgt": "القيم",
-    "about.title":"قيمنا",  
+    "about.title":"قيمنا",
     "about.subtitle":"PSSF",
     "about.identity": "الانتماء الوطني",
     "about.identity.desc": "نعمل انطلاقًا من التزامنا الراسخ بالقضية الفلسطينية، ونسعى جاهدين لترسيخ الهوية الوطنية في كل ما نقوم به.",
@@ -153,7 +155,7 @@ const translations = {
     "about.team.member3.name": "عمر فاروق",
     "about.team.member3.title": "المدير المالي",
     "about.team.member3.description": "خبير في الإدارة المالية للمنظمات غير الربحية وإدارة صناديق المنح الدراسية.",
-    
+
     "work.badget":"التعليم، التمكين، التواصل.",
     "work.title":"مجالات عمل المؤسسة",
     "work.subtitle": "تمكين الشباب الفلسطيني من خلال التعليم والابتكار والتواصل",
@@ -180,6 +182,7 @@ const translations = {
     "nav.success": "Başarı Hikayeleri",
     "nav.apply": "Burs Başvurusu",
     "nav.activities": "Önceki Etkinlikler",
+    "nav.testimonials": "Referanslar",
     "nav.contact": "İletişim",
 
     "hero.title": "Dünya Çapında Filistinli Öğrencileri Güçlendirme",
