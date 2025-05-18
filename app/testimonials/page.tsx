@@ -1,13 +1,13 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
 import { Quote, Video } from "lucide-react"
 import GSAPReveal from "@/components/gsap-reveal"
 import { TestimonialVideoModal } from "@/components/testimonial-video-modal"
 import { studentTestimonials, publicFigureTestimonials } from "./data"
 
-export default function TestimonialsPage() {
+function TestimonialsContent() {
   const searchParams = useSearchParams()
   const typeParam = searchParams.get('type')
   
@@ -142,5 +142,23 @@ export default function TestimonialsPage() {
         </div>
       </section>
     </main>
+  )
+}
+
+// Loading component
+function TestimonialsLoading() {
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-[#f8faf8] dark:bg-gray-950">
+      <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+    </div>
+  )
+}
+
+// Main component with Suspense
+export default function TestimonialsPage() {
+  return (
+    <Suspense fallback={<TestimonialsLoading />}>
+      <TestimonialsContent />
+    </Suspense>
   )
 }
