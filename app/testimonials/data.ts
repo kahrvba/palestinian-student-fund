@@ -65,7 +65,7 @@ export const publicFigureTestimonials: Testimonial[] = [
     name: "Dr. Ahmed Yousef",
     role: "Professor",
     organization: "Istanbul University",
-    quote: "The work that the Palestinian Student Support Fund is doing is vital for the future of our youth. Education is the most powerful tool we can give to the next generation.",
+    quote: "The work that the Isnad Foundation is doing is vital for the future of our youth. Education is the most powerful tool we can give to the next generation.",
     videoFileName: "ahmed_yousef.mp4",
     type: 'public_figure'
   },

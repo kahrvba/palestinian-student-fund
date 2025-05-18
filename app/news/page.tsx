@@ -19,7 +19,7 @@ const newsData = [
     id: 1,
     title: "Interviews for the first phase of the Nabd Al Hayat grant continue",
     date: "May 5, 2025",
-    excerpt: "Ongoing interviews to select 100 Gaza students for the Nabd al-Hayat scholarship program. Partnership between Palestinian Student Support Fund and Alkhidmat Europe.",
+    excerpt: "Ongoing interviews to select 100 Gaza students for the Nabd al-Hayat scholarship program. Partnership between Isnad Foundation and Alkhidmat Europe.",
     image: "/placeholder.svg?height=200&width=300",
     href: "/news/nabd-al-hayat-grant-interviews",
     category: "Scholarships",

@@ -30,8 +30,8 @@ const SITE_ENABLED = false;
 
 export const metadata: Metadata = {
   title: {
-    default: "Palestinian Student Support Fund",
-    template: "%s | Palestinian Student Support Fund",
+    default: "Isnad Foundation",
+    template: "%s | Isnad Foundation",
   },
   description:
     "Providing scholarships, university admissions, and academic support for Palestinian students across the world.",

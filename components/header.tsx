@@ -91,14 +91,14 @@ export default function Header() {
           <Link href="/" className="flex items-center z-50">
             <Image 
               src="/logo.png" 
-              alt="pssf logo" 
+              alt="ifpps logo" 
               className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 mt-2 sm:mt-3 md:mt-4" 
               width={80} 
               height={80} 
               priority 
             />
             <span className={`text-lg sm:text-xl md:text-2xl font-bold ml-2 ${getTextColor()}`}>
-              PSSF
+              IFPPS
             </span>
           </Link>
 

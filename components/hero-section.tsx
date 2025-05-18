@@ -28,14 +28,15 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section className="relative h-[90vh] min-h-[600px] w-full overflow-hidden bg-gradient-to-b from-emerald-900 to-emerald-700 text-white">
+    <section className="relative h-[90vh] min-h-[600px] w-full overflow-hidden text-white">
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
         <img
-          src="/placeholder.svg?height=1080&width=1920"
-          alt="Students studying"
-          className="h-full w-full object-cover"
+          src="/main.png"
+          alt="Isnad Foundation"
+          className="h-full w-full object-cover object-center"
           loading="eager"
+          style={{ objectPosition: 'center center' }}
         />
       </div>
 
@@ -51,7 +52,7 @@ export default function HeroSection() {
         >
           <GSAPTextReveal
             element="h1"
-            className="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold drop-shadow-lg min-h-[1.2em] leading-[1.2] overflow-visible px-4 sm:px-6"
+            className="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold drop-shadow-lg min-h-[1.2em] leading-[1.2] overflow-visible px-4 sm:px-6 font-playfair"
           >
             {t("hero.title")}
           </GSAPTextReveal>
@@ -60,10 +61,9 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mx-auto max-w-[700px] text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 px-4 sm:px-6"
+            className="mx-auto max-w-[700px] text-base sm:text-lg md:text-xl lg:text-2xl text-white/95 px-4 sm:px-6 font-playfair"
           >
-            Providing scholarships, university admissions assistance, and academic support to help Palestinian students
-            achieve their educational dreams.
+            {t("hero.subtitle")}
           </motion.p>
 
           <motion.div
@@ -73,14 +73,14 @@ export default function HeroSection() {
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-6"
           >
             <Link href="/apply" className="w-full sm:w-auto">
-              <Button size="lg" className="w-full sm:w-auto bg-white text-emerald-800 hover:bg-gray-100 text-base sm:text-lg">
-                Apply for Scholarship
+              <Button size="lg" className="w-full sm:w-auto bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 text-base sm:text-lg font-playfair">
+                {t("hero.cta.apply")}
                 <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
             </Link>
             <Link href="/programs" className="w-full sm:w-auto">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto border-white text-white hover:bg-white/10 text-base sm:text-lg">
-                Explore Programs
+              <Button size="lg" variant="outline" className="w-full sm:w-auto border-white text-white hover:bg-white/10 text-base sm:text-lg font-playfair">
+                {t("hero.cta.explore")}
               </Button>
             </Link>
           </motion.div>

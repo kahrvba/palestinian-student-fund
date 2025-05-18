@@ -174,7 +174,7 @@ export default function ProgramsPage() {
                         {/* Main description */}
                         <div className="mb-4 border-l-4 border-[hsl(120,61%,34%)] pl-4 py-2">
                           <p className="text-white/90">
-                            A bold national initiative lanuched by Palestinian Student Support Fund, aiming to empower 1,000 palestinian students with scholarhips, both inside and outside palestine
+                            A bold national initiative launched by Isnad Foundation, aiming to empower 1,000 palestinian students with scholarships, both inside and outside palestine
                           </p>
                           <div className="mt-4 space-y-3">
                             <h4 className="text-white font-medium text-sm uppercase tracking-wider">Scholarship Goals</h4>
@@ -511,7 +511,7 @@ export default function ProgramsPage() {
                         {/* Main description */}
                         <div className="mb-4 border-l-4 border-[hsl(120,61%,34%)] pl-4 py-2">
                           <p className="text-white/90">
-                          Provides 200 master’s and doctoral scholarships in energy engineering, renewable energy, and agricultural engineering. The goal is to develop Palestinian expertise in energy, environmental, and agricultural fields to ensure energy independence and food security in Palestine.
+                          Provides 200 master's and doctoral scholarships in energy engineering, renewable energy, and agricultural engineering. The goal is to develop Palestinian expertise in energy, environmental, and agricultural fields to ensure energy independence and food security in Palestine.
                           </p>
                           <div className="mt-4 space-y-3">
                             <h4 className="text-white font-medium text-sm uppercase tracking-wider">Scholarship Goals</h4>
@@ -666,7 +666,7 @@ export default function ProgramsPage() {
                         {/* Main description */}
                         <div className="mb-4 border-l-4 border-[hsl(0,76%,40%)] pl-4 py-2">
                           <p className="text-white/90">
-                          Provides 200 master’s and doctoral scholarships in political science and international relations, aiming to prepare qualified Palestinian professionals for political, diplomatic, international, and crisis management roles, enabling them to advocate for Palestine globally.
+                          Provides 200 master's and doctoral scholarships in political science and international relations, aiming to prepare qualified Palestinian professionals for political, diplomatic, international, and crisis management roles, enabling them to advocate for Palestine globally.
                           </p>
                           <div className="mt-4 space-y-3">
                             <h4 className="text-white font-medium text-sm uppercase tracking-wider">Scholarship Goals</h4>
@@ -821,7 +821,7 @@ export default function ProgramsPage() {
                         {/* Main description */}
                         <div className="mb-4 border-l-4 border-[hsl(30,76%,40%)] pl-4 py-2">
                           <p className="text-white/90">
-                          Provides 200 master’s and doctoral scholarships in political science and international relations, aiming to prepare qualified Palestinian professionals for political, diplomatic, international, and crisis management roles, enabling them to advocate for Palestine globally.
+                          Provides 200 master's and doctoral scholarships in political science and international relations, aiming to prepare qualified Palestinian professionals for political, diplomatic, international, and crisis management roles, enabling them to advocate for Palestine globally.
 
                           </p>
                           <div className="mt-4 space-y-3">

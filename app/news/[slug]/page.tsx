@@ -17,15 +17,15 @@ const newsArticles = {
   "nabd-al-hayat-scholarship-interviews": {
     title: "Interviews for the First Phase of the Nabd al-Hayat Scholarship",
     date: "May 5, 2023",
-    author: "Palestinian Student Support Fund",
+    author: "Isnad Foundation",
     category: "Scholarships",
     image: "/placeholder.svg?height=600&width=1200",
     content: [
-      "Istanbul, Turkey - The first interviews for the Nabd al-Hayat Scholarship, launched by the Palestinian Student Support Fund, began today, Tuesday.",
+      "Istanbul, Turkey - The first interviews for the Nabd al-Hayat Scholarship, launched by the Isnad Foundation, began today, Tuesday.",
       "The interviews, held online by the Fund, saw the participation of dozens of Palestinian students pursuing their medical studies. During the interviews, the Fund identified the students who passed the initial selection process after electronic registration for the scholarship.",
       "Those who pass the interviews will receive assistance ranging from financial grants, the provision of study seats, and the purchase of educational equipment, tablets, and computers.",
-      "It is worth noting that \"Nabd al-Hayat\" is one of the most prominent scholarship programs launched by the Palestinian Student Support Fund, which aims to provide scholarships to Palestinian students who wish to study or are pursuing a medical specialty.",
-      "The program seeks to provide scholarships and assistance to 1,000 Palestinian students, as part of a five-year plan. The Palestinian Student Support Fund is an independent, non-profit Palestinian development organization that aims to support higher education in Palestine by investing in the academic potential of young people and providing scholarships within a comprehensive development vision."
+      "It is worth noting that \"Nabd al-Hayat\" is one of the most prominent scholarship programs launched by the Isnad Foundation, which aims to provide scholarships to Palestinian students who wish to study or are pursuing a medical specialty.",
+      "The program seeks to provide scholarships and assistance to 1,000 Palestinian students, as part of a five-year plan. The Isnad Foundation is an independent, non-profit Palestinian development organization that aims to support higher education in Palestine by investing in the academic potential of young people and providing scholarships within a comprehensive development vision."
     ],
     relatedArticles: [
       {
@@ -60,16 +60,16 @@ const newsArticles = {
   "nabd-al-hayat-grant-interviews": {
     title: "Interviews for the first phase of the Nabd Al Hayat grant continue to select 100 students from Gaza to benefit from the program.",
     date: "May 5, 2025",
-    author: "Palestinian Student Support Fund",
+    author: "Isnad Foundation",
     category: "Scholarships",
     image: "/placeholder.svg?height=600&width=1200",
     content: [
-      "Istanbul, Türkiye - Monday, May 5, 2025 - Interviews for the first phase of the Nabd al-Hayat scholarship program, implemented by the Palestinian Student Support Fund in partnership with Alkhidmat Europe, continued today, Monday. The program targets Palestinian medical students, particularly in the Gaza Strip.",
+      "Istanbul, Türkiye - Monday, May 5, 2025 - Interviews for the first phase of the Nabd al-Hayat scholarship program, implemented by the Isnad Foundation in partnership with Alkhidmat Europe, continued today, Monday. The program targets Palestinian medical students, particularly in the Gaza Strip.",
       "These interviews, an extension of those held last Tuesday, were conducted online with the participation of a select group of Palestinian students who passed the initial selection stage and are continuing their studies in human medicine at Palestinian universities in the Gaza Strip.",
       "In the first phase, 100 students will be selected to benefit from the Nabd al-Hayat scholarship, which provides monthly financial support for 12 months, in addition to other support opportunities, including educational equipment and partial tuition fees.",
       "This initiative comes within the framework of a development vision aimed at enabling Palestinian students to continue their academic journeys despite the harsh conditions caused by the war, especially in light of displacement, the destruction of homes, and the psychological and economic pressures experienced by students and their families.",
-      "It's worth noting that the Nabd al-Hayat program is one of the most prominent programs of the Palestinian Student Support Fund, which seeks to support more than 1,000 students over five years through effective local and international partnerships.",
-      "The Isnad Fund is an independent, non-profit Palestinian development organization dedicated to enhancing higher education opportunities for Palestinians by providing scholarships and academic support to students in vital disciplines, particularly medical specialties."
+      "It's worth noting that the Nabd al-Hayat program is one of the most prominent programs of the Isnad Foundation, which seeks to support more than 1,000 students over five years through effective local and international partnerships.",
+      "The Isnad Foundation is an independent, non-profit Palestinian development organization dedicated to enhancing higher education opportunities for Palestinians by providing scholarships and academic support to students in vital disciplines, particularly medical specialties."
     ],
     relatedArticles: [
       {
@@ -108,9 +108,9 @@ const newsArticles = {
     category: "Scholarships",
     image: "/placeholder.svg?height=600&width=1200",
     content: [
-      "The Palestinian Student Support Fund is proud to announce the launch of our new scholarship program specifically designed for undergraduate students in engineering and medical fields. This initiative aims to address the growing demand for skilled professionals in these critical sectors while providing opportunities for talented Palestinian students to pursue their educational dreams.",
+      "The Isnad Foundation is proud to announce the launch of our new scholarship program specifically designed for undergraduate students in engineering and medical fields. This initiative aims to address the growing demand for skilled professionals in these critical sectors while providing opportunities for talented Palestinian students to pursue their educational dreams.",
       "The program will offer comprehensive financial support covering tuition fees, accommodation, living expenses, and educational materials for the entire duration of the undergraduate degree. Additionally, recipients will benefit from our mentorship program, connecting them with established professionals in their fields of study.",
-      '"Education is the most powerful tool we can provide to empower the next generation of Palestinian leaders," said Dr. Layla Khalid, Academic Director of the Palestinian Student Support Fund. "This new scholarship program represents our commitment to investing in fields that will drive innovation and improve quality of life in Palestinian communities."',
+      '"Education is the most powerful tool we can provide to empower the next generation of Palestinian leaders," said Dr. Layla Khalid, Academic Director of the Isnad Foundation. "This new scholarship program represents our commitment to investing in fields that will drive innovation and improve quality of life in Palestinian communities."',
       "The scholarship will be available to Palestinian students worldwide who demonstrate academic excellence, financial need, and a commitment to contributing to their communities. The application process will open on July 1, 2023, with the first cohort of scholars beginning their studies in the fall semester of 2023.",
       "Eligibility criteria include Palestinian nationality or heritage, a strong academic record with a minimum GPA of 3.5 or equivalent, demonstrated financial need, and proficiency in the language of instruction at the target institution.",
       "The launch of this program follows months of consultation with educational experts, partner universities, and potential employers to ensure that the scholarship addresses real needs and provides pathways to meaningful employment after graduation.",
@@ -154,16 +154,16 @@ const newsArticles = {
     category: "Partnerships",
     image: "/placeholder.svg?height=600&width=1200",
     content: [
-      "We are thrilled to announce a new strategic partnership between the Palestinian Student Support Fund and Istanbul University, one of Turkey's most prestigious educational institutions. This collaboration marks a significant milestone in our mission to expand educational opportunities for Palestinian students.",
+      "We are thrilled to announce a new strategic partnership between the Isnad Foundation and Istanbul University, one of Turkey's most prestigious educational institutions. This collaboration marks a significant milestone in our mission to expand educational opportunities for Palestinian students.",
       "The partnership will create dedicated pathways for Palestinian students to access undergraduate and graduate programs at Istanbul University, with special consideration for those facing financial barriers or displacement due to conflict.",
-      '"This partnership represents a meaningful step forward in our commitment to providing quality education for Palestinian students," said Dr. Mahmoud Abbas, Executive Director of the Palestinian Student Support Fund. "Istanbul University\'s academic excellence and inclusive approach make them an ideal partner in this mission."',
+      '"This partnership represents a meaningful step forward in our commitment to providing quality education for Palestinian students," said Dr. Mahmoud Abbas, Executive Director of the Isnad Foundation. "Istanbul University\'s academic excellence and inclusive approach make them an ideal partner in this mission."',
       "Key components of the partnership include:",
       "• Reserved spots for qualified Palestinian students across various academic departments",
       "• Joint scholarship programs covering tuition and living expenses",
       "• Collaborative research opportunities for faculty and graduate students",
       "• Cultural exchange initiatives to foster understanding and connection",
       "• Language support programs to help students transition to Turkish-language instruction",
-      'Professor Mehmet Yılmaz, President of Istanbul University, expressed enthusiasm about the collaboration: "We are honored to partner with the Palestinian Student Support Fund to provide educational opportunities for talented students who have faced significant challenges. This partnership aligns with our university\'s values of academic excellence, diversity, and global engagement."',
+      'Professor Mehmet Yılmaz, Rector of Istanbul University, expressed enthusiasm about the collaboration: "We are honored to partner with the Isnad Foundation to provide educational opportunities for talented students who have faced significant challenges. This partnership aligns with our university\'s values of academic excellence, diversity, and social responsibility."',
       "The first cohort of students under this partnership will begin their studies in the Fall 2023 semester. Information sessions about available programs and application procedures will be held virtually in the coming weeks.",
       "For more information about this partnership and how to apply for the joint scholarship programs, please visit our Partnerships page or contact our academic advisors at partnerships@palestinianstudentfund.org.",
     ],
@@ -393,7 +393,7 @@ export default function NewsArticlePage() {
             <div className="mb-12 text-center">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">More News</h2>
               <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
-                Discover more updates and stories from the Palestinian Student Support Fund.
+                Discover more updates and stories from the Isnad Foundation.
               </p>
             </div>
           </GSAPReveal>

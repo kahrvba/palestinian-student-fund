@@ -14,7 +14,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2">
               <GraduationCap className="h-6 w-6 text-primary" />
-              <span className="text-lg font-bold font-playfair">PSSF</span>
+              <span className="text-lg font-bold font-playfair">IFPPS</span>
             </div>
             <p className="mt-4 text-sm text-muted-foreground font-playfair">
               Empowering Palestinian students worldwide through educational opportunities, financial support, and
@@ -111,7 +111,7 @@ export default function Footer() {
         <div className="mt-12 border-t pt-8">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <p className="text-sm text-muted-foreground font-playfair">
-              &copy; {new Date().getFullYear()} Palestinian Student Support Fund. {t("footer.rights")}
+              &copy; {new Date().getFullYear()} Isnad Foundation. {t("footer.rights")}
             </p>
             <div className="flex space-x-4">
               <Link href="/privacy" className="text-sm text-muted-foreground hover:text-primary font-playfair">

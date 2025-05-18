@@ -31,7 +31,7 @@ const translations = {
 
     "about.widgt": "Values",
     "about.title":"Our Values",
-    "about.subtitle":"PSSF",
+    "about.subtitle":"IFPPS",
     "about.identity": "National Belonging",
     "about.identity.desc": "We operate from a deep commitment to the Palestinian cause, striving to instill national identity in everything we do.",
     "about.identity2":"Academic Excellence",
@@ -58,7 +58,7 @@ const translations = {
     "about.vision.text": "To elevate young Palestinian academic competencies across various fields essential to society and empower them to play a vital, effective role in building a strong, sustainable, and prosperous future for the State of Palestine.",
     "about.foundation.tag": "Foundation Identity",
     "about.foundation.title": "Our Story",
-    "about.foundation.text1": "Established in 2015 in Istanbul, Turkey, the Palestinian Student Support Fund was founded by a group of educators and professionals who recognized the challenges faced by Palestinian students seeking higher education opportunities.",
+    "about.foundation.text1": "Established in 2015 in Istanbul, Turkey, the Isnad Foundation was founded by a group of educators and professionals who recognized the challenges faced by Palestinian students seeking higher education opportunities.",
     "about.foundation.text2": "What began as a small initiative providing scholarships to a handful of students has grown into a comprehensive support organization that has helped hundreds of Palestinian students access quality education across the globe.",
     "about.foundation.text3": "Our foundation is registered as a non-profit educational organization in Turkey, operating with full transparency and accountability to our donors and partners.",
     "about.team.tag": "Administrative Structure",
@@ -106,7 +106,7 @@ const translations = {
 
     "about.widgt": "القيم",
     "about.title":"قيمنا",
-    "about.subtitle":"PSSF",
+    "about.subtitle":"IFPPS",
     "about.identity": "الانتماء الوطني",
     "about.identity.desc": "نعمل انطلاقًا من التزامنا الراسخ بالقضية الفلسطينية، ونسعى جاهدين لترسيخ الهوية الوطنية في كل ما نقوم به.",
     "about.identity2":"التميز الأكاديمي",

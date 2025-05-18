@@ -22,16 +22,16 @@ const successStories = {
     image: "/placeholder.svg?height=600&width=600",
     coverImage: "/placeholder.svg?height=600&width=1200",
     quote:
-      "The support from the Palestinian Student Fund transformed my academic journey and opened doors I never thought possible.",
+      "The support from the Isnad Foundation transformed my academic journey and opened doors I never thought possible.",
     story: [
       "Growing up in Gaza, I always had a passion for technology and computing, but the opportunities to pursue advanced education in this field were severely limited due to both financial constraints and the ongoing conflict in the region.",
       "After completing my bachelor's degree in Computer Engineering at Al-Azhar University in Gaza with top honors, I dreamed of continuing my education abroad, but the financial barriers seemed insurmountable. My family had already made significant sacrifices to support my undergraduate studies, and further education seemed out of reach.",
-      "Everything changed when I learned about the Palestinian Student Support Fund. I applied for their PhD scholarship program with hope but realistic expectations. When I received the news that I had been selected for a full scholarship to pursue my doctorate at Istanbul Technical University, it was a life-changing moment not just for me, but for my entire family.",
-      "The transition to life in Turkey came with its challenges – cultural differences, language barriers, and adapting to a new academic environment. However, the PSSF provided more than just financial support. Their mentorship program connected me with other Palestinian scholars and Turkish academics who helped me navigate these challenges.",
+      "Everything changed when I learned about the Isnad Foundation. I applied for their PhD scholarship program with hope but realistic expectations. When I received the news that I had been selected for a full scholarship to pursue my doctorate at Istanbul Technical University, it was a life-changing moment not just for me, but for my entire family.",
+      "The transition to life in Turkey came with its challenges – cultural differences, language barriers, and adapting to a new academic environment. However, the IFPPS provided more than just financial support. Their mentorship program connected me with other Palestinian scholars and Turkish academics who helped me navigate these challenges.",
       "My research focused on developing machine learning algorithms for resource-constrained environments, work that I hope will have practical applications in areas with limited technological infrastructure – including Palestine. Throughout my studies, I was able to publish several papers in top-tier conferences and journals, and even secured an internship at a leading tech company in Istanbul.",
-      "Beyond academics, the PSSF community became like a second family. The cultural events, networking opportunities, and sense of belonging they fostered helped me overcome homesickness and stay focused on my goals.",
+      "Beyond academics, the IFPPS community became like a second family. The cultural events, networking opportunities, and sense of belonging they fostered helped me overcome homesickness and stay focused on my goals.",
       "After completing my PhD in 2022, I accepted a position as an assistant professor at Istanbul Technical University, where I now have the opportunity to mentor other students, including fellow Palestinians. I'm also collaborating with tech initiatives in Gaza, working to establish remote learning programs and internship opportunities for promising students there.",
-      "My journey from Gaza to becoming a computer science PhD and educator would not have been possible without the Palestinian Student Support Fund. They didn't just fund my education; they invested in my potential and empowered me to create a ripple effect of positive change for others from similar backgrounds.",
+      "My journey from Gaza to becoming a computer science PhD and educator would not have been possible without the Isnad Foundation. They didn't just fund my education; they invested in my potential and empowered me to create a ripple effect of positive change for others from similar backgrounds.",
     ],
     achievements: [
       "Published 5 papers in top-tier computer science conferences",
@@ -88,12 +88,11 @@ const successStories = {
     story: [
       "My journey into public health began in the clinics of Ramallah, where I volunteered during my undergraduate years. I witnessed firsthand the challenges facing our healthcare system – limited resources, restricted access to medical supplies, and the impact of ongoing conflict on community health.",
       "After completing my bachelor's degree in Biology at Birzeit University, I was determined to gain the knowledge and skills needed to address these systemic healthcare challenges. However, opportunities for specialized graduate education in public health were limited in Palestine, and international programs seemed financially out of reach.",
-      "The Palestinian Student Support Fund changed everything for me. Their scholarship program not only covered my tuition and living expenses at Ankara University but also provided language support to help me adapt to studying in Turkish. The transition was challenging, but the foundation's support network made it manageable.",
+      "The Isnad Foundation changed everything for me. Their scholarship program not only covered my tuition and living expenses at Ankara University but also provided language support to help me adapt to studying in Turkish. The transition was challenging, but the foundation's support network made it manageable.",
       "During my master's program, I focused my research on healthcare access in conflict zones, drawing from both academic knowledge and my personal experiences. My professors were supportive and encouraged me to publish my findings, which led to presentations at several international health policy conferences.",
-      "One of the most valuable aspects of the PSSF program was the professional development opportunities. Through their network, I secured an internship with the World Health Organization's regional office, which gave me practical experience in international health policy and program implementation.",
+      "One of the most valuable aspects of the IFPPS program was the professional development opportunities. Through their network, I secured an internship with the World Health Organization's regional office, which gave me practical experience in international health policy and program implementation.",
       "After graduating in 2021, I joined a healthcare NGO that operates across the Middle East, where I now help design and implement community health programs for vulnerable populations. The skills and perspectives I gained through my education allow me to contribute meaningfully to improving healthcare access for those who need it most.",
-      "The impact of the scholarship extends far beyond my individual career. Through my work, I've been able to help establish mobile clinics that serve thousands of people in underserved areas. I also mentor young Palestinian women interested in healthcare careers, hoping to create a ripple effect of positive change.",
-      "My story is just one example of how educational investment can transform not just an individual life but entire communities. The Palestinian Student Support Fund didn't just help me achieve my academic goals – they empowered me to become an agent of change in a field that desperately needs innovative solutions.",
+      "My story is just one example of how educational investment can transform not just an individual life but entire communities. The Isnad Foundation didn't just help me achieve my academic goals – they empowered me to become an agent of change in a field that desperately needs innovative solutions.",
     ],
     achievements: [
       "Published research on healthcare access in conflict zones in the International Journal of Public Health",
@@ -307,7 +306,7 @@ export default function SuccessStoryPage() {
                     <CardContent className="p-6">
                       <h3 className="mb-4 text-lg font-bold">About Our Programs</h3>
                       <p className="text-muted-foreground">
-                        The Palestinian Student Support Fund provides comprehensive scholarships, mentorship, and
+                        The Isnad Foundation provides comprehensive scholarships, mentorship, and
                         professional development opportunities to talented Palestinian students worldwide.
                       </p>
                       <div className="mt-4">
