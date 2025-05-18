@@ -9,6 +9,7 @@ import { useTheme } from "next-themes"
 import { useLanguage } from "@/components/language-provider"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu"
 import Image from "next/image"
 
 export default function Header() {
@@ -39,7 +40,15 @@ export default function Header() {
     { name: t("nav.success"), href: "/success-stories" },
     { name: t("nav.apply"), href: "/apply" },
     { name: t("nav.activities"), href: "/activities" },
-    { name: t("nav.testimonials"), href: "/testimonials" },
+    { 
+      name: t("nav.testimonials"), 
+      href: "/testimonials",
+      dropdown: true,
+      items: [
+        { name: "Students", href: "/testimonials?type=students" },
+        { name: "Influencers", href: "/testimonials?type=influencers" }
+      ]
+    },
     { name: t("nav.contact"), href: "/contact" },
   ]
 
@@ -88,21 +97,59 @@ export default function Header() {
 
           <nav className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`text-md font-medium transition-colors ${
-                  pathname === item.href
-                    ? "text-primary dark:text-primary"
-                    : isScrolled
-                      ? "text-foreground dark:text-foreground hover:text-primary dark:hover:text-primary"
-                      : isActivitiesPage
-                        ? "text-gray-900 hover:text-[#34a853] dark:text-foreground dark:hover:text-primary"
-                        : "text-white hover:text-primary-foreground"
-                }`}
-              >
-                {item.name}
-              </Link>
+              item.dropdown ? (
+                <NavigationMenu key={item.href}>
+                  <NavigationMenuList>
+                    <NavigationMenuItem>
+                      <NavigationMenuTrigger
+                        className={`text-md font-medium transition-colors bg-transparent hover:bg-transparent data-[state=open]:bg-transparent ${
+                          pathname === item.href
+                            ? "text-primary dark:text-primary"
+                            : isScrolled
+                              ? "text-foreground dark:text-foreground hover:text-primary dark:hover:text-primary"
+                              : isActivitiesPage
+                                ? "text-gray-900 hover:text-[#34a853] dark:text-foreground dark:hover:text-primary"
+                                : "text-white hover:text-primary-foreground"
+                        }`}
+                      >
+                        {item.name}
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent>
+                        <ul className="grid w-[200px] gap-3 p-4 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+                          {item.items?.map((dropdownItem) => (
+                            <li key={dropdownItem.href}>
+                              <NavigationMenuLink asChild>
+                                <Link
+                                  href={dropdownItem.href}
+                                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                >
+                                  <div className="text-sm font-medium leading-none">{dropdownItem.name}</div>
+                                </Link>
+                              </NavigationMenuLink>
+                            </li>
+                          ))}
+                        </ul>
+                      </NavigationMenuContent>
+                    </NavigationMenuItem>
+                  </NavigationMenuList>
+                </NavigationMenu>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`text-md font-medium transition-colors ${
+                    pathname === item.href
+                      ? "text-primary dark:text-primary"
+                      : isScrolled
+                        ? "text-foreground dark:text-foreground hover:text-primary dark:hover:text-primary"
+                        : isActivitiesPage
+                          ? "text-gray-900 hover:text-[#34a853] dark:text-foreground dark:hover:text-primary"
+                          : "text-white hover:text-primary-foreground"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
           </nav>
 
