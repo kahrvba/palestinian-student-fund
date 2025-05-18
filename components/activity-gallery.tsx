@@ -182,131 +182,118 @@ export function ActivityGallery({ activity }: ActivityGalleryProps) {
   }, [])
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 sm:space-y-8">
       {/* Activity Info */}
-      <div className="space-y-6">
-        <Badge className="bg-[hsl(120,61%,34%)]/10 text-[hsl(120,61%,34%)] text-base px-3 py-1.5">
+      <div className="space-y-4 sm:space-y-6">
+        <Badge className="bg-[hsl(120,61%,34%)]/10 text-[hsl(120,61%,34%)] text-sm sm:text-base px-3 py-1.5">
           {activity.category}
         </Badge>
-        <h1 className="text-3xl md:text-4xl font-bold">{activity.title}</h1>
-        <div className="flex flex-wrap gap-4 text-muted-foreground">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">{activity.title}</h1>
+        <div className="flex flex-wrap gap-3 sm:gap-4 text-sm sm:text-base text-muted-foreground">
           <div className="flex items-center">
-            <Calendar className="mr-2 h-5 w-5" />
+            <Calendar className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
             {activity.date}
           </div>
           <div className="flex items-center">
-            <MapPin className="mr-2 h-5 w-5" />
+            <MapPin className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
             {activity.location}
           </div>
         </div>
-        <p className="text-lg text-muted-foreground leading-relaxed">
-          {activity.full_description}
-        </p>
+        <p className="text-sm sm:text-base md:text-lg text-muted-foreground">{activity.description}</p>
       </div>
 
-      {/* Image Gallery */}
-      {loading ? (
-        <div className="flex items-center justify-center h-64">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-400"></div>
-        </div>
-      ) : images.length === 0 ? (
-        <div className="flex items-center justify-center h-64">
-          <p>No images found for this activity.</p>
-        </div>
-      ) : (
-        <div className="space-y-4">
-          <div className="relative">
-            <div className="relative aspect-video overflow-hidden rounded-lg">
-              {images[selectedImageIndex]?.toLowerCase().endsWith('.mp4') ? (
-                <video
-                  src={images[selectedImageIndex]}
-                  controls
-                  className="w-full h-full object-cover"
-                  autoPlay
-                  controlsList="nodownload"
-                  playsInline
-                />
-              ) : (
-                <img
-                  src={images[selectedImageIndex]}
-                  alt={`${activity.title} image ${selectedImageIndex + 1}`}
-                  className="w-full h-full object-cover"
-                />
-              )}
-
-              {/* Navigation buttons */}
-              <Button
-                variant="ghost"
-                size="icon"
-                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white rounded-full h-10 w-10"
-                onClick={handlePrevImage}
-                aria-label="Previous image"
-              >
-                <ChevronLeft className="h-6 w-6" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white rounded-full h-10 w-10"
-                onClick={handleNextImage}
-                aria-label="Next image"
-              >
-                <ChevronRight className="h-6 w-6" />
-              </Button>
-
-              {/* Image counter */}
-              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
-                <div className="bg-black/50 text-white px-3 py-1.5 rounded-full text-sm">
-                  {selectedImageIndex + 1} / {images.length}
-                </div>
-              </div>
-            </div>
+      {/* Main Image Gallery */}
+      <div className="relative aspect-[4/3] sm:aspect-[16/9] w-full overflow-hidden rounded-lg bg-muted">
+        {loading ? (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
           </div>
+        ) : (
+          <>
+            {images[selectedImageIndex]?.endsWith('.mp4') ? (
+              <video
+                src={images[selectedImageIndex]}
+                className="h-full w-full object-cover"
+                controls
+                playsInline
+                autoPlay
+                loop
+                muted
+              />
+            ) : (
+              <img
+                src={images[selectedImageIndex]}
+                alt={`Activity image ${selectedImageIndex + 1}`}
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+            )}
+            <div className="absolute inset-0 bg-black/20" />
+            <Button
+              variant="ghost"
+              size="icon"
+              className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2 hover:bg-white/90 sm:left-4"
+              onClick={handlePrevImage}
+            >
+              <ChevronLeft className="h-4 w-4 sm:h-6 sm:w-6" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2 hover:bg-white/90 sm:right-4"
+              onClick={handleNextImage}
+            >
+              <ChevronRight className="h-4 w-4 sm:h-6 sm:w-6" />
+            </Button>
+          </>
+        )}
+      </div>
 
-          {/* Thumbnail Strip */}
-          <div className="flex gap-2 overflow-x-auto pb-2">
-            {images.map((image, index) => (
-              <button
-                key={index}
-                onClick={() => handleThumbnailClick(index)}
-                className={`relative flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden ${
-                  index === selectedImageIndex ? 'opacity-100' : 'opacity-40 hover:opacity-80'
-                }`}
-              >
-                {image.toLowerCase().endsWith('.mp4') ? (
-                  <div className="w-full h-full bg-black/50 flex items-center justify-center">
-                    <svg
-                      className="w-8 h-8 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-                      />
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </div>
-                ) : (
-                  <img
-                    src={image}
-                    alt={`Thumbnail ${index + 1}`}
-                    className="w-full h-full object-cover"
+      {/* Thumbnail Grid */}
+      <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2 sm:gap-3">
+        {images.map((image, index) => (
+          <button
+            key={index}
+            onClick={() => handleThumbnailClick(index)}
+            className={`relative aspect-square overflow-hidden rounded-lg ${
+              selectedImageIndex === index
+                ? 'ring-2 ring-primary ring-offset-2'
+                : 'hover:opacity-80'
+            }`}
+          >
+            {image.endsWith('.mp4') ? (
+              <div className="absolute inset-0 flex items-center justify-center bg-black/50">
+                <svg
+                  className="h-6 w-6 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
                   />
-                )}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+            ) : (
+              <img
+                src={image}
+                alt={`Thumbnail ${index + 1}`}
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+            )}
+          </button>
+        ))}
+      </div>
     </div>
   )
 } 

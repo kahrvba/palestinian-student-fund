@@ -87,15 +87,22 @@ export default function Header() {
             : "bg-transparent py-4"
         }`}
       >
-        <div className="container flex items-center justify-between">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           <Link href="/" className="flex items-center z-50">
-            <Image src="/logo.png" alt="pssf logo" className="w-50 mt-5" width={80} height={80} priority />
-            <span className={`text-xl font-bold ${getTextColor()}`}>
+            <Image 
+              src="/logo.png" 
+              alt="pssf logo" 
+              className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 mt-2 sm:mt-3 md:mt-4" 
+              width={80} 
+              height={80} 
+              priority 
+            />
+            <span className={`text-lg sm:text-xl md:text-2xl font-bold ml-2 ${getTextColor()}`}>
               PSSF
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
             {navItems.map((item) => (
               item.dropdown ? (
                 <NavigationMenu key={item.href}>
@@ -204,32 +211,48 @@ export default function Header() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="fixed inset-0 z-40 bg-background pt-20 px-4 overflow-y-auto"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
+            className="fixed inset-0 top-[72px] bg-white dark:bg-background z-40 lg:hidden"
           >
-            <nav className="flex flex-col gap-4">
-              {navItems.map((item, index) => (
-                <motion.div
-                  key={item.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <Link
-                    href={item.href}
-                    className={`block py-3 text-lg font-medium border-b ${
-                      pathname === item.href ? "text-primary border-primary" : "border-border"
-                    }`}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                </motion.div>
-              ))}
-            </nav>
+            <div className="container mx-auto px-4 py-6">
+              <nav className="flex flex-col space-y-4">
+                {navItems.map((item) => (
+                  item.dropdown ? (
+                    <div key={item.href} className="space-y-2">
+                      <div className="font-medium text-lg">{item.name}</div>
+                      <div className="pl-4 space-y-2">
+                        {item.items?.map((dropdownItem) => (
+                          <Link
+                            key={dropdownItem.href}
+                            href={dropdownItem.href}
+                            className="block text-base text-muted-foreground hover:text-primary"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {dropdownItem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={`text-lg font-medium transition-colors ${
+                        pathname === item.href
+                          ? "text-primary dark:text-primary"
+                          : "text-foreground hover:text-primary dark:text-foreground dark:hover:text-primary"
+                      }`}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  )
+                ))}
+              </nav>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
