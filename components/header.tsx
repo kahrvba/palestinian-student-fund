@@ -36,7 +36,30 @@ export default function Header() {
     { name: t("nav.home"), href: "/" },
     { name: t("nav.about"), href: "/about" },
     { name: t("nav.news"), href: "/news" },
-    { name: t("nav.programs"), href: "/programs" },
+    { 
+      name: t("nav.programs"), 
+      href: "/programs",
+      dropdown: true,
+      items: [
+        { 
+          name: "Undergraduate Scholarships",
+          href: "/programs#undergraduate-scholarships",
+          items: [
+            { name: "Pulse of Life Scholarship", href: "/programs#pulse-of-life" },
+            { name: "Excellence Scholarship", href: "/programs#excellence" }
+          ]
+        },
+        { 
+          name: "Graduate Scholarships",
+          href: "/programs#graduate-scholarships",
+          items: [
+            { name: "Sustainability Scholarship", href: "/programs#sustainability" },
+            { name: "Ibn Khaldun Scholarship Program", href: "/programs#ibn-khaldun" },
+            { name: "Research Excellence Scholarship", href: "/programs#research-excellence" }
+          ]
+        }
+      ]
+    },
     { name: t("nav.success"), href: "/success-stories" },
     { name: t("nav.apply"), href: "/apply" },
     { name: t("nav.activities"), href: "/activities" },
@@ -122,17 +145,25 @@ export default function Header() {
                         {item.name}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
-                        <ul className="grid w-[200px] gap-3 p-4 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+                        <ul className="grid w-[400px] gap-3 p-4 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
                           {item.items?.map((dropdownItem) => (
-                            <li key={dropdownItem.href}>
-                              <NavigationMenuLink asChild>
-                                <Link
-                                  href={dropdownItem.href}
-                                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                                >
-                                  <div className="text-sm font-medium leading-none">{dropdownItem.name}</div>
-                                </Link>
-                              </NavigationMenuLink>
+                            <li key={dropdownItem.href} className="row-span-3">
+                              <div className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none">
+                                <div className="text-sm font-medium leading-none mb-2">{dropdownItem.name}</div>
+                                {dropdownItem.items && (
+                                  <div className="mt-2 space-y-1">
+                                    {dropdownItem.items.map((subItem) => (
+                                      <Link
+                                        key={subItem.href}
+                                        href={subItem.href}
+                                        className="block text-sm text-muted-foreground hover:text-accent-foreground pl-2 py-1 rounded-md hover:bg-accent/50"
+                                      >
+                                        {subItem.name}
+                                      </Link>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
                             </li>
                           ))}
                         </ul>
@@ -223,16 +254,27 @@ export default function Header() {
                   item.dropdown ? (
                     <div key={item.href} className="space-y-2">
                       <div className="font-medium text-lg">{item.name}</div>
-                      <div className="pl-4 space-y-2">
+                      <div className="pl-4 space-y-4">
                         {item.items?.map((dropdownItem) => (
-                          <Link
-                            key={dropdownItem.href}
-                            href={dropdownItem.href}
-                            className="block text-base text-muted-foreground hover:text-primary"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            {dropdownItem.name}
-                          </Link>
+                          <div key={dropdownItem.href} className="space-y-2">
+                            <div className="text-base font-medium text-muted-foreground">
+                              {dropdownItem.name}
+                            </div>
+                            {dropdownItem.items && (
+                              <div className="pl-4 space-y-2">
+                                {dropdownItem.items.map((subItem) => (
+                                  <Link
+                                    key={subItem.href}
+                                    href={subItem.href}
+                                    className="block text-sm text-muted-foreground hover:text-primary"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                  >
+                                    {subItem.name}
+                                  </Link>
+                                ))}
+                              </div>
+                            )}
+                          </div>
                         ))}
                       </div>
                     </div>
