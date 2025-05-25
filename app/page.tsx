@@ -106,46 +106,16 @@ export default function Home() {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative h-screen min-h-[600px] w-full overflow-hidden flex items-center justify-center"
+        className="relative h-screen w-full overflow-hidden"
       >
         <div className="absolute inset-0 z-0 hero-image">
           <img
-            src="/Flag_of_Palestine.svg"
-            alt="Palestinian Flag"
-            className="h-full w-full object-cover"
+            src="/hero-cover.jpg"
+            alt="Isnad Foundation - Palestinian Student Support"
+            className="h-full w-full object-contain"
           />
-          <div className="absolute inset-0 bg-black/30" />
         </div>
-
-        <div className="container relative z-10 hero-content">
-          <div className="max-w-4xl mx-auto text-center space-y-6 text-white">
-            <GSAPTextReveal
-              element="h1"
-              className="hero-title text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-lg min-h-[1.2em] leading-[1.2] overflow-visible"
-            >
-              {t("hero.title")}
-            </GSAPTextReveal>
-
-            <GSAPReveal animation="fade" delay={0.5}>
-              <p className="mx-auto max-w-[700px] text-xl text-white md:text-2xl drop-shadow-md">{t("hero.subtitle")}</p>
-            </GSAPReveal>
-
-            <GSAPReveal animation="fade" delay={0.8}>
-              <div className="flex justify-center gap-4 mt-8">
-                <Button size="lg" className="bg-[hsl(120,61%,34%)] hover:bg-[hsl(120,61%,30%)] text-white">
-                  {t("hero.cta.apply") || "Apply for Scholarship"}
-                </Button>
-                <Button size="lg" className="bg-[hsl(120,61%,34%)] hover:bg-[hsl(120,61%,30%)] text-white">
-                  {t("hero.cta.explore") || "Explore Programs"}
-                </Button>
-              </div>
-            </GSAPReveal>
-          </div>
-        </div>
-
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" />
       </section>
-
 
       {/* Latest News Section */}
       <section className="py-12 md:py-16 bg-white dark:bg-black">

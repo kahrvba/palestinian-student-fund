@@ -207,22 +207,31 @@ export default function SuccessStoriesPage() {
   return (
     <main className="flex min-h-screen flex-col">
       {/* Hero Section */}
-      <section className="relative py-24 md:py-32 text-white overflow-hidden">
+      <section className="relative h-screen w-full text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/Flag_of_Palestine.svg"
-            alt="Palestinian Flag"
-            className="h-full w-full object-cover"
+            src="/story.png"
+            alt="Success Stories - Students"
+            className="h-full w-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-black/30" />
         </div>
-        <div className="container relative z-10 px-4 md:px-6">
-          <div className="mx-auto max-w-3xl text-center">
-            <GSAPTextReveal element="h1" className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl drop-shadow-lg font-playfair">
+        {/* Page Indicator */}
+        <div className="absolute bottom-6 right-6 md:bottom-8 md:right-8 z-10">
+          <div className="bg-white/10 backdrop-blur-md rounded-lg px-4 py-3 border border-white/20">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-[#1e7e34]"></div>
+              <span className="text-white text-sm font-medium">Success Stories</span>
+            </div>
+          </div>
+        </div>
+        <div className="container relative z-10 px-4 md:px-6 h-full flex items-center justify-center">
+          <div className="mx-auto max-w-5xl text-center">
+            <GSAPTextReveal element="h1" className="text-5xl font-bold tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl drop-shadow-2xl font-playfair">
               Success Stories
             </GSAPTextReveal>
             <GSAPReveal animation="fade" delay={0.3}>
-              <p className="mt-6 text-xl text-white drop-shadow-md">
+              <p className="mt-8 text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white drop-shadow-xl max-w-4xl mx-auto leading-relaxed">
                 Meet the remarkable students who have transformed their lives through our support programs.
               </p>
             </GSAPReveal>
@@ -231,11 +240,11 @@ export default function SuccessStoriesPage() {
       </section>
 
       {/* Featured Success Stories */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/5 via-transparent to-[hsl(120,61%,34%)]/5 dark:from-[hsl(0,76%,40%)]/10 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/10">
+      <section className="py-16 md:py-24 bg-white dark:bg-gray-950">
         <div className="container px-4 md:px-6">
           <GSAPReveal animation="slide-up">
             <div className="mb-12 text-center">
-              <div className="inline-flex items-center rounded-lg bg-[hsl(120,61%,34%)]/10 px-3 py-1 text-sm text-[hsl(120,61%,34%)]">
+              <div className="inline-flex items-center rounded-lg bg-[#1e7e34]/10 px-3 py-1 text-sm text-[#1e7e34]">
                 <Quote className="mr-1 h-4 w-4" />
                 Inspiring Journeys
               </div>
@@ -268,26 +277,30 @@ export default function SuccessStoriesPage() {
       </section>
 
       {/* Inspirational Quote */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)] via-black to-[hsl(120,61%,34%)] text-white">
-        <div className="container px-4 md:px-6">
-          <div className="mx-auto max-w-3xl text-center">
+      <section className="py-16 md:py-24 bg-[#f8faf8] relative">
+        <div className="absolute inset-0 bg-[#f8faf8]/70"></div>
+        <div className="container px-4 md:px-6 relative z-10">
+          <div className="mx-auto max-w-3xl rounded-xl bg-white p-10 text-center shadow-xl relative overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1e7e34]/30 via-[#1e7e34]/80 to-[#1e7e34]/30"></div>
+            <div className="absolute -left-10 -bottom-10 w-40 h-40 bg-[#1e7e34]/5 rounded-full"></div>
+            <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-[#1e7e34]/5 rounded-full"></div>
             <GSAPReveal animation="fade">
-              <Quote className="mx-auto mb-6 h-16 w-16 opacity-20" />
-              <p className="text-2xl font-medium italic md:text-3xl">
+              <Quote className="mx-auto mb-6 h-16 w-16 opacity-20 text-[#1e7e34] relative z-10" />
+              <p className="text-2xl font-medium italic md:text-3xl text-gray-900 dark:text-white relative z-10">
                 Education is the most powerful weapon which you can use to change the world.
               </p>
-              <p className="mt-4 text-lg">Nelson Mandela</p>
+              <p className="mt-4 text-lg text-[#1e7e34] relative z-10">Nelson Mandela</p>
             </GSAPReveal>
           </div>
         </div>
       </section>
 
       {/* All Success Stories */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/5 via-transparent to-[hsl(120,61%,34%)]/5 dark:from-[hsl(0,76%,40%)]/10 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/10">
+      <section className="py-16 md:py-24 bg-white dark:bg-gray-950">
         <div className="container px-4 md:px-6">
           <GSAPReveal animation="slide-up">
             <div className="mb-12 text-center">
-              <div className="inline-flex items-center rounded-lg bg-[hsl(0,76%,40%)]/10 px-3 py-1 text-sm text-[hsl(0,76%,40%)]">
+              <div className="inline-flex items-center rounded-lg bg-[#1e7e34]/10 px-3 py-1 text-sm text-[#1e7e34]">
                 <Search className="mr-1 h-4 w-4" />
                 Browse Stories
               </div>
@@ -346,16 +359,16 @@ export default function SuccessStoriesPage() {
             {/* Tabs */}
             <GSAPReveal animation="fade" delay={0.1}>
               <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-8">
-                <TabsList className="grid w-full max-w-md grid-cols-2 bg-[hsl(0,76%,40%)]/5 dark:bg-[hsl(0,76%,40%)]/10">
+                <TabsList className="grid w-full max-w-md grid-cols-2 bg-[#1e7e34]/5 dark:bg-[#1e7e34]/10">
                   <TabsTrigger
                     value="all"
-                    className="data-[state=active]:bg-[hsl(120,61%,34%)] data-[state=active]:text-white"
+                    className="data-[state=active]:bg-[#1e7e34] data-[state=active]:text-white"
                   >
                     All Stories
                   </TabsTrigger>
                   <TabsTrigger
                     value="featured"
-                    className="data-[state=active]:bg-[hsl(120,61%,34%)] data-[state=active]:text-white"
+                    className="data-[state=active]:bg-[#1e7e34] data-[state=active]:text-white"
                   >
                     Featured
                   </TabsTrigger>
@@ -369,7 +382,7 @@ export default function SuccessStoriesPage() {
                 {paginatedStories.map((story, index) => (
                   <GSAPReveal key={story.id} animation="fade" delay={0.1 * index}>
                     <Link href={story.href} className="block h-full">
-                      <div className="group relative h-full overflow-hidden rounded-lg border border-[hsl(120,61%,34%)]/20 bg-card transition-all hover:shadow-md">
+                      <div className="group relative h-full overflow-hidden rounded-lg border border-[#1e7e34]/20 bg-card transition-all hover:shadow-md">
                         <div className="aspect-square overflow-hidden">
                           <img
                             src={story.image || "/placeholder.svg"}
@@ -378,11 +391,11 @@ export default function SuccessStoriesPage() {
                           />
                         </div>
                         <div className="p-4">
-                          <h3 className="mb-1 text-xl font-bold group-hover:text-[hsl(120,61%,34%)]">{story.name}</h3>
-                          <p className="text-[hsl(0,76%,40%)]">{story.degree}</p>
+                          <h3 className="mb-1 text-xl font-bold group-hover:text-[#1e7e34]">{story.name}</h3>
+                          <p className="text-[#1e7e34]">{story.degree}</p>
                           <p className="mb-3 text-sm text-muted-foreground">{story.university}</p>
                           <p className="italic text-muted-foreground">"{story.quote.substring(0, 100)}..."</p>
-                          <div className="mt-4 flex items-center text-sm font-medium text-[hsl(120,61%,34%)]">
+                          <div className="mt-4 flex items-center text-sm font-medium text-[#1e7e34]">
                             Read Full Story
                             <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                           </div>
@@ -414,7 +427,7 @@ export default function SuccessStoriesPage() {
                     <Button
                       key={index}
                       variant={currentPage === index + 1 ? "default" : "outline"}
-                      className={currentPage === index + 1 ? "bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90" : ""}
+                      className={currentPage === index + 1 ? "bg-[#1e7e34] text-white hover:bg-[#1e7e34]/90" : ""}
                       size="icon"
                       onClick={() => setCurrentPage(index + 1)}
                     >
@@ -437,22 +450,26 @@ export default function SuccessStoriesPage() {
       </section>
 
       {/* Share Your Story CTA */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-[hsl(0,76%,40%)]/5 via-transparent to-[hsl(120,61%,34%)]/5 dark:from-[hsl(0,76%,40%)]/10 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/10">
-        <div className="container px-4 md:px-6">
-          <div className="mx-auto max-w-3xl rounded-lg bg-gradient-to-r from-[hsl(0,76%,40%)]/10 via-transparent to-[hsl(120,61%,34%)]/10 dark:from-[hsl(0,76%,40%)]/20 dark:via-black/80 dark:to-[hsl(120,61%,34%)]/20 p-8 text-center">
+      <section className="py-16 md:py-24 bg-[#f8faf8] relative">
+        <div className="absolute inset-0 bg-[#f8faf8]/70"></div>
+        <div className="container px-4 md:px-6 relative z-10">
+          <div className="mx-auto max-w-3xl rounded-xl bg-white p-10 text-center shadow-xl relative overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1e7e34]/30 via-[#1e7e34]/80 to-[#1e7e34]/30"></div>
+            <div className="absolute -left-10 -bottom-10 w-40 h-40 bg-[#1e7e34]/5 rounded-full"></div>
+            <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-[#1e7e34]/5 rounded-full"></div>
             <GSAPReveal animation="slide-up">
-              <div className="inline-flex items-center rounded-lg bg-[hsl(120,61%,34%)]/10 px-3 py-1 text-sm text-[hsl(120,61%,34%)]">
+              <div className="inline-flex items-center rounded-lg bg-[#1e7e34]/10 px-3 py-1 text-sm text-[#1e7e34] relative z-10">
                 <Quote className="mr-1 h-4 w-4" />
                 Your Journey Matters
               </div>
-              <h2 className="mt-2 text-2xl font-bold tracking-tighter sm:text-3xl">Share Your Success Story</h2>
-              <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
+              <h2 className="mt-2 text-2xl font-bold tracking-tighter sm:text-3xl text-gray-900 dark:text-white relative z-10">Share Your Success Story</h2>
+              <p className="mx-auto mt-4 max-w-[700px] text-gray-600 dark:text-gray-300 relative z-10">
                 Are you a scholarship recipient with a story to tell? We'd love to feature your journey and inspire
                 others.
               </p>
-              <div className="mt-6">
+              <div className="mt-6 relative z-10">
                 <Link href="/contact">
-                  <Button className="bg-[hsl(120,61%,34%)] text-white hover:bg-[hsl(120,61%,34%)]/90 dark:bg-[hsl(120,61%,34%)] dark:text-white dark:hover:bg-[hsl(120,61%,34%)]/90">Submit Your Story</Button>
+                  <Button className="bg-[#1e7e34] text-white hover:bg-[#1e7e34]/90 dark:bg-[#1e7e34] dark:text-white dark:hover:bg-[#1e7e34]/90">Submit Your Story</Button>
                 </Link>
               </div>
             </GSAPReveal>

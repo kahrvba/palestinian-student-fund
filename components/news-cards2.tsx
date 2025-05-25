@@ -38,7 +38,7 @@ export default function NewsCards2({
   }
 
   return (
-    
+
       <motion.div
         whileHover={{ y: -5 }}
         transition={{ duration: 0.2 }}
@@ -47,7 +47,7 @@ export default function NewsCards2({
         style={{ direction: isRTL ? 'rtl' : 'ltr' }}
       >
         <Card
-          className={`w-[500px] h-[500px] overflow-hidden transition-all hover:shadow-lg border-2 border-[hsl(120,61%,34%)]/20 shadow-md dark:bg-black/80 dark:border-[hsl(120,61%,34%)]/30 ${
+          className={`w-[500px] h-[500px] overflow-hidden transition-all hover:shadow-lg border-2 border-[#1e7e34]/20 shadow-md dark:bg-gray-900 dark:border-[#1e7e34]/30 ${
             isAnyCardHovered && !isHovered ? 'blur-[2px] opacity-50' : ''
           }`}
         >
@@ -63,7 +63,7 @@ export default function NewsCards2({
           <CardHeader className="p-6">
             <h3 className="text-2xl font-bold leading-tight line-clamp-2 break-words whitespace-normal hyphens-auto text-black dark:text-white" style={{ wordWrap: 'break-word', overflowWrap: 'break-word', textAlign: isRTL ? 'right' : 'left' }}>{title}</h3>
             {date && (
-              <p className="text-sm text-[hsl(0,76%,40%)] dark:text-[hsl(0,76%,50%)] mt-1" style={{ textAlign: isRTL ? 'right' : 'left' }}>{date}</p>
+              <p className="text-sm text-[#1e7e34] dark:text-[#1e7e34] mt-1" style={{ textAlign: isRTL ? 'right' : 'left' }}>{date}</p>
             )}
           </CardHeader>
           <CardContent className="p-6 pt-0">

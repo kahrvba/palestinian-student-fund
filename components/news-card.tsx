@@ -25,7 +25,7 @@ export default function NewsCard({ title, excerpt, image, href, date }: NewsCard
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Card className="w-full max-w-[1000px] h-[550px] overflow-hidden transition-all hover:shadow-lg border-2 border-[hsl(120,61%,34%)]/20 shadow-md dark:bg-black/80 dark:border-[hsl(120,61%,34%)]/30 flex flex-col">
+      <Card className="w-full max-w-[1000px] h-[550px] overflow-hidden transition-all hover:shadow-lg border-2 border-[#1e7e34]/20 shadow-md dark:bg-gray-900 dark:border-[#1e7e34]/30 flex flex-col">
         <Link href={href}>
           <div className="h-[220px] overflow-hidden">
             <motion.img
@@ -39,10 +39,10 @@ export default function NewsCard({ title, excerpt, image, href, date }: NewsCard
         </Link>
         <CardHeader className="p-6">
           <Link href={href}>
-            <h3 className="text-2xl font-bold leading-tight line-clamp-2 break-words whitespace-normal hyphens-auto text-black dark:text-white hover:text-[hsl(120,61%,34%)] transition-colors" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>{title}</h3>
+            <h3 className="text-2xl font-bold leading-tight line-clamp-2 break-words whitespace-normal hyphens-auto text-black dark:text-white hover:text-[#1e7e34] transition-colors" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>{title}</h3>
           </Link>
           {date && (
-            <p className="text-sm text-[hsl(0,76%,40%)] dark:text-[hsl(0,76%,50%)] mt-1">{date}</p>
+            <p className="text-sm text-[#1e7e34] dark:text-[#1e7e34] mt-1">{date}</p>
           )}
         </CardHeader>
         <CardContent className="p-6 pt-0 pb-2 flex-grow">
@@ -50,7 +50,7 @@ export default function NewsCard({ title, excerpt, image, href, date }: NewsCard
         </CardContent>
         <CardFooter className="p-6 pt-4 pb-6 mt-auto">
           <Link href={href} className="w-full">
-            <Button className="w-full h-12 bg-white text-[hsl(120,61%,34%)] border-2 border-[hsl(120,61%,34%)] hover:bg-[hsl(120,61%,34%)] hover:text-white transition-colors group dark:bg-gray-900 text-base font-medium">
+            <Button className="w-full h-12 bg-white text-[#1e7e34] border-2 border-[#1e7e34] hover:bg-[#1e7e34] hover:text-white transition-colors group dark:bg-gray-900 text-base font-medium">
               <span>Read More</span>
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>
