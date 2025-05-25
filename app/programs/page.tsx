@@ -66,10 +66,10 @@ export default function ProgramsPage() {
 
           {/* Main Title */}
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-black mb-8 leading-none">
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-white to-blue-400 font-playfair">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-white to-blue-400 font-sora">
               Scholarship
             </span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-white to-green-400 font-playfair -mt-4">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-white to-green-400 font-sora -mt-4">
               Programs
             </span>
           </h1>

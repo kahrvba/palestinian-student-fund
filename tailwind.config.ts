@@ -20,10 +20,11 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ["var(--font-inter)"],
+        sans: ["var(--font-sora)"],
         poppins: ["var(--font-poppins)"],
         amiri: ["var(--font-amiri)"],
         playfair: ["var(--font-playfair)"],
+        sora: ["var(--font-sora)"],
       },
       colors: {
         border: "hsl(var(--border))",

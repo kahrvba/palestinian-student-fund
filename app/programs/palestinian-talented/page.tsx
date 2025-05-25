@@ -49,7 +49,7 @@ export default function PalestinianTalentedScholarshipPage() {
       <section className="relative py-20 md:py-28 flex flex-col items-center text-center bg-white/80 dark:bg-black/80 shadow-lg">
         <div className="mb-6">
           <Image src="/Flag_of_Palestine.svg" alt="Palestinian Flag" width={80} height={80} className="mx-auto mb-2" />
-          <GSAPTextReveal element="h1" className="text-4xl md:text-5xl font-extrabold text-red-700 font-playfair drop-shadow-lg">
+          <GSAPTextReveal element="h1" className="text-4xl md:text-5xl font-extrabold text-red-700 font-sora drop-shadow-lg">
             Palestinian Talented Student Scholarship Program
           </GSAPTextReveal>
           <p className="mt-2 text-lg md:text-xl text-gray-700 dark:text-gray-200 font-medium">Supporting Palestinian Talent: Our Collective Responsibility</p>

@@ -1,5 +1,5 @@
 import type React from "react"
-import { Inter, Poppins, Amiri, Playfair_Display } from "next/font/google"
+import { Inter, Poppins, Amiri, Playfair_Display, Sora } from "next/font/google"
 import type { Metadata } from "next"
 import { Toaster } from "@/components/ui/toaster"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -26,6 +26,12 @@ const playfair = Playfair_Display({
   weight: ["400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
   variable: "--font-playfair",
+})
+
+const sora = Sora({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+  subsets: ["latin"],
+  variable: "--font-sora",
 })
 
 const SITE_ENABLED = false;
@@ -55,7 +61,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${poppins.variable} ${amiri.variable} ${playfair.variable} font-playfair`}>
+      <body className={`${inter.variable} ${poppins.variable} ${amiri.variable} ${playfair.variable} ${sora.variable} font-sora`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <LanguageProvider>
             <LoadingBar />

@@ -74,7 +74,7 @@ export default function ContactPage() {
         </div>
         <div className="container relative z-10 px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl drop-shadow-lg font-playfair">Contact Us</h1>
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl drop-shadow-lg font-sora">Contact Us</h1>
             <p className="mt-6 text-xl text-white drop-shadow-md">
               Have questions about our programs or application process? Our team is here to help.
             </p>
@@ -282,7 +282,7 @@ export default function ContactPage() {
                   loading="lazy"
                   title="Our location - Kayabaşı Mah. Adnan Menderes Blv. A4 Blok No:7A Kapı No:11 Başakşehir/İstanbul"
                 ></iframe>
-                <a 
+                <a
                   href="https://www.google.com/maps/place/Kayabaşı+Mah.+Adnan+Menderes+Blv.+A4+Blok+No:7A+Kapı+No:11+Başakşehir/İstanbul/@41.118961,28.774727,17z/data=!3m1!4b1!4m6!3m5!1s0x0:0x0!2zNDHCsDA3JzA4LjMiTiAyOMKwNDYnMjkuMCJF!8m2!3d41.118961!4d28.774727!16s%2Fg%2F11t8z0z0z0"
                   target="_blank"
                   rel="noopener noreferrer"

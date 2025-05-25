@@ -227,7 +227,7 @@ export default function SuccessStoriesPage() {
         </div>
         <div className="container relative z-10 px-4 md:px-6 h-full flex items-center justify-center">
           <div className="mx-auto max-w-5xl text-center">
-            <GSAPTextReveal element="h1" className="text-5xl font-bold tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl drop-shadow-2xl font-playfair">
+            <GSAPTextReveal element="h1" className="text-5xl font-bold tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl drop-shadow-2xl font-sora">
               Success Stories
             </GSAPTextReveal>
             <GSAPReveal animation="fade" delay={0.3}>
