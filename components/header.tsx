@@ -132,7 +132,7 @@ export default function Header() {
                                       <Link
                                         key={subItem.href}
                                         href={subItem.href}
-                                        className="block text-sm text-black hover:text-[#34a853] pl-2 py-1 rounded-md hover:bg-accent/50"
+                                        className="block text-sm text-black hover:text-[#34a853] pl-2 py-1 rounded-md"
                                       >
                                         {subItem.name}
                                       </Link>
@@ -142,7 +142,7 @@ export default function Header() {
                               ) : (
                                 <Link
                                   href={dropdownItem.href}
-                                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none hover:bg-accent/50 transition-colors"
+                                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors"
                                 >
                                   <div className="text-sm font-medium leading-none text-black hover:text-[#34a853]">{dropdownItem.name}</div>
                                 </Link>
