@@ -14,7 +14,7 @@ export interface Activity {
 export const activitiesData: Activity[] = [
   {
     id: 1,
-    title: "The Fund organizes a networking event with Palestinian students in Turkey and offers them a number of scholarships.",
+    title: "Networking Event & Scholarships for Palestinian Students in Turkey",
     date: "June 15-17, 2023",
     location: "İstanbul, Türkiye",
     description: "The Palestinian Student Support Fund organized a networking event with Palestinian students in Turkey, aiming to better understand their circumstances and needs and to work towards addressing them within its future plans. Scholarships and financial aid were also distributed during the event, reflecting the Fund's commitment to supporting Palestinian students.",
@@ -26,7 +26,7 @@ export const activitiesData: Activity[] = [
   },
   {
     id: 2,
-    title: "The Palestinian Student Support Fund meets with Palestinian female students in Turkey and offers them a number of scholarships.",
+    title: "Supporting Palestinian Female Students in Turkey with Scholarships",
     date: "March 18, 2023",
     location: "İstanbul, Türkiye",
     description: "The Palestinian Student Support Fund organized a networking event with Palestinian female students in Turkey, aiming to understand their needs and introduce them to its supportive mission.This initiative comes as part of efforts to strengthen communication and build future cooperation that would support their academic journey.During the event, a number of financial scholarships were awarded to all participating students.",
@@ -38,7 +38,7 @@ export const activitiesData: Activity[] = [
   },
   {
     id: 3,
-    title: "The Palestinian Student Support Fund meets with Palestinian students to strengthen support and communication",
+    title: "Strengthening Support & Communication with Students in Malaysia",
     date: "November 5-6, 2022",
     location: "Kuala Lumpur, Malaysia",
     description: "The Palestinian Student Support Fund organized a networking event with Palestinian students in Malaysia, aiming to foster connections, listen to their needs, and introduce them to the Fund's mission and its role in supporting their academic journey, reaffirming its commitment to supporting students wherever they may be.",
@@ -50,7 +50,7 @@ export const activitiesData: Activity[] = [
   },
   {
     id: 4,
-    title: "A networking event organized by the Palestinian Student Support Fund with Palestinian students, during which a number of financial scholarships were awarded.",
+    title: "Networking Event & Financial Scholarships in Kyrgyzstan",
     date: "August 10-12, 2022",
     location: "Bishkek, Kyrgyzstan",
     description: "The Palestinian Student Support Fund organized a networking event with Palestinian students in Kyrgyzstan to learn about their experiences and needs, introduce them to the Fund's mission, and provide financial scholarships to all attendees.",
@@ -62,7 +62,7 @@ export const activitiesData: Activity[] = [
   },
   {
     id: 5,
-    title: "The Palestinian Student Support Fund organizes a friendly match with Palestinian students in Turkey, as a recreational initiative to strengthen engagement with the students.",
+    title: "Friendly Football Match with Palestinian Students in Turkey",
     date: "April 22-23, 2022",
     location: "İstanbul, Türkiye",
     description: "The Palestinian Student Support Fund organized a friendly football match that brought together a number of Palestinian students in istanbul , Turkey.The event aimed to strengthen bonds and foster friendly interaction, creating a space for networking and communication in an informal atmosphere, while also introducing the Fund's mission and activities.",
@@ -74,7 +74,7 @@ export const activitiesData: Activity[] = [
   },
   {
     id: 6,
-    title: "The Palestinian Student Support Fund meets with Palestinian students in Egypt and provides them with financial scholarships.",
+    title: "Meeting Palestinian Students in Egypt with Financial Support",
     date: "October 15-17, 2021",
     location: "Cairo, Eygpt",
     description: "The Palestinian Student Support Fund organized a networking event with Palestinian students in Egypt, aiming to foster connections and listen to their views and needs.During the event, financial scholarships were distributed to the attendees, who expressed their appreciation for the Fund's role in supporting their educational journey.",
@@ -86,7 +86,7 @@ export const activitiesData: Activity[] = [
   },
   {
     id: 7,
-    title: "The Palestinian Student Support Fund in Mauritania Organizes a Meeting with Palestinian Students",
+    title: "Palestinian Student Meeting in Mauritania with Monthly Grants",
     date: "October 15-17, 2021",
     location: "Nouakchott, mauritania",
     description: "As part of its efforts to reach the largest number of Palestinian students, the Palestinian Student Support Fund organized a networking meeting in Mauritania bringing together Palestinian students with Mauritanian and Palestinian figures. Financial grants were distributed during the meeting, along with an agreement to provide recurring monthly grants to support Palestinian students there.",
@@ -96,4 +96,4 @@ export const activitiesData: Activity[] = [
     featured: false,
     year: 2021,
   }
-] 
+]

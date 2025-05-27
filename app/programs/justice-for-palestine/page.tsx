@@ -1,35 +1,20 @@
 "use client"
 
-import { useEffect } from "react"
-import Link from "next/link"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
 import {
   Scale,
   Globe,
-  Users,
-  Briefcase,
   Shield,
   Flag,
   GraduationCap,
   Award,
-  BookOpen,
-  Target,
-  ArrowRight,
   Mail,
   Phone,
   Gavel,
-  Building,
   MessageSquare,
   UserPlus,
-  Calendar,
-  Clock,
-  CheckSquare,
-  DollarSign
+  Sword,
+  Balance
 } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import GSAPReveal from "@/components/gsap-reveal"
 import GSAPTextReveal from "@/components/gsap-text-reveal"
 import Image from "next/image"
@@ -38,15 +23,30 @@ import StatsCounter from "@/components/stats-counter"
 export default function JusticeForPalestinePage() {
 
   return (
-    <main className="flex min-h-screen flex-col bg-gradient-to-br from-green-50 via-white to-red-50 dark:from-black dark:via-gray-900 dark:to-red-950">
-      {/* Header Section */}
-      <section className="relative py-20 md:py-28 flex flex-col items-center text-center bg-white/80 dark:bg-black/80 shadow-lg">
+    <main className="flex min-h-screen flex-col bg-gradient-to-br from-red-50 via-white to-black dark:from-red-950 dark:via-black dark:to-green-950">
+      {/* Palestinian Flag-themed Header Section */}
+      <section className="relative py-20 md:py-28 flex flex-col items-center text-center bg-gradient-to-r from-red-600/10 via-white/10 to-black/10 dark:from-red-900/20 dark:via-gray-900/20 dark:to-green-800/20 shadow-lg border-b-4 border-red-500">
         <div className="mb-6">
-          <Image src="/Flag_of_Palestine.svg" alt="Palestinian Flag" width={80} height={80} className="mx-auto mb-2" />
-          <GSAPTextReveal element="h1" className="text-4xl md:text-5xl font-extrabold text-red-700 font-sora drop-shadow-lg">
-            Justice for Palestine Scholarship Program
+          <div className="relative mb-4">
+            <div className="w-24 h-24 mx-auto bg-gradient-to-br from-red-600 to-black rounded-full flex items-center justify-center shadow-xl">
+              <Scale size={48} className="text-white animate-pulse" />
+            </div>
+            <div className="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg">
+              <Flag size={16} className="text-red-500 animate-bounce" />
+            </div>
+            <div className="absolute -bottom-2 -left-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg">
+              <Gavel size={16} className="text-black animate-pulse" />
+            </div>
+          </div>
+          <GSAPTextReveal element="h1" className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-red-600 to-black bg-clip-text text-transparent font-sora drop-shadow-lg">
+            Justice for Palestine
           </GSAPTextReveal>
-          <p className="mt-2 text-lg md:text-xl text-gray-700 dark:text-gray-200 font-medium">Preparing Palestinian Leaders for Global Advocacy</p>
+          <GSAPTextReveal element="h2" className="text-2xl md:text-3xl font-bold text-red-700 dark:text-red-400 mt-2">
+            Advocacy Scholarship Program
+          </GSAPTextReveal>
+          <p className="mt-4 text-lg md:text-xl text-black dark:text-red-300 font-medium max-w-2xl mx-auto">
+            ⚖️ Preparing Palestinian Leaders for Global Advocacy 🇵🇸
+          </p>
         </div>
         <div className="flex justify-center gap-8 mt-8 mb-4">
           <StatsCounter number={200} label="Scholarships" />
@@ -54,13 +54,17 @@ export default function JusticeForPalestinePage() {
           <StatsCounter number={5} label="Years" />
         </div>
         <div className="max-w-2xl mx-auto mt-4">
-          <h2 className="text-xl font-bold text-green-700 mb-2 flex items-center justify-center gap-2"><Scale className="text-red-600 animate-pulse" size={28} /><span>About the Program</span></h2>
+          <h2 className="text-xl font-bold text-red-700 mb-2 flex items-center justify-center gap-2">
+            <Scale className="text-red-600 animate-pulse" size={28} />
+            <span>About the Justice Program</span>
+            <Gavel className="text-black animate-bounce" size={28} />
+          </h2>
           <p className="text-gray-800 dark:text-gray-100 text-base md:text-lg text-center">
-            <span className="font-semibold text-red-800">"Justice for Palestine"</span> is a specialized graduate scholarship program designed to <span className="font-bold">provide 200 full scholarships in political science and international relations</span> to Palestinian students. The program aims to prepare qualified Palestinian professionals for political, diplomatic, and international advocacy roles.
+            <span className="font-semibold text-red-800">"Justice for Palestine"</span> is a specialized graduate scholarship program designed to <span className="font-bold text-red-700">provide 200 full scholarships in political science and international relations</span> to Palestinian students. The program aims to prepare qualified Palestinian professionals for political, diplomatic, and international advocacy roles.
           </p>
           <div className="flex justify-center mt-6">
-            <a href="https://forms.gle/your-form-link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-600 to-blue-500 text-white font-bold rounded-full shadow-lg hover:from-blue-600 hover:to-red-500 transition-colors duration-300 text-lg">
-              <UserPlus size={22} className="-ml-1" /> Apply Now
+            <a href="https://forms.gle/your-form-link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-red-600 to-black text-white font-bold rounded-full shadow-xl hover:from-black hover:to-red-600 transition-all duration-300 text-lg hover:scale-105 hover:shadow-2xl">
+              <Scale size={22} className="-ml-1 animate-pulse" /> Apply for Justice Scholarship
             </a>
           </div>
         </div>

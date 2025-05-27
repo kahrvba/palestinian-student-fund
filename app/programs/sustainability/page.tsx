@@ -1,9 +1,5 @@
 "use client"
 
-import { useEffect } from "react"
-import Link from "next/link"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
 import {
   Leaf,
   Zap,
@@ -15,21 +11,13 @@ import {
   GraduationCap,
   Award,
   BookOpen,
-  Target,
-  ArrowRight,
   Mail,
   Phone,
-  Users,
-  Calendar,
-  DollarSign,
   UserPlus,
-  Clock,
-  CheckSquare,
-  Briefcase
+  TreePine,
+  Recycle,
+  Waves
 } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import GSAPReveal from "@/components/gsap-reveal"
 import GSAPTextReveal from "@/components/gsap-text-reveal"
 import Image from "next/image"
@@ -38,15 +26,30 @@ import StatsCounter from "@/components/stats-counter"
 export default function SustainabilityScholarshipPage() {
 
   return (
-    <main className="flex min-h-screen flex-col bg-gradient-to-br from-green-50 via-white to-emerald-50 dark:from-black dark:via-gray-900 dark:to-emerald-950">
-      {/* Header Section */}
-      <section className="relative py-20 md:py-28 flex flex-col items-center text-center bg-white/80 dark:bg-black/80 shadow-lg">
+    <main className="flex min-h-screen flex-col bg-gradient-to-br from-green-50 via-emerald-50 to-white dark:from-green-950 dark:via-emerald-900 dark:to-black">
+      {/* Nature/Sustainability-themed Header Section */}
+      <section className="relative py-20 md:py-28 flex flex-col items-center text-center bg-gradient-to-r from-green-400/10 via-emerald-500/10 to-green-600/10 dark:from-green-900/20 dark:via-emerald-900/20 dark:to-green-800/20 shadow-lg border-b-4 border-green-500">
         <div className="mb-6">
-          <Image src="/Flag_of_Palestine.svg" alt="Palestinian Flag" width={80} height={80} className="mx-auto mb-2" />
-          <GSAPTextReveal element="h1" className="text-4xl md:text-5xl font-extrabold text-green-700 font-sora drop-shadow-lg">
-            Sustainability Scholarship Program
+          <div className="relative mb-4">
+            <div className="w-24 h-24 mx-auto bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center shadow-xl">
+              <TreePine size={48} className="text-white animate-pulse" />
+            </div>
+            <div className="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg">
+              <Leaf size={16} className="text-green-500 animate-bounce" />
+            </div>
+            <div className="absolute -bottom-2 -left-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg">
+              <Recycle size={16} className="text-emerald-500 animate-spin" />
+            </div>
+          </div>
+          <GSAPTextReveal element="h1" className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent font-sora drop-shadow-lg">
+            Sustainability
           </GSAPTextReveal>
-          <p className="mt-2 text-lg md:text-xl text-gray-700 dark:text-gray-200 font-medium">Building Palestine's Green Future</p>
+          <GSAPTextReveal element="h2" className="text-2xl md:text-3xl font-bold text-emerald-700 dark:text-emerald-400 mt-2">
+            Green Future Scholarship Program
+          </GSAPTextReveal>
+          <p className="mt-4 text-lg md:text-xl text-green-800 dark:text-green-300 font-medium max-w-2xl mx-auto">
+            🌱 Building Palestine's Green Future 🌍
+          </p>
         </div>
         <div className="flex justify-center gap-8 mt-8 mb-4">
           <StatsCounter number={200} label="Scholarships" />
@@ -54,13 +57,17 @@ export default function SustainabilityScholarshipPage() {
           <StatsCounter number={5} label="Years" />
         </div>
         <div className="max-w-2xl mx-auto mt-4">
-          <h2 className="text-xl font-bold text-green-700 mb-2 flex items-center justify-center gap-2"><Leaf className="text-emerald-600 animate-pulse" size={28} /><span>About the Program</span></h2>
+          <h2 className="text-xl font-bold text-emerald-700 mb-2 flex items-center justify-center gap-2">
+            <Leaf className="text-green-500 animate-bounce" size={28} />
+            <span>About the Green Program</span>
+            <TreePine className="text-emerald-500 animate-pulse" size={28} />
+          </h2>
           <p className="text-gray-800 dark:text-gray-100 text-base md:text-lg text-center">
-            <span className="font-semibold text-green-800">"Sustainability"</span> is a specialized graduate scholarship program designed to <span className="font-bold">provide 200 full scholarships in energy and agricultural engineering</span> to Palestinian students. The program aims to ensure energy independence and food security in Palestine through advanced education and research.
+            <span className="font-semibold text-emerald-800">"Sustainability"</span> is a specialized graduate scholarship program designed to <span className="font-bold text-green-700">provide 200 full scholarships in energy and agricultural engineering</span> to Palestinian students. The program aims to ensure energy independence and food security in Palestine through advanced education and research.
           </p>
           <div className="flex justify-center mt-6">
-            <a href="https://forms.gle/your-form-link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-500 text-white font-bold rounded-full shadow-lg hover:from-emerald-600 hover:to-green-500 transition-colors duration-300 text-lg">
-              <UserPlus size={22} className="-ml-1" /> Apply Now
+            <a href="https://forms.gle/your-form-link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold rounded-full shadow-xl hover:from-emerald-600 hover:to-green-500 transition-all duration-300 text-lg hover:scale-105 hover:shadow-2xl">
+              <TreePine size={22} className="-ml-1 animate-pulse" /> Apply for Green Scholarship
             </a>
           </div>
         </div>

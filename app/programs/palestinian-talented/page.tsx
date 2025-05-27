@@ -1,9 +1,5 @@
 "use client"
 
-import { useEffect } from "react"
-import Link from "next/link"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
 import {
   GraduationCap,
   Award,
@@ -12,31 +8,23 @@ import {
   Globe,
   Users,
   Calendar,
-  Clock,
   CheckSquare,
   DollarSign,
   Briefcase,
   Target,
-  ArrowRight,
   UserPlus,
-  CalendarCheck,
-  Stethoscope,
-  Hospital,
-  Microscope,
-  Home,
   Phone,
   Mail,
   Star,
   TrendingUp,
   Shield,
-  Zap,
   Brain,
   Eye,
-  Building
+  Building,
+  Trophy,
+  Crown,
+  Sparkles
 } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import GSAPReveal from "@/components/gsap-reveal"
 import GSAPTextReveal from "@/components/gsap-text-reveal"
 import Image from "next/image"
@@ -44,35 +32,51 @@ import StatsCounter from "@/components/stats-counter"
 
 export default function PalestinianTalentedScholarshipPage() {
   return (
-    <main className="flex min-h-screen flex-col bg-gradient-to-br from-green-50 via-white to-blue-50 dark:from-black dark:via-gray-900 dark:to-green-950">
-      {/* Header Section */}
-      <section className="relative py-20 md:py-28 flex flex-col items-center text-center bg-white/80 dark:bg-black/80 shadow-lg">
+    <main className="flex min-h-screen flex-col bg-gradient-to-br from-yellow-50 via-blue-50 to-white dark:from-yellow-950 dark:via-blue-900 dark:to-black">
+      {/* Excellence-themed Header Section */}
+      <section className="relative py-20 md:py-28 flex flex-col items-center text-center bg-gradient-to-r from-yellow-400/10 via-blue-500/10 to-yellow-600/10 dark:from-yellow-900/20 dark:via-blue-900/20 dark:to-yellow-800/20 shadow-lg border-b-4 border-yellow-500">
         <div className="mb-6">
-          <Image src="/Flag_of_Palestine.svg" alt="Palestinian Flag" width={80} height={80} className="mx-auto mb-2" />
-          <GSAPTextReveal element="h1" className="text-4xl md:text-5xl font-extrabold text-red-700 font-sora drop-shadow-lg">
-            Palestinian Talented Student Scholarship Program
+          <div className="relative mb-4">
+            <div className="w-24 h-24 mx-auto bg-gradient-to-br from-yellow-500 to-blue-600 rounded-full flex items-center justify-center shadow-xl">
+              <Crown size={48} className="text-white animate-bounce" />
+            </div>
+            <div className="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg">
+              <Sparkles size={16} className="text-yellow-500 animate-spin" />
+            </div>
+            <div className="absolute -bottom-2 -left-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg">
+              <Trophy size={16} className="text-blue-500 animate-pulse" />
+            </div>
+          </div>
+          <GSAPTextReveal element="h1" className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-yellow-600 to-blue-600 bg-clip-text text-transparent font-sora drop-shadow-lg">
+            Palestinian Talented
           </GSAPTextReveal>
-          <p className="mt-2 text-lg md:text-xl text-gray-700 dark:text-gray-200 font-medium">Supporting Palestinian Talent: Our Collective Responsibility</p>
+          <GSAPTextReveal element="h2" className="text-2xl md:text-3xl font-bold text-blue-700 dark:text-blue-400 mt-2">
+            Excellence Scholarship Program
+          </GSAPTextReveal>
+          <p className="mt-4 text-lg md:text-xl text-yellow-800 dark:text-yellow-300 font-medium max-w-2xl mx-auto">
+            🌟 Supporting Palestinian Talent: Our Collective Responsibility ⭐
+          </p>
         </div>
         <div className="flex justify-center gap-8 mt-8 mb-4">
           <StatsCounter number={1000} label="Scholarships" />
           <StatsCounter number={8} label="Support Areas" />
           <StatsCounter number={3} label="Financial Pillars" />
         </div>
-        <div className="max-w-3xl mx-auto bg-white/90 dark:bg-gray-900/80 rounded-xl shadow p-6 mt-4">
-          <h2 className="text-xl font-bold text-green-700 mb-2 flex items-center justify-center gap-2">
-            <Star className="text-blue-600" size={28} />
-            <span>About the Program</span>
+        <div className="max-w-3xl mx-auto bg-gradient-to-r from-yellow-50/90 to-blue-50/90 dark:bg-gradient-to-r dark:from-yellow-900/80 dark:to-blue-900/80 rounded-xl shadow-xl p-6 mt-4 border border-yellow-300">
+          <h2 className="text-xl font-bold text-blue-700 mb-2 flex items-center justify-center gap-2">
+            <Star className="text-yellow-500 animate-pulse" size={28} />
+            <span>About the Excellence Program</span>
+            <Star className="text-yellow-500 animate-pulse" size={28} />
           </h2>
           <p className="text-gray-800 dark:text-gray-100 text-base md:text-lg">
-            The <span className="font-semibold text-green-800">"Palestinian Talented Student Scholarship Program"</span> is a national
-            initiative launched by the Isnad Foundation, offering <span className="font-bold">1,000 scholarships</span> to outstanding students within Palestine across various
-            academic fields. The program is designed to <span className="font-bold">develop exceptional leaders</span> across different academic fields
+            The <span className="font-semibold text-yellow-800">"Palestinian Talented Student Scholarship Program"</span> is a national
+            initiative launched by the Isnad Foundation, offering <span className="font-bold text-blue-700">1,000 scholarships</span> to outstanding students within Palestine across various
+            academic fields. The program is designed to <span className="font-bold text-yellow-700">develop exceptional leaders</span> across different academic fields
             and enable youth to achieve their full potential and serve society.
           </p>
           <div className="flex justify-center mt-6">
-            <a href="https://forms.gle/your-form-link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-blue-500 text-white font-bold rounded-full shadow-lg hover:from-blue-600 hover:to-green-500 transition-colors duration-300 text-lg">
-              <UserPlus size={22} className="-ml-1" /> Apply Now
+            <a href="https://forms.gle/your-form-link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-yellow-500 to-blue-600 text-white font-bold rounded-full shadow-xl hover:from-blue-600 hover:to-yellow-500 transition-all duration-300 text-lg hover:scale-105 hover:shadow-2xl">
+              <Crown size={22} className="-ml-1 animate-bounce" /> Apply for Excellence Scholarship
             </a>
           </div>
         </div>

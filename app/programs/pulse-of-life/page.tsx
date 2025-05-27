@@ -1,34 +1,20 @@
 "use client"
-import { useEffect } from "react"
-import Link from "next/link"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+
 import {
   GraduationCap,
   Award,
   BookOpen,
-  Lightbulb,
   Globe,
-  Users,
-  Calendar,
-  Clock,
-  CheckSquare,
-  DollarSign,
-  Briefcase,
   Target,
-  ArrowRight,
   UserPlus,
-  CalendarCheck,
   Stethoscope,
   Hospital,
   Microscope,
   Home,
   Phone,
-  Mail
+  Mail,
+  Heart
 } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import GSAPReveal from "@/components/gsap-reveal"
 import GSAPTextReveal from "@/components/gsap-text-reveal"
 import Image from "next/image"
@@ -36,15 +22,27 @@ import StatsCounter from "@/components/stats-counter"
 
 export default function PulseOfLifePage() {
   return (
-    <main className="flex min-h-screen flex-col bg-gradient-to-br from-green-50 via-white to-red-50 dark:from-black dark:via-gray-900 dark:to-green-950">
-      {/* Header Section */}
-      <section className="relative py-20 md:py-28 flex flex-col items-center text-center bg-white/80 dark:bg-black/80 shadow-lg">
+    <main className="flex min-h-screen flex-col bg-gradient-to-br from-red-50 via-pink-50 to-white dark:from-red-950 dark:via-gray-900 dark:to-black">
+      {/* Medical-themed Header Section */}
+      <section className="relative py-20 md:py-28 flex flex-col items-center text-center bg-gradient-to-r from-red-600/10 via-pink-500/10 to-red-700/10 dark:from-red-900/20 dark:via-pink-900/20 dark:to-red-800/20 shadow-lg border-b-4 border-red-500">
         <div className="mb-6">
-          <Image src="/Flag_of_Palestine.svg" alt="Palestinian Flag" width={80} height={80} className="mx-auto mb-2" />
-          <GSAPTextReveal element="h1" className="text-4xl md:text-5xl font-extrabold text-red-700 font-sora drop-shadow-lg">
-            Pulse of Life Scholarship Program
+          <div className="relative mb-4">
+            <div className="w-24 h-24 mx-auto bg-gradient-to-br from-red-500 to-pink-600 rounded-full flex items-center justify-center shadow-xl animate-pulse">
+              <Stethoscope size={48} className="text-white" />
+            </div>
+            <div className="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg">
+              <Heart size={16} className="text-red-500 animate-bounce" />
+            </div>
+          </div>
+          <GSAPTextReveal element="h1" className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent font-sora drop-shadow-lg">
+            Pulse of Life
           </GSAPTextReveal>
-          <p className="mt-2 text-lg md:text-xl text-gray-700 dark:text-gray-200 font-medium">The Health of Palestine... Our Responsibility</p>
+          <GSAPTextReveal element="h2" className="text-2xl md:text-3xl font-bold text-red-700 dark:text-red-400 mt-2">
+            Medical Scholarship Program
+          </GSAPTextReveal>
+          <p className="mt-4 text-lg md:text-xl text-red-800 dark:text-red-300 font-medium max-w-2xl mx-auto">
+            🩺 The Health of Palestine... Our Responsibility 🏥
+          </p>
         </div>
         <div className="flex justify-center gap-8 mt-8 mb-4">
           <StatsCounter number={1000} label="Scholarships" />
@@ -52,13 +50,17 @@ export default function PulseOfLifePage() {
           <StatsCounter number={3} label="Support Pillars" />
         </div>
         <div className="max-w-2xl mx-auto mt-4">
-          <h2 className="text-xl font-bold text-green-700 mb-2 flex items-center justify-center gap-2"><span>About the Program</span></h2>
+          <h2 className="text-xl font-bold text-red-700 mb-2 flex items-center justify-center gap-2">
+            <Heart className="text-red-500 animate-bounce" size={20} />
+            <span>About the Program</span>
+            <Heart className="text-red-500 animate-bounce" size={20} />
+          </h2>
           <p className="text-gray-800 dark:text-gray-100 text-base md:text-lg text-center">
-            <span className="font-semibold text-green-800">"Pulse of Life"</span> is a bold national initiative launched by the Isnad Foundation, aiming to <span className="font-bold">provide 1,000 full scholarships in medicine and health sciences</span> to Palestinian students inside and outside Palestine—especially in rare and critical specializations. The program is designed to run over a <span className="font-bold">period of 5 years</span>.
+            <span className="font-semibold text-red-800">"Pulse of Life"</span> is a bold national initiative launched by the Isnad Foundation, aiming to <span className="font-bold text-red-700">provide 1,000 full scholarships in medicine and health sciences</span> to Palestinian students inside and outside Palestine—especially in rare and critical specializations. The program is designed to run over a <span className="font-bold text-red-700">period of 5 years</span>.
           </p>
           <div className="flex justify-center mt-6">
-            <a href="https://forms.gle/your-form-link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-red-500 text-white font-bold rounded-full shadow-lg hover:from-red-600 hover:to-green-500 transition-colors duration-300 text-lg">
-              <UserPlus size={22} className="-ml-1" /> Apply Now
+            <a href="https://forms.gle/your-form-link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-red-500 to-pink-600 text-white font-bold rounded-full shadow-xl hover:from-pink-600 hover:to-red-500 transition-all duration-300 text-lg hover:scale-105 hover:shadow-2xl">
+              <Stethoscope size={22} className="-ml-1 animate-pulse" /> Apply for Medical Scholarship
             </a>
           </div>
         </div>
