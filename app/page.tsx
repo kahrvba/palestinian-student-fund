@@ -109,10 +109,17 @@ export default function Home() {
         className="relative h-screen w-full overflow-hidden"
       >
         <div className="absolute inset-0 z-0 hero-image">
+          {/* Desktop/PC Hero Image */}
           <img
             src="/hero-cover.jpg"
             alt="Isnad Foundation - Palestinian Student Support"
-            className="h-full w-full object-contain"
+            className="hidden md:block h-full w-full object-contain"
+          />
+          {/* Mobile Hero Image */}
+          <img
+            src="/cover-mobil-isnad.png"
+            alt="Isnad Foundation - Palestinian Student Support"
+            className="block md:hidden h-full w-full object-cover"
           />
         </div>
       </section>

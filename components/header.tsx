@@ -66,23 +66,39 @@ export default function Header() {
         }
       ]
     },
-    { name: t("nav.success"), href: "/success-stories" },
-    { name: t("nav.apply"), href: "/apply" },
-    { name: t("nav.activities"), href: "/activities" },
     {
-      name: t("nav.testimonials"),
-      href: "/testimonials",
+      name: t("nav.media"),
+      href: "/media",
       dropdown: true,
       items: [
-        { name: "Students", href: "/testimonials?type=students" },
-        { name: "Influencers", href: "/testimonials?type=influencers" }
+        { name: t("nav.media.success"), href: "/success-stories" },
+        { name: t("nav.media.activities"), href: "/activities" },
+        { 
+          name: t("nav.media.testimonials"),
+          href: "/testimonials",
+          items: [
+            { name: "Students", href: "/testimonials?type=students" },
+            { name: "Influencers", href: "/testimonials?type=influencers" }
+          ]
+        }
       ]
     },
+    { name: t("nav.apply"), href: "/apply" },
     { name: t("nav.contact"), href: "/contact" },
   ];
 
   // Check if we're on the activities page
   const isActivitiesPage = pathname.includes('/activities')
+
+  // Special donation button component
+  const DonateButton = () => (
+    <Link
+      href="/donate"
+      className="hidden lg:flex items-center justify-center px-6 py-2 rounded-full bg-[#34a853] text-white font-medium hover:bg-[#2d9249] transition-colors duration-200 shadow-md hover:shadow-lg"
+    >
+      {t("nav.donate")}
+    </Link>
+  );
 
   return (
     <>
@@ -164,6 +180,7 @@ export default function Header() {
                 </Link>
               )
             ))}
+            <DonateButton />
           </nav>
 
           <div className="flex items-center gap-2 pr-4 sm:pr-6 lg:pr-8">
@@ -272,6 +289,14 @@ export default function Header() {
                     </Link>
                   )
                 ))}
+                {/* Add donation button to mobile menu */}
+                <Link
+                  href="/donate"
+                  className="w-full flex items-center justify-center px-6 py-3 rounded-full bg-[#34a853] text-white font-medium hover:bg-[#2d9249] transition-colors duration-200 shadow-md hover:shadow-lg mt-4"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {t("nav.donate")}
+                </Link>
               </nav>
             </div>
           </motion.div>
