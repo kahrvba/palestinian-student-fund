@@ -23,7 +23,9 @@ import {
   Building,
   Trophy,
   Crown,
-  Sparkles
+  Sparkles,
+  Wallet,
+  Laptop
 } from "lucide-react"
 import GSAPReveal from "@/components/gsap-reveal"
 import GSAPTextReveal from "@/components/gsap-text-reveal"
@@ -173,39 +175,74 @@ export default function PalestinianTalentedScholarshipPage() {
             </li>
           </ul>
 
-          <div className="bg-green-50 dark:bg-green-900/30 rounded-xl shadow p-6">
-            <h3 className="text-xl font-bold text-green-800 mb-4 text-center flex items-center justify-center gap-2">
-              <Star className="text-blue-600" size={24} />
-              Palestinian Talented Scholarship offers financial support through three main pillars
+          <div className="bg-gradient-to-br from-yellow-50/80 to-blue-50/80 dark:from-yellow-900/40 dark:to-blue-900/40 rounded-2xl shadow-xl p-8 border border-yellow-200/50 dark:border-yellow-800/50">
+            <h3 className="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-8 text-center flex items-center justify-center gap-3">
+              <span className="bg-yellow-100 dark:bg-yellow-900/50 p-2 rounded-full">
+                <Trophy className="text-yellow-600 dark:text-yellow-400" size={28} />
+              </span>
+              Excellence Scholarship Financial Support
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <GSAPReveal animation="scale">
-                <div className="flex flex-col items-center bg-white dark:bg-gray-900 rounded-lg shadow p-5 hover:scale-105 transition-transform duration-300">
-                  <Image src="/scholer.png" alt="Medical Education" width={60} height={60} className="mb-2" />
-                  <p className="text-center text-gray-700 dark:text-gray-200 text-base">
-                    Covers the cost of medical and health science education at a yearly rate of <span className="font-bold">$2,500</span>
-                    to support students' basic needs such as housing, food, and transportation.
-                  </p>
+                <div className="relative bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 overflow-hidden group hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-500 to-yellow-600"></div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="bg-yellow-100 dark:bg-yellow-900/50 p-3 rounded-lg">
+                      <GraduationCap className="text-yellow-600 dark:text-yellow-400" size={24} />
+                    </div>
+                    <h4 className="text-lg font-bold text-yellow-800 dark:text-yellow-300">Academic Excellence</h4>
+                  </div>
+                  <div className="space-y-3">
+                    <p className="text-gray-600 dark:text-gray-300 text-sm">Full coverage of academic excellence program costs</p>
+                    <div className="bg-gradient-to-r from-yellow-100 to-yellow-50 dark:from-yellow-900/30 dark:to-yellow-800/30 p-4 rounded-lg">
+                      <p className="text-center">
+                        <span className="text-3xl font-bold bg-gradient-to-r from-yellow-600 to-yellow-700 bg-clip-text text-transparent">$2,500</span>
+                        <span className="block text-sm text-gray-600 dark:text-gray-400 mt-1">per academic year</span>
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </GSAPReveal>
 
               <GSAPReveal animation="scale" delay={0.1}>
-                <div className="flex flex-col items-center bg-white dark:bg-gray-900 rounded-lg shadow p-5 hover:scale-105 transition-transform duration-300">
-                  <Image src="/secondCard.png" alt="Monthly Financial Assistance" width={60} height={60} className="mb-2" />
-                  <p className="text-center text-gray-700 dark:text-gray-200 text-base">
-                    Monthly financial aid of <span className="font-bold">$200</span> to support students'
-                    basic needs such as housing, food, and transportation, totaling <span className="font-bold">$2,400 per year</span>.
-                  </p>
+                <div className="relative bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 overflow-hidden group hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-blue-600"></div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="bg-blue-100 dark:bg-blue-900/50 p-3 rounded-lg">
+                      <Wallet className="text-blue-600 dark:text-blue-400" size={24} />
+                    </div>
+                    <h4 className="text-lg font-bold text-blue-800 dark:text-blue-300">Monthly Stipend</h4>
+                  </div>
+                  <div className="space-y-3">
+                    <p className="text-gray-600 dark:text-gray-300 text-sm">Monthly living expenses support</p>
+                    <div className="bg-gradient-to-r from-blue-100 to-blue-50 dark:from-blue-900/30 dark:to-blue-800/30 p-4 rounded-lg">
+                      <p className="text-center">
+                        <span className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">$200</span>
+                        <span className="block text-sm text-gray-600 dark:text-gray-400 mt-1">monthly ($2,400/year)</span>
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </GSAPReveal>
 
               <GSAPReveal animation="scale" delay={0.2}>
-                <div className="flex flex-col items-center bg-white dark:bg-gray-900 rounded-lg shadow p-5 hover:scale-105 transition-transform duration-300">
-                  <Image src="/apple-touch-icon-precomposed.png" alt="Device Support" width={60} height={60} className="mb-2" />
-                  <p className="text-center text-gray-700 dark:text-gray-200 text-base">
-                    A one-time grant of <span className="font-bold">$300</span> to cover the cost of a laptop,
-                    tablet, or smartphone based on the student's needs.
-                  </p>
+                <div className="relative bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 overflow-hidden group hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 to-blue-500"></div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="bg-gradient-to-br from-yellow-100 to-blue-100 dark:from-yellow-900/50 dark:to-blue-900/50 p-3 rounded-lg">
+                      <Laptop className="text-gradient-to-r from-yellow-600 to-blue-600 dark:from-yellow-400 dark:to-blue-400" size={24} />
+                    </div>
+                    <h4 className="text-lg font-bold bg-gradient-to-r from-yellow-600 to-blue-600 bg-clip-text text-transparent">Technology Grant</h4>
+                  </div>
+                  <div className="space-y-3">
+                    <p className="text-gray-600 dark:text-gray-300 text-sm">One-time device purchase support</p>
+                    <div className="bg-gradient-to-r from-yellow-50 to-blue-50 dark:from-yellow-900/20 dark:to-blue-900/20 p-4 rounded-lg">
+                      <p className="text-center">
+                        <span className="text-3xl font-bold bg-gradient-to-r from-yellow-600 to-blue-600 bg-clip-text text-transparent">$300</span>
+                        <span className="block text-sm text-gray-600 dark:text-gray-400 mt-1">one-time grant</span>
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </GSAPReveal>
             </div>
