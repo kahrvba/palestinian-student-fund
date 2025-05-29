@@ -22,14 +22,14 @@ export default function Footer() {
             </p>
             <div className="mt-6 flex space-x-4">
               <a
-                href="#"
+                href="https://www.facebook.com/Palestian.studentsFund"
                 className="rounded-full bg-muted p-2 text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
                 aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="https://x.com/IsnadFoundation"
                 className="rounded-full bg-muted p-2 text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
                 aria-label="Twitter"
               >
@@ -96,8 +96,8 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li className="text-muted-foreground font-sora">Kayabaşı Mah. Adnan Menderes Blv. A4 Blok No:7A Kapı No:11 Başakşehir/İstanbul</li>
               <li>
-                <a href="mailto:info@palestinianstudentfund.org" className="text-muted-foreground hover:text-primary font-sora">
-                  info@palssf.org
+                <a href="mailto:info@isnadf.org" className="text-muted-foreground hover:text-primary font-sora">
+                  info@isnadf.org
                 </a>
               </li>
               <li>

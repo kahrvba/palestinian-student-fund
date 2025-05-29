@@ -59,7 +59,7 @@ export default function PulseOfLifePage() {
             <span className="font-semibold text-red-800">"Pulse of Life"</span> is a bold national initiative launched by the Isnad Foundation, aiming to <span className="font-bold text-red-700">provide 1,000 full scholarships in medicine and health sciences</span> to Palestinian students inside and outside Palestine—especially in rare and critical specializations. The program is designed to run over a <span className="font-bold text-red-700">period of 5 years</span>.
           </p>
           <div className="flex justify-center mt-6">
-            <a href="https://forms.gle/your-form-link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-red-500 to-pink-600 text-white font-bold rounded-full shadow-xl hover:from-pink-600 hover:to-red-500 transition-all duration-300 text-lg hover:scale-105 hover:shadow-2xl">
+            <a href="https://forms.gle/Xotxaubs4VyNN2We6" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-red-500 to-pink-600 text-white font-bold rounded-full shadow-xl hover:from-pink-600 hover:to-red-500 transition-all duration-300 text-lg hover:scale-105 hover:shadow-2xl">
               <Stethoscope size={22} className="-ml-1 animate-pulse" /> Apply for Medical Scholarship
             </a>
           </div>
@@ -192,7 +192,7 @@ export default function PulseOfLifePage() {
         </div>
 
         <div className="flex justify-center my-8">
-          <a href="https://forms.gle/your-form-link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-green-600 to-red-500 text-white font-bold rounded-full shadow-lg hover:from-red-600 hover:to-green-500 transition-colors duration-300 text-xl">
+          <a href="https://forms.gle/Xotxaubs4VyNN2We6" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-green-600 to-red-500 text-white font-bold rounded-full shadow-lg hover:from-red-600 hover:to-green-500 transition-colors duration-300 text-xl">
             <UserPlus size={26} className="-ml-1" /> Apply Now
           </a>
         </div>
@@ -213,7 +213,7 @@ export default function PulseOfLifePage() {
         </div>
 
         <div className="flex justify-center my-8">
-          <a href="https://forms.gle/your-form-link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-green-600 to-red-500 text-white font-bold rounded-full shadow-lg hover:from-red-600 hover:to-green-500 transition-colors duration-300 text-xl">
+          <a href="https://forms.gle/Xotxaubs4VyNN2We6" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-green-600 to-red-500 text-white font-bold rounded-full shadow-lg hover:from-red-600 hover:to-green-500 transition-colors duration-300 text-xl">
             <UserPlus size={26} className="-ml-1" /> Apply Now
           </a>
         </div>

@@ -75,7 +75,7 @@ export default function PalestinianTalentedScholarshipPage() {
             and enable youth to achieve their full potential and serve society.
           </p>
           <div className="flex justify-center mt-6">
-            <a href="https://forms.gle/your-form-link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-yellow-500 to-blue-600 text-white font-bold rounded-full shadow-xl hover:from-blue-600 hover:to-yellow-500 transition-all duration-300 text-lg hover:scale-105 hover:shadow-2xl">
+            <a href="https://forms.gle/5YZHGZhn8vACy72m6" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-yellow-500 to-blue-600 text-white font-bold rounded-full shadow-xl hover:from-blue-600 hover:to-yellow-500 transition-all duration-300 text-lg hover:scale-105 hover:shadow-2xl">
               <Crown size={22} className="-ml-1 animate-bounce" /> Apply for Excellence Scholarship
             </a>
           </div>
@@ -315,7 +315,7 @@ export default function PalestinianTalentedScholarshipPage() {
         </div>
 
         <div className="flex justify-center my-8">
-          <a href="https://forms.gle/your-form-link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-green-600 to-blue-500 text-white font-bold rounded-full shadow-lg hover:from-blue-600 hover:to-green-500 transition-colors duration-300 text-xl">
+          <a href="https://forms.gle/5YZHGZhn8vACy72m6" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-green-600 to-blue-500 text-white font-bold rounded-full shadow-lg hover:from-blue-600 hover:to-green-500 transition-colors duration-300 text-xl">
             <UserPlus size={26} className="-ml-1" /> Apply Now
           </a>
         </div>
@@ -338,7 +338,7 @@ export default function PalestinianTalentedScholarshipPage() {
         </div>
 
         <div className="flex justify-center my-8">
-          <a href="https://forms.gle/your-form-link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-green-600 to-blue-500 text-white font-bold rounded-full shadow-lg hover:from-blue-600 hover:to-green-500 transition-colors duration-300 text-xl">
+          <a href="https://forms.gle/5YZHGZhn8vACy72m6" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-green-600 to-blue-500 text-white font-bold rounded-full shadow-lg hover:from-blue-600 hover:to-green-500 transition-colors duration-300 text-xl">
             <UserPlus size={26} className="-ml-1" /> Apply Now
           </a>
         </div>
