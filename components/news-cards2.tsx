@@ -2,8 +2,9 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { motion } from "framer-motion"
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { Card, CardContent as UICardContent, CardHeader } from "@/components/ui/card"
 import { useLanguage } from "@/components/language-provider"
 
 interface NewsCardProps {
@@ -11,6 +12,7 @@ interface NewsCardProps {
   excerpt: string
   image: string
   date?: string
+  href?: string
   isAnyCardHovered?: boolean
   onHoverChange?: (isHovered: boolean) => void
 }
@@ -20,10 +22,12 @@ export default function NewsCards2({
   excerpt,
   image,
   date,
+  href,
   isAnyCardHovered = false,
   onHoverChange
 }: NewsCardProps) {
   const [isHovered, setIsHovered] = useState(false)
+  const [imageError, setImageError] = useState(false)
   const { language } = useLanguage()
   const isRTL = language === "ar"
 
@@ -37,40 +41,61 @@ export default function NewsCards2({
     onHoverChange?.(false)
   }
 
-  return (
+  const handleImageError = () => {
+    setImageError(true)
+  }
 
-      <motion.div
-        whileHover={{ y: -5 }}
-        transition={{ duration: 0.2 }}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        style={{ direction: isRTL ? 'rtl' : 'ltr' }}
+  const cardContent = (
+    <motion.div
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.2 }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      style={{ direction: isRTL ? 'rtl' : 'ltr' }}
+    >
+      <Card
+        className={`w-[500px] h-[500px] overflow-hidden transition-all hover:shadow-lg border-2 border-[#1e7e34]/20 shadow-md dark:bg-gray-900 dark:border-[#1e7e34]/30 ${
+          isAnyCardHovered && !isHovered ? 'blur-[2px] opacity-50' : ''
+        }`}
       >
-        <Card
-          className={`w-[500px] h-[500px] overflow-hidden transition-all hover:shadow-lg border-2 border-[#1e7e34]/20 shadow-md dark:bg-gray-900 dark:border-[#1e7e34]/30 ${
-            isAnyCardHovered && !isHovered ? 'blur-[2px] opacity-50' : ''
-          }`}
-        >
-          <div className="h-[240px] overflow-hidden">
-            <motion.img
-              src={image || "/placeholder.svg"}
+        <div className="relative h-[240px] overflow-hidden">
+          {!imageError ? (
+            <Image
+              src={image}
               alt={title}
-              className="h-full w-full object-cover"
-              animate={{ scale: isHovered ? 1.05 : 1 }}
-              transition={{ duration: 0.4 }}
+              fill
+              className="object-cover"
+              onError={handleImageError}
+              sizes="(max-width: 500px) 100vw, 500px"
+              priority={false}
             />
-          </div>
-          <CardHeader className="p-6">
-            <h3 className="text-2xl font-bold leading-tight line-clamp-2 break-words whitespace-normal hyphens-auto text-black dark:text-white" style={{ wordWrap: 'break-word', overflowWrap: 'break-word', textAlign: isRTL ? 'right' : 'left' }}>{title}</h3>
-            {date && (
-              <p className="text-sm text-[#1e7e34] dark:text-[#1e7e34] mt-1" style={{ textAlign: isRTL ? 'right' : 'left' }}>{date}</p>
-            )}
-          </CardHeader>
-          <CardContent className="p-6 pt-0">
-            <p className="text-base text-muted-foreground leading-relaxed line-clamp-4 whitespace-normal hyphens-auto" style={{ wordWrap: 'break-word', overflowWrap: 'break-word', textAlign: isRTL ? 'right' : 'left' }}>{excerpt}</p>
-          </CardContent>
-        </Card>
-      </motion.div>
+          ) : (
+            <div className="flex h-full w-full items-center justify-center bg-muted">
+              <span className="text-muted-foreground">Image not available</span>
+            </div>
+          )}
+        </div>
+        <CardHeader className="p-6">
+          <h3 className="text-2xl font-bold leading-tight line-clamp-2 break-words whitespace-normal hyphens-auto text-black dark:text-white hover:text-[#1e7e34] transition-colors" style={{ wordWrap: 'break-word', overflowWrap: 'break-word', textAlign: isRTL ? 'right' : 'left' }}>{title}</h3>
+          {date && (
+            <p className="text-sm text-[#1e7e34] dark:text-[#1e7e34] mt-1" style={{ textAlign: isRTL ? 'right' : 'left' }}>{date}</p>
+          )}
+        </CardHeader>
+        <UICardContent className="p-6 pt-0">
+          <p className="text-base text-muted-foreground leading-relaxed line-clamp-2 whitespace-normal hyphens-auto" style={{ wordWrap: 'break-word', overflowWrap: 'break-word', textAlign: isRTL ? 'right' : 'left' }}>{excerpt}</p>
+        </UICardContent>
+      </Card>
+    </motion.div>
   )
+
+  if (href) {
+    return (
+      <Link href={href} className="block">
+        {cardContent}
+      </Link>
+    )
+  }
+
+  return cardContent
 }
 

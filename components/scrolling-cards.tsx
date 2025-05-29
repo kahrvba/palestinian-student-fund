@@ -9,6 +9,9 @@ interface ScrollingCardsProps {
     title: string
     excerpt: string
     image: string
+    href?: string
+    date?: string
+    category?: string
   }[]
   isAnyCardHovered: boolean
   onHoverChange: (isHovered: boolean) => void
@@ -87,6 +90,8 @@ export default function ScrollingCards({ cards, isAnyCardHovered, onHoverChange 
                 title={card.title}
                 excerpt={card.excerpt}
                 image={card.image}
+                href={card.href}
+                date={card.date}
                 isAnyCardHovered={isAnyCardHovered}
                 onHoverChange={onHoverChange}
               />
@@ -102,6 +107,8 @@ export default function ScrollingCards({ cards, isAnyCardHovered, onHoverChange 
                 title={card.title}
                 excerpt={card.excerpt}
                 image={card.image}
+                href={card.href}
+                date={card.date}
                 isAnyCardHovered={isAnyCardHovered}
                 onHoverChange={onHoverChange}
               />
