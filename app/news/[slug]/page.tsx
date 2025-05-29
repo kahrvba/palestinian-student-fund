@@ -114,7 +114,7 @@ const newsArticles = {
       "The scholarship will be available to Palestinian students worldwide who demonstrate academic excellence, financial need, and a commitment to contributing to their communities. The application process will open on July 1, 2023, with the first cohort of scholars beginning their studies in the fall semester of 2023.",
       "Eligibility criteria include Palestinian nationality or heritage, a strong academic record with a minimum GPA of 3.5 or equivalent, demonstrated financial need, and proficiency in the language of instruction at the target institution.",
       "The launch of this program follows months of consultation with educational experts, partner universities, and potential employers to ensure that the scholarship addresses real needs and provides pathways to meaningful employment after graduation.",
-      "For more information about the application process, eligibility requirements, and covered institutions, please visit our Scholarships page or contact our academic advisors at scholarships@palestinianstudentfund.org.",
+      "For more information about the application process, eligibility requirements, and covered institutions, please visit our Scholarships page or contact our academic advisors at info@isnadf.org.",
     ],
     relatedArticles: [
       {
@@ -165,7 +165,7 @@ const newsArticles = {
       "• Language support programs to help students transition to Turkish-language instruction",
       'Professor Mehmet Yılmaz, Rector of Istanbul University, expressed enthusiasm about the collaboration: "We are honored to partner with the Isnad Foundation to provide educational opportunities for talented students who have faced significant challenges. This partnership aligns with our university\'s values of academic excellence, diversity, and social responsibility."',
       "The first cohort of students under this partnership will begin their studies in the Fall 2023 semester. Information sessions about available programs and application procedures will be held virtually in the coming weeks.",
-      "For more information about this partnership and how to apply for the joint scholarship programs, please visit our Partnerships page or contact our academic advisors at partnerships@palestinianstudentfund.org.",
+      "For more information about this partnership and how to apply for the joint scholarship programs, please visit our Partnerships page or contact our academic advisors at info@isnadf.org.",
     ],
     relatedArticles: [
       {

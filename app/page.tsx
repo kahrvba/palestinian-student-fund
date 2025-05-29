@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { ArrowRight, GraduationCap, Users, BookOpen, Award, Calendar, MessageSquare } from "lucide-react"
+import { ArrowRight, GraduationCap, Users, BookOpen, Award, Calendar, MessageSquare, Stethoscope, Laptop } from "lucide-react"
 import { useLanguage } from "@/components/language-provider"
 import { Button } from "@/components/ui/button"
 import GSAPReveal from "@/components/gsap-reveal"
@@ -180,120 +180,160 @@ export default function Home() {
       </section>
 
       {/* Our Programs Section */}
-      <section className="py-16 md:py-24 dark:bg-black">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+      <ParallaxSection 
+        backgroundImage="/s3.png?height=1080&width=1920" 
+        className="py-24 md:py-32 text-white relative overflow-hidden"
+      >
+        {/* Remove gradient overlay and floating elements */}
+        
+        <div className="container px-4 md:px-6 relative z-10">
+          <div className="flex flex-col items-center justify-center space-y-6 text-center mb-16">
             <GSAPReveal animation="slide-up">
-              <div className="space-y-2">
-                <div className="inline-flex items-center rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
-                  <GraduationCap className="mr-1 h-4 w-4" />
-                  Educational Opportunities
+              <div className="space-y-3">
+                <div className="inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-sm text-white backdrop-blur-sm">
+                  <GraduationCap className="mr-2 h-5 w-5" />
+                  <span className="font-medium">Scholarship Programs</span>
                 </div>
-                <GSAPTextReveal className="text-3xl font-bold sm:text-5xl h-20">
+                <GSAPTextReveal className="text-4xl font-bold sm:text-6xl text-white tracking-tight">
                   Our Programs
                 </GSAPTextReveal>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Discover our comprehensive range of educational support programs designed to empower Palestinian
-                  students.
+                <p className="max-w-[900px] text-white/90 md:text-xl/relaxed lg:text-xl/relaxed xl:text-2xl/relaxed font-light">
+                  Empowering Palestinian students through specialized scholarship programs
                 </p>
               </div>
             </GSAPReveal>
-
-            <div className="mx-auto grid max-w-5xl gap-8 pt-12 sm:grid-cols-2 md:gap-12 lg:grid-cols-3">
-              <GSAPReveal animation="scale" delay={0.1} className="h-full">
-                <ProgramCard
-                  title="Undergraduate Programs"
-                  description="Full and partial scholarships for bachelor's degrees across various disciplines."
-                  icon={<GraduationCap className="h-10 w-10 text-primary" />}
-                  href="/programs/undergraduate"
-                />
-              </GSAPReveal>
-
-              <GSAPReveal animation="scale" delay={0.2} className="h-full">
-                <ProgramCard
-                  title="Graduate Programs"
-                  description="Master's and PhD funding opportunities with research support and mentorship."
-                  icon={<Award className="h-10 w-10 text-primary" />}
-                  href="/programs/graduate"
-                />
-              </GSAPReveal>
-
-              <GSAPReveal animation="scale" delay={0.3} className="h-full">
-                <ProgramCard
-                  title="Research Programs"
-                  description="Funding for innovative research projects with global impact potential."
-                  icon={<BookOpen className="h-10 w-10 text-primary" />}
-                  href="/programs/research"
-                />
-              </GSAPReveal>
-            </div>
-
-            <GSAPReveal animation="fade" delay={0.4}>
-              <div className="flex justify-center pt-8">
-                <Link href="/programs">
-                  <Button variant="outline" className="group">
-                    Explore All Programs
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </Link>
-              </div>
-            </GSAPReveal>
           </div>
-        </div>
-      </section>
 
-      {/* Success Stories Section */}
-      <ParallaxSection backgroundImage="/s3.png?height=1080&width=1920" className="py-16 md:py-24 text-white">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <GSAPReveal animation="slide-up">
-              <div className="space-y-2">
-                <div className="inline-flex items-center rounded-lg bg-white/20 px-3 py-1 text-sm text-white">
-                  <Users className="mr-1 h-4 w-4" />
-                  Student Achievements
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+            {/* Pulse of Life Program */}
+            <GSAPReveal animation="slide-right" className="group">
+              <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden transition-all duration-300 hover:bg-white/20 hover:scale-[1.02] hover:shadow-2xl border border-white/20">
+                <div className="p-8 md:p-10">
+                  <div className="space-y-6">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3">
+                        <div className="p-3 rounded-full bg-red-500/20">
+                          <Stethoscope className="h-6 w-6 text-red-200" />
+                        </div>
+                        <h3 className="text-2xl md:text-3xl font-bold text-white">Pulse of Life</h3>
+                      </div>
+                      <div className="flex items-center gap-2 text-red-200">
+                        <span className="font-medium">Medical & Health Sciences</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-white/80">
+                        <Users className="h-5 w-5" />
+                        <span>1,000 Scholarships Over 5 Years</span>
+                      </div>
+                    </div>
+                    
+                    <blockquote className="relative pl-4 border-l-2 border-red-300/50 italic text-white/90 text-lg">
+                      "A bold national initiative providing full scholarships in medicine and health sciences, focusing on rare and critical specializations to strengthen healthcare in Palestine."
+                    </blockquote>
+
+                    <div className="grid grid-cols-2 gap-4 pt-4">
+                      <div className="space-y-2">
+                        <h4 className="text-white/90 font-medium">Program Focus</h4>
+                        <ul className="space-y-2 text-white/80">
+                          <li className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-red-300/50" />
+                            Medical Education
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-red-300/50" />
+                            Healthcare Innovation
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="space-y-2">
+                        <h4 className="text-white/90 font-medium">Key Features</h4>
+                        <ul className="space-y-2 text-white/80">
+                          <li className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-red-300/50" />
+                            Full Scholarships
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-red-300/50" />
+                            5-Year Program
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <GSAPTextReveal className="text-3xl font-bold sm:text-5xl text-white">
-                  Success Stories
-                </GSAPTextReveal>
-                <p className="max-w-[900px] text-gray-200 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Meet some of our remarkable students who have achieved their educational dreams with our support.
-                </p>
               </div>
             </GSAPReveal>
 
-            <div className="mx-auto grid max-w-5xl gap-8 pt-12 sm:grid-cols-2 md:gap-12">
-              <GSAPReveal animation="slide-right">
-                <SuccessStoryCard
-                  name="Ahmed Hassan"
-                  degree="PhD in Computer Science"
-                  university="Istanbul Technical University"
-                  quote="The support from the Palestinian Student Fund transformed my academic journey and opened doors I never thought possible."
-                  image="/s1.png?height=300&width=300"
-                />
-              </GSAPReveal>
+            {/* Palestinian Talented Program */}
+            <GSAPReveal animation="slide-left" className="group">
+              <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden transition-all duration-300 hover:bg-white/20 hover:scale-[1.02] hover:shadow-2xl border border-white/20">
+                <div className="p-8 md:p-10">
+                  <div className="space-y-6">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3">
+                        <div className="p-3 rounded-full bg-yellow-500/20">
+                          <Award className="h-6 w-6 text-yellow-200" />
+                        </div>
+                        <h3 className="text-2xl md:text-3xl font-bold text-white">Palestinian Talented</h3>
+                      </div>
+                      <div className="flex items-center gap-2 text-yellow-200">
+                        <span className="font-medium">Excellence Scholarship</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-white/80">
+                        <Users className="h-5 w-5" />
+                        <span>1,000 Scholarships Available</span>
+                      </div>
+                    </div>
 
-              <GSAPReveal animation="slide-left">
-                <SuccessStoryCard
-                  name="Layla Mahmoud"
-                  degree="Master's in Public Health"
-                  university="Ankara University"
-                  quote="Thanks to the scholarship program, I was able to pursue my dream of working in healthcare policy to help communities in need."
-                  image="/s2.png?height=300&width=300"
-                />
-              </GSAPReveal>
-            </div>
+                    <blockquote className="relative pl-4 border-l-2 border-yellow-300/50 italic text-white/90 text-lg">
+                      "Supporting outstanding Palestinian students across various academic fields, developing exceptional leaders who will drive innovation and progress in their communities."
+                    </blockquote>
 
-            <GSAPReveal animation="fade" delay={0.4}>
-              <div className="flex justify-center pt-8">
-                <Link href="/success-stories">
-                  <Button variant="outline" className="border-white text-white hover:bg-white/20 group">
-                    Read More Success Stories
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </Link>
+                    <div className="grid grid-cols-2 gap-4 pt-4">
+                      <div className="space-y-2">
+                        <h4 className="text-white/90 font-medium">Program Focus</h4>
+                        <ul className="space-y-2 text-white/80">
+                          <li className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-yellow-300/50" />
+                            Academic Excellence
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-yellow-300/50" />
+                            Leadership Development
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="space-y-2">
+                        <h4 className="text-white/90 font-medium">Key Features</h4>
+                        <ul className="space-y-2 text-white/80">
+                          <li className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-yellow-300/50" />
+                            Multiple Fields
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-yellow-300/50" />
+                            Comprehensive Support
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </GSAPReveal>
           </div>
+
+          <GSAPReveal animation="fade" delay={0.4}>
+            <div className="flex justify-center pt-12">
+              <Link href="/programs">
+                <Button 
+                  className="bg-white/20 hover:bg-white/30 text-white border-white/30 group px-8 py-6 text-lg rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-105"
+                >
+                  Explore All Programs
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
+            </div>
+          </GSAPReveal>
         </div>
       </ParallaxSection>
 
