@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
 
-type Language = "en" | "ar" | "tr"
+type Language = "en" | "ar"
 
 interface LanguageContextType {
   language: Language
@@ -282,97 +282,6 @@ const translations = {
     "donate.programs.duration": "مدة البرنامج",
     "donate.programs.focus": "مجال التخصص",
   },
-  tr: {
-    "nav.home": "Ana Sayfa",
-    "nav.about": "Biz Kimiz?",
-    "nav.news": "Son Haberler",
-    "nav.programs": "Programlarımız",
-    "nav.success": "Başarı Hikayeleri",
-    "nav.apply": "Burs Başvurusu",
-    "nav.activities": "Önceki Etkinlikler",
-    "nav.testimonials": "Referanslar",
-    "nav.contact": "İletişim",
-    "nav.media": "Medya",
-    "nav.media.success": "Başarı Hikayeleri",
-    "nav.media.activities": "Önceki Etkinlikler",
-    "nav.media.testimonials": "Referanslar",
-    "nav.donate": "Şimdi Bağış Yap",
-    "nav.donate.title": "Hedefimizi Destekleyin",
-    "nav.donate.desc": "Filistinli öğrencilerin hayallerini gerçekleştirmelerine yardımcı olun",
-
-    "hero.title": "Dünya Çapında Filistinli Öğrencileri Güçlendirme",
-    "hero.subtitle":
-      "Filistinli öğrencilerin eğitim hayallerini gerçekleştirmelerine yardımcı olmak için burslar, üniversite kabul yardımı ve akademik destek sağlıyoruz.",
-    "hero.cta.apply": "Bursa Başvur",
-    "hero.cta.explore": "Programları Keşfet",
-
-    "about.title": "Biz Kimiz?",
-    "about.subtitle":
-      "Filistin Öğrenci Destek Fonu, burslar, üniversite kabul yardımı ve kapsamlı akademik destek yoluyla dünya çapındaki Filistinli öğrencilere eğitim fırsatları sağlamaya adanmıştır.",
-    "about.identity": "Vakıf Kimliği",
-    "about.identity.desc":
-      "Türkiye'de kurulmuş olan vakfımız, hedefli destek programları ve uluslararası ortaklıklar aracılığıyla Filistinli öğrenciler için eğitim boşluklarını kapatmaktadır.",
-    "about.structure": "İdari Yapı",
-    "about.structure.desc":
-      "Sınırlar ötesinde eğitim eşitliğine ve öğrenci başarısına bağlı deneyimli eğitimciler ve profesyoneller tarafından yönetilmektedir.",
-    "about.partners": "Ortaklar",
-    "about.partners.desc":
-      "Fırsatları genişletmek için dünya çapındaki üniversiteler, araştırma kurumları ve eğitim kuruluşlarıyla işbirliği yapıyoruz.",
-    "about.cta": "Hakkımızda Daha Fazla Bilgi",
-    "about.vision.title": "Vizyonumuz",
-    "about.vision.text": "To produce young Palestinian academics in fields needed by Palestinian society and to contribute effectively to building a sustainable and strong future for the Palestinian state, with a focus on supporting national identity and enhancing community participation.",
-    "footer.rights": "Tüm hakları saklıdır.",
-    "footer.programs": "Programlar",
-    "footer.about": "Hakkımızda",
-    "footer.contact": "İletişim",
-
-    "donate.hero.title": "Filistinli Öğrencileri Destekleyin",
-    "donate.hero.subtitle": "Bağışınız, dünya çapındaki Filistinli öğrencilere burs, eğitim desteği ve fırsatlar sağlamaya yardımcı olur.",
-    "donate.form.title": "Bağış Yapın",
-    "donate.form.amount": "Miktar Seçin",
-    "donate.form.custom": "Özel Miktar",
-    "donate.form.payment": "Ödeme Yöntemi",
-    "donate.form.card": "Kredi/Banka Kartı",
-    "donate.form.bank": "Banka Havalesi",
-    "donate.form.button": "Şimdi Bağış Yap",
-    "donate.trust.secure": "Güvenli Ödeme",
-    "donate.trust.tax": "Vergiden Düşülebilir",
-    "donate.impact.title": "Etkiniz",
-    "donate.impact.students": "Desteklenen Öğrenci",
-    "donate.impact.scholarships": "Verilen Burs",
-    "donate.impact.countries": "Ulaşılan Ülke",
-    "donate.faq.title": "Sıkça Sorulan Sorular",
-    "donate.faq.use": "Bağışım nasıl kullanılacak?",
-    "donate.faq.use.answer": "Bağışınız, burslar, eğitim programları ve akademik destek yoluyla doğrudan Filistinli öğrencileri destekler. Fon tahsisinde şeffaflık sağlıyor ve katkınızın etkisi hakkında düzenli güncellemeler sunuyoruz.",
-    "donate.faq.tax": "Bağışım vergiden düşülebilir mi?",
-    "donate.faq.tax.answer": "Evet, IFPPS'e yapılan tüm bağışlar vergiden düşülebilir. Tüm katkılar için bağış makbuzları sağlıyoruz, bunlar uygulanabilir yargı bölgelerinde vergi amaçlı kullanılabilir.",
-    "donate.faq.recurring": "Düzenli bağış yapabilir miyim?",
-    "donate.faq.recurring.answer": "Evet, aylık, üç aylık ve yıllık tekrarlayan bağış seçenekleri sunuyoruz. Güvenli ödeme sistemimiz aracılığıyla düzenli bağışlarınızı ayarlayabilir ve yönetebilirsiniz.",
-    "donate.faq.track": "Bağışımın etkisini nasıl takip edebilirim?",
-    "donate.faq.track.answer": "Bültenimiz ve yıllık etki raporlarımız aracılığıyla düzenli güncellemeler sunuyoruz. Ayrıca web sitemizde ve sosyal medya kanallarımızda başarı hikayelerini ve öğrenci referanslarını takip edebilirsiniz.",
-    "donate.form.type": "Bağış Türünü Seçin",
-    "donate.form.general": "Genel Bağış",
-    "donate.form.specific": "Belirli Program",
-    "donate.form.select_program": "Program Seçin",
-    "donate.form.choose_program": "Bir program seçin",
-    "donate.form.distribution": "Finansal Dağılım",
-    "donate.form.distribution_desc": "Bağışınız şu şekilde dağıtılacaktır:",
-    "donate.programs.scholarships": "Burs Programı",
-    "donate.programs.research": "Araştırma ve Geliştirme",
-    "donate.programs.capacity": "Kapasite Geliştirme",
-    "donate.programs.pulse": "Yaşam Nabzı Bursu",
-    "donate.programs.pulse.desc": "Filistinli öğrencilere tıp ve sağlık bilimlerinde tam burslar. 5 yıl boyunca 1.000 öğrenciye destek.",
-    "donate.programs.talented": "Filistinli Yetenekli Öğrenciler",
-    "donate.programs.talented.desc": "Çeşitli akademik alanlarda olağanüstü Filistinli öğrencilere destek. Olağanüstü liderler için 1.000 burs.",
-    "donate.programs.sustainability": "Sürdürülebilirlik",
-    "donate.programs.sustainability.desc": "Filistin'in yeşil geleceği için enerji ve tarım mühendisliğinde 200 burs.",
-    "donate.programs.justice": "Filistin için Adalet",
-    "donate.programs.justice.desc": "Küresel savunuculuk için siyaset bilimi ve uluslararası ilişkilerde 200 burs.",
-    "donate.programs.ibn-khaldun": "İbn Haldun",
-    "donate.programs.ibn-khaldun.desc": "Filistin toplumunu anlamak için sosyoloji ve psikolojide 200 burs.",
-    "donate.programs.duration": "Program Süresi",
-    "donate.programs.focus": "Uzmanlık Alanı",
-  },
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
@@ -382,7 +291,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem("language") as Language
-    if (savedLanguage && ["en", "ar", "tr"].includes(savedLanguage)) {
+    if (savedLanguage && ["en", "ar"].includes(savedLanguage)) {
       setLanguageState(savedLanguage)
       document.documentElement.lang = savedLanguage
       document.documentElement.dir = savedLanguage === "ar" ? "rtl" : "ltr"

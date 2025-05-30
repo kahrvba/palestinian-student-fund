@@ -201,9 +201,6 @@ export default function Header() {
                 <DropdownMenuItem onClick={() => setLanguage("ar")}>
                   <span className={language === "ar" ? "font-bold" : ""}>العربية</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLanguage("tr")}>
-                  <span className={language === "tr" ? "font-bold" : ""}>Türkçe</span>
-                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
