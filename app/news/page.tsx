@@ -167,7 +167,7 @@ export default function NewsPage() {
           <img
             src="/cover3.png"
             alt="Hero Cover"
-            className="h-full w-full object-cover object-center"
+            className="h-full w-full object-contain object-center"
           />
         </div>
         {/* Page Indicator */}
